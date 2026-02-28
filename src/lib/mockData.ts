@@ -368,3 +368,94 @@ export const mockNotificationSettings: NotificationSettings = {
   approvalAlerts: true,
   dailyReport: false,
 };
+
+// ============ Auth Mock Data ============
+
+import { AuthUser, AuthSession, ChartDataPoint, TransactionTypeData, AssetDistribution, AnalyticsSummary } from "@/types";
+
+export const mockAuthUser: AuthUser = {
+  id: "auth_user_001",
+  email: "admin@nexclaw.com",
+  name: "系统管理员",
+  avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=admin",
+  role: "admin",
+  permissions: ["all"],
+  lastLoginAt: "2026-02-28T10:00:00Z",
+  createdAt: "2026-01-15T08:00:00Z",
+  twoFactorEnabled: true,
+};
+
+export const mockAuthSession: AuthSession = {
+  user: mockAuthUser,
+  token: "mock_jwt_token_12345",
+  expiresAt: "2026-03-01T10:00:00Z",
+};
+
+// ============ Analytics Mock Data ============
+
+export const mockAssetDistribution: AssetDistribution[] = [
+  { token: "ETH", amount: 2.35, valueUSDC: 8225, percentage: 45.2 },
+  { token: "USDC", amount: 4500, valueUSDC: 4500, percentage: 24.7 },
+  { token: "USDT", amount: 3200, valueUSDC: 3200, percentage: 17.6 },
+  { token: "WBTC", amount: 0.15, valueUSDC: 1800, percentage: 9.9 },
+  { token: "LINK", amount: 45, valueUSDC: 475, percentage: 2.6 },
+];
+
+export const mockTotalAssetsHistory: ChartDataPoint[] = [
+  { date: "02-22", value: 7200 },
+  { date: "02-23", value: 7450 },
+  { date: "02-24", value: 7380 },
+  { date: "02-25", value: 7820 },
+  { date: "02-26", value: 8100 },
+  { date: "02-27", value: 8250 },
+  { date: "02-28", value: 8450 },
+];
+
+export const mockTransactionVolumeHistory: ChartDataPoint[] = [
+  { date: "02-22", value: 12500 },
+  { date: "02-23", value: 8900 },
+  { date: "02-24", value: 15200 },
+  { date: "02-25", value: 11800 },
+  { date: "02-26", value: 21300 },
+  { date: "02-27", value: 16800 },
+  { date: "02-28", value: 19500 },
+];
+
+export const mockTransactionTypeData: TransactionTypeData[] = [
+  { type: "转账", count: 45, amount: 12500, percentage: 52.3 },
+  { type: "兑换", count: 12, amount: 5600, percentage: 23.4 },
+  { type: "合约交互", count: 8, amount: 3200, percentage: 13.4 },
+  { type: "NFT交易", count: 5, amount: 2100, percentage: 8.8 },
+  { type: "其他", count: 3, amount: 500, percentage: 2.1 },
+];
+
+export const mockDailyTransactions: ChartDataPoint[] = [
+  { date: "02-22", value: 8 },
+  { date: "02-23", value: 12 },
+  { date: "02-24", value: 6 },
+  { date: "02-25", value: 15 },
+  { date: "02-26", value: 22 },
+  { date: "02-27", value: 18 },
+  { date: "02-28", value: 25 },
+];
+
+export const mockGasFeeHistory: ChartDataPoint[] = [
+  { date: "02-22", value: 0.0012 },
+  { date: "02-23", value: 0.0018 },
+  { date: "02-24", value: 0.0015 },
+  { date: "02-25", value: 0.0022 },
+  { date: "02-26", value: 0.0028 },
+  { date: "02-27", value: 0.0025 },
+  { date: "02-28", value: 0.0031 },
+];
+
+export const mockAnalyticsSummary: AnalyticsSummary = {
+  totalVolume7d: 106000,
+  totalVolumeChange: 15.3,
+  transactionCount7d: 86,
+  transactionCountChange: 8.7,
+  avgTransactionValue: 1232.56,
+  avgGasFee: 0.0023,
+  topToken: "ETH",
+  topTokenVolume: 48500,
+};

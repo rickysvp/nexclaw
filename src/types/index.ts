@@ -181,3 +181,66 @@ export interface NotificationSettings {
   approvalAlerts: boolean;
   dailyReport: boolean;
 }
+
+// 用户认证类型
+export interface AuthUser {
+  id: string;
+  email: string;
+  name: string;
+  avatar?: string;
+  role: 'admin' | 'user' | 'viewer';
+  permissions: string[];
+  lastLoginAt: string;
+  createdAt: string;
+  twoFactorEnabled: boolean;
+}
+
+export interface LoginCredentials {
+  email: string;
+  password: string;
+  rememberMe?: boolean;
+}
+
+export interface RegisterData {
+  email: string;
+  password: string;
+  name: string;
+}
+
+export interface AuthSession {
+  user: AuthUser;
+  token: string;
+  expiresAt: string;
+}
+
+// 图表数据类型
+export interface ChartDataPoint {
+  date: string;
+  value: number;
+  label?: string;
+}
+
+export interface TransactionTypeData {
+  type: string;
+  count: number;
+  amount: number;
+  percentage?: number;
+}
+
+export interface AssetDistribution {
+  token: string;
+  amount: number;
+  valueUSDC: number;
+  percentage: number;
+}
+
+export interface AnalyticsSummary {
+  totalVolume7d: number;
+  totalVolumeChange: number;
+  transactionCount7d: number;
+  transactionCountChange: number;
+  avgTransactionValue: number;
+  avgGasFee: number;
+  topToken: string;
+  topTokenVolume: number;
+}

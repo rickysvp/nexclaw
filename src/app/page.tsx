@@ -64,10 +64,10 @@ export default function Home() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.5 }}
               >
-                <motion.a 
-                  href="/dashboard" 
-                  className="px-8 py-4 rounded-lg bg-gradient-to-r from-orange-500 via-red-500 to-purple-600 text-white font-medium flex items-center justify-center gap-2 shadow-2xl shadow-orange-500/20"
-                  whileHover={{ scale: 1.05, boxShadow: '0 0 25px rgba(255, 165, 0, 0.5)' }}
+                <motion.a
+                  href="/login"
+                  className="px-8 py-4 rounded-lg bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-600 text-white font-medium flex items-center justify-center gap-2 shadow-2xl shadow-indigo-500/20"
+                  whileHover={{ scale: 1.05, boxShadow: '0 0 25px rgba(99, 102, 241, 0.5)' }}
                   whileTap={{ scale: 0.95 }}
                 >
                   立即体验 <ArrowRight className="ml-2 h-4 w-4" />
@@ -467,10 +467,10 @@ export default function Home() {
             <p className="text-gray-400 text-lg mb-10 max-w-2xl mx-auto">
               让小龙虾安全帮你管钱，实现 AI Agent 与 Web3 钱包的完美结合
             </p>
-            <motion.a 
-              href="/dashboard" 
-              className="inline-block px-10 py-5 rounded-lg bg-gradient-to-r from-orange-500 via-red-500 to-purple-600 text-white font-medium shadow-2xl shadow-orange-500/20 text-lg"
-              whileHover={{ scale: 1.05, boxShadow: '0 0 30px rgba(255, 165, 0, 0.5)' }}
+            <motion.a
+              href="/login"
+              className="inline-block px-10 py-5 rounded-lg bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-600 text-white font-medium shadow-2xl shadow-indigo-500/20 text-lg"
+              whileHover={{ scale: 1.05, boxShadow: '0 0 30px rgba(99, 102, 241, 0.5)' }}
               whileTap={{ scale: 0.95 }}
             >
               立即开始
