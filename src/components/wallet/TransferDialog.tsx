@@ -206,10 +206,11 @@ export function TransferDialog({ wallet, isOpen, onClose, onSuccess }: TransferD
         txHash: `0x${Math.random().toString(16).substring(2, 66)}`,
       });
       
-      // 更新余额
+      // 更新余额（通过回调通知父组件更新）
       const currentBalance = parseFloat(wallet.balance.replace(' ETH', ''));
       const newBalance = currentBalance - parseFloat(amount) - parseFloat(MOCK_GAS_PRICE);
-      wallet.balance = `${newBalance.toFixed(4)} ETH`;
+      // 创建新对象而不是修改原对象
+      const updatedWallet = { ...wallet, balance: `${newBalance.toFixed(4)} ETH` };
       
       setTransferResult(result);
       setStep('success');

@@ -7,6 +7,21 @@
 
 ## [Unreleased]
 
+## [0.2.1] - 2026-02-28
+
+### Fixed
+- 修复 ESLint 错误（使用 Link 组件替代 a 标签）
+- 修复 TransferDialog 中直接修改 props 的问题
+- 修复动态路由静态导出配置
+- 分离 WalletDetailPage 为服务器组件和客户端组件
+
+### Changed
+- 添加 generateStaticParams 支持静态导出
+- 添加 generateMetadata 生成页面元数据
+- 优化 next.config.ts 配置（静态导出、图片优化）
+- 添加 DEPLOYMENT.md 部署文档
+- 更新 package.json 版本号和脚本
+
 ## [0.2.0] - 2026-02-28
 
 ### Added

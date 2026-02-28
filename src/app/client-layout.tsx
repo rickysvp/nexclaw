@@ -120,11 +120,11 @@ export function ClientLayout({ children }: { children: React.ReactNode }) {
                       <p className="text-sm text-gray-400">{user.emailAddresses?.[0]?.emailAddress}</p>
                     </div>
                     <div className="p-2">
-                      <a href="/dashboard" className="block px-4 py-2 rounded-lg hover:bg-gray-800 transition-colors">个人资料</a>
-                      <a href="/dashboard" className="block px-4 py-2 rounded-lg hover:bg-gray-800 transition-colors">设置</a>
-                      <a href="/dashboard" className="block px-4 py-2 rounded-lg hover:bg-gray-800 transition-colors">账单</a>
+                      <Link href="/dashboard" className="block px-4 py-2 rounded-lg hover:bg-gray-800 transition-colors">个人资料</Link>
+                      <Link href="/dashboard" className="block px-4 py-2 rounded-lg hover:bg-gray-800 transition-colors">设置</Link>
+                      <Link href="/dashboard" className="block px-4 py-2 rounded-lg hover:bg-gray-800 transition-colors">账单</Link>
                       <div className="border-t border-gray-800 my-2"></div>
-                      <a href="/" className="block px-4 py-2 rounded-lg hover:bg-gray-800 transition-colors text-red-400">退出登录</a>
+                      <Link href="/" className="block px-4 py-2 rounded-lg hover:bg-gray-800 transition-colors text-red-400">退出登录</Link>
                     </div>
                   </motion.div>
                 )}

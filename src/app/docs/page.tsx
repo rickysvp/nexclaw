@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Code, BookOpen, Terminal, FileText, Search, Copy } from "lucide-react";
+import Link from "next/link";
 import { useState } from "react";
 
 export default function DocsPage() {
@@ -130,7 +131,7 @@ export default function DocsPage() {
                     <div className="bg-gradient-to-br from-gray-800/50 to-gray-900/50 border border-gray-700/50 rounded-2xl p-8 shadow-xl shadow-orange-500/5">
                       <h3 className="text-2xl font-bold mb-4 text-white">步骤 1: 访问 NexClaw</h3>
                       <p className="text-gray-400 mb-6">
-                        打开浏览器，访问 <a href="/" className="text-orange-400 hover:underline">NexClaw</a> 官网。
+                        打开浏览器，访问 <Link href="/" className="text-orange-400 hover:underline">NexClaw</Link> 官网。
                       </p>
                     </div>
 
