@@ -23,6 +23,8 @@ import { mockWallets, mockTransactions, getWalletStats, getWalletSecurityRule } 
 import { Wallet as WalletType, Transaction } from '@/types';
 import { EditWalletDialog } from '@/components/wallet/EditWalletDialog';
 import { DeleteWalletDialog } from '@/components/wallet/DeleteWalletDialog';
+import { TransferDialog } from '@/components/wallet/TransferDialog';
+import { DepositDialog } from '@/components/wallet/DepositDialog';
 
 export default function WalletDetailPage() {
   const params = useParams();
@@ -41,6 +43,8 @@ export default function WalletDetailPage() {
   const [showActions, setShowActions] = useState(false);
   const [isEditDialogOpen, setIsEditDialogOpen] = useState(false);
   const [isDeleteDialogOpen, setIsDeleteDialogOpen] = useState(false);
+  const [isTransferDialogOpen, setIsTransferDialogOpen] = useState(false);
+  const [isDepositDialogOpen, setIsDepositDialogOpen] = useState(false);
 
   useEffect(() => {
     const foundWallet = mockWallets.find((w) => w.id === walletId);
@@ -232,6 +236,7 @@ export default function WalletDetailPage() {
               </div>
               <div className="flex gap-3 mt-6">
                 <motion.button
+                  onClick={() => setIsTransferDialogOpen(true)}
                   className="flex-1 px-4 py-3 rounded-lg bg-gradient-to-r from-orange-500 to-purple-600 text-white font-medium flex items-center justify-center gap-2"
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
@@ -240,6 +245,7 @@ export default function WalletDetailPage() {
                   转账
                 </motion.button>
                 <motion.button
+                  onClick={() => setIsDepositDialogOpen(true)}
                   className="flex-1 px-4 py-3 rounded-lg bg-gray-800 hover:bg-gray-700 text-white font-medium flex items-center justify-center gap-2"
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
@@ -463,6 +469,32 @@ export default function WalletDetailPage() {
           isOpen={isDeleteDialogOpen}
           onClose={() => setIsDeleteDialogOpen(false)}
           onDelete={handleDeleteWallet}
+        />
+      )}
+
+      {/* Transfer Dialog */}
+      {wallet && (
+        <TransferDialog
+          wallet={wallet}
+          isOpen={isTransferDialogOpen}
+          onClose={() => setIsTransferDialogOpen(false)}
+          onSuccess={() => {
+            // 刷新交易记录和余额
+            const walletTransactions = mockTransactions.filter((tx) => tx.walletId === walletId);
+            setTransactions(walletTransactions);
+            setStats(getWalletStats(walletId));
+            setCopyMessage('转账成功');
+            setTimeout(() => setCopyMessage(null), 2000);
+          }}
+        />
+      )}
+
+      {/* Deposit Dialog */}
+      {wallet && (
+        <DepositDialog
+          wallet={wallet}
+          isOpen={isDepositDialogOpen}
+          onClose={() => setIsDepositDialogOpen(false)}
         />
       )}
     </div>
