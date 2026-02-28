@@ -21,6 +21,8 @@ import {
 import { useState, useEffect } from 'react';
 import { mockWallets, mockTransactions, getWalletStats, getWalletSecurityRule } from '@/lib/mockData';
 import { Wallet as WalletType, Transaction } from '@/types';
+import { EditWalletDialog } from '@/components/wallet/EditWalletDialog';
+import { DeleteWalletDialog } from '@/components/wallet/DeleteWalletDialog';
 
 export default function WalletDetailPage() {
   const params = useParams();
@@ -37,6 +39,8 @@ export default function WalletDetailPage() {
   const [securityScore, setSecurityScore] = useState(0);
   const [copyMessage, setCopyMessage] = useState<string | null>(null);
   const [showActions, setShowActions] = useState(false);
+  const [isEditDialogOpen, setIsEditDialogOpen] = useState(false);
+  const [isDeleteDialogOpen, setIsDeleteDialogOpen] = useState(false);
 
   useEffect(() => {
     const foundWallet = mockWallets.find((w) => w.id === walletId);
@@ -50,6 +54,27 @@ export default function WalletDetailPage() {
       setSecurityScore(securityRule?.securityScore || 0);
     }
   }, [walletId]);
+
+  const handleUpdateWallet = (updatedWallet: WalletType) => {
+    setWallet(updatedWallet);
+    // 更新 mockWallets 数组
+    const index = mockWallets.findIndex((w) => w.id === updatedWallet.id);
+    if (index !== -1) {
+      mockWallets[index] = updatedWallet;
+    }
+    setCopyMessage('钱包信息已更新');
+    setTimeout(() => setCopyMessage(null), 2000);
+  };
+
+  const handleDeleteWallet = () => {
+    // 从 mockWallets 中删除
+    const index = mockWallets.findIndex((w) => w.id === walletId);
+    if (index !== -1) {
+      mockWallets.splice(index, 1);
+    }
+    // 跳转到仪表盘
+    router.push('/dashboard');
+  };
 
   const handleCopy = (text: string, label: string) => {
     navigator.clipboard.writeText(text);
@@ -159,11 +184,23 @@ export default function WalletDetailPage() {
                   animate={{ opacity: 1, y: 0 }}
                   className="absolute right-0 mt-2 w-48 rounded-lg bg-gray-900 border border-gray-800 shadow-xl z-50"
                 >
-                  <button className="w-full px-4 py-3 text-left text-white hover:bg-gray-800 flex items-center gap-2 transition-colors">
+                  <button 
+                    onClick={() => {
+                      setShowActions(false);
+                      setIsEditDialogOpen(true);
+                    }}
+                    className="w-full px-4 py-3 text-left text-white hover:bg-gray-800 flex items-center gap-2 transition-colors"
+                  >
                     <Edit3 className="h-4 w-4" />
                     编辑钱包
                   </button>
-                  <button className="w-full px-4 py-3 text-left text-red-400 hover:bg-gray-800 flex items-center gap-2 transition-colors">
+                  <button 
+                    onClick={() => {
+                      setShowActions(false);
+                      setIsDeleteDialogOpen(true);
+                    }}
+                    className="w-full px-4 py-3 text-left text-red-400 hover:bg-gray-800 flex items-center gap-2 transition-colors"
+                  >
                     <Trash2 className="h-4 w-4" />
                     删除钱包
                   </button>
@@ -408,6 +445,26 @@ export default function WalletDetailPage() {
           </motion.div>
         </div>
       </div>
+
+      {/* Edit Wallet Dialog */}
+      {wallet && (
+        <EditWalletDialog
+          wallet={wallet}
+          isOpen={isEditDialogOpen}
+          onClose={() => setIsEditDialogOpen(false)}
+          onSave={handleUpdateWallet}
+        />
+      )}
+
+      {/* Delete Wallet Dialog */}
+      {wallet && (
+        <DeleteWalletDialog
+          wallet={wallet}
+          isOpen={isDeleteDialogOpen}
+          onClose={() => setIsDeleteDialogOpen(false)}
+          onDelete={handleDeleteWallet}
+        />
+      )}
     </div>
   );
 }
