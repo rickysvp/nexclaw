@@ -6,13 +6,15 @@ import { Badge } from "@/components/ui/badge";
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { ArrowUpRight, Copy, Wallet, Plus, Shield, Clock, History, Send, Info, ChevronDown, ChevronUp, Activity, Sparkles, Lock, Eye, EyeOff, BarChart3, Home, Settings, User as UserIcon, LogOut } from "lucide-react";
+import { ArrowUpRight, Copy, Wallet, Plus, Shield, Clock, History, Send, Info, ChevronDown, ChevronUp, Activity, Sparkles, Lock, Eye, EyeOff, BarChart3, Home, Settings, User as UserIcon, LogOut, ExternalLink } from "lucide-react";
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { User, Wallet as WalletType, Transaction } from "@/types";
 import { mockUser, mockWallets, mockTransactions } from "@/lib/mockData";
 
 export default function DashboardPage() {
+  const router = useRouter();
   const user = mockUser;
   const [wallets, setWallets] = useState<WalletType[]>(mockWallets);
   const [copied, setCopied] = useState(false);
@@ -23,12 +25,13 @@ export default function DashboardPage() {
   const [activeTab, setActiveTab] = useState('wallets');
 
   const handleCreateWallet = () => {
-    const newWallet = {
+    const newWallet: WalletType = {
       id: String(wallets.length + 1),
       address: `0x${Math.random().toString(16).substring(2, 42)}`,
       balance: "0 ETH",
       createdAt: new Date().toISOString(),
       uid: `agent_wallet_${String(wallets.length + 1).padStart(3, '0')}`,
+      userId: user.id,
     };
     setWallets([...wallets, newWallet]);
     console.log("创建新钱包:", newWallet);
@@ -339,7 +342,7 @@ export default function DashboardPage() {
                                     transition={{ duration: 0.3 }}
                                     className="border-t border-gray-700/50 pt-4"
                                   >
-                                    <div className="flex gap-3">
+                                    <div className="flex gap-3 mb-3">
                                       <motion.button 
                                         className="flex-1 px-4 py-3 rounded-lg bg-gradient-to-r from-gray-800 to-gray-900 text-white font-medium flex items-center justify-center gap-2 border border-gray-700/50 hover:border-gray-600/50 transition-all duration-300"
                                         whileHover={{ scale: 1.02 }}
@@ -357,6 +360,18 @@ export default function DashboardPage() {
                                         <ArrowUpRight className="h-4 w-4" />
                                       </motion.button>
                                     </div>
+                                    <motion.button 
+                                      onClick={(e) => {
+                                        e.stopPropagation();
+                                        router.push(`/dashboard/wallet/${wallet.id}`);
+                                      }}
+                                      className="w-full px-4 py-3 rounded-lg bg-gradient-to-r from-orange-500/20 to-purple-500/20 text-white font-medium flex items-center justify-center gap-2 border border-orange-500/30 hover:border-orange-500/50 transition-all duration-300"
+                                      whileHover={{ scale: 1.02 }}
+                                      whileTap={{ scale: 0.98 }}
+                                    >
+                                      查看详情
+                                      <ExternalLink className="h-4 w-4" />
+                                    </motion.button>
                                   </motion.div>
                                 )}
                               </AnimatePresence>
