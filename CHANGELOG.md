@@ -7,6 +7,23 @@
 
 ## [Unreleased]
 
+## [0.2.2] - 2026-02-28
+
+### Fixed
+- 修复 Dashboard 页面交互功能
+  - 集成 TransferDialog 组件到钱包卡片
+  - 集成 DepositDialog 组件到钱包卡片
+  - 修复转账按钮点击事件
+  - 修复充值按钮点击事件
+- 修复侧边栏导航交互
+  - 仪表盘/钱包管理切换
+  - 交易历史切换
+  - 安全规则页面跳转
+- 添加缺失的依赖包
+  - @radix-ui/react-dialog
+  - @radix-ui/react-label
+  - class-variance-authority
+
 ## [0.2.1] - 2026-02-28
 
 ### Fixed
@@ -107,5 +124,5 @@
 
 ---
 
-**当前版本**: 0.2.1  
+**当前版本**: 0.2.2  
 **最后更新**: 2026-02-28

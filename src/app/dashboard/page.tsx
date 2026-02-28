@@ -12,6 +12,8 @@ import { useRouter } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { User, Wallet as WalletType, Transaction } from "@/types";
 import { mockUser, mockWallets, mockTransactions } from "@/lib/mockData";
+import { TransferDialog } from "@/components/wallet/TransferDialog";
+import { DepositDialog } from "@/components/wallet/DepositDialog";
 
 export default function DashboardPage() {
   const router = useRouter();
@@ -23,6 +25,8 @@ export default function DashboardPage() {
   const [showTermsModal, setShowTermsModal] = useState(true);
   const [copyMessage, setCopyMessage] = useState<string | null>(null);
   const [activeTab, setActiveTab] = useState('wallets');
+  const [transferWallet, setTransferWallet] = useState<WalletType | null>(null);
+  const [depositWallet, setDepositWallet] = useState<WalletType | null>(null);
 
   const handleCreateWallet = () => {
     const newWallet: WalletType = {
@@ -128,20 +132,23 @@ export default function DashboardPage() {
               </div>
               <div className="space-y-2">
                 <motion.button 
-                  className="w-full flex items-center gap-3 px-4 py-3 rounded-lg bg-gradient-to-r from-orange-500/10 to-purple-500/10 text-white font-medium border border-orange-500/30"
-                  whileHover={{ scale: 1.02, backgroundColor: 'rgba(255, 165, 0, 0.15)' }}
+                  onClick={() => setActiveTab('wallets')}
+                  className={`w-full flex items-center gap-3 px-4 py-3 rounded-lg font-medium transition-colors ${activeTab === 'wallets' ? 'bg-gradient-to-r from-orange-500/10 to-purple-500/10 text-white border border-orange-500/30' : 'text-gray-400 hover:bg-gray-800/50 hover:text-white'}`}
+                  whileHover={{ scale: 1.02, backgroundColor: activeTab === 'wallets' ? 'rgba(255, 165, 0, 0.15)' : 'rgba(255, 255, 255, 0.05)' }}
                 >
                   <BarChart3 className="h-5 w-5" />
                   仪表盘
                 </motion.button>
                 <motion.button 
-                  className="w-full flex items-center gap-3 px-4 py-3 rounded-lg text-gray-400 font-medium hover:bg-gray-800/50 hover:text-white transition-colors"
-                  whileHover={{ scale: 1.02, backgroundColor: 'rgba(255, 255, 255, 0.05)' }}
+                  onClick={() => setActiveTab('wallets')}
+                  className={`w-full flex items-center gap-3 px-4 py-3 rounded-lg font-medium transition-colors ${activeTab === 'wallets' ? 'bg-gradient-to-r from-orange-500/10 to-purple-500/10 text-white border border-orange-500/30' : 'text-gray-400 hover:bg-gray-800/50 hover:text-white'}`}
+                  whileHover={{ scale: 1.02, backgroundColor: activeTab === 'wallets' ? 'rgba(255, 165, 0, 0.15)' : 'rgba(255, 255, 255, 0.05)' }}
                 >
                   <Wallet className="h-5 w-5" />
                   钱包管理
                 </motion.button>
                 <motion.button 
+                  onClick={() => router.push('/dashboard/security')}
                   className="w-full flex items-center gap-3 px-4 py-3 rounded-lg text-gray-400 font-medium hover:bg-gray-800/50 hover:text-white transition-colors"
                   whileHover={{ scale: 1.02, backgroundColor: 'rgba(255, 255, 255, 0.05)' }}
                 >
@@ -149,8 +156,9 @@ export default function DashboardPage() {
                   安全规则
                 </motion.button>
                 <motion.button 
-                  className="w-full flex items-center gap-3 px-4 py-3 rounded-lg text-gray-400 font-medium hover:bg-gray-800/50 hover:text-white transition-colors"
-                  whileHover={{ scale: 1.02, backgroundColor: 'rgba(255, 255, 255, 0.05)' }}
+                  onClick={() => setActiveTab('transactions')}
+                  className={`w-full flex items-center gap-3 px-4 py-3 rounded-lg font-medium transition-colors ${activeTab === 'transactions' ? 'bg-gradient-to-r from-orange-500/10 to-purple-500/10 text-white border border-orange-500/30' : 'text-gray-400 hover:bg-gray-800/50 hover:text-white'}`}
+                  whileHover={{ scale: 1.02, backgroundColor: activeTab === 'transactions' ? 'rgba(255, 165, 0, 0.15)' : 'rgba(255, 255, 255, 0.05)' }}
                 >
                   <History className="h-5 w-5" />
                   交易历史
@@ -344,6 +352,10 @@ export default function DashboardPage() {
                                   >
                                     <div className="flex gap-3 mb-3">
                                       <motion.button 
+                                        onClick={(e) => {
+                                          e.stopPropagation();
+                                          setTransferWallet(wallet);
+                                        }}
                                         className="flex-1 px-4 py-3 rounded-lg bg-gradient-to-r from-gray-800 to-gray-900 text-white font-medium flex items-center justify-center gap-2 border border-gray-700/50 hover:border-gray-600/50 transition-all duration-300"
                                         whileHover={{ scale: 1.02 }}
                                         whileTap={{ scale: 0.98 }}
@@ -352,6 +364,10 @@ export default function DashboardPage() {
                                         转账
                                       </motion.button>
                                       <motion.button 
+                                        onClick={(e) => {
+                                          e.stopPropagation();
+                                          setDepositWallet(wallet);
+                                        }}
                                         className="flex-1 px-4 py-3 rounded-lg bg-gradient-to-r from-green-500 to-emerald-600 text-white font-medium flex items-center justify-center gap-2 shadow-lg shadow-green-500/20"
                                         whileHover={{ scale: 1.02, boxShadow: '0 0 15px rgba(34, 197, 94, 0.4)' }}
                                         whileTap={{ scale: 0.98 }}
@@ -577,6 +593,24 @@ const result = await sdk.sendTransaction({
           </motion.div>
         </div>
       </div>
+
+      {/* Transfer Dialog */}
+      <TransferDialog
+        wallet={transferWallet || { id: '', address: '', balance: '0 ETH', createdAt: '', uid: '', userId: '' }}
+        isOpen={!!transferWallet}
+        onClose={() => setTransferWallet(null)}
+        onSuccess={(result) => {
+          console.log('Transfer success:', result);
+          setTransferWallet(null);
+        }}
+      />
+
+      {/* Deposit Dialog */}
+      <DepositDialog
+        wallet={depositWallet || { id: '', address: '', balance: '0 ETH', createdAt: '', uid: '', userId: '' }}
+        isOpen={!!depositWallet}
+        onClose={() => setDepositWallet(null)}
+      />
     </div>
   );
 }
