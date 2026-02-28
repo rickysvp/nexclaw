@@ -46,7 +46,7 @@ export default function Home() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.3 }}
               >
-                让<span className="bg-clip-text text-transparent bg-gradient-to-r from-orange-400 via-red-400 to-purple-400">小龙虾</span>安全帮你管钱
+                让<span className="bg-clip-text text-transparent bg-gradient-to-r from-orange-400 via-red-400 to-purple-400">NexClaw</span>安全帮你管钱
               </motion.h1>
               
               <motion.p 
@@ -136,7 +136,7 @@ export default function Home() {
                       <span className="text-white font-bold text-2xl">🦞</span>
                     </div>
                     <div>
-                      <div className="font-medium text-lg">小龙虾 Agent</div>
+                      <div className="font-medium text-lg">NexClaw Agent</div>
                       <div className="text-sm text-gray-400">正在执行交易...</div>
                     </div>
                   </div>
@@ -188,7 +188,7 @@ export default function Home() {
           
           {/* Scroll Indicator */}
           <motion.div 
-            className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex flex-col items-center"
+            className="absolute bottom-8 left-1/2 transform -trangray-x-1/2 flex flex-col items-center"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 1 }}
@@ -227,7 +227,7 @@ export default function Home() {
               {
                 icon: <Zap className="h-8 w-8 text-orange-400" />,
                 title: "Agent 友好",
-                description: "通过 UID 轻松集成，让小龙虾等 Agent 安全调用钱包功能"
+                description: "通过 UID 轻松集成，让NexClaw等 Agent 安全调用钱包功能"
               },
               {
                 icon: <Clock className="h-8 w-8 text-orange-400" />,
@@ -465,7 +465,7 @@ export default function Home() {
               开始使用 <span className="bg-clip-text text-transparent bg-gradient-to-r from-orange-400 via-red-400 to-purple-400">NexClaw</span>
             </h2>
             <p className="text-gray-400 text-lg mb-10 max-w-2xl mx-auto">
-              让小龙虾安全帮你管钱，实现 AI Agent 与 Web3 钱包的完美结合
+              让NexClaw安全帮你管钱，实现 AI Agent 与 Web3 钱包的完美结合
             </p>
             <motion.a
               href="/login"

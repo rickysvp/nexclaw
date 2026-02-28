@@ -15,16 +15,16 @@ import SettingsSection from './sections/SettingsSection';
 
 export default function DashboardLayout() {
   const [currentSection, setCurrentSection] = useState('dashboard');
+  const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
 
-  const handleNavigate = (path: string) => {
-    const section = path.replace('/dashboard/', '').replace('/dashboard', 'dashboard');
-    setCurrentSection(section || 'dashboard');
+  const handleNavigate = (section: string) => {
+    setCurrentSection(section);
   };
 
   const renderSection = () => {
     switch (currentSection) {
       case 'dashboard':
-        return <DashboardOverview />;
+        return <DashboardOverview onNavigate={handleNavigate} />;
       case 'wallets':
         return <WalletsSection />;
       case 'approvals':
@@ -42,29 +42,29 @@ export default function DashboardLayout() {
       case 'settings':
         return <SettingsSection />;
       default:
-        return <DashboardOverview />;
+        return <DashboardOverview onNavigate={handleNavigate} />;
     }
   };
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-950 via-black to-gray-900">
-      {/* Background Effects */}
       <div className="fixed inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-orange-500/10 rounded-full blur-3xl animate-pulse"></div>
         <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-purple-600/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '2s' }}></div>
       </div>
 
-      {/* Sidebar */}
       <Sidebar 
         onNavigate={handleNavigate} 
-        currentPath={`/dashboard/${currentSection === 'dashboard' ? '' : currentSection}`} 
+        currentSection={currentSection}
+        onCollapseChange={setSidebarCollapsed}
       />
 
-      {/* Main Content */}
       <motion.main
         initial={false}
-        animate={{ marginLeft: 260 }}
+        animate={{ marginLeft: sidebarCollapsed ? 80 : 260 }}
+        transition={{ duration: 0.3 }}
         className="min-h-screen p-6 relative z-10"
+        style={{ width: `calc(100% - ${sidebarCollapsed ? 80 : 260}px)` }}
       >
         <motion.div
           key={currentSection}

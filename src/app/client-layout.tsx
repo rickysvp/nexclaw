@@ -309,7 +309,7 @@ export function ClientLayout({ children }: { children: React.ReactNode }) {
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.4 }}
           >
-            <p className="text-gray-500 text-sm">© 2026 NexClaw. 保留所有权利 | 让小龙虾安全帮你管钱</p>
+            <p className="text-gray-500 text-sm">© 2026 NexClaw. 保留所有权利 | 让NexClaw安全帮你管钱</p>
             <div className="flex gap-4">
               <a href="/privacy" className="text-gray-500 hover:text-orange-500 text-sm transition-colors">隐私政策</a>
               <a href="/terms" className="text-gray-500 hover:text-orange-500 text-sm transition-colors">服务条款</a>

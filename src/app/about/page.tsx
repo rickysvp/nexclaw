@@ -24,7 +24,7 @@ export default function AboutPage() {
             关于 <span className="bg-clip-text text-transparent bg-gradient-to-r from-orange-400 via-red-400 to-purple-400">NexClaw</span>
           </h1>
           <p className="text-gray-400 text-lg md:text-xl max-w-3xl mx-auto">
-            下一代 AI Agent 安全钱包平台，让小龙虾安全帮你管钱
+            下一代 AI Agent 安全钱包平台，让NexClaw安全帮你管钱
           </p>
         </motion.div>
 
@@ -63,7 +63,7 @@ export default function AboutPage() {
                   <div className="w-24 h-24 rounded-2xl bg-white/10 backdrop-blur-sm flex items-center justify-center mx-auto mb-6">
                     <span className="text-4xl">🦞</span>
                   </div>
-                  <h3 className="text-2xl font-bold text-white mb-2">小龙虾 Agent</h3>
+                  <h3 className="text-2xl font-bold text-white mb-2">NexClaw Agent</h3>
                   <p className="text-white/80">你的智能 Web3 助手</p>
                 </div>
                 <div className="bg-gray-900/80 p-8">

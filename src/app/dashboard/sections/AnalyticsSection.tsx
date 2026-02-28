@@ -72,8 +72,8 @@ export default function AnalyticsSection() {
   const CustomTooltip = ({ active, payload, label }: any) => {
     if (active && payload && payload.length) {
       return (
-        <div className="bg-slate-800 border border-slate-700 rounded-lg p-3 shadow-xl">
-          <p className="text-slate-300 text-sm mb-1">{label}</p>
+        <div className="bg-gray-800 border border-gray-700 rounded-lg p-3 shadow-xl">
+          <p className="text-gray-300 text-sm mb-1">{label}</p>
           <p className="text-white font-bold">
             {payload[0].value.toLocaleString()}
           </p>
@@ -89,7 +89,7 @@ export default function AnalyticsSection() {
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
           <h1 className="text-2xl font-bold text-white">数据分析</h1>
-          <p className="text-slate-400">资产分析与交易统计</p>
+          <p className="text-gray-400">资产分析与交易统计</p>
         </div>
         <div className="flex gap-2">
           {(['7d', '30d', '90d'] as const).map((range) => (
@@ -99,7 +99,7 @@ export default function AnalyticsSection() {
               className={`px-4 py-2 rounded-lg font-medium transition-colors ${
                 timeRange === range
                   ? 'bg-gradient-to-r from-indigo-500 to-purple-600 text-white'
-                  : 'bg-slate-800/50 text-slate-400 hover:bg-slate-700/50'
+                  : 'bg-gray-800/50 text-gray-400 hover:bg-gray-700/50'
               }`}
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
@@ -119,11 +119,11 @@ export default function AnalyticsSection() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: index * 0.1 }}
             whileHover={{ scale: 1.02 }}
-            className="bg-gradient-to-br from-slate-800/50 to-slate-900/50 border border-slate-700/50 rounded-2xl p-6"
+            className="bg-gradient-to-br from-gray-800/50 to-gray-900/50 border border-gray-700/50 rounded-2xl p-6"
           >
             <div className="flex items-start justify-between">
               <div>
-                <p className="text-slate-400 text-sm mb-1">{stat.title}</p>
+                <p className="text-gray-400 text-sm mb-1">{stat.title}</p>
                 <p className="text-2xl font-bold text-white">{stat.value}</p>
                 <div className={`flex items-center gap-1 mt-2 text-sm ${stat.isPositive ? 'text-green-400' : 'text-red-400'}`}>
                   {stat.isPositive ? <ArrowUpRight className="h-4 w-4" /> : <ArrowDownRight className="h-4 w-4" />}
@@ -139,7 +139,7 @@ export default function AnalyticsSection() {
       </div>
 
       {/* Tab Navigation */}
-      <div className="flex flex-wrap gap-2 p-1 bg-slate-800/50 rounded-xl">
+      <div className="flex flex-wrap gap-2 p-1 bg-gray-800/50 rounded-xl">
         {[
           { id: 'overview', label: '总览', icon: PieChart },
           { id: 'assets', label: '资产', icon: Wallet },
@@ -152,7 +152,7 @@ export default function AnalyticsSection() {
             className={`flex items-center gap-2 px-4 py-2 rounded-lg font-medium transition-all ${
               activeTab === tab.id
                 ? 'bg-indigo-600 text-white'
-                : 'text-slate-400 hover:text-white hover:bg-slate-700/50'
+                : 'text-gray-400 hover:text-white hover:bg-gray-700/50'
             }`}
           >
             <tab.icon className="w-4 h-4" />
@@ -168,12 +168,12 @@ export default function AnalyticsSection() {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="lg:col-span-2 bg-gradient-to-br from-slate-800/50 to-slate-900/50 border border-slate-700/50 rounded-2xl p-6"
+            className="lg:col-span-2 bg-gradient-to-br from-gray-800/50 to-gray-900/50 border border-gray-700/50 rounded-2xl p-6"
           >
             <div className="flex items-center justify-between mb-6">
               <div>
                 <h3 className="text-lg font-bold text-white">资产趋势</h3>
-                <p className="text-slate-400 text-sm">总资产价值变化 (USDC)</p>
+                <p className="text-gray-400 text-sm">总资产价值变化 (USDC)</p>
               </div>
               <div className="flex items-center gap-2">
                 <span className="text-2xl font-bold text-white">${currentAssets.toLocaleString()}</span>
@@ -215,12 +215,12 @@ export default function AnalyticsSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
-            className="bg-gradient-to-br from-slate-800/50 to-slate-900/50 border border-slate-700/50 rounded-2xl p-6"
+            className="bg-gradient-to-br from-gray-800/50 to-gray-900/50 border border-gray-700/50 rounded-2xl p-6"
           >
             <div className="flex items-center justify-between mb-6">
               <div>
                 <h3 className="text-lg font-bold text-white">交易量趋势</h3>
-                <p className="text-slate-400 text-sm">每日交易金额 (USDC)</p>
+                <p className="text-gray-400 text-sm">每日交易金额 (USDC)</p>
               </div>
             </div>
             <div className="h-64">
@@ -243,12 +243,12 @@ export default function AnalyticsSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
-            className="bg-gradient-to-br from-slate-800/50 to-slate-900/50 border border-slate-700/50 rounded-2xl p-6"
+            className="bg-gradient-to-br from-gray-800/50 to-gray-900/50 border border-gray-700/50 rounded-2xl p-6"
           >
             <div className="flex items-center justify-between mb-6">
               <div>
                 <h3 className="text-lg font-bold text-white">资产分布</h3>
-                <p className="text-slate-400 text-sm">按代币类型</p>
+                <p className="text-gray-400 text-sm">按代币类型</p>
               </div>
             </div>
             <div className="h-64">
@@ -272,10 +272,10 @@ export default function AnalyticsSection() {
                       if (active && payload && payload.length) {
                         const data = payload[0].payload;
                         return (
-                          <div className="bg-slate-800 border border-slate-700 rounded-lg p-3 shadow-xl">
+                          <div className="bg-gray-800 border border-gray-700 rounded-lg p-3 shadow-xl">
                             <p className="text-white font-bold">{data.token}</p>
-                            <p className="text-slate-300 text-sm">{data.amount} {data.token}</p>
-                            <p className="text-slate-400 text-sm">${data.valueUSDC.toLocaleString()} ({data.percentage}%)</p>
+                            <p className="text-gray-300 text-sm">{data.amount} {data.token}</p>
+                            <p className="text-gray-400 text-sm">${data.valueUSDC.toLocaleString()} ({data.percentage}%)</p>
                           </div>
                         );
                       }
@@ -290,8 +290,8 @@ export default function AnalyticsSection() {
               {mockAssetDistribution.map((asset, index) => (
                 <div key={asset.token} className="flex items-center gap-2">
                   <div className="w-3 h-3 rounded-full" style={{ backgroundColor: COLORS[index] }} />
-                  <span className="text-slate-300 text-sm">{asset.token}</span>
-                  <span className="text-slate-400 text-sm">{asset.percentage}%</span>
+                  <span className="text-gray-300 text-sm">{asset.token}</span>
+                  <span className="text-gray-400 text-sm">{asset.percentage}%</span>
                 </div>
               ))}
             </div>
@@ -304,12 +304,12 @@ export default function AnalyticsSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3 }}
-            className="bg-gradient-to-br from-slate-800/50 to-slate-900/50 border border-slate-700/50 rounded-2xl p-6"
+            className="bg-gradient-to-br from-gray-800/50 to-gray-900/50 border border-gray-700/50 rounded-2xl p-6"
           >
             <div className="flex items-center justify-between mb-6">
               <div>
                 <h3 className="text-lg font-bold text-white">每日交易数</h3>
-                <p className="text-slate-400 text-sm">交易笔数统计</p>
+                <p className="text-gray-400 text-sm">交易笔数统计</p>
               </div>
             </div>
             <div className="h-64">
@@ -338,19 +338,19 @@ export default function AnalyticsSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4 }}
-            className="bg-gradient-to-br from-slate-800/50 to-slate-900/50 border border-slate-700/50 rounded-2xl p-6"
+            className="bg-gradient-to-br from-gray-800/50 to-gray-900/50 border border-gray-700/50 rounded-2xl p-6"
           >
             <div className="flex items-center justify-between mb-6">
               <div>
                 <h3 className="text-lg font-bold text-white">交易类型分布</h3>
-                <p className="text-slate-400 text-sm">按交易类别统计</p>
+                <p className="text-gray-400 text-sm">按交易类别统计</p>
               </div>
             </div>
             <div className="space-y-4">
               {mockTransactionTypeData.map((type, index) => (
                 <div key={type.type} className="flex items-center gap-4">
                   <div className="w-20 text-white text-sm">{type.type}</div>
-                  <div className="flex-1 bg-slate-700/50 rounded-full h-3 overflow-hidden">
+                  <div className="flex-1 bg-gray-700/50 rounded-full h-3 overflow-hidden">
                     <motion.div
                       initial={{ width: 0 }}
                       animate={{ width: `${type.percentage}%` }}
@@ -361,7 +361,7 @@ export default function AnalyticsSection() {
                   </div>
                   <div className="w-28 text-right">
                     <span className="text-white font-medium text-sm">{type.count} 笔</span>
-                    <span className="text-slate-400 text-xs ml-2">{type.percentage}%</span>
+                    <span className="text-gray-400 text-xs ml-2">{type.percentage}%</span>
                   </div>
                 </div>
               ))}
@@ -375,12 +375,12 @@ export default function AnalyticsSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.5 }}
-            className="bg-gradient-to-br from-slate-800/50 to-slate-900/50 border border-slate-700/50 rounded-2xl p-6"
+            className="bg-gradient-to-br from-gray-800/50 to-gray-900/50 border border-gray-700/50 rounded-2xl p-6"
           >
             <div className="flex items-center justify-between mb-6">
               <div>
                 <h3 className="text-lg font-bold text-white">Gas 费用趋势</h3>
-                <p className="text-slate-400 text-sm">平均 Gas 费用 (ETH)</p>
+                <p className="text-gray-400 text-sm">平均 Gas 费用 (ETH)</p>
               </div>
             </div>
             <div className="h-64">
@@ -399,8 +399,8 @@ export default function AnalyticsSection() {
                     content={({ active, payload, label }: any) => {
                       if (active && payload && payload.length) {
                         return (
-                          <div className="bg-slate-800 border border-slate-700 rounded-lg p-3 shadow-xl">
-                            <p className="text-slate-300 text-sm mb-1">{label}</p>
+                          <div className="bg-gray-800 border border-gray-700 rounded-lg p-3 shadow-xl">
+                            <p className="text-gray-300 text-sm mb-1">{label}</p>
                             <p className="text-white font-bold">{payload[0].value} ETH</p>
                           </div>
                         );
@@ -428,19 +428,19 @@ export default function AnalyticsSection() {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.6 }}
-        className="bg-gradient-to-br from-slate-800/50 to-slate-900/50 border border-slate-700/50 rounded-2xl p-6"
+        className="bg-gradient-to-br from-gray-800/50 to-gray-900/50 border border-gray-700/50 rounded-2xl p-6"
       >
         <h3 className="text-lg font-bold text-white mb-4">热门代币</h3>
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4">
           {mockAssetDistribution.map((asset, index) => (
-            <div key={asset.token} className="bg-slate-800/50 rounded-xl p-4 text-center">
+            <div key={asset.token} className="bg-gray-800/50 rounded-xl p-4 text-center">
               <div className="w-10 h-10 mx-auto mb-2 rounded-full flex items-center justify-center text-white font-bold"
                 style={{ backgroundColor: COLORS[index] }}>
                 {asset.token[0]}
               </div>
               <p className="text-white font-medium">{asset.token}</p>
-              <p className="text-slate-400 text-sm">${asset.valueUSDC.toLocaleString()}</p>
-              <p className="text-slate-500 text-xs">{asset.amount} {asset.token}</p>
+              <p className="text-gray-400 text-sm">${asset.valueUSDC.toLocaleString()}</p>
+              <p className="text-gray-500 text-xs">{asset.amount} {asset.token}</p>
             </div>
           ))}
         </div>

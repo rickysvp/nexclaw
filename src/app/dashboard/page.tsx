@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { useRouter } from 'next/navigation';
+import { useRouter, useSearchParams } from 'next/navigation';
 import Sidebar from '@/components/layout/Sidebar';
 import { useAuth } from '@/lib/auth-context';
 import DashboardOverview from './sections/DashboardOverview';
@@ -17,12 +17,20 @@ import SettingsSection from './sections/SettingsSection';
 
 export default function DashboardPage() {
   const router = useRouter();
+  const searchParams = useSearchParams();
   const { isAuthenticated, isLoading } = useAuth();
-  const [currentSection, setCurrentSection] = useState('dashboard');
   const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
 
-  // 检测是否为移动端
+  const sectionParam = searchParams.get('section');
+  const [currentSection, setCurrentSection] = useState(sectionParam || 'dashboard');
+
+  useEffect(() => {
+    if (sectionParam) {
+      setCurrentSection(sectionParam);
+    }
+  }, [sectionParam]);
+
   useEffect(() => {
     const checkMobile = () => {
       const mobile = window.innerWidth < 1024;
@@ -37,26 +45,25 @@ export default function DashboardPage() {
     return () => window.removeEventListener('resize', checkMobile);
   }, []);
 
-  // 检查认证状态
   useEffect(() => {
     if (!isLoading && !isAuthenticated) {
       router.push('/login');
     }
   }, [isAuthenticated, isLoading, router]);
 
-  const handleNavigate = (path: string) => {
-    if (path === '/login') {
-      router.push('/login');
-      return;
+  const handleNavigate = (section: string) => {
+    setCurrentSection(section);
+    if (section === 'dashboard') {
+      router.push('/dashboard', { scroll: false });
+    } else {
+      router.push(`/dashboard?section=${section}`, { scroll: false });
     }
-    const section = path.replace('/dashboard/', '').replace('/dashboard', 'dashboard');
-    setCurrentSection(section || 'dashboard');
   };
 
   const renderSection = () => {
     switch (currentSection) {
       case 'dashboard':
-        return <DashboardOverview />;
+        return <DashboardOverview onNavigate={handleNavigate} />;
       case 'wallets':
         return <WalletsSection />;
       case 'approvals':
@@ -74,40 +81,35 @@ export default function DashboardPage() {
       case 'settings':
         return <SettingsSection />;
       default:
-        return <DashboardOverview />;
+        return <DashboardOverview onNavigate={handleNavigate} />;
     }
   };
 
-  // 加载中状态
   if (isLoading) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-slate-950 via-black to-slate-900 flex items-center justify-center">
-        <div className="w-12 h-12 border-4 border-indigo-500/30 border-t-indigo-500 rounded-full animate-spin" />
+      <div className="min-h-screen bg-gradient-to-br from-gray-950 via-black to-gray-900 flex items-center justify-center">
+        <div className="w-12 h-12 border-4 border-orange-500/30 border-t-orange-500 rounded-full animate-spin" />
       </div>
     );
   }
 
-  // 未认证不渲染内容
   if (!isAuthenticated) {
     return null;
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-950 via-black to-slate-900">
-      {/* Background Effects */}
+    <div className="min-h-screen bg-gradient-to-br from-gray-950 via-black to-gray-900">
       <div className="fixed inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-indigo-500/10 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-orange-500/10 rounded-full blur-3xl animate-pulse"></div>
         <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-purple-600/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '2s' }}></div>
       </div>
 
-      {/* Sidebar */}
       <Sidebar 
         onNavigate={handleNavigate} 
-        currentPath={`/dashboard/${currentSection === 'dashboard' ? '' : currentSection}`}
+        currentSection={currentSection}
         onCollapseChange={setSidebarCollapsed}
       />
 
-      {/* Main Content */}
       <motion.main
         initial={false}
         animate={{ 

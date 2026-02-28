@@ -90,7 +90,7 @@ export default function TransactionsPage() {
         {/* Filters */}
         <div className="flex flex-col lg:flex-row gap-4 mb-6">
           <div className="relative flex-1">
-            <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-gray-500" />
+            <Search className="absolute left-3 top-1/2 -trangray-y-1/2 h-4 w-4 text-gray-500" />
             <Input
               placeholder="搜索交易哈希、地址..."
               value={searchQuery}

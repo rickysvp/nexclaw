@@ -43,8 +43,10 @@ export interface Transaction {
   status: 'success' | 'pending' | 'failed';
   timestamp: string;
   walletId: string;
+  walletName?: string;
   gasFee?: string;
   txHash?: string;
+  description?: string;
 }
 
 // 白名单地址类型
@@ -116,9 +118,9 @@ export interface Activity {
 
 // 仪表盘统计类型
 export interface DashboardStats {
-  totalBalanceUSDC: string;
-  balanceChange24h: string;
-  balanceChangePercent: string;
+  totalBalanceUSDC: number;
+  balanceChange24h: number;
+  balanceChangePercent: number;
   walletCount: number;
   walletLimit: number;
   todayTransactions: number;
@@ -153,23 +155,25 @@ export interface PendingTransaction {
 export interface RiskRule {
   id: string;
   name: string;
-  type: 'amount_limit' | 'frequency_limit' | 'address_check' | 'behavior_check';
+  type: 'amount_limit' | 'frequency_limit' | 'address_check' | 'behavior_check' | 'data_monitor' | 'contract_scan' | 'cross_chain';
   enabled: boolean;
   config: Record<string, any>;
   severity: 'low' | 'medium' | 'high';
-  createdAt: string;
+  createdAt?: string;
+  description?: string;
 }
 
 // 风控日志类型
 export interface RiskLog {
   id: string;
-  transactionId: string;
-  ruleId: string;
+  transactionId?: string;
+  ruleId?: string;
   ruleName: string;
   severity: 'low' | 'medium' | 'high';
   reason: string;
   timestamp: string;
   status: 'blocked' | 'warning' | 'passed';
+  details?: Record<string, any>;
 }
 
 // 通知设置类型
@@ -243,4 +247,23 @@ export interface AnalyticsSummary {
   avgGasFee: number;
   topToken: string;
   topTokenVolume: number;
+}
+
+// 权限类型
+export interface Permission {
+  id: string;
+  name: string;
+  description: string;
+  module: 'wallet' | 'transaction' | 'risk' | 'analytics' | 'settings';
+  actions: string[];
+}
+
+// 角色类型
+export interface Role {
+  id: string;
+  name: string;
+  description: string;
+  permissions: string[];
+  isSystem: boolean;
+  createdAt: string;
 }

@@ -6,7 +6,7 @@ import {
 
 export const mockUser: User = {
   id: "user_001",
-  firstName: "小龙虾用户",
+  firstName: "NexClaw用户",
   emailAddresses: [{ emailAddress: "user@nexclaw.com" }],
   createdAt: "2026-02-01T10:00:00Z",
 };
@@ -167,7 +167,7 @@ export const mockActivities: Activity[] = [
     id: "act2",
     type: "approval",
     title: "交易审批",
-    description: "批准小龙虾 Agent 的交易请求",
+    description: "批准NexClaw Agent 的交易请求",
     timestamp: "2026-02-28T09:15:00Z",
     status: "success",
   },
@@ -206,9 +206,9 @@ export const mockActivities: Activity[] = [
 ];
 
 export const mockDashboardStats: DashboardStats = {
-  totalBalanceUSDC: "8,450.00",
-  balanceChange24h: "+320.50",
-  balanceChangePercent: "+3.93",
+  totalBalanceUSDC: 8450.00,
+  balanceChange24h: 320.50,
+  balanceChangePercent: 3.93,
   walletCount: 2,
   walletLimit: 15,
   todayTransactions: 12,
@@ -223,7 +223,7 @@ export const mockDashboardStats: DashboardStats = {
 export const mockPendingTransactions: PendingTransaction[] = [
   {
     id: "pt1",
-    agentName: "小龙虾 Trader",
+    agentName: "NexClaw Trader",
     agentId: "agent_001",
     from: "0x742d35Cc6634C0532925a3b844Bc9e7595f0bEb",
     to: "0x1234567890abcdef1234567890abcdef12345678",
@@ -241,7 +241,7 @@ export const mockPendingTransactions: PendingTransaction[] = [
   },
   {
     id: "pt2",
-    agentName: "小龙虾 DeFi",
+    agentName: "NexClaw DeFi",
     agentId: "agent_002",
     from: "0x8ba1f109551bD432803012645Hac136c82C3e8C",
     to: "0x7a250d5630B4cF539739dF2C5dAcb4c659F2488D",
@@ -259,7 +259,7 @@ export const mockPendingTransactions: PendingTransaction[] = [
   },
   {
     id: "pt3",
-    agentName: "小龙虾 NFT",
+    agentName: "NexClaw NFT",
     agentId: "agent_003",
     from: "0x742d35Cc6634C0532925a3b844Bc9e7595f0bEb",
     to: "0xBC4CA0EdA7647A8aB7C2061c2E118A18a936f13D",
@@ -287,7 +287,7 @@ export const mockRiskRules: RiskRule[] = [
     enabled: true,
     config: { maxAmount: 2.0, unit: "ETH" },
     severity: "medium",
-    createdAt: "2026-02-01T10:00:00Z",
+    description: "限制单笔交易的最大金额",
   },
   {
     id: "rr2",
@@ -296,16 +296,16 @@ export const mockRiskRules: RiskRule[] = [
     enabled: true,
     config: { maxAmount: 10.0, unit: "ETH" },
     severity: "high",
-    createdAt: "2026-02-01T10:00:00Z",
+    description: "限制每日累计交易金额上限",
   },
   {
     id: "rr3",
     name: "小时频率限制",
     type: "frequency_limit",
     enabled: true,
-    config: { maxCount: 5, window: "1h" },
+    config: { maxCount: 5, window: "hour" },
     severity: "low",
-    createdAt: "2026-02-01T10:00:00Z",
+    description: "限制每小时交易次数",
   },
   {
     id: "rr4",
@@ -314,16 +314,43 @@ export const mockRiskRules: RiskRule[] = [
     enabled: true,
     config: { checkBlacklist: true },
     severity: "high",
-    createdAt: "2026-02-01T10:00:00Z",
+    description: "检测交易对手是否在黑名单中",
   },
   {
     id: "rr5",
     name: "异常行为检测",
     type: "behavior_check",
-    enabled: false,
+    enabled: true,
     config: { sensitivity: "medium" },
     severity: "medium",
-    createdAt: "2026-02-01T10:00:00Z",
+    description: "基于AI检测异常交易行为模式",
+  },
+  {
+    id: "rr6",
+    name: "大额数据监控",
+    type: "data_monitor",
+    enabled: true,
+    config: { threshold: 5000, unit: "USDC" },
+    severity: "high",
+    description: "监控链上大额资金流动数据",
+  },
+  {
+    id: "rr7",
+    name: "合约风险扫描",
+    type: "contract_scan",
+    enabled: true,
+    config: { scanLevel: "deep" },
+    severity: "high",
+    description: "扫描交互合约的安全风险",
+  },
+  {
+    id: "rr8",
+    name: "跨链交易监控",
+    type: "cross_chain",
+    enabled: false,
+    config: { bridges: ["all"] },
+    severity: "medium",
+    description: "监控跨链桥交易风险",
   },
 ];
 
@@ -375,14 +402,14 @@ import { AuthUser, AuthSession, ChartDataPoint, TransactionTypeData, AssetDistri
 
 export const mockAuthUser: AuthUser = {
   id: "auth_user_001",
-  email: "admin@nexclaw.com",
-  name: "系统管理员",
-  avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=admin",
-  role: "admin",
-  permissions: ["all"],
+  email: "user@nexclaw.com",
+  name: "NexClaw 用户",
+  avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=nexclaw",
+  role: "user",
+  permissions: ["wallet:read", "wallet:write", "transaction:read", "transaction:write"],
   lastLoginAt: "2026-02-28T10:00:00Z",
   createdAt: "2026-01-15T08:00:00Z",
-  twoFactorEnabled: true,
+  twoFactorEnabled: false,
 };
 
 export const mockAuthSession: AuthSession = {

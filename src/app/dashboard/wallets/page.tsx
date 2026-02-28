@@ -145,7 +145,7 @@ export default function WalletsPage() {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            className={`fixed top-4 left-1/2 -translate-x-1/2 z-50 px-6 py-3 rounded-lg shadow-lg flex items-center gap-2 ${
+            className={`fixed top-4 left-1/2 -trangray-x-1/2 z-50 px-6 py-3 rounded-lg shadow-lg flex items-center gap-2 ${
               notification.type === 'success' ? 'bg-green-500 text-white' : 'bg-red-500 text-white'
             }`}
           >
@@ -199,7 +199,7 @@ export default function WalletsPage() {
         {/* Search and Filter Bar */}
         <div className="flex flex-col sm:flex-row gap-4 mb-6">
           <div className="relative flex-1">
-            <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-gray-500" />
+            <Search className="absolute left-3 top-1/2 -trangray-y-1/2 h-4 w-4 text-gray-500" />
             <Input
               placeholder="搜索钱包名称、地址或 UID..."
               value={searchQuery}
@@ -423,7 +423,7 @@ export default function WalletsPage() {
               <Input
                 value={newWalletName}
                 onChange={(e) => setNewWalletName(e.target.value)}
-                placeholder="例如：小龙虾交易钱包"
+                placeholder="例如：NexClaw交易钱包"
                 className="bg-gray-900/80 border-gray-700 text-white"
               />
             </div>

@@ -53,7 +53,7 @@ export default function DocsPage() {
               placeholder="搜索文档..." 
               className="w-full px-6 py-4 pl-12 rounded-xl bg-gradient-to-r from-gray-800/80 to-gray-900/80 border border-gray-700/50 text-white placeholder-gray-500 focus:outline-none focus:border-orange-500/50 transition-colors"
             />
-            <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 h-5 w-5 text-gray-400" />
+            <Search className="absolute left-4 top-1/2 transform -trangray-y-1/2 h-5 w-5 text-gray-400" />
           </div>
         </motion.div>
 
@@ -156,7 +156,7 @@ export default function DocsPage() {
                       </p>
                       <div className="relative p-4 bg-gray-900/60 rounded-lg border border-gray-700/50">
                         <pre className="font-mono text-sm text-gray-300 overflow-x-auto">
-                          <code>{`// 小龙虾集成代码示例
+                          <code>{`// NexClaw集成代码示例
 import { NexAuthSDK } from '@nexauth/agent-sdk';
 
 const sdk = new NexAuthSDK('YOUR_AGENT_UID');
@@ -172,7 +172,7 @@ const result = await sdk.sendTransaction({
                         </pre>
                         <motion.button 
                           className="absolute top-4 right-4 p-2 rounded-lg bg-gray-800/80 hover:bg-gray-700/80 transition-colors"
-                          onClick={() => handleCopyCode(`// 小龙虾集成代码示例
+                          onClick={() => handleCopyCode(`// NexClaw集成代码示例
 import { NexAuthSDK } from '@nexauth/agent-sdk';
 
 const sdk = new NexAuthSDK('YOUR_AGENT_UID');

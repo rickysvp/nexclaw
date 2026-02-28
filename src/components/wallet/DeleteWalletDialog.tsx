@@ -61,7 +61,7 @@ export function DeleteWalletDialog({ wallet, isOpen, onClose, onDelete }: Delete
             initial={{ opacity: 0, scale: 0.9, y: 20 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.9, y: 20 }}
-            className="fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-md z-50"
+            className="fixed left-1/2 top-1/2 -trangray-x-1/2 -trangray-y-1/2 w-full max-w-md z-50"
           >
             <div className="bg-gradient-to-br from-gray-800/95 to-gray-900/95 border border-red-500/30 rounded-2xl p-6 shadow-2xl backdrop-blur-md">
               {/* Header */}
