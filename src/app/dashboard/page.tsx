@@ -22,7 +22,7 @@ export default function DashboardPage() {
   const [copied, setCopied] = useState(false);
   const [showIframe, setShowIframe] = useState(false);
   const [activeWallet, setActiveWallet] = useState<string | null>(null);
-  const [showTermsModal, setShowTermsModal] = useState(true);
+  const [showTermsModal, setShowTermsModal] = useState(false);
   const [copyMessage, setCopyMessage] = useState<string | null>(null);
   const [activeTab, setActiveTab] = useState('wallets');
   const [transferWallet, setTransferWallet] = useState<WalletType | null>(null);
