@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { useState, useEffect } from "react";
-import { Menu, X, User, Bell, ChevronDown, BarChart3, Code, Info, MessageSquare } from "lucide-react";
+import { Menu, X, User, Bell, ChevronDown, BarChart3, Code, Info, MessageSquare, Shield } from "lucide-react";
 import { mockUser } from "@/lib/mockData";
 
 export function ClientLayout({ children }: { children: React.ReactNode }) {
@@ -54,6 +54,14 @@ export function ClientLayout({ children }: { children: React.ReactNode }) {
               >
                 <BarChart3 className="h-5 w-5" />
                 仪表盘
+              </motion.a>
+              <motion.a 
+                href="/dashboard/security" 
+                className="flex items-center gap-2 px-4 py-2 rounded-lg text-white font-medium hover:bg-gradient-to-r from-orange-500/10 to-purple-500/10 border border-transparent hover:border-orange-500/30 transition-all duration-300"
+                whileHover={{ scale: 1.05, borderColor: 'rgba(255, 165, 0, 0.5)' }}
+              >
+                <Shield className="h-5 w-5" />
+                安全规则
               </motion.a>
               <motion.a 
                 href="/docs" 
