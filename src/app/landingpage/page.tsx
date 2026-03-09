@@ -33,7 +33,7 @@ const features = [
   {
     icon: Zap,
     title: "3 秒极速创建",
-    description: "无需助记词，无需复杂配置，一行命令即刻生成可用钱包",
+    description: "无私钥，无需复杂配置，一行命令即刻生成可用钱包",
   },
   {
     icon: Layers,
@@ -52,8 +52,8 @@ const stats = [
 const detailedFeatures = [
   {
     icon: Lock,
-    title: "无助记词恢复",
-    description: "通过 OpenClaw 账户安全恢复，告别助记词丢失风险",
+    title: "无私钥恢复",
+    description: "通过 OpenClaw 账户安全恢复，告别私钥丢失风险",
   },
   {
     icon: Cpu,
@@ -90,8 +90,8 @@ const faqs = [
     answer: "目前支持 Ethereum、Polygon、BSC、Arbitrum 等主流公链，未来将持续添加更多网络支持。",
   },
   {
-    question: "需要助记词吗？",
-    answer: "不需要。ClawWallet 通过 OpenClaw 账户体系安全管理，无需记忆复杂的助记词，也不会有助记词丢失的风险。",
+    question: "需要私钥吗？",
+    answer: "不需要。ClawWallet 通过 OpenClaw 账户体系安全管理，无需管理复杂的私钥，也不会有私钥丢失的风险。",
   },
 ];
 
@@ -175,7 +175,7 @@ export default function LandingPage() {
               <p className="text-lg text-gray-500 max-w-lg mx-auto leading-relaxed">
                 一行命令，为您的 AI Agent 部署安全的多链钱包。
                 <br className="hidden sm:block" />
-                原生集成，TEE 硬件级安全，无需助记词。
+                原生集成，TEE 硬件级安全，无私钥。
               </p>
             </div>
 
@@ -325,9 +325,9 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* Usage Example Section */}
-      <section className="py-20 bg-[#fafafa] border-t border-gray-100">
-        <div className="max-w-5xl mx-auto px-6">
+      {/* Usage Example Section - Second Screen */}
+      <section className="py-20 bg-[#fafafa] border-t border-gray-100 min-h-screen flex items-center">
+        <div className="max-w-5xl mx-auto px-6 w-full">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -439,32 +439,36 @@ export default function LandingPage() {
             <h2 className="text-2xl md:text-3xl font-semibold text-gray-900 mb-3">
               为您的 OpenClaw 部署原生钱包
             </h2>
-            <p className="text-gray-500 mb-8 max-w-md mx-auto">
-              加入数千名开发者的行列，为您的 AI Agent 添加安全的多链钱包能力
+            <p className="text-gray-500 mb-6 max-w-md mx-auto">
+              复制下方命令，发送给 OpenClaw，3 秒完成部署
             </p>
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
+            
+            {/* Install Command in CTA */}
+            <div className="inline-flex items-center gap-2 px-2 py-2 bg-gray-900 rounded-2xl border border-gray-800 shadow-xl mb-6">
+              <code className="text-sm text-gray-300 font-mono px-4">{installCommand}</code>
               <button
                 onClick={handleCopy}
-                className={`flex items-center gap-2 px-8 py-4 rounded-xl font-semibold transition-all ${
+                className={`flex items-center gap-1.5 px-4 py-2.5 rounded-xl font-medium text-sm transition-all ${
                   copied
                     ? "bg-green-500 text-white"
-                    : "bg-orange-500 hover:bg-orange-600 text-white"
+                    : "bg-white text-gray-900 hover:bg-gray-100"
                 }`}
               >
                 {copied ? (
                   <>
-                    <Check className="w-5 h-5" />
-                    已复制命令
+                    <Check className="w-4 h-4" />
+                    已复制
                   </>
                 ) : (
                   <>
-                    <Copy className="w-5 h-5" />
-                    复制安装命令
+                    <Copy className="w-4 h-4" />
+                    复制
                   </>
                 )}
               </button>
             </div>
-            <p className="text-gray-400 text-sm mt-6">
+            
+            <p className="text-gray-400 text-sm">
               免费开始使用 · 无需信用卡 · 3 秒完成部署
             </p>
           </motion.div>
