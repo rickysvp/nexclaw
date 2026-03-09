@@ -112,20 +112,20 @@ export default function LandingPage() {
             {/* Badge */}
             <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-orange-50 border border-orange-200">
               <Package className="w-3.5 h-3.5 text-orange-500" />
-              <span className="text-orange-600 text-xs font-medium">OpenClaw Skill</span>
+              <span className="text-orange-600 text-xs font-medium">OpenClaw 原生加密钱包</span>
             </div>
 
             {/* Headline */}
             <div className="space-y-4">
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-semibold text-gray-900 tracking-tight leading-[1.1]">
-                为 OpenClaw
+                专为 OpenClaw
                 <br />
-                <span className="text-orange-500">添加钱包能力</span>
+                <span className="text-orange-500">打造的原生钱包</span>
               </h1>
               <p className="text-lg text-gray-500 max-w-lg mx-auto leading-relaxed">
                 一行命令，为您的 AI Agent 部署安全的多链钱包。
                 <br className="hidden sm:block" />
-                基于 TEE 架构，无需助记词。
+                原生集成，TEE 硬件级安全，无需助记词。
               </p>
             </div>
 
@@ -254,10 +254,10 @@ export default function LandingPage() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
             >
-              <h2 className="text-2xl font-semibold text-gray-900 mb-4">安装后即可使用</h2>
+              <h2 className="text-2xl font-semibold text-gray-900 mb-4">原生集成，开箱即用</h2>
               <p className="text-gray-500 mb-8 leading-relaxed">
-                Skill 安装完成后，您的 OpenClaw Agent 立即获得钱包能力。
-                通过简单的自然语言指令即可操作。
+                作为 OpenClaw 原生 Skill，安装后即刻拥有钱包能力。
+                无需额外配置，通过自然语言即可操控您的加密资产。
               </p>
               <div className="space-y-4">
                 <div className="flex items-start gap-3">
@@ -338,10 +338,10 @@ export default function LandingPage() {
             viewport={{ once: true }}
           >
             <h2 className="text-2xl font-semibold text-gray-900 mb-3">
-              准备好为 OpenClaw 添加钱包能力了吗？
+              为您的 OpenClaw 部署原生钱包
             </h2>
             <p className="text-gray-500 mb-8">
-              一行命令，3 秒完成安装部署
+              专为 OpenClaw 打造，一行命令，3 秒完成安装
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
               <button
