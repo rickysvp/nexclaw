@@ -21,13 +21,30 @@ import {
   User,
 } from 'lucide-react';
 import { useAuth } from '@/lib/auth-context';
-import { Badge } from '@/components/ui/badge';
+import Link from 'next/link';
 
 interface SidebarProps {
   onNavigate: (path: string) => void;
   currentSection: string;
   onCollapseChange?: (collapsed: boolean) => void;
 }
+
+// Logo Component
+const ClawLogo = ({ className = "w-7 h-7" }: { className?: string }) => (
+  <svg className={className} viewBox="0 0 120 120" fill="none">
+    <rect width="120" height="120" rx="28" fill="#FF4D2E"/>
+    <path d="M35 45C35 45 25 55 25 70C25 85 35 95 45 90C50 87 52 80 50 75C48 70 42 68 40 72C38 76 42 78 45 76" 
+          stroke="white" strokeWidth="5" strokeLinecap="round" strokeLinejoin="round" fill="none"/>
+    <path d="M85 45C85 45 95 55 95 70C95 85 85 95 75 90C70 87 68 80 70 75C72 70 78 68 80 72C82 76 78 78 75 76" 
+          stroke="white" strokeWidth="5" strokeLinecap="round" strokeLinejoin="round" fill="none"/>
+    <ellipse cx="60" cy="70" rx="12" ry="18" fill="white"/>
+    <path d="M55 55C55 50 58 45 60 42C62 45 65 50 65 55" 
+          stroke="white" strokeWidth="4" strokeLinecap="round" fill="none"/>
+    <circle cx="48" cy="65" r="3" fill="#FF4D2E"/>
+    <circle cx="72" cy="65" r="3" fill="#FF4D2E"/>
+    <circle cx="60" cy="75" r="4" fill="#FF4D2E"/>
+  </svg>
+);
 
 const menuItems = [
   { id: 'dashboard', label: '仪表盘', icon: LayoutDashboard },
@@ -81,19 +98,18 @@ export default function Sidebar({ onNavigate, currentSection, onCollapseChange }
   if (isMobile) {
     return (
       <>
-        <div className="fixed top-0 left-0 right-0 h-16 bg-gradient-to-r from-gray-900 to-gray-800 border-b border-gray-700/50 z-50 flex items-center justify-between px-4">
-          <div className="flex items-center gap-3">
-            <div className="w-9 h-9 rounded-xl bg-gradient-to-r from-orange-500 to-purple-600 flex items-center justify-center">
-              <WalletIcon className="h-5 w-5 text-white" />
-            </div>
+        {/* Mobile Header */}
+        <div className="fixed top-0 left-0 right-0 h-16 bg-black/95 backdrop-blur-xl border-b border-white/[0.08] z-50 flex items-center justify-between px-4">
+          <Link href="/" className="flex items-center gap-3 no-underline">
+            <ClawLogo className="w-8 h-8" />
             <div>
-              <h1 className="text-base font-bold text-white">NexClaw</h1>
-              <p className="text-xs text-gray-400">Agent Wallet</p>
+              <h1 className="text-base font-bold text-white">Claw Wallet</h1>
+              <p className="text-xs text-[#A09890]">OpenClaw 原生加密钱包</p>
             </div>
-          </div>
+          </Link>
           <button
             onClick={() => setMobileOpen(true)}
-            className="p-2 rounded-lg bg-gray-800/50 text-gray-400 hover:text-white"
+            className="p-2 rounded-lg bg-white/[0.04] text-[#A09890] hover:text-white hover:bg-white/[0.08] transition-colors"
           >
             <Menu className="h-6 w-6" />
           </button>
@@ -107,37 +123,36 @@ export default function Sidebar({ onNavigate, currentSection, onCollapseChange }
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
                 onClick={() => setMobileOpen(false)}
-                className="fixed inset-0 bg-black/60 backdrop-blur-sm z-50"
+                className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50"
               />
               <motion.aside
                 initial={{ x: '-100%' }}
                 animate={{ x: 0 }}
                 exit={{ x: '-100%' }}
                 transition={{ type: 'spring', damping: 25, stiffness: 200 }}
-                className="fixed left-0 top-0 h-full w-72 bg-gradient-to-b from-gray-900 via-gray-900 to-black border-r border-gray-800/50 z-50 flex flex-col"
+                className="fixed left-0 top-0 h-full w-72 bg-black border-r border-white/[0.08] z-50 flex flex-col"
               >
-                <div className="h-16 flex items-center justify-between px-4 border-b border-gray-800/50">
-                  <div className="flex items-center gap-3">
-                    <div className="w-9 h-9 rounded-xl bg-gradient-to-r from-orange-500 to-purple-600 flex items-center justify-center">
-                      <WalletIcon className="h-5 w-5 text-white" />
-                    </div>
+                {/* Mobile Sidebar Header */}
+                <div className="h-16 flex items-center justify-between px-4 border-b border-white/[0.08]">
+                  <Link href="/" className="flex items-center gap-3 no-underline">
+                    <ClawLogo className="w-8 h-8" />
                     <div>
-                      <h1 className="text-base font-bold text-white">NexClaw</h1>
-                      <p className="text-xs text-gray-400">Agent Wallet</p>
+                      <h1 className="text-base font-bold text-white">Claw Wallet</h1>
+                      <p className="text-xs text-[#A09890]">OpenClaw 原生加密钱包</p>
                     </div>
-                  </div>
+                  </Link>
                   <button
                     onClick={() => setMobileOpen(false)}
-                    className="p-2 rounded-lg bg-gray-800/50 text-gray-400 hover:text-white"
+                    className="p-2 rounded-lg bg-white/[0.04] text-[#A09890] hover:text-white hover:bg-white/[0.08] transition-colors"
                   >
                     <X className="h-5 w-5" />
                   </button>
                 </div>
 
                 {user && (
-                  <div className="p-4 border-b border-gray-800/50">
+                  <div className="p-4 border-b border-white/[0.08]">
                     <div className="flex items-center gap-3">
-                      <div className="w-12 h-12 rounded-full bg-gradient-to-br from-orange-500 to-purple-600 flex items-center justify-center">
+                      <div className="w-12 h-12 rounded-full bg-[#FF4D2E] flex items-center justify-center">
                         {user.avatar ? (
                           <img src={user.avatar} alt={user.name} className="w-full h-full rounded-full" />
                         ) : (
@@ -146,7 +161,7 @@ export default function Sidebar({ onNavigate, currentSection, onCollapseChange }
                       </div>
                       <div className="flex-1 min-w-0">
                         <p className="text-white font-medium truncate">{user.name}</p>
-                        <p className="text-gray-400 text-sm truncate">{user.email}</p>
+                        <p className="text-[#A09890] text-sm truncate">{user.email}</p>
                       </div>
                     </div>
                   </div>
@@ -163,27 +178,27 @@ export default function Sidebar({ onNavigate, currentSection, onCollapseChange }
                         onClick={() => handleNavigate(item.id)}
                         className={`w-full flex items-center gap-3 px-3 py-3 rounded-xl transition-all ${
                           isActive
-                            ? 'bg-gradient-to-r from-orange-500/20 to-purple-500/20 text-white border border-orange-500/30'
-                            : 'text-gray-400 hover:bg-gray-800/50 hover:text-white'
+                            ? 'bg-[#FF4D2E]/10 text-white border border-[#FF4D2E]/30'
+                            : 'text-[#A09890] hover:bg-white/[0.04] hover:text-white'
                         }`}
                       >
-                        <Icon className={`h-5 w-5 flex-shrink-0 ${isActive ? 'text-orange-400' : ''}`} />
+                        <Icon className={`h-5 w-5 flex-shrink-0 ${isActive ? 'text-[#FF4D2E]' : ''}`} />
                         <span className="font-medium">{item.label}</span>
                         {isActive && (
-                          <div className="ml-auto w-1.5 h-1.5 rounded-full bg-orange-500" />
+                          <div className="ml-auto w-1.5 h-1.5 rounded-full bg-[#FF4D2E]" />
                         )}
                       </button>
                     );
                   })}
                 </nav>
 
-                <div className="p-3 border-t border-gray-800/50 space-y-1">
+                <div className="p-3 border-t border-white/[0.08] space-y-1">
                   <button
                     onClick={() => handleNavigate('settings')}
                     className={`w-full flex items-center gap-3 px-3 py-3 rounded-xl transition-all ${
                       currentSection === 'settings'
-                        ? 'bg-gradient-to-r from-orange-500/20 to-purple-500/20 text-white'
-                        : 'text-gray-400 hover:bg-gray-800/50 hover:text-white'
+                        ? 'bg-[#FF4D2E]/10 text-white'
+                        : 'text-[#A09890] hover:bg-white/[0.04] hover:text-white'
                     }`}
                   >
                     <Settings className="h-5 w-5 flex-shrink-0" />
@@ -202,7 +217,8 @@ export default function Sidebar({ onNavigate, currentSection, onCollapseChange }
           )}
         </AnimatePresence>
 
-        <div className="fixed bottom-0 left-0 right-0 h-16 bg-gray-900/95 backdrop-blur-lg border-t border-gray-800/50 z-40 flex items-center justify-around px-2">
+        {/* Mobile Bottom Nav */}
+        <div className="fixed bottom-0 left-0 right-0 h-16 bg-black/95 backdrop-blur-xl border-t border-white/[0.08] z-40 flex items-center justify-around px-2">
           {menuItems.slice(0, 5).map((item) => {
             const isActive = currentSection === item.id;
             const Icon = item.icon;
@@ -212,7 +228,7 @@ export default function Sidebar({ onNavigate, currentSection, onCollapseChange }
                 key={item.id}
                 onClick={() => handleNavigate(item.id)}
                 className={`flex flex-col items-center justify-center gap-1 py-2 px-3 rounded-lg transition-colors ${
-                  isActive ? 'text-orange-400' : 'text-gray-400'
+                  isActive ? 'text-[#FF4D2E]' : 'text-[#A09890]'
                 }`}
               >
                 <Icon className="h-5 w-5" />
@@ -222,7 +238,7 @@ export default function Sidebar({ onNavigate, currentSection, onCollapseChange }
           })}
           <button
             onClick={() => setMobileOpen(true)}
-            className="flex flex-col items-center justify-center gap-1 py-2 px-3 rounded-lg text-gray-400"
+            className="flex flex-col items-center justify-center gap-1 py-2 px-3 rounded-lg text-[#A09890]"
           >
             <Menu className="h-5 w-5" />
             <span className="text-xs">更多</span>
@@ -236,27 +252,26 @@ export default function Sidebar({ onNavigate, currentSection, onCollapseChange }
     <motion.aside
       initial={false}
       animate={{ width: collapsed ? 80 : 260 }}
-      className="fixed left-0 top-0 h-screen bg-gradient-to-b from-gray-900 via-gray-900 to-black border-r border-gray-800/50 z-50 flex flex-col"
+      className="fixed left-0 top-0 h-screen bg-black border-r border-white/[0.08] z-50 flex flex-col"
     >
-      <div className="h-16 flex items-center justify-between px-4 border-b border-gray-800/50">
-        <div className="flex items-center gap-3 overflow-hidden">
-          <div className="w-10 h-10 rounded-xl bg-gradient-to-r from-orange-500 to-purple-600 flex items-center justify-center flex-shrink-0">
-            <WalletIcon className="h-5 w-5 text-white" />
-          </div>
+      {/* Sidebar Header */}
+      <div className="h-16 flex items-center justify-between px-4 border-b border-white/[0.08]">
+        <Link href="/" className="flex items-center gap-3 overflow-hidden no-underline">
+          <ClawLogo className="w-8 h-8 flex-shrink-0" />
           {!collapsed && (
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
             >
-              <h1 className="text-lg font-bold text-white whitespace-nowrap">NexClaw</h1>
-              <p className="text-xs text-gray-500 whitespace-nowrap">Agent Wallet</p>
+              <h1 className="text-base font-bold text-white whitespace-nowrap">Claw Wallet</h1>
+              <p className="text-xs text-[#A09890] whitespace-nowrap">OpenClaw 原生加密钱包</p>
             </motion.div>
           )}
-        </div>
+        </Link>
         <motion.button
           onClick={handleCollapse}
-          className="p-1.5 rounded-lg bg-gray-800/50 text-gray-400 hover:text-white hover:bg-gray-700/50 transition-colors"
+          className="p-1.5 rounded-lg bg-white/[0.04] text-[#A09890] hover:text-white hover:bg-white/[0.08] transition-colors"
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
         >
@@ -265,9 +280,9 @@ export default function Sidebar({ onNavigate, currentSection, onCollapseChange }
       </div>
 
       {!collapsed && user && (
-        <div className="p-4 border-b border-gray-800/50">
+        <div className="p-4 border-b border-white/[0.08]">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-full bg-gradient-to-br from-orange-500 to-purple-600 flex items-center justify-center flex-shrink-0">
+            <div className="w-10 h-10 rounded-full bg-[#FF4D2E] flex items-center justify-center flex-shrink-0">
               {user.avatar ? (
                 <img src={user.avatar} alt={user.name} className="w-full h-full rounded-full" />
               ) : (
@@ -276,7 +291,7 @@ export default function Sidebar({ onNavigate, currentSection, onCollapseChange }
             </div>
             <div className="flex-1 min-w-0">
               <p className="text-white font-medium text-sm truncate">{user.name}</p>
-              <p className="text-gray-400 text-xs truncate">{user.email}</p>
+              <p className="text-[#A09890] text-xs truncate">{user.email}</p>
             </div>
           </div>
         </div>
@@ -293,14 +308,14 @@ export default function Sidebar({ onNavigate, currentSection, onCollapseChange }
               onClick={() => handleNavigate(item.id)}
               className={`w-full flex items-center gap-3 px-3 py-3 rounded-xl transition-all duration-200 ${
                 isActive
-                  ? 'bg-gradient-to-r from-orange-500/20 to-purple-500/20 text-white border border-orange-500/30'
-                  : 'text-gray-400 hover:bg-gray-800/50 hover:text-white'
+                  ? 'bg-[#FF4D2E]/10 text-white border border-[#FF4D2E]/30'
+                  : 'text-[#A09890] hover:bg-white/[0.04] hover:text-white'
               }`}
               whileHover={{ scale: 1.02, x: 2 }}
               whileTap={{ scale: 0.98 }}
               title={collapsed ? item.label : undefined}
             >
-              <Icon className={`h-5 w-5 flex-shrink-0 ${isActive ? 'text-orange-400' : ''}`} />
+              <Icon className={`h-5 w-5 flex-shrink-0 ${isActive ? 'text-[#FF4D2E]' : ''}`} />
               {!collapsed && (
                 <motion.span
                   initial={{ opacity: 0 }}
@@ -313,7 +328,7 @@ export default function Sidebar({ onNavigate, currentSection, onCollapseChange }
               {isActive && !collapsed && (
                 <motion.div
                   layoutId="activeIndicator"
-                  className="ml-auto w-1.5 h-1.5 rounded-full bg-orange-500"
+                  className="ml-auto w-1.5 h-1.5 rounded-full bg-[#FF4D2E]"
                 />
               )}
             </motion.button>
@@ -321,7 +336,7 @@ export default function Sidebar({ onNavigate, currentSection, onCollapseChange }
         })}
       </nav>
 
-      <div className="p-3 border-t border-gray-800/50 space-y-1">
+      <div className="p-3 border-t border-white/[0.08] space-y-1">
         <motion.button
           onClick={handleLogout}
           className="w-full flex items-center gap-3 px-3 py-3 rounded-xl text-red-400 hover:bg-red-500/10 transition-colors"

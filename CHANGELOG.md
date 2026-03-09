@@ -7,6 +7,43 @@
 
 ## [Unreleased]
 
+## [0.7.0] - 2026-03-09
+
+### Added
+- 全面 SEO 优化，提升 Google 收录
+  - 完整的 Metadata 元数据（title, description, keywords）
+  - OpenGraph 和 Twitter Cards 社交分享优化
+  - 站点地图 sitemap.ts 自动生成
+  - robots.ts 爬虫控制配置
+  - Schema.org 结构化数据（Organization, WebSite, WebPage, SoftwareApplication）
+  - 规范链接和语言替代版本
+
+- 首页全新设计和品牌升级
+  - 统一黑色背景 + 红色主题（#FF4D2E）设计风格
+  - Apple 风格龙虾钳 Logo 设计
+  - 真实区块链图标（19 个链）
+  - Agent 能力展示模块
+  - FAQ 常见问题折叠组件
+  - 所有标题居中显示
+
+- 登录和 Dashboard 页面设计统一
+  - 黑色背景主题
+  - 红色强调色
+  - 统一 Logo 和品牌文案
+  - 优化登录速度（移除模拟延迟）
+
+### Changed
+- 项目名称从 NexClaw 改为 Claw Wallet
+- 所有文案移除"基础设施"，改为"加密钱包"
+- 注册页面链接改为登录页面
+- 删除注册页面（register）
+- 放大主要 CTA 按钮
+
+### Removed
+- 删除注册页面（/register）
+- 删除开发文档和演示按钮
+- 删除 Trust Badge 信任标识
+
 ## [0.4.0] - 2026-02-28
 
 ### Added
@@ -308,5 +345,5 @@
 
 ---
 
-**当前版本**: 0.4.0  
-**最后更新**: 2026-02-28
+**当前版本**: 0.7.0  
+**最后更新**: 2026-03-09

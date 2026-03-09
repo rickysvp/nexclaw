@@ -45,9 +45,6 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   const login = useCallback(async (credentials: LoginCredentials): Promise<boolean> => {
     setIsLoading(true);
     
-    // 模拟API调用延迟
-    await new Promise(resolve => setTimeout(resolve, 800));
-    
     // 模拟验证（实际项目中应该调用后端API）
     if (credentials.email === "admin@nexclaw.com" && credentials.password === "admin123") {
       const session: AuthSession = {
@@ -76,9 +73,6 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
 
   const register = useCallback(async (data: RegisterData): Promise<boolean> => {
     setIsLoading(true);
-    
-    // 模拟API调用延迟
-    await new Promise(resolve => setTimeout(resolve, 1000));
     
     // 模拟注册成功
     const newUser: AuthUser = {
