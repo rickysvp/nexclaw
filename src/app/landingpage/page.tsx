@@ -157,40 +157,6 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* Deploy Steps Section */}
-      <section className="py-16 border-t border-gray-100">
-        <div className="max-w-5xl mx-auto px-6">
-          <div className="grid md:grid-cols-3 gap-6">
-            {deploySteps.map((step, index) => (
-              <motion.div
-                key={step.number}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-                className="relative group"
-              >
-                <div className="p-6 rounded-2xl bg-white border border-gray-100 hover:border-orange-200 hover:shadow-lg hover:shadow-orange-500/5 transition-all">
-                  <div className="flex items-center gap-3 mb-4">
-                    <div className="w-10 h-10 rounded-xl bg-orange-50 flex items-center justify-center">
-                      <step.icon className="w-5 h-5 text-orange-500" />
-                    </div>
-                    <span className="text-2xl font-bold text-gray-100">{step.number}</span>
-                  </div>
-                  <h3 className="text-base font-semibold text-gray-900 mb-1">{step.title}</h3>
-                  <p className="text-gray-500 text-sm">{step.description}</p>
-                </div>
-                {index < deploySteps.length - 1 && (
-                  <div className="hidden md:block absolute top-1/2 -right-3 transform -translate-y-1/2">
-                    <ChevronRight className="w-5 h-5 text-gray-200" />
-                  </div>
-                )}
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* Features Section */}
       <section className="py-16 bg-white border-t border-gray-100">
         <div className="max-w-5xl mx-auto px-6">
