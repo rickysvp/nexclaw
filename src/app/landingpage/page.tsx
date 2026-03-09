@@ -162,7 +162,7 @@ export default function LandingPage() {
             {/* Badge */}
             <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-orange-50 border border-orange-200">
               <Package className="w-3.5 h-3.5 text-orange-500" />
-              <span className="text-orange-600 text-xs font-medium">OpenClaw 原生加密钱包</span>
+              <span className="text-orange-600 text-xs font-medium">Powered By OpenClaw</span>
             </div>
 
             {/* Headline */}
