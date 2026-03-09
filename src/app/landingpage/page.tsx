@@ -168,9 +168,9 @@ export default function LandingPage() {
             {/* Headline */}
             <div className="space-y-4">
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-semibold text-gray-900 tracking-tight leading-[1.1]">
-                专为 OpenClaw
+                专为 OpenClaw 打造的
                 <br />
-                <span className="text-orange-500">打造的原生钱包</span>
+                <span className="text-orange-500">原生加密钱包</span>
               </h1>
               <p className="text-lg text-gray-500 max-w-lg mx-auto leading-relaxed">
                 一行命令，为您的 AI Agent 部署安全的多链钱包。
