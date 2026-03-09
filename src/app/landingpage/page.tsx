@@ -181,8 +181,8 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* Usage Example Section */}
-      <section className="py-16 border-t border-gray-100">
+      {/* Usage Example Section - Second Screen */}
+       <section className="py-16 border-t border-gray-100 min-h-screen flex items-center">
         <div className="max-w-5xl mx-auto px-6">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <motion.div
