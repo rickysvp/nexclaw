@@ -4,37 +4,20 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { 
   Wallet, 
-  Zap, 
-  Shield, 
   Copy, 
   Check, 
   ArrowRight,
   Sparkles,
-  Bot,
-  Code2,
   Terminal,
-  ExternalLink
+  Package,
+  Zap,
+  Play,
+  ChevronRight,
+  Box
 } from "lucide-react";
 import Link from "next/link";
 
-// Animation variants
-const fadeInUp = {
-  initial: { opacity: 0, y: 20 },
-  animate: { opacity: 1, y: 0 },
-  transition: { duration: 0.5 },
-};
-
-const staggerContainer = {
-  animate: {
-    transition: {
-      staggerChildren: 0.1,
-    },
-  },
-};
-
-// Skill Code Templates
-const skillTemplates = {
-  basic: `// OpenClaw Skill - 基础钱包创建
+const skillCode = `// OpenClaw Skill - 钱包创建
 const { ClawWallet } = require('@openclaw/sdk');
 
 async function createWallet() {
@@ -49,379 +32,222 @@ async function createWallet() {
   return wallet;
 }
 
-module.exports = { createWallet };`,
+module.exports = { createWallet };`;
 
-  advanced: `// OpenClaw Skill - 高级钱包配置
-const { ClawWallet } = require('@openclaw/sdk');
+const deploySteps = [
+  {
+    number: "01",
+    title: "复制 Skill",
+    description: "复制上方的代码片段",
+    icon: Copy,
+  },
+  {
+    number: "02", 
+    title: "交给 OpenClaw",
+    description: "将代码发送给 OpenClaw 部署",
+    icon: Package,
+  },
+  {
+    number: "03",
+    title: "完成部署",
+    description: "AI Agent 即可拥有钱包能力",
+    icon: Zap,
+  },
+];
 
-async function createAdvancedWallet() {
-  const wallet = await ClawWallet.create({
-    agentId: "your-agent-id",
-    network: "ethereum",
-    security: {
-      pinEnabled: true,
-      dailyLimit: "1.0",
-      whitelistOnly: false
-    },
-    metadata: {
-      name: "AI Agent Wallet",
-      description: "自动交易机器人钱包"
-    }
-  });
-  
-  // 设置安全规则
-  await wallet.setSecurityRules({
-    maxPerTx: "0.5",
-    maxPerDay: "2.0",
-    requirePin: true
-  });
-  
-  return wallet;
-}
-
-module.exports = { createAdvancedWallet };`,
-
-  multiChain: `// OpenClaw Skill - 多链钱包创建
-const { ClawWallet } = require('@openclaw/sdk');
-
-async function createMultiChainWallet() {
-  const networks = ["ethereum", "polygon", "bsc", "arbitrum"];
-  const wallets = {};
-  
-  for (const network of networks) {
-    wallets[network] = await ClawWallet.create({
-      agentId: "your-agent-id",
-      network: network,
-      syncWithMain: true  // 同步主钱包安全设置
-    });
-  }
-  
-  console.log("多链钱包创建完成:");
-  Object.entries(wallets).forEach(([net, wallet]) => {
-    console.log(\`  \${net}: \${wallet.address}\`);
-  });
-  
-  return wallets;
-}
-
-module.exports = { createMultiChainWallet };`,
-};
-
-// Code Block Component
-function CodeBlock({ code, title }: { code: string; title: string }) {
+export default function LandingPage() {
   const [copied, setCopied] = useState(false);
 
   const handleCopy = async () => {
-    await navigator.clipboard.writeText(code);
+    await navigator.clipboard.writeText(skillCode);
     setCopied(true);
-    setTimeout(() => setCopied(false), 2000);
+    setTimeout(() => setCopied(false), 3000);
   };
 
   return (
-    <div className="bg-[#0a0a0a] rounded-2xl border border-white/10 overflow-hidden">
-      <div className="flex items-center justify-between px-4 py-3 border-b border-white/10 bg-white/5">
-        <div className="flex items-center gap-2">
-          <Terminal className="w-4 h-4 text-[#FF4D2E]" />
-          <span className="text-sm text-white/70">{title}</span>
+    <div className="min-h-screen bg-[#0a0a0f]">
+      {/* Header */}
+      <header className="fixed top-0 left-0 right-0 z-50 bg-[#0a0a0f]/80 backdrop-blur-xl border-b border-white/5">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center justify-between h-16">
+            <Link href="/" className="flex items-center gap-2">
+              <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-cyan-400 to-cyan-600 flex items-center justify-center">
+                <Wallet className="w-4 h-4 text-white" />
+              </div>
+              <span className="text-white font-semibold">Claw Wallet</span>
+            </Link>
+            <nav className="flex items-center gap-6">
+              <Link href="/landingpage" className="text-white/60 hover:text-white text-sm transition-colors">
+                Skill
+              </Link>
+              <Link href="/docs" className="text-white/60 hover:text-white text-sm transition-colors">
+                文档
+              </Link>
+              <Link
+                href="/login"
+                className="px-4 py-2 bg-cyan-500 hover:bg-cyan-400 text-white rounded-lg text-sm font-medium transition-colors"
+              >
+                登录
+              </Link>
+            </nav>
+          </div>
         </div>
-        <button
-          onClick={handleCopy}
-          className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white/10 hover:bg-white/20 transition-colors text-xs"
-        >
-          {copied ? (
-            <>
-              <Check className="w-3.5 h-3.5 text-green-400" />
-              <span className="text-green-400">已复制</span>
-            </>
-          ) : (
-            <>
-              <Copy className="w-3.5 h-3.5" />
-              <span>复制代码</span>
-            </>
-          )}
-        </button>
-      </div>
-      <pre className="p-4 text-sm text-white/80 overflow-x-auto font-mono leading-relaxed">
-        <code>{code}</code>
-      </pre>
-    </div>
-  );
-}
+      </header>
 
-// Skill Card Component
-function SkillCard({ 
-  icon: Icon, 
-  title, 
-  description, 
-  code,
-  codeTitle,
-  delay 
-}: { 
-  icon: React.ElementType;
-  title: string;
-  description: string;
-  code: string;
-  codeTitle: string;
-  delay: number;
-}) {
-  return (
-    <motion.div
-      initial={{ opacity: 0, y: 30 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.5, delay }}
-      className="bg-gradient-to-br from-white/10 to-white/5 rounded-3xl p-8 border border-white/10 hover:border-[#FF4D2E]/50 transition-all duration-300"
-    >
-      <div className="flex items-center gap-4 mb-6">
-        <div className="w-12 h-12 rounded-2xl bg-[#FF4D2E]/20 flex items-center justify-center">
-          <Icon className="w-6 h-6 text-[#FF4D2E]" />
-        </div>
-        <div>
-          <h3 className="text-xl font-semibold text-white">{title}</h3>
-          <p className="text-white/60 text-sm mt-1">{description}</p>
-        </div>
-      </div>
-      <CodeBlock code={code} title={codeTitle} />
-    </motion.div>
-  );
-}
-
-// Feature Item Component
-function FeatureItem({ icon: Icon, title, description }: { 
-  icon: React.ElementType;
-  title: string;
-  description: string;
-}) {
-  return (
-    <div className="flex items-start gap-4">
-      <div className="w-10 h-10 rounded-xl bg-[#FF4D2E]/20 flex items-center justify-center flex-shrink-0">
-        <Icon className="w-5 h-5 text-[#FF4D2E]" />
-      </div>
-      <div>
-        <h4 className="text-white font-medium mb-1">{title}</h4>
-        <p className="text-white/60 text-sm">{description}</p>
-      </div>
-    </div>
-  );
-}
-
-export default function LandingPage() {
-  const [activeTab, setActiveTab] = useState<"basic" | "advanced" | "multiChain">("basic");
-
-  return (
-    <div className="min-h-screen bg-black">
       {/* Hero Section */}
-      <section className="relative pt-20 pb-32 overflow-hidden">
-        {/* Background Effects */}
+      <section className="relative pt-32 pb-20 overflow-hidden">
+        {/* Background */}
         <div className="absolute inset-0">
-          <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-[#FF4D2E]/20 rounded-full blur-[150px] opacity-30" />
+          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[600px] bg-gradient-to-b from-cyan-500/20 via-transparent to-transparent blur-[100px]" />
+          <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-cyan-500/10 rounded-full blur-[120px]" />
         </div>
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Badge */}
           <motion.div
-            initial="initial"
-            animate="animate"
-            variants={staggerContainer}
-            className="text-center"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="flex justify-center mb-8"
           >
-            {/* Badge */}
-            <motion.div variants={fadeInUp} className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#FF4D2E]/10 border border-[#FF4D2E]/30 mb-8">
-              <Sparkles className="w-4 h-4 text-[#FF4D2E]" />
-              <span className="text-[#FF4D2E] text-sm font-medium">OpenClaw Skill 集成</span>
-            </motion.div>
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-cyan-500/10 border border-cyan-500/30">
+              <Sparkles className="w-4 h-4 text-cyan-400" />
+              <span className="text-cyan-400 text-sm font-medium">OpenClaw Skill</span>
+            </div>
+          </motion.div>
 
-            {/* Title */}
-            <motion.h1 
-              variants={fadeInUp}
-              className="text-5xl md:text-7xl font-bold text-white mb-6 tracking-tight"
-            >
-              为 AI Agent 打造
-              <br />
-              <span className="text-[#FF4D2E]">一键钱包创建</span>
-            </motion.h1>
+          {/* Title */}
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.1 }}
+            className="text-5xl md:text-7xl font-bold text-white text-center mb-6 tracking-tight"
+          >
+            复制 Skill
+            <br />
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-cyan-600">
+              交给 OpenClaw 部署
+            </span>
+          </motion.h1>
 
-            {/* Subtitle */}
-            <motion.p 
-              variants={fadeInUp}
-              className="text-xl text-white/70 max-w-2xl mx-auto mb-10"
-            >
-              通过 OpenClaw Skill，让您的 AI Agent 在几秒钟内创建安全的多链钱包，
-              无需助记词，开箱即用
-            </motion.p>
+          {/* Subtitle */}
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2 }}
+            className="text-lg text-white/60 text-center max-w-2xl mx-auto mb-12"
+          >
+            一行代码，让 AI Agent 拥有安全的钱包能力
+            <br />
+            <span className="text-white/40 text-sm">无需助记词，TEE 硬件级安全</span>
+          </motion.p>
 
-            {/* CTA Buttons */}
-            <motion.div variants={fadeInUp} className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <Link
-                href="/login"
-                className="group flex items-center gap-2 px-8 py-4 bg-[#FF4D2E] hover:bg-[#FF4D2E]/90 text-white rounded-2xl font-semibold text-lg transition-all duration-300 hover:scale-105"
-              >
-                <Wallet className="w-5 h-5" />
-                免费创建钱包
-                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-              </Link>
-              <a
-                href="#skill-code"
-                className="flex items-center gap-2 px-8 py-4 bg-white/10 hover:bg-white/20 text-white rounded-2xl font-semibold text-lg transition-all duration-300 border border-white/20"
-              >
-                <Code2 className="w-5 h-5" />
-                查看 Skill 代码
-              </a>
-            </motion.div>
+          {/* Code Block */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.3 }}
+            className="max-w-3xl mx-auto"
+          >
+            <div className="bg-[#0f0f14] rounded-2xl border border-white/10 overflow-hidden shadow-2xl shadow-cyan-500/10">
+              <div className="flex items-center justify-between px-5 py-4 border-b border-white/10 bg-white/5">
+                <div className="flex items-center gap-3">
+                  <div className="flex gap-1.5">
+                    <div className="w-3 h-3 rounded-full bg-red-500/80" />
+                    <div className="w-3 h-3 rounded-full bg-yellow-500/80" />
+                    <div className="w-3 h-3 rounded-full bg-green-500/80" />
+                  </div>
+                  <span className="text-white/50 text-sm ml-2">wallet-skill.js</span>
+                </div>
+                <button
+                  onClick={handleCopy}
+                  className={`flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300 ${
+                    copied 
+                      ? "bg-green-500/20 text-green-400" 
+                      : "bg-cyan-500/20 hover:bg-cyan-500/30 text-cyan-400"
+                  }`}
+                >
+                  {copied ? (
+                    <>
+                      <Check className="w-4 h-4" />
+                      已复制
+                    </>
+                  ) : (
+                    <>
+                      <Copy className="w-4 h-4" />
+                      复制 Skill
+                    </>
+                  )}
+                </button>
+              </div>
+              <pre className="p-5 text-sm text-white/80 overflow-x-auto font-mono leading-relaxed">
+                <code>{skillCode}</code>
+              </pre>
+            </div>
+          </motion.div>
+
+          {/* Quick Steps */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.4 }}
+            className="mt-16"
+          >
+            <div className="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-8">
+              {deploySteps.map((step, index) => (
+                <div key={step.number} className="flex items-center">
+                  <div className="flex items-center gap-3">
+                    <div className="w-10 h-10 rounded-xl bg-cyan-500/20 flex items-center justify-center">
+                      <step.icon className="w-5 h-5 text-cyan-400" />
+                    </div>
+                    <div className="text-left">
+                      <div className="text-cyan-400 text-xs font-medium">{step.number}</div>
+                      <div className="text-white text-sm font-medium">{step.title}</div>
+                    </div>
+                  </div>
+                  {index < deploySteps.length - 1 && (
+                    <ChevronRight className="w-5 h-5 text-white/20 mx-4 md:mx-8" />
+                  )}
+                </div>
+              ))}
+            </div>
           </motion.div>
         </div>
       </section>
 
       {/* Features Section */}
-      <section className="py-24 border-t border-white/10">
+      <section className="py-20 border-t border-white/5">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-center mb-16"
-          >
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-              为什么选择 OpenClaw Skill
-            </h2>
-            <p className="text-white/60 text-lg max-w-2xl mx-auto">
-              专为 AI Agent 设计的安全钱包解决方案
-            </p>
-          </motion.div>
-
-          <div className="grid md:grid-cols-3 gap-8">
-            <FeatureItem
-              icon={Zap}
-              title="3秒快速创建"
-              description="无需助记词，一行代码即可创建安全钱包，Agent 可自主管理"
-            />
-            <FeatureItem
-              icon={Shield}
-              title="TEE 安全架构"
-              description="基于 AWS Nitro Enclaves，私钥分片存储，硬件级安全保障"
-            />
-            <FeatureItem
-              icon={Bot}
-              title="Agent 原生支持"
-              description="通过 UID 轻松集成，支持程序化交易和自动化操作"
-            />
-          </div>
-        </div>
-      </section>
-
-      {/* Skill Code Section */}
-      <section id="skill-code" className="py-24 bg-white/5">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-center mb-12"
-          >
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-              Skill 代码示例
-            </h2>
-            <p className="text-white/60 text-lg max-w-2xl mx-auto">
-              选择适合您的集成方式，复制代码即可使用
-            </p>
-          </motion.div>
-
-          {/* Tabs */}
-          <div className="flex justify-center mb-12">
-            <div className="inline-flex p-1 bg-white/10 rounded-2xl">
-              {[
-                { key: "basic", label: "基础创建" },
-                { key: "advanced", label: "高级配置" },
-                { key: "multiChain", label: "多链钱包" },
-              ].map((tab) => (
-                <button
-                  key={tab.key}
-                  onClick={() => setActiveTab(tab.key as typeof activeTab)}
-                  className={`px-6 py-3 rounded-xl font-medium transition-all duration-300 ${
-                    activeTab === tab.key
-                      ? "bg-[#FF4D2E] text-white"
-                      : "text-white/70 hover:text-white"
-                  }`}
-                >
-                  {tab.label}
-                </button>
-              ))}
-            </div>
-          </div>
-
-          {/* Code Display */}
-          <motion.div
-            key={activeTab}
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.3 }}
-          >
-            <CodeBlock 
-              code={skillTemplates[activeTab]} 
-              title={`${activeTab === "basic" ? "basic-wallet.js" : activeTab === "advanced" ? "advanced-wallet.js" : "multichain-wallet.js"}`}
-            />
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Integration Steps */}
-      <section className="py-24">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-center mb-16"
-          >
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-              三步完成集成
-            </h2>
-            <p className="text-white/60 text-lg max-w-2xl mx-auto">
-              简单快捷的接入流程
-            </p>
-          </motion.div>
-
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-3 gap-6">
             {[
               {
-                step: "01",
-                title: "安装 SDK",
-                description: "npm install @openclaw/sdk",
+                icon: Zap,
+                title: "3秒创建",
+                description: "一行代码，Agent 立即拥有钱包",
+              },
+              {
+                icon: Box,
+                title: "TEE 安全",
+                description: "AWS Nitro Enclaves 硬件级保护",
+              },
+              {
                 icon: Terminal,
+                title: "多链支持",
+                description: "Ethereum、Polygon、BSC、Arbitrum",
               },
-              {
-                step: "02",
-                title: "配置 Skill",
-                description: "复制上方代码，配置您的 Agent ID",
-                icon: Code2,
-              },
-              {
-                step: "03",
-                title: "创建钱包",
-                description: "调用 createWallet() 即可生成钱包",
-                icon: Wallet,
-              },
-            ].map((item, index) => (
+            ].map((feature, index) => (
               <motion.div
-                key={item.step}
-                initial={{ opacity: 0, y: 30 }}
+                key={feature.title}
+                initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="relative"
+                transition={{ delay: index * 0.1 }}
+                className="bg-white/5 rounded-2xl p-6 border border-white/10 hover:border-cyan-500/30 transition-colors"
               >
-                <div className="bg-gradient-to-br from-white/10 to-white/5 rounded-3xl p-8 border border-white/10 h-full">
-                  <div className="text-6xl font-bold text-[#FF4D2E]/20 mb-4">{item.step}</div>
-                  <div className="w-12 h-12 rounded-2xl bg-[#FF4D2E]/20 flex items-center justify-center mb-4">
-                    <item.icon className="w-6 h-6 text-[#FF4D2E]" />
-                  </div>
-                  <h3 className="text-xl font-semibold text-white mb-2">{item.title}</h3>
-                  <p className="text-white/60 font-mono text-sm">{item.description}</p>
+                <div className="w-10 h-10 rounded-xl bg-cyan-500/20 flex items-center justify-center mb-4">
+                  <feature.icon className="w-5 h-5 text-cyan-400" />
                 </div>
-                {index < 2 && (
-                  <div className="hidden md:block absolute top-1/2 -right-4 transform -translate-y-1/2 z-10">
-                    <ArrowRight className="w-8 h-8 text-[#FF4D2E]/50" />
-                  </div>
-                )}
+                <h3 className="text-white font-medium mb-1">{feature.title}</h3>
+                <p className="text-white/50 text-sm">{feature.description}</p>
               </motion.div>
             ))}
           </div>
@@ -429,66 +255,46 @@ export default function LandingPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-24 bg-gradient-to-t from-[#FF4D2E]/20 to-transparent">
+      <section className="py-20">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-              准备好开始了吗？
+            <h2 className="text-3xl font-bold text-white mb-4">
+              准备好让 AI Agent 拥有钱包了吗？
             </h2>
-            <p className="text-xl text-white/70 mb-10">
-              立即为您的 AI Agent 创建安全钱包，开启 Web3 之旅
+            <p className="text-white/60 mb-8">
+              复制上方代码，发送给 OpenClaw 即可完成部署
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <Link
                 href="/login"
-                className="group flex items-center gap-2 px-10 py-5 bg-[#FF4D2E] hover:bg-[#FF4D2E]/90 text-white rounded-2xl font-semibold text-lg transition-all duration-300 hover:scale-105"
+                className="group flex items-center gap-2 px-8 py-4 bg-cyan-500 hover:bg-cyan-400 text-white rounded-2xl font-semibold transition-all duration-300 hover:scale-105"
               >
-                <Sparkles className="w-5 h-5" />
-                立即创建钱包
+                <Play className="w-5 h-5" />
+                开始使用
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </Link>
-              <a
-                href="https://docs.openclaw.io"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-2 px-10 py-5 bg-white/10 hover:bg-white/20 text-white rounded-2xl font-semibold text-lg transition-all duration-300 border border-white/20"
-              >
-                <ExternalLink className="w-5 h-5" />
-                查看完整文档
-              </a>
             </div>
           </motion.div>
         </div>
       </section>
 
       {/* Footer */}
-      <footer className="py-12 border-t border-white/10">
+      <footer className="py-8 border-t border-white/5">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
             <div className="flex items-center gap-2">
-              <div className="w-8 h-8 rounded-lg bg-[#FF4D2E] flex items-center justify-center">
-                <Wallet className="w-4 h-4 text-white" />
+              <div className="w-6 h-6 rounded-md bg-gradient-to-br from-cyan-400 to-cyan-600 flex items-center justify-center">
+                <Wallet className="w-3 h-3 text-white" />
               </div>
-              <span className="text-white font-semibold">Claw Wallet</span>
+              <span className="text-white/70 text-sm">Claw Wallet</span>
             </div>
-            <p className="text-white/50 text-sm">
+            <p className="text-white/30 text-xs">
               © 2026 Claw Wallet. OpenClaw 原生安全加密钱包
             </p>
-            <div className="flex items-center gap-6">
-              <Link href="/docs" className="text-white/50 hover:text-white text-sm transition-colors">
-                文档
-              </Link>
-              <Link href="/privacy" className="text-white/50 hover:text-white text-sm transition-colors">
-                隐私政策
-              </Link>
-              <Link href="/terms" className="text-white/50 hover:text-white text-sm transition-colors">
-                服务条款
-              </Link>
-            </div>
           </div>
         </div>
       </footer>
