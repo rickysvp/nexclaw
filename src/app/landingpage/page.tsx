@@ -82,20 +82,7 @@ export default function LandingPage() {
               </div>
               <span className="text-gray-900 font-semibold text-sm">Claw Wallet</span>
             </Link>
-            <div className="flex items-center gap-6">
-              <Link
-                href="/docs"
-                className="text-gray-500 hover:text-gray-900 text-sm transition-colors"
-              >
-                文档
-              </Link>
-              <Link
-                href="/login"
-                className="px-4 py-1.5 bg-gray-900 hover:bg-gray-800 text-white rounded-lg text-sm font-medium transition-colors"
-              >
-                登录
-              </Link>
-            </div>
+
           </div>
         </div>
       </nav>
@@ -164,25 +151,7 @@ export default function LandingPage() {
               </div>
             </motion.div>
 
-            {/* Quick Links */}
-            <div className="flex items-center justify-center gap-6 text-sm">
-              <Link
-                href="https://docs.openclaw.io"
-                target="_blank"
-                className="flex items-center gap-1.5 text-gray-500 hover:text-gray-900 transition-colors"
-              >
-                查看文档
-                <ExternalLink className="w-3.5 h-3.5" />
-              </Link>
-              <span className="text-gray-300">|</span>
-              <Link
-                href="/login"
-                className="flex items-center gap-1.5 text-gray-500 hover:text-gray-900 transition-colors"
-              >
-                开始使用
-                <ArrowRight className="w-3.5 h-3.5" />
-              </Link>
-            </div>
+
           </motion.div>
         </div>
       </section>
@@ -364,13 +333,6 @@ export default function LandingPage() {
                   </>
                 )}
               </button>
-              <Link
-                href="/login"
-                className="flex items-center gap-2 px-6 py-3 bg-white border border-gray-200 hover:border-gray-300 text-gray-700 rounded-xl font-medium text-sm transition-all"
-              >
-                <Sparkles className="w-4 h-4" />
-                开始使用
-              </Link>
             </div>
           </motion.div>
         </div>
