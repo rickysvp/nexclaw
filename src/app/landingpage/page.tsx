@@ -123,17 +123,14 @@ export default function LandingPage() {
               transition={{ delay: 0.1 }}
               className="pt-4"
             >
-              <div className="inline-flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
-                <div className="flex items-center gap-3 px-5 py-3 bg-gray-900 rounded-xl border border-gray-800">
-                  <Terminal className="w-4 h-4 text-gray-400" />
-                  <code className="text-sm text-gray-100 font-mono">{installCommand}</code>
-                </div>
+              <div className="inline-flex items-center gap-2 px-2 py-2 bg-gray-900 rounded-2xl border border-gray-800 shadow-2xl shadow-black/20">
+                <code className="text-sm text-gray-300 font-mono px-4">{installCommand}</code>
                 <button
                   onClick={handleCopy}
-                  className={`flex items-center justify-center gap-2 px-5 py-3 rounded-xl font-medium text-sm transition-all ${
+                  className={`flex items-center gap-1.5 px-4 py-2.5 rounded-xl font-medium text-sm transition-all ${
                     copied
                       ? "bg-green-500 text-white"
-                      : "bg-orange-500 hover:bg-orange-600 text-white"
+                      : "bg-white text-gray-900 hover:bg-gray-100"
                   }`}
                 >
                   {copied ? (
@@ -144,11 +141,15 @@ export default function LandingPage() {
                   ) : (
                     <>
                       <Copy className="w-4 h-4" />
-                      复制命令
+                      复制
                     </>
                   )}
                 </button>
               </div>
+              
+              <p className="text-gray-400 text-sm mt-4">
+                复制后发送给 OpenClaw 即可自动安装
+              </p>
             </motion.div>
 
 
