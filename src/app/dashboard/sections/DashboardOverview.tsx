@@ -53,10 +53,16 @@ export default function DashboardOverview() {
     loadData();
   }, []);
 
-  const loadData = () => {
+  const loadWallets = () => {
     setWallets(mockWallets);
-    setTransactions(mockTransactions.slice(0, 5));
-    setAlerts(mockAlerts.slice(0, 3));
+  };
+
+  const loadTransactions = () => {
+    setTransactions(mockTransactions);
+  };
+
+  const loadAlerts = () => {
+    setAlerts(mockAlerts);
   };
 
   const handleRefresh = () => {

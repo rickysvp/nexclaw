@@ -151,16 +151,21 @@ export interface PendingTransaction {
   description?: string;
 }
 
-// 风控规则类型
-export interface RiskRule {
+// Approval类型 (使用 PendingTransaction 作为基础)
+export type Approval = PendingTransaction;
+
+// Approval规则类型
+export interface ApprovalRule {
   id: string;
   name: string;
-  type: 'amount_limit' | 'frequency_limit' | 'address_check' | 'behavior_check' | 'data_monitor' | 'contract_scan' | 'cross_chain';
+  description: string;
   enabled: boolean;
-  config: Record<string, any>;
-  severity: 'low' | 'medium' | 'high';
-  createdAt?: string;
-  description?: string;
+  maxAmount?: number;
+  maxFrequency?: number;
+  requireApproval?: boolean;
+  approvalTimeout?: number; // minutes
+  createdAt: string;
+  updatedAt: string;
 }
 
 // 风控日志类型
@@ -175,6 +180,9 @@ export interface RiskLog {
   status: 'blocked' | 'warning' | 'passed';
   details?: Record<string, any>;
 }
+
+// 风控事件类型 (别名)
+export type RiskEvent = RiskLog;
 
 // 通知设置类型
 export interface NotificationSettings {
@@ -266,4 +274,25 @@ export interface Role {
   permissions: string[];
   isSystem: boolean;
   createdAt: string;
+}
+
+// Alert 类型
+export interface Alert {
+  id: string;
+  type: 'info' | 'warning' | 'error' | 'success';
+  title: string;
+  message: string;
+  timestamp: string;
+  isRead: boolean;
+}
+
+// Contact 类型
+export interface Contact {
+  id: string;
+  name: string;
+  address: string;
+  label?: 'personal' | 'exchange' | 'defi' | 'nft' | 'other';
+  isFavorite: boolean;
+  addedAt: string;
+  lastUsedAt?: string;
 }

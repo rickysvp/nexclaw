@@ -22,8 +22,8 @@ import {
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Switch } from '@/components/ui/switch';
-import { mockSecurityRules, mockRiskEvents, mockWallets } from '@/lib/mockData';
-import { SecurityRule, RiskEvent } from '@/types';
+import { mockSecurityRules, mockRiskLogs, mockWallets } from '@/lib/mockData';
+import { SecurityRule, RiskLog } from '@/types';
 
 export default function RiskSection() {
   const [rules, setRules] = useState<SecurityRule[]>([]);
