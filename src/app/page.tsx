@@ -25,19 +25,11 @@ const staggerContainer = {
 
 // Logo Component
 const ClawLogo = ({ className = "w-7 h-7" }: { className?: string }) => (
-  <svg className={className} viewBox="0 0 120 120" fill="none">
-    <rect width="120" height="120" rx="28" fill="#FF4D2E"/>
-    <path d="M35 45C35 45 25 55 25 70C25 85 35 95 45 90C50 87 52 80 50 75C48 70 42 68 40 72C38 76 42 78 45 76" 
-          stroke="white" strokeWidth="5" strokeLinecap="round" strokeLinejoin="round" fill="none"/>
-    <path d="M85 45C85 45 95 55 95 70C95 85 85 95 75 90C70 87 68 80 70 75C72 70 78 68 80 72C82 76 78 78 75 76" 
-          stroke="white" strokeWidth="5" strokeLinecap="round" strokeLinejoin="round" fill="none"/>
-    <ellipse cx="60" cy="70" rx="12" ry="18" fill="white"/>
-    <path d="M55 55C55 50 58 45 60 42C62 45 65 50 65 55" 
-          stroke="white" strokeWidth="4" strokeLinecap="round" fill="none"/>
-    <circle cx="48" cy="65" r="3" fill="#FF4D2E"/>
-    <circle cx="72" cy="65" r="3" fill="#FF4D2E"/>
-    <circle cx="60" cy="75" r="4" fill="#FF4D2E"/>
-  </svg>
+  <img 
+    src="/claw.png" 
+    alt="Claw Wallet"
+    className={className}
+  />
 );
 
 export default function Home() {
@@ -474,7 +466,7 @@ export default function Home() {
               <div className="flex flex-wrap gap-2">
                 <span className="text-xs px-3 py-1.5 rounded bg-white/[0.04] border border-[#FF4D2E]/30 text-[#FF4D2E]">AWS Nitro TEE</span>
                 <span className="text-xs px-3 py-1.5 rounded bg-white/[0.04] border border-[#FF4D2E]/30 text-[#FF4D2E]">Bitslab Safe</span>
-                <span className="text-xs px-3 py-1.5 rounded bg-white/[0.04] border border-white/[0.08] text-[#A09890]">CertiK 审计</span>
+                <span className="text-xs px-3 py-1.5 rounded bg-white/[0.04] border border-white/[0.08] text-[#A09890]">Bitslab 审计</span>
                 <span className="text-xs px-3 py-1.5 rounded bg-white/[0.04] border border-white/[0.08] text-[#A09890]">GDPR 合规</span>
                 <span className="text-xs px-3 py-1.5 rounded bg-white/[0.04] border border-white/[0.08] text-[#A09890]">开源可验证</span>
                 <span className="text-xs px-3 py-1.5 rounded bg-white/[0.04] border border-white/[0.08] text-[#A09890]">端对端加密</span>
