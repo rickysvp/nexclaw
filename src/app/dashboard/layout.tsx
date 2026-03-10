@@ -24,7 +24,7 @@ export default function DashboardLayout() {
   const renderSection = () => {
     switch (currentSection) {
       case 'dashboard':
-        return <DashboardOverview onNavigate={handleNavigate} />;
+        return <DashboardOverview />;
       case 'wallets':
         return <WalletsSection />;
       case 'approvals':
@@ -42,7 +42,7 @@ export default function DashboardLayout() {
       case 'settings':
         return <SettingsSection />;
       default:
-        return <DashboardOverview onNavigate={handleNavigate} />;
+        return <DashboardOverview />;
     }
   };
 

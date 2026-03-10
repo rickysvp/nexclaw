@@ -63,7 +63,7 @@ export default function DashboardPage() {
   const renderSection = () => {
     switch (currentSection) {
       case 'dashboard':
-        return <DashboardOverview onNavigate={handleNavigate} />;
+        return <DashboardOverview />;
       case 'wallets':
         return <WalletsSection />;
       case 'approvals':
@@ -81,7 +81,7 @@ export default function DashboardPage() {
       case 'settings':
         return <SettingsSection />;
       default:
-        return <DashboardOverview onNavigate={handleNavigate} />;
+        return <DashboardOverview />;
     }
   };
 

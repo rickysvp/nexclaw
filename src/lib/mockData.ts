@@ -567,7 +567,7 @@ export const mockApprovalRules = [
     maxAmount: 10.0,
     maxFrequency: 50,
     requireApproval: false,
-    approvalTimeout: null,
+    approvalTimeout: undefined,
     createdAt: "2026-02-01T10:00:00Z",
     updatedAt: "2026-02-28T10:00:00Z",
   },

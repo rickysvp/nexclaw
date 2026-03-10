@@ -72,7 +72,7 @@ export default function TransactionsSection() {
 
   const filteredTransactions = transactions.filter(t => {
     const matchesSearch = t.description?.toLowerCase().includes(searchQuery.toLowerCase()) ||
-                         t.txHash.toLowerCase().includes(searchQuery.toLowerCase());
+                         (t.txHash?.toLowerCase() || '').includes(searchQuery.toLowerCase());
     const matchesType = filterType === 'all' || t.type === filterType;
     const matchesStatus = filterStatus === 'all' || t.status === filterStatus;
     return matchesSearch && matchesType && matchesStatus;
@@ -263,7 +263,7 @@ export default function TransactionsSection() {
                       </td>
                       <td className="px-6 py-4">
                         <p className="text-gray-900">{tx.description || '-'}</p>
-                        <p className="text-gray-500 text-sm">{tx.txHash.slice(0, 8)}...{tx.txHash.slice(-6)}</p>
+                        <p className="text-gray-500 text-sm">{tx.txHash ? `${tx.txHash.slice(0, 8)}...${tx.txHash.slice(-6)}` : '-'}</p>
                       </td>
                       <td className="px-6 py-4">
                         <span className={`font-medium ${

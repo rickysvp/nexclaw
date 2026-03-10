@@ -120,7 +120,7 @@ export default function ContactsSection() {
             </div>
             <div>
               <p className="text-gray-500 text-sm">AI Agents</p>
-              <p className="text-xl font-bold text-gray-900">{contacts.filter(c => c.type === 'agent').length}</p>
+              <p className="text-xl font-bold text-gray-900">{contacts.filter(c => c.label === 'personal').length}</p>
             </div>
           </div>
         </div>
@@ -131,7 +131,7 @@ export default function ContactsSection() {
             </div>
             <div>
               <p className="text-gray-500 text-sm">组织</p>
-              <p className="text-xl font-bold text-gray-900">{contacts.filter(c => c.type === 'organization').length}</p>
+              <p className="text-xl font-bold text-gray-900">{contacts.filter(c => c.label === 'exchange').length}</p>
             </div>
           </div>
         </div>
@@ -152,7 +152,7 @@ export default function ContactsSection() {
       {/* Contacts Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         {filteredContacts.map((contact, index) => {
-          const TypeIcon = getTypeIcon(contact.type);
+          const TypeIcon = getTypeIcon(contact.label || 'other');
           return (
             <motion.div
               key={contact.id}
@@ -164,20 +164,20 @@ export default function ContactsSection() {
               <div className="flex items-start justify-between mb-4">
                 <div className="flex items-center gap-3">
                   <div className={`w-12 h-12 rounded-xl flex items-center justify-center ${
-                    contact.type === 'agent' ? 'bg-purple-100' :
-                    contact.type === 'organization' ? 'bg-blue-100' :
+                    contact.label === 'personal' ? 'bg-purple-100' :
+                    contact.label === 'exchange' ? 'bg-blue-100' :
                     'bg-green-100'
                   }`}>
                     <TypeIcon className={`h-6 w-6 ${
-                      contact.type === 'agent' ? 'text-purple-600' :
-                      contact.type === 'organization' ? 'text-blue-600' :
+                      contact.label === 'personal' ? 'text-purple-600' :
+                      contact.label === 'exchange' ? 'text-blue-600' :
                       'text-green-600'
                     }`} />
                   </div>
                   <div>
                     <h3 className="font-bold text-gray-900">{contact.name}</h3>
                     <Badge variant="secondary" className="text-xs">
-                      {contact.type === 'agent' ? 'AI Agent' : contact.type === 'organization' ? '组织' : '个人'}
+                      {contact.label === 'personal' ? '个人' : contact.label === 'exchange' ? '交易所' : contact.label === 'defi' ? 'DeFi' : contact.label === 'nft' ? 'NFT' : '其他'}
                     </Badge>
                   </div>
                 </div>
@@ -197,10 +197,6 @@ export default function ContactsSection() {
                   <Copy className="h-4 w-4" />
                 </button>
               </div>
-
-              {contact.notes && (
-                <p className="text-sm text-gray-500 mt-3">{contact.notes}</p>
-              )}
 
               <div className="flex gap-2 mt-4">
                 <Button

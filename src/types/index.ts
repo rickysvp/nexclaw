@@ -20,6 +20,8 @@ export interface Wallet {
   userId: string;
   status?: 'active' | 'expired' | 'frozen';
   lastActivity?: string;
+  type?: string;
+  isDefault?: boolean;
 }
 
 // 钱包详情类型
@@ -69,15 +71,19 @@ export interface BlacklistContract {
 // 安全规则类型
 export interface SecurityRule {
   id: string;
-  walletId: string;
+  name?: string;
+  description?: string;
+  type?: string;
+  walletId?: string;
   pinCode?: string;
   maxAmountPerTx?: string;
   maxAmountPerDay?: string;
-  whitelistAddresses: WhitelistAddress[];
-  blacklistContracts: BlacklistContract[];
-  securityScore: number;
-  createdAt: string;
-  updatedAt: string;
+  whitelistAddresses?: WhitelistAddress[];
+  blacklistContracts?: BlacklistContract[];
+  securityScore?: number;
+  createdAt?: string;
+  updatedAt?: string;
+  enabled?: boolean;
 }
 
 // 转账请求类型
@@ -160,12 +166,24 @@ export interface ApprovalRule {
   name: string;
   description: string;
   enabled: boolean;
+  isActive?: boolean;
   maxAmount?: number;
   maxFrequency?: number;
   requireApproval?: boolean;
   approvalTimeout?: number; // minutes
   createdAt: string;
   updatedAt: string;
+}
+
+// 规则类型
+export interface RiskRule {
+  id: string;
+  name: string;
+  type: string;
+  enabled: boolean;
+  severity: 'low' | 'medium' | 'high';
+  description?: string;
+  config?: Record<string, any>;
 }
 
 // 风控日志类型
@@ -229,7 +247,6 @@ export interface AuthSession {
 export interface ChartDataPoint {
   date: string;
   value: number;
-  label?: string;
 }
 
 export interface TransactionTypeData {
@@ -279,7 +296,7 @@ export interface Role {
 // Alert 类型
 export interface Alert {
   id: string;
-  type: 'info' | 'warning' | 'error' | 'success';
+  type: string;
   title: string;
   message: string;
   timestamp: string;
@@ -291,7 +308,7 @@ export interface Contact {
   id: string;
   name: string;
   address: string;
-  label?: 'personal' | 'exchange' | 'defi' | 'nft' | 'other';
+  label?: string;
   isFavorite: boolean;
   addedAt: string;
   lastUsedAt?: string;

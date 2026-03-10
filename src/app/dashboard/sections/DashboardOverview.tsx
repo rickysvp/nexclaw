@@ -50,7 +50,9 @@ export default function DashboardOverview() {
 
   useEffect(() => {
     setMounted(true);
-    loadData();
+    loadWallets();
+    loadTransactions();
+    loadAlerts();
   }, []);
 
   const loadWallets = () => {
@@ -63,6 +65,12 @@ export default function DashboardOverview() {
 
   const loadAlerts = () => {
     setAlerts(mockAlerts);
+  };
+
+  const loadData = () => {
+    loadWallets();
+    loadTransactions();
+    loadAlerts();
   };
 
   const handleRefresh = () => {
@@ -300,14 +308,14 @@ export default function DashboardOverview() {
                   >
                     <div className="flex items-start gap-3">
                       <div className={`w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 ${
-                        alert.severity === 'high' ? 'bg-red-100' :
-                        alert.severity === 'medium' ? 'bg-yellow-100' :
+                        alert.type === 'error' || alert.type === 'warning' ? 'bg-red-100' :
+                        alert.type === 'success' ? 'bg-green-100' :
                         'bg-blue-100'
                       }`}>
-                        {alert.severity === 'high' ? (
+                        {alert.type === 'error' || alert.type === 'warning' ? (
                           <AlertCircle className="h-4 w-4 text-red-600" />
-                        ) : alert.severity === 'medium' ? (
-                          <AlertCircle className="h-4 w-4 text-yellow-600" />
+                        ) : alert.type === 'success' ? (
+                          <CheckCircle2 className="h-4 w-4 text-green-600" />
                         ) : (
                           <AlertCircle className="h-4 w-4 text-blue-600" />
                         )}
@@ -338,7 +346,7 @@ export default function DashboardOverview() {
             <div className="mt-4 pt-4 border-t border-white/20">
               <div className="flex items-center justify-between text-sm">
                 <span className="text-orange-100">主钱包</span>
-                <span>{wallets.find(w => w.isDefault)?.name || '未设置'}</span>
+                <span>{wallets[0]?.name || '未设置'}</span>
               </div>
             </div>
           </div>

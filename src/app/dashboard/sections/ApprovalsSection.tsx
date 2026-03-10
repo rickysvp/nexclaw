@@ -70,8 +70,8 @@ export default function ApprovalsSection() {
 
   const filteredApprovals = approvals.filter(a => {
     const matchesFilter = filter === 'all' || a.status === filter;
-    const matchesSearch = a.description.toLowerCase().includes(searchQuery.toLowerCase()) ||
-                         a.requester.name.toLowerCase().includes(searchQuery.toLowerCase());
+    const matchesSearch = (a.description?.toLowerCase() || '').includes(searchQuery.toLowerCase()) ||
+                         (a.agentName?.toLowerCase() || '').includes(searchQuery.toLowerCase());
     return matchesFilter && matchesSearch;
   });
 
@@ -251,7 +251,8 @@ export default function ApprovalsSection() {
         ) : (
           <div className="divide-y divide-gray-100">
             {filteredApprovals.map((approval, index) => {
-              const RequesterIcon = getRequesterIcon(approval.requester.type);
+              const requesterType = approval.agentId ? 'agent' : 'user';
+              const RequesterIcon = getRequesterIcon(requesterType);
               return (
                 <motion.div
                   key={approval.id}
@@ -263,14 +264,10 @@ export default function ApprovalsSection() {
                   <div className="flex items-start justify-between">
                     <div className="flex items-start gap-4">
                       <div className={`w-12 h-12 rounded-xl flex items-center justify-center ${
-                        approval.requester.type === 'agent' ? 'bg-purple-100' :
-                        approval.requester.type === 'organization' ? 'bg-blue-100' :
-                        'bg-green-100'
+                        requesterType === 'agent' ? 'bg-purple-100' : 'bg-green-100'
                       }`}>
                         <RequesterIcon className={`h-6 w-6 ${
-                          approval.requester.type === 'agent' ? 'text-purple-600' :
-                          approval.requester.type === 'organization' ? 'text-blue-600' :
-                          'text-green-600'
+                          requesterType === 'agent' ? 'text-purple-600' : 'text-green-600'
                         }`} />
                       </div>
                       <div>
@@ -292,7 +289,7 @@ export default function ApprovalsSection() {
                           )}
                         </div>
                         <p className="text-sm text-gray-500 mt-1">
-                          请求者: {approval.requester.name} · {approval.requester.type === 'agent' ? 'AI Agent' : approval.requester.type === 'organization' ? '组织' : '用户'}
+                          请求者: {approval.agentName} · {requesterType === 'agent' ? 'AI Agent' : '用户'}
                         </p>
                         <div className="flex items-center gap-4 mt-2 text-sm text-gray-500">
                           <span>金额: <span className="font-medium text-gray-900">{approval.amount} {approval.token}</span></span>

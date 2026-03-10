@@ -27,7 +27,7 @@ import { SecurityRule, RiskLog } from '@/types';
 
 export default function RiskSection() {
   const [rules, setRules] = useState<SecurityRule[]>([]);
-  const [events, setEvents] = useState<RiskEvent[]>([]);
+  const [events, setEvents] = useState<RiskLog[]>([]);
   const [isLoading, setIsLoading] = useState(false);
   const [securityScore, setSecurityScore] = useState(85);
 
@@ -37,7 +37,7 @@ export default function RiskSection() {
 
   const loadData = () => {
     setRules(mockSecurityRules);
-    setEvents(mockRiskEvents);
+    setEvents(mockRiskLogs);
   };
 
   const handleRefresh = () => {
@@ -50,13 +50,13 @@ export default function RiskSection() {
 
   const toggleRule = (ruleId: string) => {
     setRules(prev => prev.map(r => 
-      r.id === ruleId ? { ...r, isActive: !r.isActive } : r
+      r.id === ruleId ? { ...r, enabled: !r.enabled } : r
     ));
   };
 
   const stats = {
     totalRules: rules.length,
-    activeRules: rules.filter(r => r.isActive).length,
+    activeRules: rules.filter(r => r.enabled).length,
     highRiskEvents: events.filter(e => e.severity === 'high').length,
     mediumRiskEvents: events.filter(e => e.severity === 'medium').length,
   };
@@ -196,16 +196,16 @@ export default function RiskSection() {
               <div key={rule.id} className="p-4 flex items-center justify-between hover:bg-gray-50">
                 <div className="flex items-center gap-3">
                   <div className={`w-10 h-10 rounded-xl flex items-center justify-center ${
-                    rule.isActive ? 'bg-green-100' : 'bg-gray-100'
+                    rule.enabled ? 'bg-green-100' : 'bg-gray-100'
                   }`}>
                     {rule.type === 'spend_limit' ? (
-                      <Wallet className={`h-5 w-5 ${rule.isActive ? 'text-green-600' : 'text-gray-500'}`} />
+                      <Wallet className={`h-5 w-5 ${rule.enabled ? 'text-green-600' : 'text-gray-500'}`} />
                     ) : rule.type === 'whitelist' ? (
-                      <Users className={`h-5 w-5 ${rule.isActive ? 'text-green-600' : 'text-gray-500'}`} />
+                      <Users className={`h-5 w-5 ${rule.enabled ? 'text-green-600' : 'text-gray-500'}`} />
                     ) : rule.type === 'geo_restrict' ? (
-                      <Globe className={`h-5 w-5 ${rule.isActive ? 'text-green-600' : 'text-gray-500'}`} />
+                      <Globe className={`h-5 w-5 ${rule.enabled ? 'text-green-600' : 'text-gray-500'}`} />
                     ) : (
-                      <Lock className={`h-5 w-5 ${rule.isActive ? 'text-green-600' : 'text-gray-500'}`} />
+                      <Lock className={`h-5 w-5 ${rule.enabled ? 'text-green-600' : 'text-gray-500'}`} />
                     )}
                   </div>
                   <div>
@@ -214,7 +214,7 @@ export default function RiskSection() {
                   </div>
                 </div>
                 <Switch
-                  checked={rule.isActive}
+                  checked={rule.enabled}
                   onCheckedChange={() => toggleRule(rule.id)}
                 />
               </div>
@@ -249,12 +249,12 @@ export default function RiskSection() {
                     </div>
                     <div className="flex-1 min-w-0">
                       <div className="flex items-center gap-2">
-                        <p className="font-medium text-gray-900">{event.title}</p>
+                        <p className="font-medium text-gray-900">{event.reason}</p>
                         <Badge className={getSeverityColor(event.severity)}>
                           {event.severity === 'high' ? '高风险' : event.severity === 'medium' ? '中风险' : '低风险'}
                         </Badge>
                       </div>
-                      <p className="text-sm text-gray-500 mt-1">{event.description}</p>
+                      <p className="text-sm text-gray-500 mt-1">{event.ruleName}</p>
                       <p className="text-xs text-gray-400 mt-2">
                         {new Date(event.timestamp).toLocaleString()}
                       </p>

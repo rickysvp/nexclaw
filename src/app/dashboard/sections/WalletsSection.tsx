@@ -104,11 +104,11 @@ export default function WalletsSection() {
   };
 
   const filteredWallets = wallets.filter((wallet) => {
-    const matchesSearch = wallet.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-                         wallet.address.toLowerCase().includes(searchQuery.toLowerCase());
+    const matchesSearch = (wallet.name?.toLowerCase() || '').includes(searchQuery.toLowerCase()) ||
+                         (wallet.address?.toLowerCase() || '').includes(searchQuery.toLowerCase());
     const matchesFilter = filterStatus === 'all' ||
-                         (filterStatus === 'active' && wallet.isActive) ||
-                         (filterStatus === 'inactive' && !wallet.isActive);
+                         (filterStatus === 'active' && wallet.status === 'active') ||
+                         (filterStatus === 'inactive' && wallet.status !== 'active');
     return matchesSearch && matchesFilter;
   });
 
@@ -181,7 +181,7 @@ export default function WalletsSection() {
           <div className="flex items-center justify-between">
             <div>
               <p className="text-gray-500 text-sm">活跃钱包</p>
-              <p className="text-2xl font-bold text-gray-900">{wallets.filter(w => w.isActive).length}</p>
+              <p className="text-2xl font-bold text-gray-900">{wallets.filter(w => w.status === 'active').length}</p>
             </div>
             <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-green-500 to-green-600 flex items-center justify-center">
               <CheckCircle2 className="h-6 w-6 text-white" />
@@ -259,7 +259,7 @@ export default function WalletsSection() {
                   </div>
                   <div>
                     <h3 className="font-bold text-gray-900">{wallet.name}</h3>
-                    <p className="text-sm text-gray-500">{wallet.type}</p>
+                    <p className="text-sm text-gray-500">{wallet.type || '普通钱包'}</p>
                   </div>
                 </div>
                 <div className="flex items-center gap-1">
@@ -357,7 +357,7 @@ export default function WalletsSection() {
                 </div>
                 <div className="text-right">
                   <p className="font-bold text-gray-900">{wallet.balance}</p>
-                  <p className="text-sm text-gray-500">{wallet.type}</p>
+                  <p className="text-sm text-gray-500">{wallet.type || '普通钱包'}</p>
                 </div>
                 <div className="flex items-center gap-2">
                   <Button
