@@ -363,34 +363,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Testimonials Section */}
-      <section className="border-b border-gray-200">
-        <div className="grid md:grid-cols-3 gap-px bg-gray-200">
-          {[
-            { quote: "Claw Wallet 是目前唯一真正为 OpenClaw Agent 设计的钱包方案，TEE 分片架构让我对 Agent 自主操作资金完全放心。", handle: "@zhang_defi · DeFi 开发者", avatar: "Z" },
-            { quote: "从创建钱包到给 Agent 授权只花了 3 分钟，权限粒度控制得很好，日限额 + 合约白名单设计非常专业。", handle: "@liwei_eth · 量化策略工程师", avatar: "L" },
-            { quote: "我们的 OpenClaw Agent 每天自动执行几十笔链上操作，Claw Wallet 的审计日志让整个过程完全透明可追溯。", handle: "@alex_protocol · 协议创始人", avatar: "A" },
-          ].map((t, idx) => (
-            <motion.div
-              key={idx}
-              className="bg-white p-8 hover:bg-gray-50 transition-colors"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: idx * 0.1 }}
-            >
-              <p className="text-sm leading-relaxed text-gray-700 mb-5">&ldquo;{t.quote}&rdquo;</p>
-              <div className="flex items-center gap-2.5">
-                <div className="w-8 h-8 rounded-full bg-gray-100 border border-gray-200 flex items-center justify-center text-xs font-bold text-gray-500">
-                  {t.avatar}
-                </div>
-                <span className="text-xs text-gray-500">{t.handle}</span>
-              </div>
-            </motion.div>
-          ))}
-        </div>
-      </section>
-
       {/* Security Section */}
       <section id="security" className="py-24 lg:py-32 border-b border-gray-200">
         <div className="max-w-7xl mx-auto px-6 lg:px-20">
@@ -564,6 +536,34 @@ export default function Home() {
               </motion.div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* Testimonials Section */}
+      <section className="border-b border-gray-200">
+        <div className="grid md:grid-cols-3 gap-px bg-gray-200">
+          {[
+            { quote: "Claw Wallet 是目前唯一真正为 OpenClaw Agent 设计的钱包方案，TEE 分片架构让我对 Agent 自主操作资金完全放心。", handle: "@zhang_defi · DeFi 开发者", avatar: "Z" },
+            { quote: "从创建钱包到给 Agent 授权只花了 3 分钟，权限粒度控制得很好，日限额 + 合约白名单设计非常专业。", handle: "@liwei_eth · 量化策略工程师", avatar: "L" },
+            { quote: "我们的 OpenClaw Agent 每天自动执行几十笔链上操作，Claw Wallet 的审计日志让整个过程完全透明可追溯。", handle: "@alex_protocol · 协议创始人", avatar: "A" },
+          ].map((t, idx) => (
+            <motion.div
+              key={idx}
+              className="bg-white p-8 hover:bg-gray-50 transition-colors"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.4, delay: idx * 0.1 }}
+            >
+              <p className="text-sm leading-relaxed text-gray-700 mb-5">&ldquo;{t.quote}&rdquo;</p>
+              <div className="flex items-center gap-2.5">
+                <div className="w-8 h-8 rounded-full bg-gray-100 border border-gray-200 flex items-center justify-center text-xs font-bold text-gray-500">
+                  {t.avatar}
+                </div>
+                <span className="text-xs text-gray-500">{t.handle}</span>
+              </div>
+            </motion.div>
+          ))}
         </div>
       </section>
 
