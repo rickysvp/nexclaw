@@ -12,86 +12,102 @@ import {
   Layers,
   Shield,
   Lock,
-  Cpu,
   Globe,
   ChevronDown,
   ChevronUp,
   Bot,
   Package,
   Sparkles,
+  Quote,
+  Star,
+  Users,
+  Menu,
+  X,
+  Github,
+  Twitter,
 } from "lucide-react";
 import Link from "next/link";
+import { languages, getTranslation, type Language } from "./i18n";
 
-const installCommand = "npx clawhub@latest install clawwallet";
+const installCommand = "npx ClawWallet@latest install clawwallet";
 
-const features = [
-  {
-    icon: Shield,
-    title: "TEE 安全架构",
-    description: "基于 AWS Nitro Enclaves 的硬件级安全隔离，私钥永不离开安全环境",
-  },
-  {
-    icon: Zap,
-    title: "3 秒极速创建",
-    description: "无私钥，无需复杂配置，一行命令即刻生成可用钱包",
-  },
-  {
-    icon: Layers,
-    title: "多链原生支持",
-    description: "Ethereum、Polygon、BSC、Arbitrum 等主流公链一键切换",
-  },
+const navLinks = [
+  { key: "nav.features", href: "#features" },
+  { key: "nav.security", href: "#security" },
+  { key: "nav.reviews", href: "#testimonials" },
+  { key: "nav.faq", href: "#faq" },
 ];
 
-const stats = [
-  { value: "10K+", label: "已部署钱包" },
-  { value: "99.9%", label: "安全运行时间" },
-  { value: "50+", label: "企业客户" },
-  { value: "4", label: "支持公链" },
+const statsKeys = [
+  { value: "10K+", key: "stats.wallets" },
+  { value: "99.9%", key: "stats.uptime" },
+  { value: "50+", key: "stats.clients" },
+  { value: "4", key: "stats.chains" },
 ];
 
-const detailedFeatures = [
-  {
-    icon: Lock,
-    title: "无私钥恢复",
-    description: "通过 OpenClaw 账户安全恢复，告别私钥丢失风险",
-  },
-  {
-    icon: Cpu,
-    title: "硬件级安全",
-    description: "AWS Nitro Enclaves 提供银行级安全保障",
-  },
-  {
-    icon: Globe,
-    title: "全球节点",
-    description: "分布式节点网络，确保交易快速确认",
-  },
-  {
-    icon: Bot,
-    title: "AI 原生集成",
-    description: "专为 AI Agent 设计，自然语言即可操控",
-  },
+const featuresKeys = [
+  { icon: Shield, titleKey: "features.tee.title", descKey: "features.tee.desc" },
+  { icon: Zap, titleKey: "features.fast.title", descKey: "features.fast.desc" },
+  { icon: Layers, titleKey: "features.multichain.title", descKey: "features.multichain.desc" },
 ];
 
-const faqs = [
+const detailedFeaturesKeys = [
+  { icon: Lock, titleKey: "security.teeSharding.title", descKey: "security.teeSharding.desc" },
+  { icon: Shield, titleKey: "security.txEngine.title", descKey: "security.txEngine.desc" },
+  { icon: Check, titleKey: "security.confirm.title", descKey: "security.confirm.desc" },
+  { icon: Globe, titleKey: "security.scan.title", descKey: "security.scan.desc" },
+  { icon: Lock, titleKey: "security.encryption.title", descKey: "security.encryption.desc" },
+];
+
+const faqKeys = [
+  { qKey: "faq.q1.question", aKey: "faq.q1.answer" },
+  { qKey: "faq.q2.question", aKey: "faq.q2.answer" },
+  { qKey: "faq.q3.question", aKey: "faq.q3.answer" },
+  { qKey: "faq.q4.question", aKey: "faq.q4.answer" },
+  { qKey: "faq.q5.question", aKey: "faq.q5.answer" },
+];
+
+const partners = [
+  { name: "Ethereum", logoPath: "/logos/ethereum.png" },
+  { name: "Monad", logoPath: "/logos/monad.png" },
+  { name: "SUI", logoPath: "/logos/sui.png" },
+  { name: "Polygon", logoPath: "/logos/polygon.png" },
+  { name: "BSC", logoPath: "/logos/bsc.png" },
+];
+
+const testimonials = [
   {
-    question: "ClawWallet 是什么？",
-    answer: "ClawWallet 是专为 OpenClaw AI Agent 设计的原生加密钱包 Skill。通过简单的命令安装，即可为您的 AI Agent 添加安全的多链钱包能力。",
+    name: "张明",
+    nameEn: "Zhang Ming",
+    role: "AI 开发者",
+    roleEn: "AI Developer",
+    company: "TechFlow",
+    avatar: "👨‍💻",
+    content: "ClawWallet 让我们的 AI Agent 瞬间拥有了加密支付能力，集成过程不到5分钟。TEE安全架构让我们非常放心。",
+    contentEn: "ClawWallet gave our AI Agent instant crypto payment capabilities, integration took less than 5 minutes. The TEE security architecture gives us complete peace of mind.",
+    rating: 5,
   },
   {
-    question: "如何安装 ClawWallet？",
-    answer: "只需在终端运行命令 npx clawhub@latest install clawwallet，或直接向 OpenClaw 发送'安装 clawwallet'即可自动完成部署。",
+    name: "李雪",
+    nameEn: "Li Xue",
+    role: "产品经理",
+    roleEn: "Product Manager",
+    company: "DeFi Labs",
+    avatar: "👩‍💼",
+    content: "作为OpenClaw原生Skill，ClawWallet的无缝体验令人印象深刻。我们的用户现在可以通过自然语言完成加密交易。",
+    contentEn: "As a native OpenClaw Skill, ClawWallet's seamless experience is impressive. Our users can now complete crypto transactions through natural language.",
+    rating: 5,
   },
   {
-    question: "我的资产安全吗？",
-    answer: "绝对安全。ClawWallet 采用 AWS Nitro Enclaves TEE 技术，私钥在硬件安全环境中生成和存储，连我们自己也无法访问。",
-  },
-  {
-    question: "支持哪些区块链？",
-    answer: "目前支持 Ethereum、Polygon、BSC、Arbitrum 等主流公链，未来将持续添加更多网络支持。",
-  },
-  {
-    question: "需要私钥吗？",
-    answer: "不需要。ClawWallet 通过 OpenClaw 账户体系安全管理，无需管理复杂的私钥，也不会有私钥丢失的风险。",
+    name: "王强",
+    nameEn: "Wang Qiang",
+    role: "CTO",
+    roleEn: "CTO",
+    company: "ChainMind",
+    avatar: "👨‍🚀",
+    content: "无私钥设计解决了我们最大的痛点。团队成员不再需要担心私钥管理，安全性反而更高了。",
+    contentEn: "The keyless design solved our biggest pain point. Team members no longer worry about key management, and security is actually higher.",
+    rating: 5,
   },
 ];
 
@@ -127,6 +143,9 @@ function FAQItem({ question, answer }: { question: string; answer: string }) {
 
 export default function LandingPage() {
   const [copied, setCopied] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [currentLang, setCurrentLang] = useState<Language>("zh");
+  const [isLangMenuOpen, setIsLangMenuOpen] = useState(false);
 
   const handleCopy = async () => {
     await navigator.clipboard.writeText(installCommand);
@@ -134,20 +153,137 @@ export default function LandingPage() {
     setTimeout(() => setCopied(false), 2000);
   };
 
+  const t = (key: string) => getTranslation(key, currentLang);
+
   return (
     <div className="min-h-screen bg-[#fafafa]">
-      {/* Navigation */}
-      <nav className="fixed top-0 left-0 right-0 z-50 border-b border-gray-200/80 bg-white/80 backdrop-blur-xl">
-        <div className="max-w-5xl mx-auto px-6">
-          <div className="flex items-center justify-between h-14">
-            <Link href="/" className="flex items-center gap-2">
-              <div className="w-7 h-7 rounded-lg bg-orange-500 flex items-center justify-center">
-                <Wallet className="w-3.5 h-3.5 text-white" />
+      {/* Navigation - Futuristic Design */}
+      <nav className="fixed top-0 left-0 right-0 z-50">
+        <div className="absolute inset-0 bg-gradient-to-r from-orange-500/10 via-purple-500/10 to-blue-500/10 opacity-0 hover:opacity-100 transition-opacity duration-500" />
+        
+        <div className="relative border-b border-gray-200/50 bg-white/70 backdrop-blur-2xl">
+          <div className="max-w-6xl mx-auto px-6">
+            <div className="flex items-center justify-between h-16">
+              {/* Logo */}
+              <Link href="/" className="flex items-center gap-3 group">
+                <div className="w-9 h-9 rounded-xl overflow-hidden shadow-lg shadow-orange-500/25 group-hover:shadow-orange-500/40 transition-shadow">
+                  <img 
+                    src="/claw.png" 
+                    alt="ClawWallet"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <span className="text-gray-900 font-bold text-sm tracking-tight">ClawWallet</span>
+              </Link>
+
+              {/* Right Side Actions */}
+              <div className="flex items-center gap-4">
+                {/* Language Switcher */}
+                <div className="relative">
+                  <button
+                    onClick={() => setIsLangMenuOpen(!isLangMenuOpen)}
+                    className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-gray-50 hover:bg-gray-100 transition-colors text-sm"
+                  >
+                    <Globe className="w-4 h-4 text-gray-500" />
+                    <span className="text-gray-700">
+                      {languages.find((l) => l.code === currentLang)?.flag}
+                    </span>
+                    <ChevronDown className="w-3 h-3 text-gray-400" />
+                  </button>
+                  
+                  {isLangMenuOpen && (
+                    <motion.div
+                      initial={{ opacity: 0, y: 8 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      className="absolute top-full right-0 mt-2 w-40 bg-white rounded-xl border border-gray-100 shadow-xl py-1 max-h-64 overflow-y-auto"
+                    >
+                      {languages.map((lang) => (
+                        <button
+                          key={lang.code}
+                          onClick={() => {
+                            setCurrentLang(lang.code);
+                            setIsLangMenuOpen(false);
+                          }}
+                          className={`w-full px-4 py-2 text-left text-sm hover:bg-gray-50 transition-colors flex items-center gap-2 ${
+                            currentLang === lang.code ? "text-orange-600" : "text-gray-700"
+                          }`}
+                        >
+                          <span>{lang.flag}</span>
+                          <span>{lang.label}</span>
+                        </button>
+                      ))}
+                    </motion.div>
+                  )}
+                </div>
+
+                {/* Social Links - Desktop */}
+                <div className="hidden md:flex items-center gap-2">
+                  <a
+                    href="https://github.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-8 h-8 rounded-lg bg-gray-50 hover:bg-gray-100 flex items-center justify-center transition-colors"
+                  >
+                    <Github className="w-4 h-4 text-gray-600" />
+                  </a>
+                  <a
+                    href="https://twitter.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-8 h-8 rounded-lg bg-gray-50 hover:bg-gray-100 flex items-center justify-center transition-colors"
+                  >
+                    <Twitter className="w-4 h-4 text-gray-600" />
+                  </a>
+                </div>
+
+                {/* Mobile Menu Button */}
+                <button
+                  onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                  className="md:hidden w-9 h-9 rounded-lg bg-gray-50 flex items-center justify-center"
+                >
+                  {isMobileMenuOpen ? (
+                    <X className="w-5 h-5 text-gray-600" />
+                  ) : (
+                    <Menu className="w-5 h-5 text-gray-600" />
+                  )}
+                </button>
               </div>
-              <span className="text-gray-900 font-semibold text-sm">ClawWallet</span>
-            </Link>
+            </div>
           </div>
         </div>
+
+        {/* Mobile Menu */}
+        {isMobileMenuOpen && (
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: "auto" }}
+            exit={{ opacity: 0, height: 0 }}
+            className="md:hidden bg-white border-b border-gray-100"
+          >
+            <div className="max-w-6xl mx-auto px-6 py-4 space-y-3">
+              {navLinks.map((link) => (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className="block py-2 text-gray-600 hover:text-gray-900"
+                >
+                  {t(link.key)}
+                </Link>
+              ))}
+              <div className="pt-3 border-t border-gray-100 flex items-center gap-4">
+                <a href="https://github.com" className="flex items-center gap-2 text-gray-600">
+                  <Github className="w-4 h-4" />
+                  <span className="text-sm">GitHub</span>
+                </a>
+                <a href="https://twitter.com" className="flex items-center gap-2 text-gray-600">
+                  <Twitter className="w-4 h-4" />
+                  <span className="text-sm">Twitter</span>
+                </a>
+              </div>
+            </div>
+          </motion.div>
+        )}
       </nav>
 
       {/* Hero Section */}
@@ -159,23 +295,24 @@ export default function LandingPage() {
             transition={{ duration: 0.5 }}
             className="space-y-8"
           >
-            {/* Badge */}
-            <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-orange-50 border border-orange-200">
-              <Package className="w-3.5 h-3.5 text-orange-500" />
-              <span className="text-orange-600 text-xs font-medium">Powered By OpenClaw</span>
-            </div>
-
             {/* Headline */}
             <div className="space-y-4">
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-semibold text-gray-900 tracking-tight leading-[1.1]">
-                ClawWallet
+                <span className="relative inline-block">
+                  ClawWallet
+                  {/* Badge - Top Right Corner of ClawWallet */}
+                  <span className="absolute -top-2 -right-2 translate-x-full -translate-y-1/2">
+                    <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-orange-500 text-white text-xs font-semibold shadow-lg shadow-orange-500/30 whitespace-nowrap tracking-wide">
+                      <Package className="w-3.5 h-3.5" />
+                      <span>{t("hero.badge")}</span>
+                    </span>
+                  </span>
+                </span>
                 <br />
-                <span className="text-orange-500">专为 AI Agent 打造的原生加密钱包</span>
+                <span className="text-orange-500">{t("hero.title")}</span>
               </h1>
               <p className="text-lg text-gray-500 max-w-lg mx-auto leading-relaxed">
-                一行命令，为您的 AI Agent 部署安全的多链钱包。
-                <br className="hidden sm:block" />
-                原生集成，TEE 硬件级安全，无私钥。
+                {t("hero.subtitle")}
               </p>
             </div>
 
@@ -199,32 +336,59 @@ export default function LandingPage() {
                   {copied ? (
                     <>
                       <Check className="w-4 h-4" />
-                      已复制
+                      {t("hero.copied")}
                     </>
                   ) : (
                     <>
                       <Copy className="w-4 h-4" />
-                      复制
+                      {t("hero.copyBtn")}
                     </>
                   )}
                 </button>
               </div>
               
               <p className="text-gray-400 text-sm mt-4">
-                复制后发送给 OpenClaw 即可自动安装
+                {t("hero.copyHint")}
               </p>
             </motion.div>
           </motion.div>
         </div>
       </section>
 
+      {/* Partners Section - 合作项目 - First Screen */}
+      <section className="py-10 bg-white border-y border-gray-100">
+        <div className="max-w-5xl mx-auto px-6">
+          <p className="text-center text-gray-400 text-xs mb-6">{t("partners.title")}</p>
+          <div className="flex flex-wrap justify-center items-center gap-8 md:gap-16">
+            {partners.map((partner, index) => (
+              <motion.div
+                key={partner.name}
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.5 + index * 0.1 }}
+                className="flex flex-col items-center gap-2 text-gray-500 hover:text-gray-800 transition-colors group"
+              >
+                <div className="w-10 h-10 md:w-12 md:h-12 group-hover:scale-110 transition-transform duration-300">
+                  <img 
+                    src={partner.logoPath} 
+                    alt={partner.name}
+                    className="w-full h-full object-contain"
+                  />
+                </div>
+                <span className="font-medium text-xs tracking-wide">{partner.name}</span>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Stats Section - Social Proof */}
-      <section className="py-12 bg-white border-y border-gray-100">
+      <section className="py-12 bg-[#fafafa] border-b border-gray-100">
         <div className="max-w-5xl mx-auto px-6">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            {stats.map((stat, index) => (
+            {statsKeys.map((stat, index) => (
               <motion.div
-                key={stat.label}
+                key={stat.key}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -232,7 +396,7 @@ export default function LandingPage() {
                 className="text-center"
               >
                 <div className="text-3xl md:text-4xl font-bold text-gray-900">{stat.value}</div>
-                <div className="text-sm text-gray-500 mt-1">{stat.label}</div>
+                <div className="text-sm text-gray-500 mt-1">{t(stat.key)}</div>
               </motion.div>
             ))}
           </div>
@@ -240,16 +404,16 @@ export default function LandingPage() {
       </section>
 
       {/* Features Section */}
-      <section className="py-20 bg-[#fafafa]">
+      <section id="features" className="py-20 bg-[#fafafa]">
         <div className="max-w-5xl mx-auto px-6">
           <div className="text-center mb-12">
-            <h2 className="text-2xl md:text-3xl font-semibold text-gray-900 mb-3">核心特性</h2>
-            <p className="text-gray-500">为 AI Agent 打造的专业级钱包解决方案</p>
+            <h2 className="text-2xl md:text-3xl font-semibold text-gray-900 mb-3">{t("features.title")}</h2>
+            <p className="text-gray-500">{t("features.subtitle")}</p>
           </div>
           <div className="grid md:grid-cols-3 gap-8">
-            {features.map((feature, index) => (
+            {featuresKeys.map((feature, index) => (
               <motion.div
-                key={feature.title}
+                key={feature.titleKey}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -259,8 +423,8 @@ export default function LandingPage() {
                 <div className="w-12 h-12 rounded-xl bg-orange-50 flex items-center justify-center mb-5">
                   <feature.icon className="w-6 h-6 text-orange-500" />
                 </div>
-                <h3 className="text-lg font-semibold text-gray-900 mb-2">{feature.title}</h3>
-                <p className="text-gray-500 text-sm leading-relaxed">{feature.description}</p>
+                <h3 className="text-lg font-semibold text-gray-900 mb-2">{t(feature.titleKey)}</h3>
+                <p className="text-gray-500 text-sm leading-relaxed">{t(feature.descKey)}</p>
               </motion.div>
             ))}
           </div>
@@ -268,7 +432,7 @@ export default function LandingPage() {
       </section>
 
       {/* Detailed Features Section */}
-      <section className="py-20 bg-white border-t border-gray-100">
+      <section id="security" className="py-20 bg-white border-t border-gray-100">
         <div className="max-w-5xl mx-auto px-6">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <motion.div
@@ -277,16 +441,15 @@ export default function LandingPage() {
               viewport={{ once: true }}
             >
               <h2 className="text-2xl md:text-3xl font-semibold text-gray-900 mb-4">
-                企业级安全保障
+                {t("security.title")}
               </h2>
               <p className="text-gray-500 mb-8 leading-relaxed">
-                采用与银行、金融机构同级别的安全技术，
-                确保您的数字资产始终处于最高级别的保护之下。
+                {t("security.subtitle")}
               </p>
               <div className="space-y-6">
-                {detailedFeatures.map((feature, index) => (
+                {detailedFeaturesKeys.map((feature, index) => (
                   <motion.div
-                    key={feature.title}
+                    key={feature.titleKey}
                     initial={{ opacity: 0, x: -20 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
@@ -297,8 +460,8 @@ export default function LandingPage() {
                       <feature.icon className="w-5 h-5 text-orange-500" />
                     </div>
                     <div>
-                      <h4 className="font-semibold text-gray-900 mb-1">{feature.title}</h4>
-                      <p className="text-gray-500 text-sm">{feature.description}</p>
+                      <h4 className="font-semibold text-gray-900 mb-1">{t(feature.titleKey)}</h4>
+                      <p className="text-gray-500 text-sm">{t(feature.descKey)}</p>
                     </div>
                   </motion.div>
                 ))}
@@ -316,7 +479,7 @@ export default function LandingPage() {
                   <div className="w-24 h-24 bg-white rounded-2xl shadow-xl flex items-center justify-center mx-auto mb-4">
                     <Shield className="w-12 h-12 text-orange-500" />
                   </div>
-                  <p className="text-gray-600 font-medium">TEE 安全隔离</p>
+                  <p className="text-gray-600 font-medium">TEE {t("nav.security")}</p>
                   <p className="text-gray-400 text-sm mt-1">Hardware Security</p>
                 </div>
               </div>
@@ -334,10 +497,9 @@ export default function LandingPage() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
             >
-              <h2 className="text-2xl md:text-3xl font-semibold text-gray-900 mb-4">原生集成，开箱即用</h2>
+              <h2 className="text-2xl md:text-3xl font-semibold text-gray-900 mb-4">{t("usage.title")}</h2>
               <p className="text-gray-500 mb-8 leading-relaxed">
-                作为 OpenClaw 原生 Skill，安装后即刻拥有钱包能力。
-                无需额外配置，通过自然语言即可操控您的加密资产。
+                {t("usage.subtitle")}
               </p>
               <div className="space-y-4">
                 <div className="flex items-start gap-3">
@@ -345,8 +507,8 @@ export default function LandingPage() {
                     <Terminal className="w-4 h-4 text-orange-500" />
                   </div>
                   <div>
-                    <h4 className="text-gray-900 font-medium text-sm mb-0.5">创建钱包</h4>
-                    <code className="text-xs text-gray-400 font-mono bg-gray-50 px-2 py-1 rounded">@openclaw 创建以太坊钱包</code>
+                    <h4 className="text-gray-900 font-medium text-sm mb-0.5">{t("usage.create")}</h4>
+                    <code className="text-xs text-gray-400 font-mono bg-gray-50 px-2 py-1 rounded">@openclaw {t("usage.create")}</code>
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
@@ -354,8 +516,8 @@ export default function LandingPage() {
                     <Wallet className="w-4 h-4 text-orange-500" />
                   </div>
                   <div>
-                    <h4 className="text-gray-900 font-medium text-sm mb-0.5">查询余额</h4>
-                    <code className="text-xs text-gray-400 font-mono bg-gray-50 px-2 py-1 rounded">@openclaw 查询我的钱包余额</code>
+                    <h4 className="text-gray-900 font-medium text-sm mb-0.5">{t("usage.balance")}</h4>
+                    <code className="text-xs text-gray-400 font-mono bg-gray-50 px-2 py-1 rounded">@openclaw {t("usage.balance")}</code>
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
@@ -363,8 +525,8 @@ export default function LandingPage() {
                     <ArrowRight className="w-4 h-4 text-orange-500" />
                   </div>
                   <div>
-                    <h4 className="text-gray-900 font-medium text-sm mb-0.5">发送交易</h4>
-                    <code className="text-xs text-gray-400 font-mono bg-gray-50 px-2 py-1 rounded">@openclaw 发送 0.1 ETH 到 0x...</code>
+                    <h4 className="text-gray-900 font-medium text-sm mb-0.5">{t("usage.send")}</h4>
+                    <code className="text-xs text-gray-400 font-mono bg-gray-50 px-2 py-1 rounded">@openclaw {t("usage.send")} 0.1 ETH...</code>
                   </div>
                 </div>
               </div>
@@ -387,7 +549,7 @@ export default function LandingPage() {
                   <div className="flex gap-3">
                     <div className="w-7 h-7 rounded-full bg-gray-200 flex items-center justify-center text-xs">👤</div>
                     <div className="bg-white rounded-2xl rounded-tl-sm px-3 py-2 text-gray-700 text-sm shadow-sm border border-gray-100">
-                      @openclaw 创建一个以太坊钱包
+                      @openclaw {t("usage.create")}
                     </div>
                   </div>
                   <div className="flex gap-3">
@@ -395,9 +557,9 @@ export default function LandingPage() {
                       <Bot className="w-3.5 h-3.5 text-white" />
                     </div>
                     <div className="bg-white rounded-2xl rounded-tl-sm px-3 py-2 text-gray-700 text-sm shadow-sm border border-gray-100 space-y-1">
-                      <p>✅ 钱包创建成功！</p>
+                      <p>✅ {t("usage.create")} {t("hero.copied")}!</p>
                       <p className="font-mono text-xs text-gray-400">
-                        地址: 0x7a2f...9c4d<br/>
+                        {t("usage.balance")}: 0x7a2f...9c4d<br/>
                         UID: claw_wallet_abc123
                       </p>
                     </div>
@@ -409,23 +571,72 @@ export default function LandingPage() {
         </div>
       </section>
 
+      {/* Testimonials Section - 用户使用反馈 */}
+      <section id="testimonials" className="py-20 bg-white border-t border-gray-100">
+        <div className="max-w-5xl mx-auto px-6">
+          <div className="text-center mb-12">
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-orange-50 border border-orange-100 mb-4">
+              <Users className="w-4 h-4 text-orange-500" />
+              <span className="text-orange-600 text-sm font-medium">{t("testimonials.badge")}</span>
+            </div>
+            <h2 className="text-2xl md:text-3xl font-semibold text-gray-900 mb-3">{t("testimonials.title")}</h2>
+            <p className="text-gray-500">{t("testimonials.subtitle")}</p>
+          </div>
+          <div className="grid md:grid-cols-3 gap-6">
+            {testimonials.map((testimonial, index) => (
+              <motion.div
+                key={testimonial.name}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1 }}
+                className="bg-gray-50 p-6 rounded-2xl border border-gray-100 hover:border-orange-200 transition-all"
+              >
+                <div className="flex items-center gap-1 mb-4">
+                  {[...Array(testimonial.rating)].map((_, i) => (
+                    <Star key={i} className="w-4 h-4 fill-orange-400 text-orange-400" />
+                  ))}
+                </div>
+                <div className="flex gap-3 mb-4">
+                  <Quote className="w-8 h-8 text-orange-200 flex-shrink-0" />
+                  <p className="text-gray-600 text-sm leading-relaxed">
+                    {currentLang === 'zh' ? testimonial.content : testimonial.contentEn}
+                  </p>
+                </div>
+                <div className="flex items-center gap-3 pt-4 border-t border-gray-200">
+                  <span className="text-2xl">{testimonial.avatar}</span>
+                  <div>
+                    <p className="font-semibold text-gray-900 text-sm">
+                      {currentLang === 'zh' ? testimonial.name : testimonial.nameEn}
+                    </p>
+                    <p className="text-gray-400 text-xs">
+                      {currentLang === 'zh' ? testimonial.role : testimonial.roleEn} · {testimonial.company}
+                    </p>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* FAQ Section */}
-      <section className="py-20 bg-white border-t border-gray-100">
+      <section id="faq" className="py-20 bg-[#fafafa] border-t border-gray-100">
         <div className="max-w-3xl mx-auto px-6">
           <div className="text-center mb-12">
-            <h2 className="text-2xl md:text-3xl font-semibold text-gray-900 mb-3">常见问题</h2>
-            <p className="text-gray-500">关于 ClawWallet 的常见问题解答</p>
+            <h2 className="text-2xl md:text-3xl font-semibold text-gray-900 mb-3">{t("faq.title")}</h2>
+            <p className="text-gray-500">{t("faq.subtitle")}</p>
           </div>
           <div className="space-y-0">
-            {faqs.map((faq, index) => (
-              <FAQItem key={index} question={faq.question} answer={faq.answer} />
+            {faqKeys.map((faq, index) => (
+              <FAQItem key={index} question={t(faq.qKey)} answer={t(faq.aKey)} />
             ))}
           </div>
         </div>
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-[#fafafa] border-t border-gray-100">
+      <section id="install" className="py-20 bg-[#fafafa] border-t border-gray-100">
         <div className="max-w-4xl mx-auto px-6 text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -437,10 +648,10 @@ export default function LandingPage() {
               <Sparkles className="w-8 h-8 text-orange-500" />
             </div>
             <h2 className="text-2xl md:text-3xl font-semibold text-gray-900 mb-3">
-              为您的 OpenClaw 部署原生钱包
+              {t("cta.title")}
             </h2>
             <p className="text-gray-500 mb-6 max-w-md mx-auto">
-              复制下方命令，发送给 OpenClaw，3 秒完成部署
+              {t("cta.subtitle")}
             </p>
             
             {/* Install Command in CTA */}
@@ -457,19 +668,19 @@ export default function LandingPage() {
                 {copied ? (
                   <>
                     <Check className="w-4 h-4" />
-                    已复制
+                    {t("hero.copied")}
                   </>
                 ) : (
                   <>
                     <Copy className="w-4 h-4" />
-                    复制
+                    {t("hero.copyBtn")}
                   </>
                 )}
               </button>
             </div>
             
             <p className="text-gray-400 text-sm">
-              免费开始使用 · 无需信用卡 · 3 秒完成部署
+              {t("cta.footer")}
             </p>
           </motion.div>
         </div>
@@ -480,13 +691,17 @@ export default function LandingPage() {
         <div className="max-w-5xl mx-auto px-6">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
             <div className="flex items-center gap-2">
-              <div className="w-6 h-6 rounded-md bg-orange-500 flex items-center justify-center">
-                <Wallet className="w-3 h-3 text-white" />
+              <div className="w-6 h-6 rounded-md overflow-hidden">
+                <img 
+                  src="/claw.png" 
+                  alt="ClawWallet"
+                  className="w-full h-full object-cover"
+                />
               </div>
               <span className="text-gray-600 text-sm">Claw Wallet</span>
             </div>
             <p className="text-gray-400 text-xs">
-              © 2026 Claw Wallet. OpenClaw 原生安全加密钱包
+              {t("footer.copyright")}
             </p>
           </div>
         </div>
