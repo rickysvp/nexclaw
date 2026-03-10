@@ -87,7 +87,7 @@ export default function DashboardPage() {
 
   if (isLoading) {
     return (
-      <div className="min-h-screen bg-black flex items-center justify-center">
+      <div className="min-h-screen bg-white flex items-center justify-center">
         <div className="relative">
           <div className="w-12 h-12 border-4 border-[#FF4D2E]/20 border-t-[#FF4D2E] rounded-full animate-spin" />
         </div>
@@ -100,11 +100,11 @@ export default function DashboardPage() {
   }
 
   return (
-    <div className="min-h-screen bg-black">
+    <div className="min-h-screen bg-white">
       {/* Background Effects */}
       <div className="fixed inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-1/4 left-1/4 w-[600px] h-[600px] bg-[#FF4D2E]/5 rounded-full blur-[150px]"></div>
-        <div className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] bg-[#FF4D2E]/3 rounded-full blur-[120px]"></div>
+        <div className="absolute top-1/4 left-1/4 w-[600px] h-[600px] bg-[#FF4D2E]/3 rounded-full blur-[150px]"></div>
+        <div className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] bg-[#FF4D2E]/2 rounded-full blur-[120px]"></div>
       </div>
 
       <Sidebar 

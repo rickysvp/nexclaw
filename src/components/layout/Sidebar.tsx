@@ -15,7 +15,6 @@ import {
   LogOut,
   ChevronLeft,
   ChevronRight,
-  Wallet as WalletIcon,
   Menu,
   X,
   User,
@@ -99,17 +98,17 @@ export default function Sidebar({ onNavigate, currentSection, onCollapseChange }
     return (
       <>
         {/* Mobile Header */}
-        <div className="fixed top-0 left-0 right-0 h-16 bg-black/95 backdrop-blur-xl border-b border-white/[0.08] z-50 flex items-center justify-between px-4">
+        <div className="fixed top-0 left-0 right-0 h-16 bg-white/95 backdrop-blur-xl border-b border-gray-200 z-50 flex items-center justify-between px-4">
           <Link href="/" className="flex items-center gap-3 no-underline">
             <ClawLogo className="w-8 h-8" />
             <div>
-              <h1 className="text-base font-bold text-white">Claw Wallet</h1>
-              <p className="text-xs text-[#A09890]">OpenClaw 原生加密钱包</p>
+              <h1 className="text-base font-bold text-gray-900">Claw Wallet</h1>
+              <p className="text-xs text-gray-500">OpenClaw 原生加密钱包</p>
             </div>
           </Link>
           <button
             onClick={() => setMobileOpen(true)}
-            className="p-2 rounded-lg bg-white/[0.04] text-[#A09890] hover:text-white hover:bg-white/[0.08] transition-colors"
+            className="p-2 rounded-lg bg-gray-100 text-gray-500 hover:text-gray-900 hover:bg-gray-200 transition-colors"
           >
             <Menu className="h-6 w-6" />
           </button>
@@ -130,27 +129,27 @@ export default function Sidebar({ onNavigate, currentSection, onCollapseChange }
                 animate={{ x: 0 }}
                 exit={{ x: '-100%' }}
                 transition={{ type: 'spring', damping: 25, stiffness: 200 }}
-                className="fixed left-0 top-0 h-full w-72 bg-black border-r border-white/[0.08] z-50 flex flex-col"
+                className="fixed left-0 top-0 h-full w-72 bg-white border-r border-gray-200 z-50 flex flex-col"
               >
                 {/* Mobile Sidebar Header */}
-                <div className="h-16 flex items-center justify-between px-4 border-b border-white/[0.08]">
+                <div className="h-16 flex items-center justify-between px-4 border-b border-gray-200">
                   <Link href="/" className="flex items-center gap-3 no-underline">
                     <ClawLogo className="w-8 h-8" />
                     <div>
-                      <h1 className="text-base font-bold text-white">Claw Wallet</h1>
-                      <p className="text-xs text-[#A09890]">OpenClaw 原生加密钱包</p>
+                      <h1 className="text-base font-bold text-gray-900">Claw Wallet</h1>
+                      <p className="text-xs text-gray-500">OpenClaw 原生加密钱包</p>
                     </div>
                   </Link>
                   <button
                     onClick={() => setMobileOpen(false)}
-                    className="p-2 rounded-lg bg-white/[0.04] text-[#A09890] hover:text-white hover:bg-white/[0.08] transition-colors"
+                    className="p-2 rounded-lg bg-gray-100 text-gray-500 hover:text-gray-900 hover:bg-gray-200 transition-colors"
                   >
                     <X className="h-5 w-5" />
                   </button>
                 </div>
 
                 {user && (
-                  <div className="p-4 border-b border-white/[0.08]">
+                  <div className="p-4 border-b border-gray-200">
                     <div className="flex items-center gap-3">
                       <div className="w-12 h-12 rounded-full bg-[#FF4D2E] flex items-center justify-center">
                         {user.avatar ? (
@@ -160,8 +159,8 @@ export default function Sidebar({ onNavigate, currentSection, onCollapseChange }
                         )}
                       </div>
                       <div className="flex-1 min-w-0">
-                        <p className="text-white font-medium truncate">{user.name}</p>
-                        <p className="text-[#A09890] text-sm truncate">{user.email}</p>
+                        <p className="text-gray-900 font-medium truncate">{user.name}</p>
+                        <p className="text-gray-500 text-sm truncate">{user.email}</p>
                       </div>
                     </div>
                   </div>
@@ -178,8 +177,8 @@ export default function Sidebar({ onNavigate, currentSection, onCollapseChange }
                         onClick={() => handleNavigate(item.id)}
                         className={`w-full flex items-center gap-3 px-3 py-3 rounded-xl transition-all ${
                           isActive
-                            ? 'bg-[#FF4D2E]/10 text-white border border-[#FF4D2E]/30'
-                            : 'text-[#A09890] hover:bg-white/[0.04] hover:text-white'
+                            ? 'bg-[#FF4D2E]/10 text-gray-900 border border-[#FF4D2E]/30'
+                            : 'text-gray-500 hover:bg-gray-100 hover:text-gray-900'
                         }`}
                       >
                         <Icon className={`h-5 w-5 flex-shrink-0 ${isActive ? 'text-[#FF4D2E]' : ''}`} />
@@ -192,13 +191,13 @@ export default function Sidebar({ onNavigate, currentSection, onCollapseChange }
                   })}
                 </nav>
 
-                <div className="p-3 border-t border-white/[0.08] space-y-1">
+                <div className="p-3 border-t border-gray-200 space-y-1">
                   <button
                     onClick={() => handleNavigate('settings')}
                     className={`w-full flex items-center gap-3 px-3 py-3 rounded-xl transition-all ${
                       currentSection === 'settings'
-                        ? 'bg-[#FF4D2E]/10 text-white'
-                        : 'text-[#A09890] hover:bg-white/[0.04] hover:text-white'
+                        ? 'bg-[#FF4D2E]/10 text-gray-900'
+                        : 'text-gray-500 hover:bg-gray-100 hover:text-gray-900'
                     }`}
                   >
                     <Settings className="h-5 w-5 flex-shrink-0" />
@@ -218,7 +217,7 @@ export default function Sidebar({ onNavigate, currentSection, onCollapseChange }
         </AnimatePresence>
 
         {/* Mobile Bottom Nav */}
-        <div className="fixed bottom-0 left-0 right-0 h-16 bg-black/95 backdrop-blur-xl border-t border-white/[0.08] z-40 flex items-center justify-around px-2">
+        <div className="fixed bottom-0 left-0 right-0 h-16 bg-white/95 backdrop-blur-xl border-t border-gray-200 z-40 flex items-center justify-around px-2">
           {menuItems.slice(0, 5).map((item) => {
             const isActive = currentSection === item.id;
             const Icon = item.icon;
@@ -228,7 +227,7 @@ export default function Sidebar({ onNavigate, currentSection, onCollapseChange }
                 key={item.id}
                 onClick={() => handleNavigate(item.id)}
                 className={`flex flex-col items-center justify-center gap-1 py-2 px-3 rounded-lg transition-colors ${
-                  isActive ? 'text-[#FF4D2E]' : 'text-[#A09890]'
+                  isActive ? 'text-[#FF4D2E]' : 'text-gray-500'
                 }`}
               >
                 <Icon className="h-5 w-5" />
@@ -238,7 +237,7 @@ export default function Sidebar({ onNavigate, currentSection, onCollapseChange }
           })}
           <button
             onClick={() => setMobileOpen(true)}
-            className="flex flex-col items-center justify-center gap-1 py-2 px-3 rounded-lg text-[#A09890]"
+            className="flex flex-col items-center justify-center gap-1 py-2 px-3 rounded-lg text-gray-500"
           >
             <Menu className="h-5 w-5" />
             <span className="text-xs">更多</span>
@@ -252,10 +251,10 @@ export default function Sidebar({ onNavigate, currentSection, onCollapseChange }
     <motion.aside
       initial={false}
       animate={{ width: collapsed ? 80 : 260 }}
-      className="fixed left-0 top-0 h-screen bg-black border-r border-white/[0.08] z-50 flex flex-col"
+      className="fixed left-0 top-0 h-screen bg-white border-r border-gray-200 z-50 flex flex-col"
     >
       {/* Sidebar Header */}
-      <div className="h-16 flex items-center justify-between px-4 border-b border-white/[0.08]">
+      <div className="h-16 flex items-center justify-between px-4 border-b border-gray-200">
         <Link href="/" className="flex items-center gap-3 overflow-hidden no-underline">
           <ClawLogo className="w-8 h-8 flex-shrink-0" />
           {!collapsed && (
@@ -264,14 +263,14 @@ export default function Sidebar({ onNavigate, currentSection, onCollapseChange }
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
             >
-              <h1 className="text-base font-bold text-white whitespace-nowrap">Claw Wallet</h1>
-              <p className="text-xs text-[#A09890] whitespace-nowrap">OpenClaw 原生加密钱包</p>
+              <h1 className="text-base font-bold text-gray-900 whitespace-nowrap">Claw Wallet</h1>
+              <p className="text-xs text-gray-500 whitespace-nowrap">OpenClaw 原生加密钱包</p>
             </motion.div>
           )}
         </Link>
         <motion.button
           onClick={handleCollapse}
-          className="p-1.5 rounded-lg bg-white/[0.04] text-[#A09890] hover:text-white hover:bg-white/[0.08] transition-colors"
+          className="p-1.5 rounded-lg bg-gray-100 text-gray-500 hover:text-gray-900 hover:bg-gray-200 transition-colors"
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
         >
@@ -280,7 +279,7 @@ export default function Sidebar({ onNavigate, currentSection, onCollapseChange }
       </div>
 
       {!collapsed && user && (
-        <div className="p-4 border-b border-white/[0.08]">
+        <div className="p-4 border-b border-gray-200">
           <div className="flex items-center gap-3">
             <div className="w-10 h-10 rounded-full bg-[#FF4D2E] flex items-center justify-center flex-shrink-0">
               {user.avatar ? (
@@ -290,8 +289,8 @@ export default function Sidebar({ onNavigate, currentSection, onCollapseChange }
               )}
             </div>
             <div className="flex-1 min-w-0">
-              <p className="text-white font-medium text-sm truncate">{user.name}</p>
-              <p className="text-[#A09890] text-xs truncate">{user.email}</p>
+              <p className="text-gray-900 font-medium text-sm truncate">{user.name}</p>
+              <p className="text-gray-500 text-xs truncate">{user.email}</p>
             </div>
           </div>
         </div>
@@ -308,8 +307,8 @@ export default function Sidebar({ onNavigate, currentSection, onCollapseChange }
               onClick={() => handleNavigate(item.id)}
               className={`w-full flex items-center gap-3 px-3 py-3 rounded-xl transition-all duration-200 ${
                 isActive
-                  ? 'bg-[#FF4D2E]/10 text-white border border-[#FF4D2E]/30'
-                  : 'text-[#A09890] hover:bg-white/[0.04] hover:text-white'
+                  ? 'bg-[#FF4D2E]/10 text-gray-900 border border-[#FF4D2E]/30'
+                  : 'text-gray-500 hover:bg-gray-100 hover:text-gray-900'
               }`}
               whileHover={{ scale: 1.02, x: 2 }}
               whileTap={{ scale: 0.98 }}
@@ -336,7 +335,7 @@ export default function Sidebar({ onNavigate, currentSection, onCollapseChange }
         })}
       </nav>
 
-      <div className="p-3 border-t border-white/[0.08] space-y-1">
+      <div className="p-3 border-t border-gray-200 space-y-1">
         <motion.button
           onClick={handleLogout}
           className="w-full flex items-center gap-3 px-3 py-3 rounded-xl text-red-400 hover:bg-red-500/10 transition-colors"

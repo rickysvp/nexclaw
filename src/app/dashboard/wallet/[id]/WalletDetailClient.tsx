@@ -108,22 +108,22 @@ export default function WalletDetailClient({ walletId }: WalletDetailClientProps
 
   if (!wallet) {
     return (
-      <div className="min-h-screen flex items-center justify-center">
+      <div className="min-h-screen flex items-center justify-center bg-white">
         <div className="text-center">
-          <div className="w-16 h-16 rounded-2xl bg-gradient-to-r from-orange-500 to-purple-600 flex items-center justify-center mx-auto mb-4 animate-pulse">
+          <div className="w-16 h-16 rounded-2xl bg-gradient-to-r from-orange-500 to-orange-600 flex items-center justify-center mx-auto mb-4 animate-pulse">
             <Wallet className="h-8 w-8 text-white" />
           </div>
-          <p className="text-gray-400">加载中...</p>
+          <p className="text-gray-500">加载中...</p>
         </div>
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen relative">
+    <div className="min-h-screen relative bg-white">
       {/* Background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-gray-950 via-black to-gray-900 z-0">
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-orange-500/10 rounded-full blur-3xl animate-pulse"></div>
+      <div className="absolute inset-0 bg-gradient-to-br from-gray-50 via-white to-gray-100 z-0">
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-orange-500/5 rounded-full blur-3xl animate-pulse"></div>
       </div>
 
       {/* Copy Message */}
@@ -148,22 +148,22 @@ export default function WalletDetailClient({ walletId }: WalletDetailClientProps
           <div className="flex items-center gap-4">
             <motion.button
               onClick={() => router.push('/dashboard')}
-              className="p-2 rounded-lg bg-gray-800/50 hover:bg-gray-700/50 transition-colors"
+              className="p-2 rounded-lg bg-gray-100 hover:bg-gray-200 transition-colors"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              <ArrowLeft className="h-5 w-5 text-gray-400" />
+              <ArrowLeft className="h-5 w-5 text-gray-600" />
             </motion.button>
             <div>
-              <h1 className="text-2xl font-bold text-white">{wallet.name || `Wallet #${wallet.id}`}</h1>
-              <p className="text-gray-400 text-sm">{wallet.description || 'Agent Wallet'}</p>
+              <h1 className="text-2xl font-bold text-gray-900">{wallet.name || `Wallet #${wallet.id}`}</h1>
+              <p className="text-gray-500 text-sm">{wallet.description || 'Agent Wallet'}</p>
             </div>
           </div>
 
           <div className="flex items-center gap-3">
             <motion.button
               onClick={handleExport}
-              className="px-4 py-2 rounded-lg bg-gray-800/50 hover:bg-gray-700/50 text-white flex items-center gap-2 transition-colors"
+              className="px-4 py-2 rounded-lg bg-gray-100 hover:bg-gray-200 text-gray-900 flex items-center gap-2 transition-colors"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
@@ -174,25 +174,25 @@ export default function WalletDetailClient({ walletId }: WalletDetailClientProps
             <div className="relative">
               <motion.button
                 onClick={() => setShowActions(!showActions)}
-                className="p-2 rounded-lg bg-gray-800/50 hover:bg-gray-700/50 transition-colors"
+                className="p-2 rounded-lg bg-gray-100 hover:bg-gray-200 transition-colors"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-                <MoreVertical className="h-5 w-5 text-gray-400" />
+                <MoreVertical className="h-5 w-5 text-gray-600" />
               </motion.button>
 
               {showActions && (
                 <motion.div
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
-                  className="absolute right-0 mt-2 w-48 rounded-lg bg-gray-900 border border-gray-800 shadow-xl z-50"
+                  className="absolute right-0 mt-2 w-48 rounded-lg bg-white border border-gray-200 shadow-xl z-50"
                 >
                   <button 
                     onClick={() => {
                       setShowActions(false);
                       setIsEditDialogOpen(true);
                     }}
-                    className="w-full px-4 py-3 text-left text-white hover:bg-gray-800 flex items-center gap-2 transition-colors"
+                    className="w-full px-4 py-3 text-left text-gray-900 hover:bg-gray-50 flex items-center gap-2 transition-colors"
                   >
                     <Edit3 className="h-4 w-4" />
                     编辑钱包
@@ -202,7 +202,7 @@ export default function WalletDetailClient({ walletId }: WalletDetailClientProps
                       setShowActions(false);
                       setIsDeleteDialogOpen(true);
                     }}
-                    className="w-full px-4 py-3 text-left text-red-400 hover:bg-gray-800 flex items-center gap-2 transition-colors"
+                    className="w-full px-4 py-3 text-left text-red-600 hover:bg-red-50 flex items-center gap-2 transition-colors"
                   >
                     <Trash2 className="h-4 w-4" />
                     删除钱包
@@ -223,20 +223,20 @@ export default function WalletDetailClient({ walletId }: WalletDetailClientProps
             className="space-y-6"
           >
             {/* Balance Card */}
-            <div className="bg-gradient-to-br from-gray-800/50 to-gray-900/50 border border-gray-700/50 rounded-2xl p-6">
+            <div className="bg-white border border-gray-200 rounded-2xl p-6">
               <div className="flex items-center justify-between mb-4">
-                <span className="text-gray-400">余额</span>
-                <div className="w-10 h-10 rounded-xl bg-gradient-to-r from-orange-500/20 to-purple-500/20 flex items-center justify-center">
-                  <Wallet className="h-5 w-5 text-orange-400" />
+                <span className="text-gray-500">余额</span>
+                <div className="w-10 h-10 rounded-xl bg-gradient-to-r from-orange-500/20 to-orange-600/20 flex items-center justify-center">
+                  <Wallet className="h-5 w-5 text-orange-600" />
                 </div>
               </div>
-              <div className="text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-orange-400 to-purple-400">
+              <div className="text-3xl font-bold text-gray-900">
                 {wallet.balance}
               </div>
               <div className="flex gap-3 mt-6">
                 <motion.button
                   onClick={() => setIsTransferDialogOpen(true)}
-                  className="flex-1 px-4 py-3 rounded-lg bg-gradient-to-r from-orange-500 to-purple-600 text-white font-medium flex items-center justify-center gap-2"
+                  className="flex-1 px-4 py-3 rounded-lg bg-gradient-to-r from-orange-500 to-orange-600 text-white font-medium flex items-center justify-center gap-2"
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                 >
@@ -245,7 +245,7 @@ export default function WalletDetailClient({ walletId }: WalletDetailClientProps
                 </motion.button>
                 <motion.button
                   onClick={() => setIsDepositDialogOpen(true)}
-                  className="flex-1 px-4 py-3 rounded-lg bg-gray-800 hover:bg-gray-700 text-white font-medium flex items-center justify-center gap-2"
+                  className="flex-1 px-4 py-3 rounded-lg bg-gray-100 hover:bg-gray-200 text-gray-900 font-medium flex items-center justify-center gap-2"
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                 >
@@ -256,65 +256,65 @@ export default function WalletDetailClient({ walletId }: WalletDetailClientProps
             </div>
 
             {/* Wallet Details */}
-            <div className="bg-gradient-to-br from-gray-800/50 to-gray-900/50 border border-gray-700/50 rounded-2xl p-6">
-              <h3 className="text-lg font-bold mb-4 text-white">钱包信息</h3>
+            <div className="bg-white border border-gray-200 rounded-2xl p-6">
+              <h3 className="text-lg font-bold mb-4 text-gray-900">钱包信息</h3>
               <div className="space-y-4">
                 <div>
-                  <label className="text-sm text-gray-400 block mb-1">地址</label>
+                  <label className="text-sm text-gray-500 block mb-1">地址</label>
                   <div className="flex items-center gap-2">
-                    <code className="flex-1 bg-gray-900/80 px-3 py-2 rounded-lg text-sm text-gray-300 font-mono truncate">
+                    <code className="flex-1 bg-gray-50 px-3 py-2 rounded-lg text-sm text-gray-700 font-mono truncate">
                       {wallet.address}
                     </code>
                     <motion.button
                       onClick={() => handleCopy(wallet.address, '地址')}
-                      className="p-2 rounded-lg bg-gray-800 hover:bg-gray-700 transition-colors"
+                      className="p-2 rounded-lg bg-gray-100 hover:bg-gray-200 transition-colors"
                       whileHover={{ scale: 1.1 }}
                       whileTap={{ scale: 0.9 }}
                     >
-                      <Copy className="h-4 w-4 text-orange-400" />
+                      <Copy className="h-4 w-4 text-orange-600" />
                     </motion.button>
                   </div>
                 </div>
 
                 <div>
-                  <label className="text-sm text-gray-400 block mb-1">Agent UID</label>
+                  <label className="text-sm text-gray-500 block mb-1">Agent UID</label>
                   <div className="flex items-center gap-2">
-                    <code className="flex-1 bg-gray-900/80 px-3 py-2 rounded-lg text-sm text-gray-300 font-mono">
+                    <code className="flex-1 bg-gray-50 px-3 py-2 rounded-lg text-sm text-gray-700 font-mono">
                       {wallet.uid}
                     </code>
                     <motion.button
                       onClick={() => handleCopy(wallet.uid, 'UID')}
-                      className="p-2 rounded-lg bg-gray-800 hover:bg-gray-700 transition-colors"
+                      className="p-2 rounded-lg bg-gray-100 hover:bg-gray-200 transition-colors"
                       whileHover={{ scale: 1.1 }}
                       whileTap={{ scale: 0.9 }}
                     >
-                      <Copy className="h-4 w-4 text-orange-400" />
+                      <Copy className="h-4 w-4 text-orange-600" />
                     </motion.button>
                   </div>
                 </div>
 
                 <div>
-                  <label className="text-sm text-gray-400 block mb-1">创建时间</label>
-                  <p className="text-white">{new Date(wallet.createdAt).toLocaleString()}</p>
+                  <label className="text-sm text-gray-500 block mb-1">创建时间</label>
+                  <p className="text-gray-900">{new Date(wallet.createdAt).toLocaleString()}</p>
                 </div>
               </div>
             </div>
 
             {/* Security Score */}
-            <div className="bg-gradient-to-br from-gray-800/50 to-gray-900/50 border border-gray-700/50 rounded-2xl p-6">
+            <div className="bg-white border border-gray-200 rounded-2xl p-6">
               <div className="flex items-center justify-between mb-4">
                 <div className="flex items-center gap-2">
-                  <Shield className="h-5 w-5 text-orange-400" />
-                  <span className="text-white font-medium">安全评分</span>
+                  <Shield className="h-5 w-5 text-orange-600" />
+                  <span className="text-gray-900 font-medium">安全评分</span>
                 </div>
                 <span className={`text-2xl font-bold ${
-                  securityScore >= 80 ? 'text-green-400' : 
-                  securityScore >= 60 ? 'text-yellow-400' : 'text-red-400'
+                  securityScore >= 80 ? 'text-green-600' : 
+                  securityScore >= 60 ? 'text-yellow-600' : 'text-red-600'
                 }`}>
                   {securityScore}
                 </span>
               </div>
-              <div className="w-full bg-gray-800 rounded-full h-2">
+              <div className="w-full bg-gray-100 rounded-full h-2">
                 <div
                   className={`h-2 rounded-full transition-all duration-500 ${
                     securityScore >= 80 ? 'bg-green-500' : 
@@ -323,7 +323,7 @@ export default function WalletDetailClient({ walletId }: WalletDetailClientProps
                   style={{ width: `${securityScore}%` }}
                 ></div>
               </div>
-              <p className="text-sm text-gray-400 mt-2">
+              <p className="text-sm text-gray-500 mt-2">
                 {securityScore >= 80 ? '安全等级：优秀' : 
                  securityScore >= 60 ? '安全等级：良好' : '安全等级：需加强'}
               </p>
@@ -339,44 +339,44 @@ export default function WalletDetailClient({ walletId }: WalletDetailClientProps
           >
             {/* Stats Cards */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-              <div className="bg-gradient-to-br from-gray-800/50 to-gray-900/50 border border-gray-700/50 rounded-2xl p-6">
+              <div className="bg-white border border-gray-200 rounded-2xl p-6">
                 <div className="flex items-center gap-3 mb-2">
-                  <div className="w-10 h-10 rounded-xl bg-blue-500/20 flex items-center justify-center">
-                    <Activity className="h-5 w-5 text-blue-400" />
+                  <div className="w-10 h-10 rounded-xl bg-blue-100 flex items-center justify-center">
+                    <Activity className="h-5 w-5 text-blue-600" />
                   </div>
-                  <span className="text-gray-400">总交易</span>
+                  <span className="text-gray-500">总交易</span>
                 </div>
-                <p className="text-2xl font-bold text-white">{stats.totalTransactions}</p>
+                <p className="text-2xl font-bold text-gray-900">{stats.totalTransactions}</p>
               </div>
 
-              <div className="bg-gradient-to-br from-gray-800/50 to-gray-900/50 border border-gray-700/50 rounded-2xl p-6">
+              <div className="bg-white border border-gray-200 rounded-2xl p-6">
                 <div className="flex items-center gap-3 mb-2">
-                  <div className="w-10 h-10 rounded-xl bg-green-500/20 flex items-center justify-center">
-                    <TrendingUp className="h-5 w-5 text-green-400" />
+                  <div className="w-10 h-10 rounded-xl bg-green-100 flex items-center justify-center">
+                    <TrendingUp className="h-5 w-5 text-green-600" />
                   </div>
-                  <span className="text-gray-400">总交易量</span>
+                  <span className="text-gray-500">总交易量</span>
                 </div>
-                <p className="text-2xl font-bold text-white">{stats.totalVolume}</p>
+                <p className="text-2xl font-bold text-gray-900">{stats.totalVolume}</p>
               </div>
 
-              <div className="bg-gradient-to-br from-gray-800/50 to-gray-900/50 border border-gray-700/50 rounded-2xl p-6">
+              <div className="bg-white border border-gray-200 rounded-2xl p-6">
                 <div className="flex items-center gap-3 mb-2">
-                  <div className="w-10 h-10 rounded-xl bg-purple-500/20 flex items-center justify-center">
-                    <Clock className="h-5 w-5 text-purple-400" />
+                  <div className="w-10 h-10 rounded-xl bg-purple-100 flex items-center justify-center">
+                    <Clock className="h-5 w-5 text-purple-600" />
                   </div>
-                  <span className="text-gray-400">最后活动</span>
+                  <span className="text-gray-500">最后活动</span>
                 </div>
-                <p className="text-lg font-bold text-white">
+                <p className="text-lg font-bold text-gray-900">
                   {stats.lastActivity ? new Date(stats.lastActivity).toLocaleDateString() : '无'}
                 </p>
               </div>
             </div>
 
             {/* Transactions List */}
-            <div className="bg-gradient-to-br from-gray-800/50 to-gray-900/50 border border-gray-700/50 rounded-2xl p-6">
+            <div className="bg-white border border-gray-200 rounded-2xl p-6">
               <div className="flex items-center justify-between mb-6">
-                <h3 className="text-lg font-bold text-white">交易记录</h3>
-                <button className="text-orange-400 hover:text-orange-300 text-sm flex items-center gap-1">
+                <h3 className="text-lg font-bold text-gray-900">交易记录</h3>
+                <button className="text-orange-600 hover:text-orange-700 text-sm flex items-center gap-1">
                   查看全部
                   <ExternalLink className="h-4 w-4" />
                 </button>
@@ -384,10 +384,10 @@ export default function WalletDetailClient({ walletId }: WalletDetailClientProps
 
               {transactions.length === 0 ? (
                 <div className="text-center py-12">
-                  <div className="w-16 h-16 rounded-2xl bg-gray-800 flex items-center justify-center mx-auto mb-4">
-                    <Activity className="h-8 w-8 text-gray-600" />
+                  <div className="w-16 h-16 rounded-2xl bg-gray-100 flex items-center justify-center mx-auto mb-4">
+                    <Activity className="h-8 w-8 text-gray-400" />
                   </div>
-                  <p className="text-gray-400">暂无交易记录</p>
+                  <p className="text-gray-500">暂无交易记录</p>
                 </div>
               ) : (
                 <div className="space-y-3">
@@ -397,46 +397,46 @@ export default function WalletDetailClient({ walletId }: WalletDetailClientProps
                       initial={{ opacity: 0, y: 20 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ delay: 0.1 * index }}
-                      className="flex items-center justify-between p-4 bg-gray-900/50 rounded-xl hover:bg-gray-800/50 transition-colors"
+                      className="flex items-center justify-between p-4 bg-gray-50 rounded-xl hover:bg-gray-100 transition-colors"
                     >
                       <div className="flex items-center gap-4">
                         <div className={`w-10 h-10 rounded-xl flex items-center justify-center ${
-                          tx.type === 'send' ? 'bg-red-500/20' :
-                          tx.type === 'receive' ? 'bg-green-500/20' :
-                          'bg-blue-500/20'
+                          tx.type === 'send' ? 'bg-red-100' :
+                          tx.type === 'receive' ? 'bg-green-100' :
+                          'bg-blue-100'
                         }`}>
                           {tx.type === 'send' ? (
-                            <Send className="h-5 w-5 text-red-400" />
+                            <Send className="h-5 w-5 text-red-600" />
                           ) : tx.type === 'receive' ? (
-                            <Plus className="h-5 w-5 text-green-400" />
+                            <Plus className="h-5 w-5 text-green-600" />
                           ) : (
-                            <Activity className="h-5 w-5 text-blue-400" />
+                            <Activity className="h-5 w-5 text-blue-600" />
                           )}
                         </div>
                         <div>
-                          <p className="font-medium text-white">
+                          <p className="font-medium text-gray-900">
                             {tx.type === 'send' ? '转账' :
                              tx.type === 'receive' ? '收款' :
                              `购买 ${tx.token}`}
                           </p>
-                          <p className="text-sm text-gray-400">
+                          <p className="text-sm text-gray-500">
                             {new Date(tx.timestamp).toLocaleString()}
                           </p>
                         </div>
                       </div>
                       <div className="text-right">
                         <p className={`font-medium ${
-                          tx.type === 'send' ? 'text-red-400' :
-                          tx.type === 'receive' ? 'text-green-400' :
-                          'text-blue-400'
+                          tx.type === 'send' ? 'text-red-600' :
+                          tx.type === 'receive' ? 'text-green-600' :
+                          'text-blue-600'
                         }`}>
                           {tx.type === 'send' ? '-' : tx.type === 'receive' ? '+' : ''}
                           {tx.amount}
                         </p>
                         <span className={`text-xs px-2 py-1 rounded-full ${
-                          tx.status === 'success' ? 'bg-green-500/20 text-green-400' :
-                          tx.status === 'pending' ? 'bg-yellow-500/20 text-yellow-400' :
-                          'bg-red-500/20 text-red-400'
+                          tx.status === 'success' ? 'bg-green-100 text-green-700' :
+                          tx.status === 'pending' ? 'bg-yellow-100 text-yellow-700' :
+                          'bg-red-100 text-red-700'
                         }`}>
                           {tx.status === 'success' ? '成功' :
                            tx.status === 'pending' ? '处理中' : '失败'}

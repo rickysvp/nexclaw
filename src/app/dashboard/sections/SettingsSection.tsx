@@ -48,7 +48,7 @@ const defaultSettings: UserSettings = {
   transactionAlerts: true,
   securityAlerts: true,
   marketingEmails: false,
-  darkMode: true,
+  darkMode: false,
   compactMode: false,
   animations: true,
 };
@@ -222,7 +222,7 @@ export default function SettingsSection() {
             initial={{ opacity: 0, y: -20, x: '50%' }}
             animate={{ opacity: 1, y: 0, x: '50%' }}
             exit={{ opacity: 0, y: -20, x: '50%' }}
-            className={`fixed top-4 left-1/2 -trangray-x-1/2 z-50 px-6 py-3 rounded-lg shadow-lg flex items-center gap-2 ${
+            className={`fixed top-4 left-1/2 -translate-x-1/2 z-50 px-6 py-3 rounded-lg shadow-lg flex items-center gap-2 ${
               notification.type === 'success' ? 'bg-green-500 text-white' : 'bg-red-500 text-white'
             }`}
           >
@@ -235,8 +235,8 @@ export default function SettingsSection() {
       {/* Header */}
       <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
         <div>
-          <h1 className="text-2xl font-bold text-white">系统设置</h1>
-          <p className="text-gray-400">管理您的账户和偏好设置</p>
+          <h1 className="text-2xl font-bold text-gray-900">系统设置</h1>
+          <p className="text-gray-500">管理您的账户和偏好设置</p>
         </div>
         {hasChanges && (
           <motion.div
@@ -247,7 +247,7 @@ export default function SettingsSection() {
             <Button
               variant="outline"
               onClick={resetSettings}
-              className="border-gray-700 text-gray-400"
+              className="border-gray-200 text-gray-600 hover:bg-gray-100"
             >
               <RefreshCw className="h-4 w-4 mr-2" />
               重置
@@ -255,7 +255,7 @@ export default function SettingsSection() {
             <Button
               onClick={saveSettings}
               disabled={isLoading}
-              className="bg-gradient-to-r from-orange-500 to-purple-600"
+              className="bg-gradient-to-r from-orange-500 to-orange-600"
             >
               {isLoading ? (
                 <RefreshCw className="h-4 w-4 mr-2 animate-spin" />
@@ -269,23 +269,23 @@ export default function SettingsSection() {
       </div>
 
       {/* User Info Card */}
-      <div className="bg-gradient-to-br from-gray-800/50 to-gray-900/50 border border-gray-700/50 rounded-2xl p-6">
+      <div className="bg-gradient-to-br from-orange-500 to-orange-600 rounded-2xl p-6 text-white">
         <div className="flex items-center gap-4">
-          <div className="w-16 h-16 rounded-full bg-gradient-to-r from-orange-500 to-purple-600 flex items-center justify-center">
+          <div className="w-16 h-16 rounded-full bg-white/20 flex items-center justify-center">
             <User className="h-8 w-8 text-white" />
           </div>
           <div className="flex-1">
-            <h3 className="text-lg font-bold text-white">{user?.name || '用户'}</h3>
-            <p className="text-gray-400">{user?.email || 'user@example.com'}</p>
+            <h3 className="text-lg font-bold">{user?.name || '用户'}</h3>
+            <p className="text-orange-100">{user?.email || 'user@example.com'}</p>
             <div className="flex gap-2 mt-2">
-              <Badge className="bg-green-500/20 text-green-400">已验证</Badge>
-              <Badge className="bg-purple-500/20 text-purple-400">NexClaw 会员</Badge>
+              <Badge className="bg-green-500/20 text-green-100 border-0">已验证</Badge>
+              <Badge className="bg-white/20 text-white border-0">NexClaw 会员</Badge>
             </div>
           </div>
           <Button
             variant="outline"
             onClick={() => setShowLogoutConfirm(true)}
-            className="border-red-500/30 text-red-400 hover:bg-red-500/10"
+            className="border-white/30 text-white hover:bg-white/10 bg-transparent"
           >
             <LogOut className="h-4 w-4 mr-2" />
             退出
@@ -294,15 +294,15 @@ export default function SettingsSection() {
       </div>
 
       {/* Tabs */}
-      <div className="flex gap-2 border-b border-gray-800/50 overflow-x-auto">
+      <div className="flex gap-2 border-b border-gray-200 overflow-x-auto">
         {tabs.map((tab) => (
           <motion.button
             key={tab.id}
             onClick={() => setActiveTab(tab.id as any)}
             className={`flex items-center gap-2 px-6 py-3 font-medium transition-all border-b-2 whitespace-nowrap ${
               activeTab === tab.id
-                ? 'text-white border-orange-500'
-                : 'text-gray-400 border-transparent hover:text-white'
+                ? 'text-orange-500 border-orange-500'
+                : 'text-gray-500 border-transparent hover:text-gray-900'
             }`}
             whileHover={{ y: -2 }}
           >
@@ -319,12 +319,12 @@ export default function SettingsSection() {
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -10 }}
-          className="bg-gradient-to-br from-gray-800/50 to-gray-900/50 border border-gray-700/50 rounded-2xl p-6"
+          className="bg-white border border-gray-200 rounded-2xl p-6"
         >
           {/* General Settings */}
           {activeTab === 'general' && (
             <div className="space-y-6">
-              <h2 className="text-lg font-bold text-white mb-4">通用设置</h2>
+              <h2 className="text-lg font-bold text-gray-900 mb-4">通用设置</h2>
               
               {[
                 { key: 'language', label: '语言', options: [
@@ -346,17 +346,17 @@ export default function SettingsSection() {
                   { value: 'ETH', label: 'ETH' },
                 ]},
               ].map((item) => (
-                <div key={item.key} className="flex items-center justify-between py-4 border-b border-gray-700/30">
+                <div key={item.key} className="flex items-center justify-between py-4 border-b border-gray-100">
                   <div className="flex items-center gap-3">
                     <Globe className="h-5 w-5 text-gray-400" />
                     <div>
-                      <p className="font-medium text-white">{item.label}</p>
+                      <p className="font-medium text-gray-900">{item.label}</p>
                     </div>
                   </div>
                   <select
                     value={settings[item.key as keyof UserSettings] as string}
                     onChange={(e) => updateSetting(item.key as keyof UserSettings, e.target.value)}
-                    className="bg-gray-900/80 border border-gray-700 rounded-lg px-3 py-2 text-white"
+                    className="bg-white border border-gray-200 rounded-lg px-3 py-2 text-gray-900"
                   >
                     {item.options.map((opt) => (
                       <option key={opt.value} value={opt.value}>{opt.label}</option>
@@ -370,20 +370,20 @@ export default function SettingsSection() {
           {/* Security Settings */}
           {activeTab === 'security' && (
             <div className="space-y-6">
-              <h2 className="text-lg font-bold text-white mb-4">安全设置</h2>
+              <h2 className="text-lg font-bold text-gray-900 mb-4">安全设置</h2>
               
-              <div className="flex items-center justify-between py-4 border-b border-gray-700/30">
+              <div className="flex items-center justify-between py-4 border-b border-gray-100">
                 <div className="flex items-center gap-3">
                   <Key className="h-5 w-5 text-gray-400" />
                   <div>
-                    <p className="font-medium text-white">修改密码</p>
-                    <p className="text-sm text-gray-400">定期更换密码提高安全性</p>
+                    <p className="font-medium text-gray-900">修改密码</p>
+                    <p className="text-sm text-gray-500">定期更换密码提高安全性</p>
                   </div>
                 </div>
                 <Button
                   variant="outline"
                   onClick={() => setShowChangePassword(true)}
-                  className="border-gray-700 text-gray-300 hover:bg-gray-800"
+                  className="border-gray-200 text-gray-600 hover:bg-gray-100"
                 >
                   修改
                 </Button>
@@ -395,12 +395,12 @@ export default function SettingsSection() {
                 { key: 'autoLock', label: '自动锁定', desc: '离开页面后自动锁定', icon: Lock },
                 { key: 'showBalance', label: '显示余额', desc: '在钱包列表中显示余额', icon: Eye },
               ].map((item) => (
-                <div key={item.key} className="flex items-center justify-between py-4 border-b border-gray-700/30">
+                <div key={item.key} className="flex items-center justify-between py-4 border-b border-gray-100">
                   <div className="flex items-center gap-3">
                     <item.icon className="h-5 w-5 text-gray-400" />
                     <div>
-                      <p className="font-medium text-white">{item.label}</p>
-                      <p className="text-sm text-gray-400">{item.desc}</p>
+                      <p className="font-medium text-gray-900">{item.label}</p>
+                      <p className="text-sm text-gray-500">{item.desc}</p>
                     </div>
                   </div>
                   <Switch
@@ -411,15 +411,15 @@ export default function SettingsSection() {
               ))}
 
               {settings.autoLock && (
-                <div className="flex items-center justify-between py-4 border-b border-gray-700/30 pl-8">
+                <div className="flex items-center justify-between py-4 border-b border-gray-100 pl-8">
                   <div>
-                    <p className="font-medium text-white">自动锁定时间</p>
-                    <p className="text-sm text-gray-400">无操作后自动锁定</p>
+                    <p className="font-medium text-gray-900">自动锁定时间</p>
+                    <p className="text-sm text-gray-500">无操作后自动锁定</p>
                   </div>
                   <select
                     value={settings.autoLockTime}
                     onChange={(e) => updateSetting('autoLockTime', e.target.value)}
-                    className="bg-gray-900/80 border border-gray-700 rounded-lg px-3 py-2 text-white"
+                    className="bg-white border border-gray-200 rounded-lg px-3 py-2 text-gray-900"
                   >
                     <option value="1">1 分钟</option>
                     <option value="5">5 分钟</option>
@@ -435,7 +435,7 @@ export default function SettingsSection() {
           {/* Notifications */}
           {activeTab === 'notifications' && (
             <div className="space-y-6">
-              <h2 className="text-lg font-bold text-white mb-4">通知设置</h2>
+              <h2 className="text-lg font-bold text-gray-900 mb-4">通知设置</h2>
               
               {[
                 { key: 'emailNotifications', label: '邮件通知', desc: '接收重要事件邮件', icon: Mail },
@@ -444,12 +444,12 @@ export default function SettingsSection() {
                 { key: 'securityAlerts', label: '安全提醒', desc: '账户安全事件通知', icon: Shield },
                 { key: 'marketingEmails', label: '营销邮件', desc: '接收产品更新和优惠信息', icon: Mail },
               ].map((item) => (
-                <div key={item.key} className="flex items-center justify-between py-4 border-b border-gray-700/30">
+                <div key={item.key} className="flex items-center justify-between py-4 border-b border-gray-100">
                   <div className="flex items-center gap-3">
                     <item.icon className="h-5 w-5 text-gray-400" />
                     <div>
-                      <p className="font-medium text-white">{item.label}</p>
-                      <p className="text-sm text-gray-400">{item.desc}</p>
+                      <p className="font-medium text-gray-900">{item.label}</p>
+                      <p className="text-sm text-gray-500">{item.desc}</p>
                     </div>
                   </div>
                   <Switch
@@ -464,19 +464,19 @@ export default function SettingsSection() {
           {/* Preferences */}
           {activeTab === 'preferences' && (
             <div className="space-y-6">
-              <h2 className="text-lg font-bold text-white mb-4">偏好设置</h2>
+              <h2 className="text-lg font-bold text-gray-900 mb-4">偏好设置</h2>
               
               {[
                 { key: 'darkMode', label: '深色模式', desc: '使用深色主题', icon: settings.darkMode ? Moon : Sun },
                 { key: 'compactMode', label: '紧凑模式', desc: '减小间距显示更多内容', icon: Settings },
                 { key: 'animations', label: '动画效果', desc: '启用界面动画', icon: Settings },
               ].map((item) => (
-                <div key={item.key} className="flex items-center justify-between py-4 border-b border-gray-700/30">
+                <div key={item.key} className="flex items-center justify-between py-4 border-b border-gray-100">
                   <div className="flex items-center gap-3">
                     <item.icon className="h-5 w-5 text-gray-400" />
                     <div>
-                      <p className="font-medium text-white">{item.label}</p>
-                      <p className="text-sm text-gray-400">{item.desc}</p>
+                      <p className="font-medium text-gray-900">{item.label}</p>
+                      <p className="text-sm text-gray-500">{item.desc}</p>
                     </div>
                   </div>
                   <Switch
@@ -491,32 +491,32 @@ export default function SettingsSection() {
           {/* Data Management */}
           {activeTab === 'data' && (
             <div className="space-y-6">
-              <h2 className="text-lg font-bold text-white mb-4">数据管理</h2>
+              <h2 className="text-lg font-bold text-gray-900 mb-4">数据管理</h2>
               
-              <div className="flex items-center justify-between py-4 border-b border-gray-700/30">
+              <div className="flex items-center justify-between py-4 border-b border-gray-100">
                 <div className="flex items-center gap-3">
                   <Download className="h-5 w-5 text-gray-400" />
                   <div>
-                    <p className="font-medium text-white">导出设置</p>
-                    <p className="text-sm text-gray-400">将设置导出为 JSON 文件</p>
+                    <p className="font-medium text-gray-900">导出设置</p>
+                    <p className="text-sm text-gray-500">将设置导出为 JSON 文件</p>
                   </div>
                 </div>
                 <Button
                   variant="outline"
                   onClick={exportSettings}
-                  className="border-gray-700 text-gray-300 hover:bg-gray-800"
+                  className="border-gray-200 text-gray-600 hover:bg-gray-100"
                 >
                   <Download className="h-4 w-4 mr-2" />
                   导出
                 </Button>
               </div>
 
-              <div className="flex items-center justify-between py-4 border-b border-gray-700/30">
+              <div className="flex items-center justify-between py-4 border-b border-gray-100">
                 <div className="flex items-center gap-3">
                   <Upload className="h-5 w-5 text-gray-400" />
                   <div>
-                    <p className="font-medium text-white">导入设置</p>
-                    <p className="text-sm text-gray-400">从 JSON 文件导入设置</p>
+                    <p className="font-medium text-gray-900">导入设置</p>
+                    <p className="text-sm text-gray-500">从 JSON 文件导入设置</p>
                   </div>
                 </div>
                 <label className="cursor-pointer">
@@ -528,7 +528,7 @@ export default function SettingsSection() {
                   />
                   <Button
                     variant="outline"
-                    className="border-gray-700 text-gray-300 hover:bg-gray-800"
+                    className="border-gray-200 text-gray-600 hover:bg-gray-100"
                     asChild
                   >
                     <span>
@@ -539,27 +539,27 @@ export default function SettingsSection() {
                 </label>
               </div>
 
-              <div className="flex items-center justify-between py-4 border-b border-gray-700/30">
+              <div className="flex items-center justify-between py-4 border-b border-gray-100">
                 <div className="flex items-center gap-3">
-                  <Trash2 className="h-5 w-5 text-red-400" />
+                  <Trash2 className="h-5 w-5 text-red-500" />
                   <div>
-                    <p className="font-medium text-white">清除所有数据</p>
-                    <p className="text-sm text-gray-400">删除所有本地存储的数据</p>
+                    <p className="font-medium text-gray-900">清除所有数据</p>
+                    <p className="text-sm text-gray-500">删除所有本地存储的数据</p>
                   </div>
                 </div>
                 <Button
                   variant="outline"
                   onClick={() => setShowClearDataConfirm(true)}
-                  className="border-red-500/30 text-red-400 hover:bg-red-500/10"
+                  className="border-red-200 text-red-600 hover:bg-red-50"
                 >
                   <Trash2 className="h-4 w-4 mr-2" />
                   清除
                 </Button>
               </div>
 
-              <div className="bg-gray-800/30 rounded-xl p-4 mt-6">
-                <h3 className="text-sm font-medium text-white mb-2">存储信息</h3>
-                <div className="space-y-2 text-sm text-gray-400">
+              <div className="bg-gray-50 rounded-xl p-4 mt-6">
+                <h3 className="text-sm font-medium text-gray-900 mb-2">存储信息</h3>
+                <div className="space-y-2 text-sm text-gray-500">
                   <p>设置存储位置: LocalStorage</p>
                   <p>最后保存: {localStorage.getItem(STORAGE_KEY) ? '已保存' : '未保存'}</p>
                   <p>数据大小: ~{Math.round(JSON.stringify(settings).length / 1024)} KB</p>
@@ -585,14 +585,14 @@ export default function SettingsSection() {
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.95, opacity: 0 }}
               onClick={(e) => e.stopPropagation()}
-              className="bg-gray-900 border border-gray-700 rounded-2xl w-full max-w-md"
+              className="bg-white border border-gray-200 rounded-2xl w-full max-w-md"
             >
-              <div className="p-6 border-b border-gray-800">
+              <div className="p-6 border-b border-gray-100">
                 <div className="flex items-center justify-between">
-                  <h3 className="text-xl font-bold text-white">修改密码</h3>
+                  <h3 className="text-xl font-bold text-gray-900">修改密码</h3>
                   <button
                     onClick={() => setShowChangePassword(false)}
-                    className="p-2 rounded-lg hover:bg-gray-800 text-gray-400"
+                    className="p-2 rounded-lg hover:bg-gray-100 text-gray-500"
                   >
                     <X className="h-5 w-5" />
                   </button>
@@ -600,72 +600,72 @@ export default function SettingsSection() {
               </div>
               <div className="p-6 space-y-4">
                 <div>
-                  <label className="block text-sm text-gray-400 mb-2">当前密码</label>
+                  <label className="block text-sm text-gray-500 mb-2">当前密码</label>
                   <div className="relative">
                     <Input
                       type={showPassword.current ? 'text' : 'password'}
                       value={passwordData.current}
                       onChange={(e) => setPasswordData({ ...passwordData, current: e.target.value })}
                       placeholder="输入当前密码"
-                      className="bg-gray-800/50 border-gray-700 text-white pr-10"
+                      className="bg-white border-gray-200 text-gray-900 pr-10"
                     />
                     <button
                       onClick={() => setShowPassword({ ...showPassword, current: !showPassword.current })}
-                      className="absolute right-3 top-1/2 -trangray-y-1/2 text-gray-500 hover:text-white"
+                      className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500 hover:text-gray-900"
                     >
                       {showPassword.current ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
                     </button>
                   </div>
                 </div>
                 <div>
-                  <label className="block text-sm text-gray-400 mb-2">新密码</label>
+                  <label className="block text-sm text-gray-500 mb-2">新密码</label>
                   <div className="relative">
                     <Input
                       type={showPassword.new ? 'text' : 'password'}
                       value={passwordData.new}
                       onChange={(e) => setPasswordData({ ...passwordData, new: e.target.value })}
                       placeholder="至少 8 位，包含大小写字母和数字"
-                      className="bg-gray-800/50 border-gray-700 text-white pr-10"
+                      className="bg-white border-gray-200 text-gray-900 pr-10"
                     />
                     <button
                       onClick={() => setShowPassword({ ...showPassword, new: !showPassword.new })}
-                      className="absolute right-3 top-1/2 -trangray-y-1/2 text-gray-500 hover:text-white"
+                      className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500 hover:text-gray-900"
                     >
                       {showPassword.new ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
                     </button>
                   </div>
                 </div>
                 <div>
-                  <label className="block text-sm text-gray-400 mb-2">确认新密码</label>
+                  <label className="block text-sm text-gray-500 mb-2">确认新密码</label>
                   <div className="relative">
                     <Input
                       type={showPassword.confirm ? 'text' : 'password'}
                       value={passwordData.confirm}
                       onChange={(e) => setPasswordData({ ...passwordData, confirm: e.target.value })}
                       placeholder="再次输入新密码"
-                      className="bg-gray-800/50 border-gray-700 text-white pr-10"
+                      className="bg-white border-gray-200 text-gray-900 pr-10"
                     />
                     <button
                       onClick={() => setShowPassword({ ...showPassword, confirm: !showPassword.confirm })}
-                      className="absolute right-3 top-1/2 -trangray-y-1/2 text-gray-500 hover:text-white"
+                      className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500 hover:text-gray-900"
                     >
                       {showPassword.confirm ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
                     </button>
                   </div>
                 </div>
               </div>
-              <div className="p-6 border-t border-gray-800 flex gap-3">
+              <div className="p-6 border-t border-gray-100 flex gap-3">
                 <Button
                   variant="outline"
                   onClick={() => setShowChangePassword(false)}
-                  className="flex-1 border-gray-700"
+                  className="flex-1 border-gray-200"
                 >
                   取消
                 </Button>
                 <Button
                   onClick={handleChangePassword}
                   disabled={!passwordData.current || !passwordData.new || !passwordData.confirm || isLoading}
-                  className="flex-1 bg-gradient-to-r from-orange-500 to-purple-600 disabled:opacity-50"
+                  className="flex-1 bg-gradient-to-r from-orange-500 to-orange-600 disabled:opacity-50"
                 >
                   {isLoading ? <RefreshCw className="h-4 w-4 animate-spin" /> : '确认修改'}
                 </Button>
@@ -690,22 +690,22 @@ export default function SettingsSection() {
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.95, opacity: 0 }}
               onClick={(e) => e.stopPropagation()}
-              className="bg-gray-900 border border-gray-700 rounded-2xl w-full max-w-sm p-6"
+              className="bg-white border border-gray-200 rounded-2xl w-full max-w-sm p-6"
             >
               <div className="flex items-center gap-3 mb-4">
-                <div className="w-12 h-12 rounded-full bg-orange-500/20 flex items-center justify-center">
-                  <LogOut className="h-6 w-6 text-orange-400" />
+                <div className="w-12 h-12 rounded-full bg-orange-100 flex items-center justify-center">
+                  <LogOut className="h-6 w-6 text-orange-600" />
                 </div>
                 <div>
-                  <h3 className="text-lg font-bold text-white">确认退出</h3>
-                  <p className="text-sm text-gray-400">您确定要退出登录吗？</p>
+                  <h3 className="text-lg font-bold text-gray-900">确认退出</h3>
+                  <p className="text-sm text-gray-500">您确定要退出登录吗？</p>
                 </div>
               </div>
               <div className="flex gap-3">
                 <Button
                   variant="outline"
                   onClick={() => setShowLogoutConfirm(false)}
-                  className="flex-1 border-gray-700"
+                  className="flex-1 border-gray-200"
                 >
                   取消
                 </Button>
@@ -737,25 +737,25 @@ export default function SettingsSection() {
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.95, opacity: 0 }}
               onClick={(e) => e.stopPropagation()}
-              className="bg-gray-900 border border-gray-700 rounded-2xl w-full max-w-md p-6"
+              className="bg-white border border-gray-200 rounded-2xl w-full max-w-md p-6"
             >
               <div className="flex items-center gap-3 mb-4">
-                <div className="w-12 h-12 rounded-full bg-red-500/20 flex items-center justify-center">
-                  <AlertTriangle className="h-6 w-6 text-red-400" />
+                <div className="w-12 h-12 rounded-full bg-red-100 flex items-center justify-center">
+                  <AlertTriangle className="h-6 w-6 text-red-600" />
                 </div>
                 <div>
-                  <h3 className="text-lg font-bold text-white">清除所有数据</h3>
-                  <p className="text-sm text-gray-400">此操作无法撤销</p>
+                  <h3 className="text-lg font-bold text-gray-900">清除所有数据</h3>
+                  <p className="text-sm text-gray-500">此操作无法撤销</p>
                 </div>
               </div>
-              <p className="text-gray-400 mb-6">
+              <p className="text-gray-500 mb-6">
                 这将删除所有本地存储的设置和数据，包括钱包信息、交易记录等。此操作无法恢复。
               </p>
               <div className="flex gap-3">
                 <Button
                   variant="outline"
                   onClick={() => setShowClearDataConfirm(false)}
-                  className="flex-1 border-gray-700"
+                  className="flex-1 border-gray-200"
                 >
                   取消
                 </Button>
