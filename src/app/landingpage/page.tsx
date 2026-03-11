@@ -32,9 +32,9 @@ import { languages, getTranslation, type Language } from "./i18n";
 const installCommand = "npx ClawWallet@latest install clawwallet";
 
 const navLinks = [
+  { key: "nav.autonomy", href: "#autonomy" },
+  { key: "nav.roles", href: "#roles" },
   { key: "nav.features", href: "#features" },
-  { key: "nav.security", href: "#security" },
-  { key: "nav.reviews", href: "#testimonials" },
   { key: "nav.faq", href: "#faq" },
 ];
 
@@ -154,13 +154,18 @@ export default function LandingPage() {
               {/* Desktop Navigation */}
               <div className="hidden md:flex items-center gap-1">
                 {navLinks.map((link) => (
-                  <Link
+                  <button
                     key={link.href}
-                    href={link.href}
-                    className="px-4 py-2 text-sm text-gray-600 hover:text-gray-900 rounded-lg hover:bg-gray-50 transition-colors"
+                    onClick={() => {
+                      const element = document.querySelector(link.href);
+                      if (element) {
+                        element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                      }
+                    }}
+                    className="px-4 py-2 text-sm text-gray-600 hover:text-gray-900 rounded-lg hover:bg-gray-50 transition-colors cursor-pointer"
                   >
                     {t(link.key)}
-                  </Link>
+                  </button>
                 ))}
               </div>
 
@@ -250,14 +255,19 @@ export default function LandingPage() {
           >
             <div className="max-w-6xl mx-auto px-6 py-4 space-y-3">
               {navLinks.map((link) => (
-                <Link
+                <button
                   key={link.href}
-                  href={link.href}
-                  onClick={() => setIsMobileMenuOpen(false)}
-                  className="block py-2 text-gray-600 hover:text-gray-900"
+                  onClick={() => {
+                    setIsMobileMenuOpen(false);
+                    const element = document.querySelector(link.href);
+                    if (element) {
+                      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
+                  }}
+                  className="block w-full text-left py-2 text-gray-600 hover:text-gray-900 cursor-pointer"
                 >
                   {t(link.key)}
-                </Link>
+                </button>
               ))}
               <div className="pt-3 border-t border-gray-100 flex items-center gap-4">
                 <a href="https://github.com" className="flex items-center gap-2 text-gray-600">
@@ -436,7 +446,7 @@ export default function LandingPage() {
       </section>
 
       {/* Usage Example Section - Agent Autonomy */}
-      <section className="py-24 bg-white border-t border-gray-100">
+      <section id="autonomy" className="py-24 bg-white border-t border-gray-100">
         <div className="max-w-6xl mx-auto px-6">
           {/* Section Header */}
           <div className="text-center mb-12">
@@ -766,7 +776,7 @@ export default function LandingPage() {
       </section>
 
       {/* Agent Roles Section */}
-      <section className="py-24 bg-white border-t border-gray-100">
+      <section id="roles" className="py-24 bg-white border-t border-gray-100">
         <div className="max-w-6xl mx-auto px-6">
           <motion.div 
             className="text-center mb-16"

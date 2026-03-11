@@ -16,32 +16,32 @@ export const languages: { code: Language; label: string; flag: string }[] = [
 export const translations = {
   // Navigation
   nav: {
-    features: {
-      zh: '特性',
-      en: 'Features',
-      ja: '機能',
-      ko: '기능',
-      fr: 'Fonctionnalités',
-      de: 'Funktionen',
-      es: 'Características',
+    autonomy: {
+      zh: '自主交互',
+      en: 'Autonomy',
+      ja: '自律性',
+      ko: '자율성',
+      fr: 'Autonomie',
+      de: 'Autonomie',
+      es: 'Autonomía',
     },
-    security: {
-      zh: '安全',
+    roles: {
+      zh: 'Agent 能力',
+      en: 'Capabilities',
+      ja: '能力',
+      ko: '능력',
+      fr: 'Capacités',
+      de: 'Fähigkeiten',
+      es: 'Capacidades',
+    },
+    features: {
+      zh: '安全特性',
       en: 'Security',
       ja: 'セキュリティ',
       ko: '보안',
       fr: 'Sécurité',
       de: 'Sicherheit',
       es: 'Seguridad',
-    },
-    reviews: {
-      zh: '用户反馈',
-      en: 'Reviews',
-      ja: 'ユーザーレビュー',
-      ko: '사용자 리뷰',
-      fr: 'Avis',
-      de: 'Bewertungen',
-      es: 'Reseñas',
     },
     faq: {
       zh: 'FAQ',
