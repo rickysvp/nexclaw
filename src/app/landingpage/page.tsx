@@ -355,6 +355,89 @@ export default function LandingPage() {
         </div>
       </section>
 
+      {/* Usage Example Section - Second Screen */}
+      <section className="py-20 bg-[#fafafa] border-t border-gray-100 min-h-screen flex items-center">
+        <div className="max-w-5xl mx-auto px-6 w-full">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+            >
+              <h2 className="text-2xl md:text-3xl font-semibold text-gray-900 mb-4">{t("usage.title")}</h2>
+              <p className="text-gray-500 mb-8 leading-relaxed">
+                {t("usage.subtitle")}
+              </p>
+              <div className="space-y-4">
+                <div className="flex items-start gap-3">
+                  <div className="w-8 h-8 rounded-lg bg-orange-50 flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <Terminal className="w-4 h-4 text-orange-500" />
+                  </div>
+                  <div>
+                    <h4 className="text-gray-900 font-medium text-sm mb-0.5">{t("usage.create")}</h4>
+                    <code className="text-xs text-gray-400 font-mono bg-gray-50 px-2 py-1 rounded">@openclaw {t("usage.create")}</code>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <div className="w-8 h-8 rounded-lg bg-orange-50 flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <Wallet className="w-4 h-4 text-orange-500" />
+                  </div>
+                  <div>
+                    <h4 className="text-gray-900 font-medium text-sm mb-0.5">{t("usage.balance")}</h4>
+                    <code className="text-xs text-gray-400 font-mono bg-gray-50 px-2 py-1 rounded">@openclaw {t("usage.balance")}</code>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <div className="w-8 h-8 rounded-lg bg-orange-50 flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <ArrowRight className="w-4 h-4 text-orange-500" />
+                  </div>
+                  <div>
+                    <h4 className="text-gray-900 font-medium text-sm mb-0.5">{t("usage.send")}</h4>
+                    <code className="text-xs text-gray-400 font-mono bg-gray-50 px-2 py-1 rounded">@openclaw {t("usage.send")} 0.1 ETH...</code>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.1 }}
+            >
+              <div className="bg-gray-50 rounded-2xl border border-gray-100 overflow-hidden">
+                <div className="flex items-center gap-2 px-4 py-3 border-b border-gray-100 bg-white">
+                  <div className="w-2.5 h-2.5 rounded-full bg-gray-200" />
+                  <div className="w-2.5 h-2.5 rounded-full bg-gray-200" />
+                  <div className="w-2.5 h-2.5 rounded-full bg-gray-200" />
+                  <span className="text-gray-400 text-xs ml-2">OpenClaw</span>
+                </div>
+                <div className="p-5 space-y-4">
+                  <div className="flex gap-3">
+                    <div className="w-7 h-7 rounded-full bg-gray-200 flex items-center justify-center text-xs">👤</div>
+                    <div className="bg-white rounded-2xl rounded-tl-sm px-3 py-2 text-gray-700 text-sm shadow-sm border border-gray-100">
+                      @openclaw {t("usage.create")}
+                    </div>
+                  </div>
+                  <div className="flex gap-3">
+                    <div className="w-7 h-7 rounded-full bg-orange-500 flex items-center justify-center">
+                      <Bot className="w-3.5 h-3.5 text-white" />
+                    </div>
+                    <div className="bg-white rounded-2xl rounded-tl-sm px-3 py-2 text-gray-700 text-sm shadow-sm border border-gray-100 space-y-1">
+                      <p>✅ {t("usage.create")} {t("hero.copied")}!</p>
+                      <p className="font-mono text-xs text-gray-400">
+                        {t("usage.balance")}: 0x7a2f...9c4d<br/>
+                        UID: claw_wallet_abc123
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
       {/* Partners Section - 合作项目 - First Screen */}
       <section className="py-10 bg-white border-y border-gray-100">
         <div className="max-w-5xl mx-auto px-6">
@@ -481,89 +564,6 @@ export default function LandingPage() {
                   </div>
                   <p className="text-gray-600 font-medium">TEE {t("nav.security")}</p>
                   <p className="text-gray-400 text-sm mt-1">Hardware Security</p>
-                </div>
-              </div>
-            </motion.div>
-          </div>
-        </div>
-      </section>
-
-      {/* Usage Example Section - Second Screen */}
-      <section className="py-20 bg-[#fafafa] border-t border-gray-100 min-h-screen flex items-center">
-        <div className="max-w-5xl mx-auto px-6 w-full">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-            >
-              <h2 className="text-2xl md:text-3xl font-semibold text-gray-900 mb-4">{t("usage.title")}</h2>
-              <p className="text-gray-500 mb-8 leading-relaxed">
-                {t("usage.subtitle")}
-              </p>
-              <div className="space-y-4">
-                <div className="flex items-start gap-3">
-                  <div className="w-8 h-8 rounded-lg bg-orange-50 flex items-center justify-center flex-shrink-0 mt-0.5">
-                    <Terminal className="w-4 h-4 text-orange-500" />
-                  </div>
-                  <div>
-                    <h4 className="text-gray-900 font-medium text-sm mb-0.5">{t("usage.create")}</h4>
-                    <code className="text-xs text-gray-400 font-mono bg-gray-50 px-2 py-1 rounded">@openclaw {t("usage.create")}</code>
-                  </div>
-                </div>
-                <div className="flex items-start gap-3">
-                  <div className="w-8 h-8 rounded-lg bg-orange-50 flex items-center justify-center flex-shrink-0 mt-0.5">
-                    <Wallet className="w-4 h-4 text-orange-500" />
-                  </div>
-                  <div>
-                    <h4 className="text-gray-900 font-medium text-sm mb-0.5">{t("usage.balance")}</h4>
-                    <code className="text-xs text-gray-400 font-mono bg-gray-50 px-2 py-1 rounded">@openclaw {t("usage.balance")}</code>
-                  </div>
-                </div>
-                <div className="flex items-start gap-3">
-                  <div className="w-8 h-8 rounded-lg bg-orange-50 flex items-center justify-center flex-shrink-0 mt-0.5">
-                    <ArrowRight className="w-4 h-4 text-orange-500" />
-                  </div>
-                  <div>
-                    <h4 className="text-gray-900 font-medium text-sm mb-0.5">{t("usage.send")}</h4>
-                    <code className="text-xs text-gray-400 font-mono bg-gray-50 px-2 py-1 rounded">@openclaw {t("usage.send")} 0.1 ETH...</code>
-                  </div>
-                </div>
-              </div>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.1 }}
-            >
-              <div className="bg-gray-50 rounded-2xl border border-gray-100 overflow-hidden">
-                <div className="flex items-center gap-2 px-4 py-3 border-b border-gray-100 bg-white">
-                  <div className="w-2.5 h-2.5 rounded-full bg-gray-200" />
-                  <div className="w-2.5 h-2.5 rounded-full bg-gray-200" />
-                  <div className="w-2.5 h-2.5 rounded-full bg-gray-200" />
-                  <span className="text-gray-400 text-xs ml-2">OpenClaw</span>
-                </div>
-                <div className="p-5 space-y-4">
-                  <div className="flex gap-3">
-                    <div className="w-7 h-7 rounded-full bg-gray-200 flex items-center justify-center text-xs">👤</div>
-                    <div className="bg-white rounded-2xl rounded-tl-sm px-3 py-2 text-gray-700 text-sm shadow-sm border border-gray-100">
-                      @openclaw {t("usage.create")}
-                    </div>
-                  </div>
-                  <div className="flex gap-3">
-                    <div className="w-7 h-7 rounded-full bg-orange-500 flex items-center justify-center">
-                      <Bot className="w-3.5 h-3.5 text-white" />
-                    </div>
-                    <div className="bg-white rounded-2xl rounded-tl-sm px-3 py-2 text-gray-700 text-sm shadow-sm border border-gray-100 space-y-1">
-                      <p>✅ {t("usage.create")} {t("hero.copied")}!</p>
-                      <p className="font-mono text-xs text-gray-400">
-                        {t("usage.balance")}: 0x7a2f...9c4d<br/>
-                        UID: claw_wallet_abc123
-                      </p>
-                    </div>
-                  </div>
                 </div>
               </div>
             </motion.div>
