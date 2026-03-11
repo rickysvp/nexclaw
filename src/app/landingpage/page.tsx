@@ -154,6 +154,7 @@ export default function LandingPage() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [currentLang, setCurrentLang] = useState<Language>("zh");
   const [isLangMenuOpen, setIsLangMenuOpen] = useState(false);
+  const [installTab, setInstallTab] = useState<'cli' | 'openclaw'>('cli');
 
   const handleCopy = async () => {
     await navigator.clipboard.writeText(installCommand);
@@ -354,43 +355,75 @@ export default function LandingPage() {
               </div>
             </motion.div>
 
-            {/* Right Side - Copy Interface */}
+            {/* Right Side - Copy Interface with Tabs */}
             <motion.div
               initial={{ opacity: 0, x: 30 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
               className="space-y-4"
             >
-              {/* Command Line Option */}
-              <div className="bg-gray-900 rounded-2xl p-6 border border-gray-800">
-                <div className="flex items-center justify-between mb-4">
-                  <span className="text-gray-400 text-sm">命令行安装</span>
+              {/* Tab Container */}
+              <div className="bg-white rounded-2xl border border-gray-200 shadow-xl overflow-hidden">
+                {/* Tabs */}
+                <div className="flex border-b border-gray-100">
                   <button
-                    onClick={() => {navigator.clipboard.writeText(installCommand); setCopied(true); setTimeout(() => setCopied(false), 2000);}}
-                    className="text-gray-400 hover:text-white transition-colors"
+                    onClick={() => setInstallTab('cli')}
+                    className={`flex-1 py-3 px-4 text-sm font-medium transition-colors ${
+                      installTab === 'cli' 
+                        ? 'text-orange-600 border-b-2 border-orange-500 bg-orange-50/50' 
+                        : 'text-gray-500 hover:text-gray-700 hover:bg-gray-50'
+                    }`}
                   >
-                    {copied ? <Check className="w-4 h-4" /> : <Copy className="w-4 h-4" />}
+                    命令行
+                  </button>
+                  <button
+                    onClick={() => setInstallTab('openclaw')}
+                    className={`flex-1 py-3 px-4 text-sm font-medium transition-colors ${
+                      installTab === 'openclaw' 
+                        ? 'text-orange-600 border-b-2 border-orange-500 bg-orange-50/50' 
+                        : 'text-gray-500 hover:text-gray-700 hover:bg-gray-50'
+                    }`}
+                  >
+                    OpenClaw
                   </button>
                 </div>
-                <code className="text-sm text-gray-300 font-mono block">{installCommand}</code>
-              </div>
 
-              {/* Natural Language Option */}
-              <div className="bg-white rounded-2xl p-6 border border-gray-200 shadow-lg">
-                <div className="flex items-center justify-between mb-4">
-                  <span className="text-gray-500 text-sm">或告诉 OpenClaw</span>
-                  <button
-                    onClick={() => {navigator.clipboard.writeText("@openclaw 安装 clawwallet"); setCopied(true); setTimeout(() => setCopied(false), 2000);}}
-                    className="text-gray-400 hover:text-orange-500 transition-colors"
-                  >
-                    {copied ? <Check className="w-4 h-4 text-green-500" /> : <Copy className="w-4 h-4" />}
-                  </button>
-                </div>
-                <div className="flex items-center gap-3 p-3 bg-gray-50 rounded-xl">
-                  <div className="w-8 h-8 rounded-full bg-orange-500 flex items-center justify-center">
-                    <Bot className="w-4 h-4 text-white" />
-                  </div>
-                  <code className="text-gray-700 font-medium">@openclaw 安装 clawwallet</code>
+                {/* Tab Content */}
+                <div className="p-6">
+                  {installTab === 'cli' ? (
+                    <div className="space-y-4">
+                      <div className="flex items-center justify-between">
+                        <span className="text-gray-500 text-sm">在终端运行</span>
+                        <button
+                          onClick={() => {navigator.clipboard.writeText(installCommand); setCopied(true); setTimeout(() => setCopied(false), 2000);}}
+                          className="text-gray-400 hover:text-orange-500 transition-colors"
+                        >
+                          {copied ? <Check className="w-4 h-4 text-green-500" /> : <Copy className="w-4 h-4" />}
+                        </button>
+                      </div>
+                      <div className="bg-gray-900 rounded-xl p-4">
+                        <code className="text-sm text-gray-300 font-mono block">{installCommand}</code>
+                      </div>
+                    </div>
+                  ) : (
+                    <div className="space-y-4">
+                      <div className="flex items-center justify-between">
+                        <span className="text-gray-500 text-sm">发送给 OpenClaw</span>
+                        <button
+                          onClick={() => {navigator.clipboard.writeText("安装 clawwallet.cc/clawwallet.md"); setCopied(true); setTimeout(() => setCopied(false), 2000);}}
+                          className="text-gray-400 hover:text-orange-500 transition-colors"
+                        >
+                          {copied ? <Check className="w-4 h-4 text-green-500" /> : <Copy className="w-4 h-4" />}
+                        </button>
+                      </div>
+                      <div className="flex items-center gap-3 p-4 bg-gray-50 rounded-xl">
+                        <div className="w-8 h-8 rounded-full bg-orange-500 flex items-center justify-center flex-shrink-0">
+                          <Bot className="w-4 h-4 text-white" />
+                        </div>
+                        <code className="text-gray-700 font-medium">安装 clawwallet.cc/clawwallet.md</code>
+                      </div>
+                    </div>
+                  )}
                 </div>
               </div>
 
