@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import {
   Wallet,
   Copy,
@@ -115,28 +115,36 @@ function FAQItem({ question, answer }: { question: string; answer: string }) {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <div className="border-b border-gray-100">
+    <div className="bg-white rounded-xl border border-gray-100 overflow-hidden">
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="w-full py-5 flex items-center justify-between text-left"
+        className="w-full px-6 py-5 flex items-center justify-between text-left hover:bg-gray-50 transition-colors group"
       >
-        <span className="font-medium text-gray-900">{question}</span>
-        {isOpen ? (
-          <ChevronUp className="w-5 h-5 text-gray-400" />
-        ) : (
-          <ChevronDown className="w-5 h-5 text-gray-400" />
-        )}
+        <span className="font-medium text-gray-900 text-base group-hover:text-orange-600 transition-colors pr-4">
+          {question}
+        </span>
+        <div className={`w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 transition-colors ${isOpen ? 'bg-orange-100' : 'bg-gray-100 group-hover:bg-orange-50'}`}>
+          {isOpen ? (
+            <ChevronUp className="w-5 h-5 text-orange-500" />
+          ) : (
+            <ChevronDown className="w-5 h-5 text-gray-400 group-hover:text-orange-500" />
+          )}
+        </div>
       </button>
-      {isOpen && (
-        <motion.div
-          initial={{ opacity: 0, height: 0 }}
-          animate={{ opacity: 1, height: "auto" }}
-          exit={{ opacity: 0, height: 0 }}
-          className="pb-5"
-        >
-          <p className="text-gray-500 text-sm leading-relaxed">{answer}</p>
-        </motion.div>
-      )}
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: "auto" }}
+            exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.2 }}
+          >
+            <div className="px-6 pb-5">
+              <p className="text-gray-500 leading-relaxed">{answer}</p>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 }
@@ -175,6 +183,19 @@ export default function LandingPage() {
                 </div>
                 <span className="text-gray-900 font-bold text-sm tracking-tight">ClawWallet</span>
               </Link>
+
+              {/* Desktop Navigation */}
+              <div className="hidden md:flex items-center gap-1">
+                {navLinks.map((link) => (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    className="px-4 py-2 text-sm text-gray-600 hover:text-gray-900 rounded-lg hover:bg-gray-50 transition-colors"
+                  >
+                    {t(link.key)}
+                  </Link>
+                ))}
+              </div>
 
               {/* Right Side Actions */}
               <div className="flex items-center gap-4">
@@ -288,93 +309,112 @@ export default function LandingPage() {
 
       {/* Hero Section */}
       <section className="relative pt-32 pb-20 lg:pt-40 min-h-screen flex flex-col">
-        <div className="max-w-5xl mx-auto px-6 text-center flex-1 flex flex-col justify-center">
+        {/* Background Gradient */}
+        <div className="absolute inset-0 bg-gradient-to-b from-orange-50/50 via-white to-white pointer-events-none" />
+        
+        <div className="relative max-w-5xl mx-auto px-6 text-center flex-1 flex flex-col justify-center">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="space-y-8"
+            transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+            className="space-y-10"
           >
+            {/* Badge */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ delay: 0.1 }}
+            >
+              <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-orange-100 text-orange-700 text-sm font-medium">
+                <Package className="w-4 h-4" />
+                <span>OpenClaw 原生 Skill</span>
+              </span>
+            </motion.div>
+
             {/* Headline */}
-            <div className="space-y-4">
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-semibold text-gray-900 tracking-tight leading-[1.1]">
-                <span className="relative inline-block">
-                  ClawWallet
-                  {/* Badge - Top Right Corner of ClawWallet */}
-                  <span className="absolute -top-2 -right-2 translate-x-full -translate-y-1/2">
-                    <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-orange-500 text-white text-xs font-semibold shadow-lg shadow-orange-500/30 whitespace-nowrap tracking-wide">
-                      <Package className="w-3.5 h-3.5" />
-                      <span>{t("hero.badge")}</span>
-                    </span>
-                  </span>
-                </span>
-                <br />
-                <span className="text-orange-500">{t("hero.title")}</span>
+            <div className="space-y-6">
+              <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-gray-900 tracking-tight leading-[1.05]">
+                <span className="bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 bg-clip-text">ClawWallet</span>
               </h1>
-              <p className="text-lg text-gray-500 max-w-lg mx-auto leading-relaxed">
-                {t("hero.subtitle")}
+              <p className="text-xl md:text-2xl text-gray-500 max-w-2xl mx-auto leading-relaxed">
+                为 AI Agent 打造的加密钱包
+                <br />
+                <span className="text-orange-500 font-medium">一键安装，即刻使用</span>
               </p>
             </div>
 
-            {/* Install Command */}
+            {/* CTA Buttons */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.1 }}
+              transition={{ delay: 0.2 }}
+              className="flex flex-col sm:flex-row items-center justify-center gap-4"
+            >
+              <button
+                onClick={handleCopy}
+                className="group px-8 py-4 bg-orange-500 text-white rounded-xl font-semibold hover:bg-orange-600 transition-all shadow-lg shadow-orange-500/25 hover:shadow-orange-500/40 flex items-center gap-2"
+              >
+                {copied ? (
+                  <>
+                    <Check className="w-5 h-5" />
+                    已复制
+                  </>
+                ) : (
+                  <>
+                    <Copy className="w-5 h-5" />
+                    复制安装命令
+                  </>
+                )}
+              </button>
+              <a 
+                href="#features" 
+                className="px-8 py-4 text-gray-600 hover:text-gray-900 font-medium hover:bg-gray-50 rounded-xl transition-colors flex items-center gap-2"
+              >
+                了解更多
+                <ArrowRight className="w-4 h-4" />
+              </a>
+            </motion.div>
+
+            {/* Install Command Preview */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.3 }}
               className="pt-4"
             >
-              <div className="inline-flex items-center gap-2 px-2 py-2 bg-gray-900 rounded-2xl border border-gray-800 shadow-2xl shadow-black/20">
-                <code className="text-sm text-gray-300 font-mono px-4">{installCommand}</code>
-                <button
-                  onClick={handleCopy}
-                  className={`flex items-center gap-1.5 px-4 py-2.5 rounded-xl font-medium text-sm transition-all ${
-                    copied
-                      ? "bg-green-500 text-white"
-                      : "bg-white text-gray-900 hover:bg-gray-100"
-                  }`}
-                >
-                  {copied ? (
-                    <>
-                      <Check className="w-4 h-4" />
-                      {t("hero.copied")}
-                    </>
-                  ) : (
-                    <>
-                      <Copy className="w-4 h-4" />
-                      {t("hero.copyBtn")}
-                    </>
-                  )}
-                </button>
+              <div className="inline-flex items-center gap-3 px-5 py-3 bg-gray-900 rounded-xl border border-gray-800">
+                <span className="text-gray-500">$</span>
+                <code className="text-sm text-gray-300 font-mono">{installCommand}</code>
               </div>
-              
-              <p className="text-gray-400 text-sm mt-4">
-                {t("hero.copyHint")}
+              <p className="text-gray-400 text-sm mt-3">
+                无需注册，命令行一键安装
               </p>
             </motion.div>
           </motion.div>
         </div>
 
         {/* Partners Section - Inside Hero */}
-        <div className="mt-auto pt-16">
+        <div className="relative mt-auto pt-20 pb-8">
           <div className="max-w-5xl mx-auto px-6">
-            <p className="text-center text-gray-400 text-xs mb-6">{t("partners.title")}</p>
-            <div className="flex flex-wrap justify-center items-center gap-8 md:gap-16">
+            <p className="text-center text-gray-400 text-sm font-medium mb-8 tracking-wide uppercase">
+              已支持的主流公链
+            </p>
+            <div className="flex flex-wrap justify-center items-center gap-12 md:gap-16">
               {partners.map((partner, index) => (
                 <motion.div
                   key={partner.name}
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.5 + index * 0.1 }}
-                  className="flex flex-col items-center gap-2 text-gray-500 hover:text-gray-800 transition-colors group"
+                  className="group flex flex-col items-center gap-3"
                 >
-                  <div className="w-10 h-10 md:w-12 md:h-12 group-hover:scale-110 transition-transform duration-300">
+                  <div className="w-12 h-12 grayscale opacity-50 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-300">
                     <img 
                       src={partner.logoPath} 
                       alt={partner.name}
                       className="w-full h-full object-contain"
                     />
                   </div>
-                  <span className="font-medium text-xs tracking-wide">{partner.name}</span>
                 </motion.div>
               ))}
             </div>
@@ -382,213 +422,246 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* Usage Example Section - Second Screen */}
-      <section className="py-20 bg-[#fafafa] border-t border-gray-100 min-h-screen flex items-center">
-        <div className="max-w-5xl mx-auto px-6 w-full">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-            >
-              <h2 className="text-2xl md:text-3xl font-semibold text-gray-900 mb-4">{t("usage.title")}</h2>
-              <p className="text-gray-500 mb-8 leading-relaxed">
-                {t("usage.subtitle")}
-              </p>
-              <div className="space-y-4">
-                <div className="flex items-start gap-3">
-                  <div className="w-8 h-8 rounded-lg bg-orange-50 flex items-center justify-center flex-shrink-0 mt-0.5">
-                    <Terminal className="w-4 h-4 text-orange-500" />
-                  </div>
-                  <div>
-                    <h4 className="text-gray-900 font-medium text-sm mb-0.5">{t("usage.create")}</h4>
-                    <code className="text-xs text-gray-400 font-mono bg-gray-50 px-2 py-1 rounded">@openclaw {t("usage.create")}</code>
-                  </div>
-                </div>
-                <div className="flex items-start gap-3">
-                  <div className="w-8 h-8 rounded-lg bg-orange-50 flex items-center justify-center flex-shrink-0 mt-0.5">
-                    <Wallet className="w-4 h-4 text-orange-500" />
-                  </div>
-                  <div>
-                    <h4 className="text-gray-900 font-medium text-sm mb-0.5">{t("usage.balance")}</h4>
-                    <code className="text-xs text-gray-400 font-mono bg-gray-50 px-2 py-1 rounded">@openclaw {t("usage.balance")}</code>
-                  </div>
-                </div>
-                <div className="flex items-start gap-3">
-                  <div className="w-8 h-8 rounded-lg bg-orange-50 flex items-center justify-center flex-shrink-0 mt-0.5">
-                    <ArrowRight className="w-4 h-4 text-orange-500" />
-                  </div>
-                  <div>
-                    <h4 className="text-gray-900 font-medium text-sm mb-0.5">{t("usage.send")}</h4>
-                    <code className="text-xs text-gray-400 font-mono bg-gray-50 px-2 py-1 rounded">@openclaw {t("usage.send")} 0.1 ETH...</code>
-                  </div>
-                </div>
-              </div>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.1 }}
-            >
-              <div className="bg-gray-50 rounded-2xl border border-gray-100 overflow-hidden">
-                <div className="flex items-center gap-2 px-4 py-3 border-b border-gray-100 bg-white">
-                  <div className="w-2.5 h-2.5 rounded-full bg-gray-200" />
-                  <div className="w-2.5 h-2.5 rounded-full bg-gray-200" />
-                  <div className="w-2.5 h-2.5 rounded-full bg-gray-200" />
-                  <span className="text-gray-400 text-xs ml-2">OpenClaw</span>
-                </div>
-                <div className="p-5 space-y-4">
-                  <div className="flex gap-3">
-                    <div className="w-7 h-7 rounded-full bg-gray-200 flex items-center justify-center text-xs">👤</div>
-                    <div className="bg-white rounded-2xl rounded-tl-sm px-3 py-2 text-gray-700 text-sm shadow-sm border border-gray-100">
-                      @openclaw {t("usage.create")}
-                    </div>
-                  </div>
-                  <div className="flex gap-3">
-                    <div className="w-7 h-7 rounded-full bg-orange-500 flex items-center justify-center">
-                      <Bot className="w-3.5 h-3.5 text-white" />
-                    </div>
-                    <div className="bg-white rounded-2xl rounded-tl-sm px-3 py-2 text-gray-700 text-sm shadow-sm border border-gray-100 space-y-1">
-                      <p>✅ {t("usage.create")} {t("hero.copied")}!</p>
-                      <p className="font-mono text-xs text-gray-400">
-                        {t("usage.balance")}: 0x7a2f...9c4d<br/>
-                        UID: claw_wallet_abc123
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </motion.div>
-          </div>
-        </div>
-      </section>
-
-      {/* Features Section */}
-      <section id="features" className="py-20 bg-[#fafafa]">
+      {/* Usage Example Section - Three Steps */}
+      <section className="py-24 bg-white border-t border-gray-100">
         <div className="max-w-5xl mx-auto px-6">
-          <div className="text-center mb-12">
-            <h2 className="text-2xl md:text-3xl font-semibold text-gray-900 mb-3">{t("features.title")}</h2>
-            <p className="text-gray-500">{t("features.subtitle")}</p>
+          {/* Section Header */}
+          <div className="text-center mb-16">
+            <span className="text-orange-500 text-sm font-semibold uppercase tracking-wider">三步上手</span>
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mt-3">像聊天一样使用钱包</h2>
+            <p className="text-gray-500 mt-4 max-w-xl mx-auto">无需复杂配置，通过自然语言即可操控您的加密资产</p>
           </div>
-          <div className="grid md:grid-cols-3 gap-8">
-            {featuresKeys.map((feature, index) => (
+
+          {/* Steps Grid */}
+          <div className="grid md:grid-cols-3 gap-8 relative">
+            {/* Connection Line */}
+            <div className="hidden md:block absolute top-24 left-[20%] right-[20%] h-0.5 bg-gradient-to-r from-orange-200 via-orange-300 to-orange-200" />
+
+            {[
+              { 
+                step: "01", 
+                title: "创建钱包", 
+                desc: "发送指令即可创建安全钱包", 
+                cmd: "@openclaw 创建钱包",
+                icon: "💬",
+                color: "from-orange-400 to-orange-500"
+              },
+              { 
+                step: "02", 
+                title: "查看余额", 
+                desc: "随时查询各链资产情况", 
+                cmd: "@openclaw 查询余额",
+                icon: "👛",
+                color: "from-orange-500 to-orange-600"
+              },
+              { 
+                step: "03", 
+                title: "发送交易", 
+                desc: "一句话完成转账操作", 
+                cmd: "@openclaw 发送 0.1 ETH",
+                icon: "🚀",
+                color: "from-orange-600 to-orange-700"
+              },
+            ].map((item, i) => (
               <motion.div
-                key={feature.titleKey}
-                initial={{ opacity: 0, y: 20 }}
+                key={i}
+                initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-                className="bg-white p-8 rounded-2xl border border-gray-100 hover:border-orange-200 hover:shadow-lg transition-all"
+                transition={{ delay: i * 0.15, duration: 0.5 }}
+                className="relative"
               >
-                <div className="w-12 h-12 rounded-xl bg-orange-50 flex items-center justify-center mb-5">
-                  <feature.icon className="w-6 h-6 text-orange-500" />
+                {/* Step Number */}
+                <div className="absolute -top-4 left-6 w-8 h-8 bg-gradient-to-br from-orange-500 to-orange-600 rounded-full flex items-center justify-center text-white text-sm font-bold shadow-lg z-10">
+                  {item.step}
                 </div>
-                <h3 className="text-lg font-semibold text-gray-900 mb-2">{t(feature.titleKey)}</h3>
-                <p className="text-gray-500 text-sm leading-relaxed">{t(feature.descKey)}</p>
+                
+                {/* Card */}
+                <div className="bg-gray-50 rounded-2xl p-6 pt-10 border border-gray-100 hover:border-orange-200 hover:shadow-lg transition-all duration-300 group">
+                  <div className="text-4xl mb-4">{item.icon}</div>
+                  <h3 className="text-xl font-semibold text-gray-900 mb-2">{item.title}</h3>
+                  <p className="text-gray-500 text-sm mb-4">{item.desc}</p>
+                  <div className="bg-white rounded-lg p-3 border border-gray-200 group-hover:border-orange-200 transition-colors">
+                    <code className="text-xs text-gray-600 font-mono">{item.cmd}</code>
+                  </div>
+                </div>
               </motion.div>
             ))}
           </div>
+
+          {/* Demo Preview */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.5 }}
+            className="mt-16 max-w-2xl mx-auto"
+          >
+            <div className="bg-gray-900 rounded-2xl overflow-hidden shadow-2xl">
+              <div className="flex items-center gap-2 px-4 py-3 bg-gray-800">
+                <div className="w-3 h-3 rounded-full bg-red-400" />
+                <div className="w-3 h-3 rounded-full bg-yellow-400" />
+                <div className="w-3 h-3 rounded-full bg-green-400" />
+                <span className="text-gray-400 text-xs ml-2">OpenClaw Chat</span>
+              </div>
+              <div className="p-6 space-y-4">
+                <div className="flex gap-3">
+                  <div className="w-8 h-8 rounded-full bg-gray-700 flex items-center justify-center text-sm">👤</div>
+                  <div className="bg-gray-800 rounded-2xl rounded-tl-sm px-4 py-2 text-gray-300 text-sm">
+                    @openclaw 创建钱包
+                  </div>
+                </div>
+                <div className="flex gap-3">
+                  <div className="w-8 h-8 rounded-full bg-gradient-to-br from-orange-500 to-orange-600 flex items-center justify-center">
+                    <Bot className="w-4 h-4 text-white" />
+                  </div>
+                  <div className="bg-gray-800 rounded-2xl rounded-tl-sm px-4 py-3 text-gray-300 text-sm space-y-1">
+                    <p>✅ 钱包创建成功！</p>
+                    <p className="text-gray-500 text-xs font-mono">地址: 0x7a2f...9c4d</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </motion.div>
         </div>
       </section>
 
-      {/* Detailed Features Section */}
-      <section id="security" className="py-20 bg-white border-t border-gray-100">
-        <div className="max-w-5xl mx-auto px-6">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-            >
-              <h2 className="text-2xl md:text-3xl font-semibold text-gray-900 mb-4">
-                {t("security.title")}
-              </h2>
-              <p className="text-gray-500 mb-8 leading-relaxed">
-                {t("security.subtitle")}
-              </p>
-              <div className="space-y-6">
-                {detailedFeaturesKeys.map((feature, index) => (
-                  <motion.div
-                    key={feature.titleKey}
-                    initial={{ opacity: 0, x: -20 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: index * 0.1 }}
-                    className="flex gap-4"
-                  >
-                    <div className="w-10 h-10 rounded-lg bg-orange-50 flex items-center justify-center flex-shrink-0">
-                      <feature.icon className="w-5 h-5 text-orange-500" />
-                    </div>
-                    <div>
-                      <h4 className="font-semibold text-gray-900 mb-1">{t(feature.titleKey)}</h4>
-                      <p className="text-gray-500 text-sm">{t(feature.descKey)}</p>
-                    </div>
-                  </motion.div>
-                ))}
-              </div>
-            </motion.div>
+      {/* Features Section - Unified Design */}
+      <section id="features" className="py-24 bg-gray-50">
+        <div className="max-w-6xl mx-auto px-6">
+          {/* Section Header */}
+          <div className="text-center mb-16">
+            <span className="text-orange-500 text-sm font-semibold uppercase tracking-wider">核心能力</span>
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mt-3 mb-4">企业级安全，开箱即用</h2>
+            <p className="text-gray-500 text-lg max-w-2xl mx-auto">基于 TEE 可信执行环境，为 AI Agent 提供银行级安全保障</p>
+          </div>
 
-            <motion.div
-              initial={{ opacity: 0, x: 20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              className="relative"
-            >
-              <div className="aspect-square bg-gradient-to-br from-orange-100 to-orange-50 rounded-3xl flex items-center justify-center">
-                <div className="text-center">
-                  <div className="w-24 h-24 bg-white rounded-2xl shadow-xl flex items-center justify-center mx-auto mb-4">
-                    <Shield className="w-12 h-12 text-orange-500" />
-                  </div>
-                  <p className="text-gray-600 font-medium">TEE {t("nav.security")}</p>
-                  <p className="text-gray-400 text-sm mt-1">Hardware Security</p>
+          {/* Main Features Grid */}
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
+            {featuresKeys.map((feature, index) => (
+              <motion.div
+                key={feature.titleKey}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1, duration: 0.5 }}
+                className="group bg-white rounded-2xl p-8 border border-gray-100 hover:border-orange-200 hover:shadow-xl transition-all duration-300"
+              >
+                <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-orange-50 to-orange-100 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                  <feature.icon className="w-7 h-7 text-orange-500" />
+                </div>
+                <h3 className="text-xl font-semibold text-gray-900 mb-3">{t(feature.titleKey)}</h3>
+                <p className="text-gray-500 leading-relaxed">{t(feature.descKey)}</p>
+              </motion.div>
+            ))}
+          </div>
+
+          {/* Security Highlight */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="bg-white rounded-3xl p-8 md:p-12 border border-gray-100 shadow-sm"
+          >
+            <div className="grid md:grid-cols-2 gap-12 items-center">
+              <div>
+                <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-orange-50 border border-orange-100 mb-6">
+                  <Shield className="w-4 h-4 text-orange-500" />
+                  <span className="text-orange-600 text-sm font-medium">TEE 硬件安全</span>
+                </div>
+                <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">
+                  {t("security.title")}
+                </h3>
+                <p className="text-gray-500 mb-8 leading-relaxed">
+                  {t("security.subtitle")}
+                </p>
+                <div className="space-y-4">
+                  {detailedFeaturesKeys.map((feature, index) => (
+                    <motion.div
+                      key={feature.titleKey}
+                      initial={{ opacity: 0, x: -20 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: 0.3 + index * 0.1 }}
+                      className="flex items-start gap-4"
+                    >
+                      <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-orange-50 to-orange-100 flex items-center justify-center flex-shrink-0">
+                        <feature.icon className="w-5 h-5 text-orange-500" />
+                      </div>
+                      <div>
+                        <h4 className="font-semibold text-gray-900 mb-1">{t(feature.titleKey)}</h4>
+                        <p className="text-gray-500 text-sm">{t(feature.descKey)}</p>
+                      </div>
+                    </motion.div>
+                  ))}
                 </div>
               </div>
-            </motion.div>
-          </div>
+
+              <div className="relative">
+                <div className="aspect-square bg-gradient-to-br from-orange-50 via-orange-100 to-orange-50 rounded-3xl flex items-center justify-center">
+                  <motion.div
+                    initial={{ scale: 0.8, opacity: 0 }}
+                    whileInView={{ scale: 1, opacity: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: 0.3 }}
+                    className="text-center"
+                  >
+                    <div className="w-32 h-32 bg-white rounded-3xl shadow-2xl flex items-center justify-center mx-auto mb-6">
+                      <Shield className="w-16 h-16 text-orange-500" />
+                    </div>
+                    <p className="text-gray-700 font-semibold text-lg">TEE 可信执行环境</p>
+                    <p className="text-gray-400 text-sm mt-2">Hardware-Level Security</p>
+                  </motion.div>
+                </div>
+              </div>
+            </div>
+          </motion.div>
         </div>
       </section>
 
       {/* Testimonials Section - 用户使用反馈 */}
-      <section id="testimonials" className="py-20 bg-white border-t border-gray-100">
-        <div className="max-w-5xl mx-auto px-6">
-          <div className="text-center mb-12">
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-orange-50 border border-orange-100 mb-4">
-              <Users className="w-4 h-4 text-orange-500" />
-              <span className="text-orange-600 text-sm font-medium">{t("testimonials.badge")}</span>
-            </div>
-            <h2 className="text-2xl md:text-3xl font-semibold text-gray-900 mb-3">{t("testimonials.title")}</h2>
-            <p className="text-gray-500">{t("testimonials.subtitle")}</p>
+      <section id="testimonials" className="py-24 bg-white border-t border-gray-100">
+        <div className="max-w-6xl mx-auto px-6">
+          {/* Section Header */}
+          <div className="text-center mb-16">
+            <span className="text-orange-500 text-sm font-semibold uppercase tracking-wider">用户评价</span>
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mt-3 mb-4">开发者们怎么说</h2>
+            <p className="text-gray-500 text-lg max-w-xl mx-auto">来自 DeFi 开发者、量化工程师和协议创始人的真实反馈</p>
           </div>
-          <div className="grid md:grid-cols-3 gap-6">
+
+          {/* Testimonials Grid */}
+          <div className="grid md:grid-cols-3 gap-8">
             {testimonials.map((testimonial, index) => (
               <motion.div
                 key={testimonial.name}
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-                className="bg-gray-50 p-6 rounded-2xl border border-gray-100 hover:border-orange-200 transition-all"
+                transition={{ delay: index * 0.15, duration: 0.5 }}
+                className="group bg-white p-8 rounded-2xl border border-gray-100 hover:border-orange-200 hover:shadow-xl transition-all duration-300"
               >
-                <div className="flex items-center gap-1 mb-4">
+                {/* Star Rating */}
+                <div className="flex gap-0.5 mb-6">
                   {[...Array(testimonial.rating)].map((_, i) => (
                     <Star key={i} className="w-4 h-4 fill-orange-400 text-orange-400" />
                   ))}
                 </div>
-                <div className="flex gap-3 mb-4">
-                  <Quote className="w-8 h-8 text-orange-200 flex-shrink-0" />
-                  <p className="text-gray-600 text-sm leading-relaxed">
-                    {currentLang === 'zh' ? testimonial.content : testimonial.contentEn}
-                  </p>
-                </div>
-                <div className="flex items-center gap-3 pt-4 border-t border-gray-200">
-                  <span className="text-2xl">{testimonial.avatar}</span>
+
+                {/* Quote */}
+                <p className="text-gray-600 leading-relaxed mb-8 min-h-[80px]">
+                  "{currentLang === 'zh' ? testimonial.content : testimonial.contentEn}"
+                </p>
+
+                {/* Author */}
+                <div className="flex items-center gap-4 pt-6 border-t border-gray-100">
+                  <div className="w-12 h-12 rounded-full bg-gradient-to-br from-orange-100 to-orange-200 flex items-center justify-center text-xl">
+                    {testimonial.avatar}
+                  </div>
                   <div>
-                    <p className="font-semibold text-gray-900 text-sm">
+                    <p className="font-semibold text-gray-900">
                       {currentLang === 'zh' ? testimonial.name : testimonial.nameEn}
                     </p>
-                    <p className="text-gray-400 text-xs">
+                    <p className="text-gray-400 text-sm">
                       {currentLang === 'zh' ? testimonial.role : testimonial.roleEn} · {testimonial.company}
                     </p>
                   </div>
@@ -600,67 +673,125 @@ export default function LandingPage() {
       </section>
 
       {/* FAQ Section */}
-      <section id="faq" className="py-20 bg-[#fafafa] border-t border-gray-100">
+      <section id="faq" className="py-24 bg-gray-50 border-t border-gray-100">
         <div className="max-w-3xl mx-auto px-6">
-          <div className="text-center mb-12">
-            <h2 className="text-2xl md:text-3xl font-semibold text-gray-900 mb-3">{t("faq.title")}</h2>
-            <p className="text-gray-500">{t("faq.subtitle")}</p>
+          {/* Section Header */}
+          <div className="text-center mb-16">
+            <span className="text-orange-500 text-sm font-semibold uppercase tracking-wider">常见问题</span>
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mt-3 mb-4">有疑问？我们来解答</h2>
+            <p className="text-gray-500 text-lg">关于 ClawWallet 的常见问题</p>
           </div>
-          <div className="space-y-0">
+
+          {/* FAQ Items */}
+          <div className="space-y-4">
             {faqKeys.map((faq, index) => (
-              <FAQItem key={index} question={t(faq.qKey)} answer={t(faq.aKey)} />
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1 }}
+              >
+                <FAQItem question={t(faq.qKey)} answer={t(faq.aKey)} />
+              </motion.div>
             ))}
           </div>
-        </div>
-      </section>
 
-      {/* CTA Section */}
-      <section id="install" className="py-20 bg-[#fafafa] border-t border-gray-100">
-        <div className="max-w-4xl mx-auto px-6 text-center">
+          {/* Contact CTA */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="bg-white rounded-3xl p-8 md:p-12 border border-gray-100 shadow-lg"
+            className="mt-12 text-center"
           >
-            <div className="w-16 h-16 bg-orange-50 rounded-2xl flex items-center justify-center mx-auto mb-6">
-              <Sparkles className="w-8 h-8 text-orange-500" />
-            </div>
-            <h2 className="text-2xl md:text-3xl font-semibold text-gray-900 mb-3">
-              {t("cta.title")}
-            </h2>
-            <p className="text-gray-500 mb-6 max-w-md mx-auto">
-              {t("cta.subtitle")}
-            </p>
+            <p className="text-gray-500 mb-4">还有其他问题？</p>
+            <a 
+              href="mailto:support@clawwallet.io" 
+              className="inline-flex items-center gap-2 text-orange-500 hover:text-orange-600 font-medium"
+            >
+              联系我们
+              <ArrowRight className="w-4 h-4" />
+            </a>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section id="install" className="py-24 bg-gradient-to-b from-gray-50 to-white border-t border-gray-100">
+        <div className="max-w-4xl mx-auto px-6 text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className="relative bg-white rounded-3xl p-10 md:p-16 border border-gray-100 shadow-2xl overflow-hidden"
+          >
+            {/* Background Decoration */}
+            <div className="absolute top-0 left-0 right-0 h-2 bg-gradient-to-r from-orange-400 via-orange-500 to-orange-600" />
+            <div className="absolute -top-24 -right-24 w-48 h-48 bg-orange-100 rounded-full blur-3xl opacity-50" />
+            <div className="absolute -bottom-24 -left-24 w-48 h-48 bg-orange-50 rounded-full blur-3xl opacity-50" />
             
-            {/* Install Command in CTA */}
-            <div className="inline-flex items-center gap-2 px-2 py-2 bg-gray-900 rounded-2xl border border-gray-800 shadow-xl mb-6">
-              <code className="text-sm text-gray-300 font-mono px-4">{installCommand}</code>
-              <button
-                onClick={handleCopy}
-                className={`flex items-center gap-1.5 px-4 py-2.5 rounded-xl font-medium text-sm transition-all ${
-                  copied
-                    ? "bg-green-500 text-white"
-                    : "bg-white text-gray-900 hover:bg-gray-100"
-                }`}
+            <div className="relative">
+              {/* Icon */}
+              <motion.div
+                initial={{ scale: 0 }}
+                whileInView={{ scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.2, type: "spring" }}
+                className="w-20 h-20 bg-gradient-to-br from-orange-400 to-orange-600 rounded-2xl flex items-center justify-center mx-auto mb-8 shadow-lg shadow-orange-500/30"
               >
-                {copied ? (
-                  <>
-                    <Check className="w-4 h-4" />
-                    {t("hero.copied")}
-                  </>
-                ) : (
-                  <>
-                    <Copy className="w-4 h-4" />
-                    {t("hero.copyBtn")}
-                  </>
-                )}
-              </button>
+                <Sparkles className="w-10 h-10 text-white" />
+              </motion.div>
+              
+              {/* Title */}
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                准备好开始了吗？
+              </h2>
+              <p className="text-gray-500 text-lg mb-10 max-w-lg mx-auto">
+                加入数千名开发者，为 AI Agent 添加加密能力
+              </p>
+              
+              {/* Install Command */}
+              <div className="inline-flex flex-col sm:flex-row items-center gap-3 p-2 bg-gray-900 rounded-2xl border border-gray-800 shadow-2xl mb-8">
+                <code className="text-sm text-gray-300 font-mono px-4 py-2">{installCommand}</code>
+                <button
+                  onClick={handleCopy}
+                  className={`flex items-center gap-2 px-6 py-3 rounded-xl font-semibold text-sm transition-all ${
+                    copied
+                      ? "bg-green-500 text-white"
+                      : "bg-gradient-to-r from-orange-500 to-orange-600 text-white hover:from-orange-600 hover:to-orange-700 shadow-lg shadow-orange-500/25"
+                  }`}
+                >
+                  {copied ? (
+                    <>
+                      <Check className="w-4 h-4" />
+                      已复制
+                    </>
+                  ) : (
+                    <>
+                      <Copy className="w-4 h-4" />
+                      复制命令
+                    </>
+                  )}
+                </button>
+              </div>
+              
+              {/* Features */}
+              <div className="flex flex-wrap justify-center gap-6 text-sm text-gray-400">
+                <span className="flex items-center gap-2">
+                  <Check className="w-4 h-4 text-green-500" />
+                  免费开源
+                </span>
+                <span className="flex items-center gap-2">
+                  <Check className="w-4 h-4 text-green-500" />
+                  无需注册
+                </span>
+                <span className="flex items-center gap-2">
+                  <Check className="w-4 h-4 text-green-500" />
+                  即刻使用
+                </span>
+              </div>
             </div>
-            
-            <p className="text-gray-400 text-sm">
-              {t("cta.footer")}
-            </p>
           </motion.div>
         </div>
       </section>
