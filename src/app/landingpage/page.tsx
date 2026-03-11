@@ -330,18 +330,19 @@ export default function LandingPage() {
               >
                 <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-orange-100 text-orange-700 text-sm font-medium">
                   <Package className="w-4 h-4" />
-                  <span>OpenClaw 原生 Skill</span>
+                  <span>Powered by OpenClaw</span>
                 </span>
               </motion.div>
 
               {/* Headline */}
-              <div className="space-y-4">
-                <h1 className="text-5xl md:text-6xl font-bold text-gray-900 tracking-tight leading-[1.05]">
+              <div className="space-y-6">
+                <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-gray-900 tracking-tight leading-[1.05]">
                   <span className="bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 bg-clip-text">ClawWallet</span>
                 </h1>
-                <p className="text-xl text-gray-500 leading-relaxed">
-                  为 AI Agent 打造的加密钱包，通过自然语言即可操控您的加密资产。
-                  <span className="text-orange-500 font-medium">一键安装，即刻使用。</span>
+                <p className="text-xl md:text-2xl text-gray-500 max-w-2xl mx-auto leading-relaxed">
+                  为 AI Agent 打造的加密钱包
+                  <br />
+                  <span className="text-orange-500 font-medium">一键安装，即刻使用</span>
                 </p>
               </div>
 
@@ -463,106 +464,208 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* Usage Example Section - Three Steps */}
+      {/* Usage Example Section - Chat Interface */}
       <section className="py-24 bg-white border-t border-gray-100">
-        <div className="max-w-5xl mx-auto px-6">
+        <div className="max-w-4xl mx-auto px-6">
           {/* Section Header */}
-          <div className="text-center mb-16">
-            <span className="text-orange-500 text-sm font-semibold uppercase tracking-wider">三步上手</span>
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mt-3">像聊天一样使用钱包</h2>
-            <p className="text-gray-500 mt-4 max-w-xl mx-auto">无需复杂配置，通过自然语言即可操控您的加密资产</p>
+          <div className="text-center mb-12">
+            <span className="text-orange-500 text-sm font-semibold uppercase tracking-wider">使用示例</span>
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mt-3">与 OpenClaw 对话即可管理钱包</h2>
+            <p className="text-gray-500 mt-4 max-w-xl mx-auto">像聊天一样发送指令，OpenClaw 帮您完成所有操作</p>
           </div>
 
-          {/* Steps Grid */}
-          <div className="grid md:grid-cols-3 gap-8 relative">
-            {/* Connection Line */}
-            <div className="hidden md:block absolute top-24 left-[20%] right-[20%] h-0.5 bg-gradient-to-r from-orange-200 via-orange-300 to-orange-200" />
+          {/* Chat Interface */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="bg-gray-50 rounded-3xl border border-gray-200 overflow-hidden shadow-xl"
+          >
+            {/* Chat Header */}
+            <div className="bg-white border-b border-gray-100 px-6 py-4 flex items-center gap-3">
+              <div className="w-10 h-10 rounded-full bg-gradient-to-br from-orange-500 to-orange-600 flex items-center justify-center">
+                <Bot className="w-5 h-5 text-white" />
+              </div>
+              <div>
+                <h3 className="font-semibold text-gray-900">OpenClaw</h3>
+                <p className="text-xs text-gray-400">AI Agent 助手</p>
+              </div>
+              <div className="ml-auto flex items-center gap-2">
+                <span className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></span>
+                <span className="text-xs text-gray-400">在线</span>
+              </div>
+            </div>
 
-            {[
-              { 
-                step: "01", 
-                title: "创建钱包", 
-                desc: "发送指令即可创建安全钱包", 
-                cmd: "@openclaw 创建钱包",
-                icon: "💬",
-                color: "from-orange-400 to-orange-500"
-              },
-              { 
-                step: "02", 
-                title: "查看余额", 
-                desc: "随时查询各链资产情况", 
-                cmd: "@openclaw 查询余额",
-                icon: "👛",
-                color: "from-orange-500 to-orange-600"
-              },
-              { 
-                step: "03", 
-                title: "发送交易", 
-                desc: "一句话完成转账操作", 
-                cmd: "@openclaw 发送 0.1 ETH",
-                icon: "🚀",
-                color: "from-orange-600 to-orange-700"
-              },
-            ].map((item, i) => (
+            {/* Chat Messages */}
+            <div className="p-6 space-y-6">
+              {/* Message 1: Create Wallet */}
               <motion.div
-                key={i}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: i * 0.15, duration: 0.5 }}
-                className="relative"
+                transition={{ delay: 0.2 }}
+                className="flex gap-4"
               >
-                {/* Step Number */}
-                <div className="absolute -top-4 left-6 w-8 h-8 bg-gradient-to-br from-orange-500 to-orange-600 rounded-full flex items-center justify-center text-white text-sm font-bold shadow-lg z-10">
-                  {item.step}
+                <div className="w-10 h-10 rounded-full bg-gray-200 flex items-center justify-center flex-shrink-0">
+                  <span className="text-lg">👤</span>
                 </div>
-                
-                {/* Card */}
-                <div className="bg-gray-50 rounded-2xl p-6 pt-10 border border-gray-100 hover:border-orange-200 hover:shadow-lg transition-all duration-300 group">
-                  <div className="text-4xl mb-4">{item.icon}</div>
-                  <h3 className="text-xl font-semibold text-gray-900 mb-2">{item.title}</h3>
-                  <p className="text-gray-500 text-sm mb-4">{item.desc}</p>
-                  <div className="bg-white rounded-lg p-3 border border-gray-200 group-hover:border-orange-200 transition-colors">
-                    <code className="text-xs text-gray-600 font-mono">{item.cmd}</code>
+                <div className="flex-1">
+                  <div className="bg-white rounded-2xl rounded-tl-sm px-5 py-3 shadow-sm border border-gray-100">
+                    <p className="text-gray-700">@openclaw 创建钱包</p>
                   </div>
+                  <span className="text-xs text-gray-400 mt-1 ml-1">10:30</span>
                 </div>
               </motion.div>
-            ))}
-          </div>
 
-          {/* Demo Preview */}
+              {/* Response 1 */}
+              <motion.div
+                initial={{ opacity: 0, x: 20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.4 }}
+                className="flex gap-4"
+              >
+                <div className="w-10 h-10 rounded-full bg-gradient-to-br from-orange-500 to-orange-600 flex items-center justify-center flex-shrink-0">
+                  <Bot className="w-5 h-5 text-white" />
+                </div>
+                <div className="flex-1">
+                  <div className="bg-orange-50 rounded-2xl rounded-tl-sm px-5 py-4 border border-orange-100">
+                    <p className="text-gray-800 mb-2">✅ 钱包创建成功！</p>
+                    <div className="bg-white rounded-lg p-3 border border-orange-100">
+                      <p className="text-sm text-gray-600">地址: <span className="font-mono text-gray-800">0x7a2f...9c4d</span></p>
+                      <p className="text-sm text-gray-600">网络: <span className="text-gray-800">Ethereum</span></p>
+                      <p className="text-sm text-gray-600">UID: <span className="font-mono text-gray-800">claw_wallet_abc123</span></p>
+                    </div>
+                  </div>
+                  <span className="text-xs text-gray-400 mt-1 ml-1">10:30</span>
+                </div>
+              </motion.div>
+
+              {/* Message 2: Check Balance */}
+              <motion.div
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.6 }}
+                className="flex gap-4"
+              >
+                <div className="w-10 h-10 rounded-full bg-gray-200 flex items-center justify-center flex-shrink-0">
+                  <span className="text-lg">👤</span>
+                </div>
+                <div className="flex-1">
+                  <div className="bg-white rounded-2xl rounded-tl-sm px-5 py-3 shadow-sm border border-gray-100">
+                    <p className="text-gray-700">@openclaw 查询余额</p>
+                  </div>
+                  <span className="text-xs text-gray-400 mt-1 ml-1">10:32</span>
+                </div>
+              </motion.div>
+
+              {/* Response 2 */}
+              <motion.div
+                initial={{ opacity: 0, x: 20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.8 }}
+                className="flex gap-4"
+              >
+                <div className="w-10 h-10 rounded-full bg-gradient-to-br from-orange-500 to-orange-600 flex items-center justify-center flex-shrink-0">
+                  <Bot className="w-5 h-5 text-white" />
+                </div>
+                <div className="flex-1">
+                  <div className="bg-orange-50 rounded-2xl rounded-tl-sm px-5 py-4 border border-orange-100">
+                    <p className="text-gray-800 mb-3">💰 您的钱包余额：</p>
+                    <div className="space-y-2">
+                      <div className="flex justify-between items-center bg-white rounded-lg p-3 border border-orange-100">
+                        <span className="text-gray-600">ETH</span>
+                        <span className="font-semibold text-gray-800">1.25 ETH</span>
+                      </div>
+                      <div className="flex justify-between items-center bg-white rounded-lg p-3 border border-orange-100">
+                        <span className="text-gray-600">USDC</span>
+                        <span className="font-semibold text-gray-800">500 USDC</span>
+                      </div>
+                    </div>
+                  </div>
+                  <span className="text-xs text-gray-400 mt-1 ml-1">10:32</span>
+                </div>
+              </motion.div>
+
+              {/* Message 3: Send Transaction */}
+              <motion.div
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 1.0 }}
+                className="flex gap-4"
+              >
+                <div className="w-10 h-10 rounded-full bg-gray-200 flex items-center justify-center flex-shrink-0">
+                  <span className="text-lg">👤</span>
+                </div>
+                <div className="flex-1">
+                  <div className="bg-white rounded-2xl rounded-tl-sm px-5 py-3 shadow-sm border border-gray-100">
+                    <p className="text-gray-700">@openclaw 发送 0.1 ETH 到 0x1234...5678</p>
+                  </div>
+                  <span className="text-xs text-gray-400 mt-1 ml-1">10:35</span>
+                </div>
+              </motion.div>
+
+              {/* Response 3 */}
+              <motion.div
+                initial={{ opacity: 0, x: 20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 1.2 }}
+                className="flex gap-4"
+              >
+                <div className="w-10 h-10 rounded-full bg-gradient-to-br from-orange-500 to-orange-600 flex items-center justify-center flex-shrink-0">
+                  <Bot className="w-5 h-5 text-white" />
+                </div>
+                <div className="flex-1">
+                  <div className="bg-orange-50 rounded-2xl rounded-tl-sm px-5 py-4 border border-orange-100">
+                    <p className="text-gray-800 mb-2">🚀 交易已提交！</p>
+                    <div className="bg-white rounded-lg p-3 border border-orange-100">
+                      <p className="text-sm text-gray-600">金额: <span className="text-gray-800">0.1 ETH</span></p>
+                      <p className="text-sm text-gray-600">接收: <span className="font-mono text-gray-800">0x1234...5678</span></p>
+                      <p className="text-sm text-gray-600">状态: <span className="text-green-600">✓ 已确认</span></p>
+                    </div>
+                  </div>
+                  <span className="text-xs text-gray-400 mt-1 ml-1">10:35</span>
+                </div>
+              </motion.div>
+            </div>
+
+            {/* Chat Input */}
+            <div className="bg-white border-t border-gray-100 px-6 py-4">
+              <div className="flex items-center gap-3">
+                <div className="flex-1 bg-gray-100 rounded-full px-5 py-3 text-gray-400 text-sm">
+                  @openclaw 输入指令...
+                </div>
+                <button className="w-10 h-10 rounded-full bg-orange-500 flex items-center justify-center text-white hover:bg-orange-600 transition-colors">
+                  <ArrowRight className="w-5 h-5" />
+                </button>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* Feature Tags */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ delay: 0.5 }}
-            className="mt-16 max-w-2xl mx-auto"
+            transition={{ delay: 0.3 }}
+            className="mt-12 flex flex-wrap justify-center gap-4"
           >
-            <div className="bg-gray-900 rounded-2xl overflow-hidden shadow-2xl">
-              <div className="flex items-center gap-2 px-4 py-3 bg-gray-800">
-                <div className="w-3 h-3 rounded-full bg-red-400" />
-                <div className="w-3 h-3 rounded-full bg-yellow-400" />
-                <div className="w-3 h-3 rounded-full bg-green-400" />
-                <span className="text-gray-400 text-xs ml-2">OpenClaw Chat</span>
+            {[
+              { icon: "💬", text: "自然语言交互" },
+              { icon: "⚡", text: "即时响应" },
+              { icon: "🔒", text: "安全确认" },
+              { icon: "📊", text: "实时余额" },
+            ].map((item, i) => (
+              <div key={i} className="flex items-center gap-2 px-4 py-2 bg-gray-100 rounded-full">
+                <span>{item.icon}</span>
+                <span className="text-sm text-gray-600">{item.text}</span>
               </div>
-              <div className="p-6 space-y-4">
-                <div className="flex gap-3">
-                  <div className="w-8 h-8 rounded-full bg-gray-700 flex items-center justify-center text-sm">👤</div>
-                  <div className="bg-gray-800 rounded-2xl rounded-tl-sm px-4 py-2 text-gray-300 text-sm">
-                    @openclaw 创建钱包
-                  </div>
-                </div>
-                <div className="flex gap-3">
-                  <div className="w-8 h-8 rounded-full bg-gradient-to-br from-orange-500 to-orange-600 flex items-center justify-center">
-                    <Bot className="w-4 h-4 text-white" />
-                  </div>
-                  <div className="bg-gray-800 rounded-2xl rounded-tl-sm px-4 py-3 text-gray-300 text-sm space-y-1">
-                    <p>✅ 钱包创建成功！</p>
-                    <p className="text-gray-500 text-xs font-mono">地址: 0x7a2f...9c4d</p>
-                  </div>
-                </div>
-              </div>
-            </div>
+            ))}
           </motion.div>
         </div>
       </section>
@@ -570,33 +673,6 @@ export default function LandingPage() {
       {/* Features Section - Unified Design */}
       <section id="features" className="py-24 bg-gray-50">
         <div className="max-w-6xl mx-auto px-6">
-          {/* Section Header */}
-          <div className="text-center mb-16">
-            <span className="text-orange-500 text-sm font-semibold uppercase tracking-wider">核心能力</span>
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mt-3 mb-4">企业级安全，开箱即用</h2>
-            <p className="text-gray-500 text-lg max-w-2xl mx-auto">基于 TEE 可信执行环境，为 AI Agent 提供银行级安全保障</p>
-          </div>
-
-          {/* Main Features Grid */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
-            {featuresKeys.map((feature, index) => (
-              <motion.div
-                key={feature.titleKey}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1, duration: 0.5 }}
-                className="group bg-white rounded-2xl p-8 border border-gray-100 hover:border-orange-200 hover:shadow-xl transition-all duration-300"
-              >
-                <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-orange-50 to-orange-100 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-                  <feature.icon className="w-7 h-7 text-orange-500" />
-                </div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-3">{t(feature.titleKey)}</h3>
-                <p className="text-gray-500 leading-relaxed">{t(feature.descKey)}</p>
-              </motion.div>
-            ))}
-          </div>
-
           {/* Security Highlight */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
