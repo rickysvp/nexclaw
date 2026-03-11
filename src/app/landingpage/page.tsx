@@ -465,27 +465,6 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* Stats Section - Social Proof */}
-      <section className="py-12 bg-[#fafafa] border-b border-gray-100">
-        <div className="max-w-5xl mx-auto px-6">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            {statsKeys.map((stat, index) => (
-              <motion.div
-                key={stat.key}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-                className="text-center"
-              >
-                <div className="text-3xl md:text-4xl font-bold text-gray-900">{stat.value}</div>
-                <div className="text-sm text-gray-500 mt-1">{t(stat.key)}</div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* Features Section */}
       <section id="features" className="py-20 bg-[#fafafa]">
         <div className="max-w-5xl mx-auto px-6">
