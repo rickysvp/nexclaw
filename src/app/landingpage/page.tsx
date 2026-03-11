@@ -794,6 +794,92 @@ export default function LandingPage() {
         </div>
       </section>
 
+      {/* Agent Roles Section */}
+      <section className="py-24 bg-white border-t border-gray-100">
+        <div className="max-w-6xl mx-auto px-6">
+          <motion.div 
+            className="text-center mb-16"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <div className="inline-flex items-center gap-2 text-xs font-semibold tracking-[0.12em] uppercase text-orange-500 mb-5">
+              <span className="w-4 h-px bg-orange-500"></span>
+              Agent 能力
+              <span className="w-4 h-px bg-orange-500"></span>
+            </div>
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+              一个钱包，胜任所有场景
+            </h2>
+            <p className="text-base text-gray-500 leading-relaxed max-w-2xl mx-auto">
+              您的完整 Web3 AI 团队。从 DeFi 交易到资产管理，Claw Wallet 让 Agent 安全处理一切链上操作。
+            </p>
+          </motion.div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+            {[
+              { 
+                icon: "📈", 
+                title: "DeFi 交易员", 
+                desc: "自动执行 Swap、流动性挖矿、收益聚合，24/7 监控市场机会",
+                tags: ["DEX 交易", "收益 farming", "自动复利"]
+              },
+              { 
+                icon: "💼", 
+                title: "资产管理员", 
+                desc: "跨链资产配置、再平衡、风险监控，保持投资组合最优状态",
+                tags: ["跨链桥接", "资产再平衡", "风险评估"]
+              },
+              { 
+                icon: "🛡️", 
+                title: "安全审计员", 
+                desc: "每笔交易前自动扫描合约风险，拦截可疑操作，保护资产安全",
+                tags: ["合约扫描", "风险评分", "异常拦截"]
+              },
+              { 
+                icon: "📊", 
+                title: "数据分析师", 
+                desc: "追踪链上数据、生成收益报告、监控 Gas 费用，提供数据洞察",
+                tags: ["链上分析", "收益报告", "Gas 优化"]
+              },
+              { 
+                icon: "🤝", 
+                title: "支付助理", 
+                desc: "处理定期付款、薪资发放、订阅管理，支持多币种批量转账",
+                tags: ["定期支付", "批量转账", "多币种"]
+              },
+              { 
+                icon: "🔍", 
+                title: "链上研究员", 
+                desc: "追踪新项目、监控空投机会、分析代币经济，主动呈现研究结果",
+                tags: ["空投追踪", "项目调研", "代币分析"]
+              },
+            ].map((role, idx) => (
+              <motion.div
+                key={idx}
+                className="group bg-gray-50 border border-gray-200 rounded-2xl p-6 hover:border-orange-200 transition-all duration-300 hover:bg-white hover:shadow-lg"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: idx * 0.1 }}
+              >
+                <div className="text-3xl mb-4">{role.icon}</div>
+                <h3 className="text-lg font-bold mb-2 text-gray-900">{role.title}</h3>
+                <p className="text-sm text-gray-500 leading-relaxed mb-4">{role.desc}</p>
+                <div className="flex flex-wrap gap-2">
+                  {role.tags.map((tag, i) => (
+                    <span key={i} className="px-2 py-1 rounded bg-gray-100 text-[10px] text-gray-500 border border-gray-200">
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Testimonials Section - 用户使用反馈 */}
       <section id="testimonials" className="py-24 bg-white border-t border-gray-100">
         <div className="max-w-6xl mx-auto px-6">
