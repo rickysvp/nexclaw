@@ -312,85 +312,93 @@ export default function LandingPage() {
         {/* Background Gradient */}
         <div className="absolute inset-0 bg-gradient-to-b from-orange-50/50 via-white to-white pointer-events-none" />
         
-        <div className="relative max-w-5xl mx-auto px-6 text-center flex-1 flex flex-col justify-center">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-            className="space-y-10"
-          >
-            {/* Badge */}
+        <div className="relative max-w-6xl mx-auto px-6 flex-1 flex flex-col justify-center">
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+            {/* Left Side - Introduction */}
             <motion.div
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 0.1 }}
+              initial={{ opacity: 0, x: -30 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+              className="space-y-8"
             >
-              <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-orange-100 text-orange-700 text-sm font-medium">
-                <Package className="w-4 h-4" />
-                <span>OpenClaw 原生 Skill</span>
-              </span>
-            </motion.div>
-
-            {/* Headline */}
-            <div className="space-y-6">
-              <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-gray-900 tracking-tight leading-[1.05]">
-                <span className="bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 bg-clip-text">ClawWallet</span>
-              </h1>
-              <p className="text-xl md:text-2xl text-gray-500 max-w-2xl mx-auto leading-relaxed">
-                为 AI Agent 打造的加密钱包
-                <br />
-                <span className="text-orange-500 font-medium">一键安装，即刻使用</span>
-              </p>
-            </div>
-
-            {/* CTA Buttons */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2 }}
-              className="flex flex-col sm:flex-row items-center justify-center gap-4"
-            >
-              <button
-                onClick={handleCopy}
-                className="group px-8 py-4 bg-orange-500 text-white rounded-xl font-semibold hover:bg-orange-600 transition-all shadow-lg shadow-orange-500/25 hover:shadow-orange-500/40 flex items-center gap-2"
+              {/* Badge */}
+              <motion.div
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ delay: 0.1 }}
               >
-                {copied ? (
-                  <>
-                    <Check className="w-5 h-5" />
-                    已复制
-                  </>
-                ) : (
-                  <>
-                    <Copy className="w-5 h-5" />
-                    复制安装命令
-                  </>
-                )}
-              </button>
-              <a 
-                href="#features" 
-                className="px-8 py-4 text-gray-600 hover:text-gray-900 font-medium hover:bg-gray-50 rounded-xl transition-colors flex items-center gap-2"
-              >
-                了解更多
-                <ArrowRight className="w-4 h-4" />
-              </a>
-            </motion.div>
+                <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-orange-100 text-orange-700 text-sm font-medium">
+                  <Package className="w-4 h-4" />
+                  <span>OpenClaw 原生 Skill</span>
+                </span>
+              </motion.div>
 
-            {/* Install Command Preview */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.3 }}
-              className="pt-4"
-            >
-              <div className="inline-flex items-center gap-3 px-5 py-3 bg-gray-900 rounded-xl border border-gray-800">
-                <span className="text-gray-500">$</span>
-                <code className="text-sm text-gray-300 font-mono">{installCommand}</code>
+              {/* Headline */}
+              <div className="space-y-4">
+                <h1 className="text-5xl md:text-6xl font-bold text-gray-900 tracking-tight leading-[1.05]">
+                  <span className="bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 bg-clip-text">ClawWallet</span>
+                </h1>
+                <p className="text-xl text-gray-500 leading-relaxed">
+                  为 AI Agent 打造的加密钱包，通过自然语言即可操控您的加密资产。
+                  <span className="text-orange-500 font-medium">一键安装，即刻使用。</span>
+                </p>
               </div>
-              <p className="text-gray-400 text-sm mt-3">
-                无需注册，命令行一键安装
+
+              {/* Key Features */}
+              <div className="flex flex-wrap gap-3">
+                {["TEE 安全架构", "多链支持", "零配置"].map((feature, i) => (
+                  <span key={i} className="px-3 py-1.5 bg-gray-100 text-gray-600 text-sm rounded-lg">
+                    {feature}
+                  </span>
+                ))}
+              </div>
+            </motion.div>
+
+            {/* Right Side - Copy Interface */}
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
+              className="space-y-4"
+            >
+              {/* Command Line Option */}
+              <div className="bg-gray-900 rounded-2xl p-6 border border-gray-800">
+                <div className="flex items-center justify-between mb-4">
+                  <span className="text-gray-400 text-sm">命令行安装</span>
+                  <button
+                    onClick={() => {navigator.clipboard.writeText(installCommand); setCopied(true); setTimeout(() => setCopied(false), 2000);}}
+                    className="text-gray-400 hover:text-white transition-colors"
+                  >
+                    {copied ? <Check className="w-4 h-4" /> : <Copy className="w-4 h-4" />}
+                  </button>
+                </div>
+                <code className="text-sm text-gray-300 font-mono block">{installCommand}</code>
+              </div>
+
+              {/* Natural Language Option */}
+              <div className="bg-white rounded-2xl p-6 border border-gray-200 shadow-lg">
+                <div className="flex items-center justify-between mb-4">
+                  <span className="text-gray-500 text-sm">或告诉 OpenClaw</span>
+                  <button
+                    onClick={() => {navigator.clipboard.writeText("@openclaw 安装 clawwallet"); setCopied(true); setTimeout(() => setCopied(false), 2000);}}
+                    className="text-gray-400 hover:text-orange-500 transition-colors"
+                  >
+                    {copied ? <Check className="w-4 h-4 text-green-500" /> : <Copy className="w-4 h-4" />}
+                  </button>
+                </div>
+                <div className="flex items-center gap-3 p-3 bg-gray-50 rounded-xl">
+                  <div className="w-8 h-8 rounded-full bg-orange-500 flex items-center justify-center">
+                    <Bot className="w-4 h-4 text-white" />
+                  </div>
+                  <code className="text-gray-700 font-medium">@openclaw 安装 clawwallet</code>
+                </div>
+              </div>
+
+              <p className="text-gray-400 text-sm text-center">
+                无需注册，复制后即可使用
               </p>
             </motion.div>
-          </motion.div>
+          </div>
         </div>
 
         {/* Partners Section - Inside Hero */}
