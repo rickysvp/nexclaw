@@ -75,41 +75,7 @@ const partners = [
   { name: "BSC", logoPath: "/logos/bsc.png" },
 ];
 
-const testimonials = [
-  {
-    name: "张明",
-    nameEn: "Zhang Ming",
-    role: "AI 开发者",
-    roleEn: "AI Developer",
-    company: "TechFlow",
-    avatar: "👨‍💻",
-    content: "ClawWallet 让我们的 AI Agent 瞬间拥有了加密支付能力，集成过程不到5分钟。TEE安全架构让我们非常放心。",
-    contentEn: "ClawWallet gave our AI Agent instant crypto payment capabilities, integration took less than 5 minutes. The TEE security architecture gives us complete peace of mind.",
-    rating: 5,
-  },
-  {
-    name: "李雪",
-    nameEn: "Li Xue",
-    role: "产品经理",
-    roleEn: "Product Manager",
-    company: "DeFi Labs",
-    avatar: "👩‍💼",
-    content: "作为OpenClaw原生Skill，ClawWallet的无缝体验令人印象深刻。我们的用户现在可以通过自然语言完成加密交易。",
-    contentEn: "As a native OpenClaw Skill, ClawWallet's seamless experience is impressive. Our users can now complete crypto transactions through natural language.",
-    rating: 5,
-  },
-  {
-    name: "王强",
-    nameEn: "Wang Qiang",
-    role: "CTO",
-    roleEn: "CTO",
-    company: "ChainMind",
-    avatar: "👨‍🚀",
-    content: "无私钥设计解决了我们最大的痛点。团队成员不再需要担心私钥管理，安全性反而更高了。",
-    contentEn: "The keyless design solved our biggest pain point. Team members no longer worry about key management, and security is actually higher.",
-    rating: 5,
-  },
-];
+
 
 function FAQItem({ question, answer }: { question: string; answer: string }) {
   const [isOpen, setIsOpen] = useState(false);
@@ -330,25 +296,25 @@ export default function LandingPage() {
               >
                 <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-orange-100 text-orange-700 text-sm font-medium">
                   <Package className="w-4 h-4" />
-                  <span>Powered by OpenClaw</span>
+                  <span>{t("hero.badge")}</span>
                 </span>
               </motion.div>
 
               {/* Headline */}
               <div className="space-y-6">
-                <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-gray-900 tracking-tight leading-[1.05]">
-                  <span className="bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 bg-clip-text">ClawWallet</span>
-                </h1>
-                <p className="text-xl md:text-2xl text-gray-500 max-w-2xl mx-auto leading-relaxed">
-                  为 AI Agent 打造的加密钱包
+                <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 tracking-tight leading-[1.1]">
+                  <span className="bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 bg-clip-text">Claw Wallet</span>
                   <br />
-                  <span className="text-orange-500 font-medium">一键安装，即刻使用</span>
+                  <span className="bg-gradient-to-r from-orange-500 to-orange-600 bg-clip-text text-transparent">{t("hero.mainTitle")}</span>
+                </h1>
+                <p className="text-base md:text-lg text-gray-500 max-w-2xl mx-auto leading-relaxed">
+                  {t("hero.subtitle")}
                 </p>
               </div>
 
               {/* Key Features */}
               <div className="flex flex-wrap gap-3">
-                {["TEE 安全架构", "多链支持", "零配置"].map((feature, i) => (
+                {[t("hero.features.tee"), t("hero.features.multichain"), t("hero.features.zeroconf")].map((feature, i) => (
                   <span key={i} className="px-3 py-1.5 bg-gray-100 text-gray-600 text-sm rounded-lg">
                     {feature}
                   </span>
@@ -363,29 +329,31 @@ export default function LandingPage() {
               transition={{ duration: 0.6, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
               className="space-y-4"
             >
-              {/* Tab Container */}
+              {/* Tab Container - Reference Design Style */}
               <div className="bg-white rounded-2xl border border-gray-200 shadow-xl overflow-hidden">
-                {/* Tabs */}
-                <div className="flex border-b border-gray-100">
+                {/* Tabs - Pill Style */}
+                <div className="flex p-2 gap-2 bg-gray-50">
                   <button
                     onClick={() => setInstallTab('cli')}
-                    className={`flex-1 py-3 px-4 text-sm font-medium transition-colors ${
-                      installTab === 'cli' 
-                        ? 'text-orange-600 border-b-2 border-orange-500 bg-orange-50/50' 
-                        : 'text-gray-500 hover:text-gray-700 hover:bg-gray-50'
+                    className={`flex-1 py-2.5 px-4 text-sm font-medium rounded-xl transition-all flex items-center justify-center gap-2 ${
+                      installTab === 'cli'
+                        ? 'text-gray-900 bg-white shadow-sm border border-gray-200'
+                        : 'text-gray-500 hover:text-gray-700'
                     }`}
                   >
-                    命令行
+                    <Terminal className="w-4 h-4" />
+                    {t("installTabs.cli")}
                   </button>
                   <button
                     onClick={() => setInstallTab('openclaw')}
-                    className={`flex-1 py-3 px-4 text-sm font-medium transition-colors ${
-                      installTab === 'openclaw' 
-                        ? 'text-orange-600 border-b-2 border-orange-500 bg-orange-50/50' 
-                        : 'text-gray-500 hover:text-gray-700 hover:bg-gray-50'
+                    className={`flex-1 py-2.5 px-4 text-sm font-medium rounded-xl transition-all flex items-center justify-center gap-2 ${
+                      installTab === 'openclaw'
+                        ? 'text-gray-900 bg-white shadow-sm border border-gray-200'
+                        : 'text-gray-500 hover:text-gray-700'
                     }`}
                   >
-                    OpenClaw
+                    <Bot className="w-4 h-4" />
+                    {t("installTabs.openclaw")}
                   </button>
                 </div>
 
@@ -393,35 +361,38 @@ export default function LandingPage() {
                 <div className="p-6">
                   {installTab === 'cli' ? (
                     <div className="space-y-4">
-                      <div className="flex items-center justify-between">
-                        <span className="text-gray-500 text-sm">在终端运行</span>
+                      {/* Description */}
+                      <p className="text-gray-600 text-sm text-center">
+                        {t("installTabs.cliDesc")}
+                      </p>
+                      {/* Command Box with Copy Button */}
+                      <div className="flex items-center gap-2 p-3 bg-gray-50 rounded-xl border border-gray-200">
+                        <code className="flex-1 text-sm text-gray-700 font-mono truncate">{installCommand}</code>
                         <button
                           onClick={() => {navigator.clipboard.writeText(installCommand); setCopied(true); setTimeout(() => setCopied(false), 2000);}}
-                          className="text-gray-400 hover:text-orange-500 transition-colors"
+                          className="flex items-center gap-1.5 px-3 py-1.5 bg-gray-200 hover:bg-gray-300 rounded-lg text-gray-600 text-sm font-medium transition-colors"
                         >
-                          {copied ? <Check className="w-4 h-4 text-green-500" /> : <Copy className="w-4 h-4" />}
+                          {copied ? <Check className="w-3.5 h-3.5" /> : <Copy className="w-3.5 h-3.5" />}
+                          {t("installTabs.copy")}
                         </button>
-                      </div>
-                      <div className="bg-gray-900 rounded-xl p-4">
-                        <code className="text-sm text-gray-300 font-mono block">{installCommand}</code>
                       </div>
                     </div>
                   ) : (
                     <div className="space-y-4">
-                      <div className="flex items-center justify-between">
-                        <span className="text-gray-500 text-sm">发送给 OpenClaw</span>
+                      {/* Description */}
+                      <p className="text-gray-600 text-sm text-center">
+                        {t("installTabs.openclawDesc")}
+                      </p>
+                      {/* Command Box with Copy Button */}
+                      <div className="flex items-center gap-2 p-3 bg-gray-50 rounded-xl border border-gray-200">
+                        <code className="flex-1 text-sm text-gray-700 font-mono truncate">{t("installTabs.openClawCommand")}</code>
                         <button
-                          onClick={() => {navigator.clipboard.writeText("安装 clawwallet.cc/clawwallet.md"); setCopied(true); setTimeout(() => setCopied(false), 2000);}}
-                          className="text-gray-400 hover:text-orange-500 transition-colors"
+                          onClick={() => {navigator.clipboard.writeText(t("installTabs.openClawCommand")); setCopied(true); setTimeout(() => setCopied(false), 2000);}}
+                          className="flex items-center gap-1.5 px-3 py-1.5 bg-gray-200 hover:bg-gray-300 rounded-lg text-gray-600 text-sm font-medium transition-colors"
                         >
-                          {copied ? <Check className="w-4 h-4 text-green-500" /> : <Copy className="w-4 h-4" />}
+                          {copied ? <Check className="w-3.5 h-3.5" /> : <Copy className="w-3.5 h-3.5" />}
+                          {t("installTabs.copy")}
                         </button>
-                      </div>
-                      <div className="flex items-center gap-3 p-4 bg-gray-50 rounded-xl">
-                        <div className="w-8 h-8 rounded-full bg-orange-500 flex items-center justify-center flex-shrink-0">
-                          <Bot className="w-4 h-4 text-white" />
-                        </div>
-                        <code className="text-gray-700 font-medium">安装 clawwallet.cc/clawwallet.md</code>
                       </div>
                     </div>
                   )}
@@ -429,7 +400,7 @@ export default function LandingPage() {
               </div>
 
               <p className="text-gray-400 text-sm text-center">
-                无需注册，复制后即可使用
+                {t("installTabs.noRegistration")}
               </p>
             </motion.div>
           </div>
@@ -439,7 +410,7 @@ export default function LandingPage() {
         <div className="relative mt-auto pt-20 pb-8">
           <div className="max-w-5xl mx-auto px-6">
             <p className="text-center text-gray-400 text-sm font-medium mb-8 tracking-wide uppercase">
-              已支持的主流公链
+              {t("partners.title")}
             </p>
             <div className="flex flex-wrap justify-center items-center gap-12 md:gap-16">
               {partners.map((partner, index) => (
@@ -469,9 +440,9 @@ export default function LandingPage() {
         <div className="max-w-6xl mx-auto px-6">
           {/* Section Header */}
           <div className="text-center mb-12">
-            <span className="text-orange-500 text-sm font-semibold uppercase tracking-wider">自主交互</span>
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mt-3">OpenClaw 主动管理您的资产</h2>
-            <p className="text-gray-500 mt-4 max-w-2xl mx-auto">不是被动响应，而是具备自主行动能力的 AI Agent。通过安全策略限定资金管理边界，让 OpenClaw 主动为您优化投资组合</p>
+            <span className="text-orange-500 text-sm font-semibold uppercase tracking-wider">{t("agentAutonomy.badge")}</span>
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mt-3">{t("agentAutonomy.title")}</h2>
+            <p className="text-gray-500 mt-4 max-w-2xl mx-auto">{t("agentAutonomy.subtitle")}</p>
           </div>
 
           {/* Two Column Layout */}
@@ -490,12 +461,12 @@ export default function LandingPage() {
                   <Bot className="w-5 h-5 text-white" />
                 </div>
                 <div>
-                  <h3 className="font-semibold text-gray-900">OpenClaw Agent</h3>
-                  <p className="text-xs text-gray-400">自主运行中</p>
+                  <h3 className="font-semibold text-gray-900">{t("agentAutonomy.agentName")}</h3>
+                  <p className="text-xs text-gray-400">{t("agentAutonomy.agentStatus")}</p>
                 </div>
                 <div className="ml-auto flex items-center gap-2">
                   <span className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></span>
-                  <span className="text-xs text-gray-400">监控市场</span>
+                  <span className="text-xs text-gray-400">{t("agentAutonomy.monitoringMarket")}</span>
                 </div>
               </div>
 
@@ -514,8 +485,8 @@ export default function LandingPage() {
                       <span className="text-sm">📊</span>
                     </div>
                     <div className="flex-1">
-                      <p className="text-sm text-gray-800 font-medium">检测到 ETH 价格回调 5%</p>
-                      <p className="text-xs text-gray-500 mt-1">09:15 · 市场分析</p>
+                      <p className="text-sm text-gray-800 font-medium">{t("agentAutonomy.activities.marketAnalysis.title")}</p>
+                      <p className="text-xs text-gray-500 mt-1">{t("agentAutonomy.activities.marketAnalysis.time")}</p>
                     </div>
                   </div>
                 </motion.div>
@@ -533,11 +504,11 @@ export default function LandingPage() {
                       <span className="text-sm">🧠</span>
                     </div>
                     <div className="flex-1">
-                      <p className="text-sm text-gray-800 font-medium">触发定投策略：买入 0.05 ETH</p>
-                      <p className="text-xs text-gray-500 mt-1">09:16 · 策略执行</p>
+                      <p className="text-sm text-gray-800 font-medium">{t("agentAutonomy.activities.strategyDecision.title")}</p>
+                      <p className="text-xs text-gray-500 mt-1">{t("agentAutonomy.activities.strategyDecision.time")}</p>
                       <div className="mt-2 flex items-center gap-2">
-                        <span className="text-xs px-2 py-1 bg-green-50 text-green-600 rounded">✓ 在限额内</span>
-                        <span className="text-xs text-gray-400">日限额: $1000 / 已用: $150</span>
+                        <span className="text-xs px-2 py-1 bg-green-50 text-green-600 rounded">{t("agentAutonomy.activities.strategyDecision.withinLimit")}</span>
+                        <span className="text-xs text-gray-400">{t("agentAutonomy.activities.strategyDecision.dailyLimit")}</span>
                       </div>
                     </div>
                   </div>
@@ -556,11 +527,11 @@ export default function LandingPage() {
                       <span className="text-sm">⏳</span>
                     </div>
                     <div className="flex-1">
-                      <p className="text-sm text-gray-800 font-medium">大额交易待确认</p>
-                      <p className="text-xs text-gray-500 mt-1">14:30 · 需要人工审批</p>
+                      <p className="text-sm text-gray-800 font-medium">{t("agentAutonomy.activities.pendingTx.title")}</p>
+                      <p className="text-xs text-gray-500 mt-1">{t("agentAutonomy.activities.pendingTx.time")}</p>
                       <div className="mt-2 bg-white rounded-lg p-3 border border-orange-100">
-                        <p className="text-xs text-gray-600">发送 2 ETH 到 0x789...abc</p>
-                        <p className="text-xs text-orange-600 mt-1">⚠️ 超出单笔限额 ($500)，需确认</p>
+                        <p className="text-xs text-gray-600">{t("agentAutonomy.activities.pendingTx.txDetail")}</p>
+                        <p className="text-xs text-orange-600 mt-1">{t("agentAutonomy.activities.pendingTx.warning")}</p>
                       </div>
                     </div>
                   </div>
@@ -579,11 +550,11 @@ export default function LandingPage() {
                       <span className="text-sm">🌾</span>
                     </div>
                     <div className="flex-1">
-                      <p className="text-sm text-gray-800 font-medium">自动质押 100 USDC 到 Aave</p>
-                      <p className="text-xs text-gray-500 mt-1">16:00 · 收益优化</p>
+                      <p className="text-sm text-gray-800 font-medium">{t("agentAutonomy.activities.yieldOptimization.title")}</p>
+                      <p className="text-xs text-gray-500 mt-1">{t("agentAutonomy.activities.yieldOptimization.time")}</p>
                       <div className="mt-2 flex items-center gap-2">
-                        <span className="text-xs px-2 py-1 bg-green-50 text-green-600 rounded">✓ 白名单合约</span>
-                        <span className="text-xs text-gray-400">APY: 4.2%</span>
+                        <span className="text-xs px-2 py-1 bg-green-50 text-green-600 rounded">{t("agentAutonomy.activities.yieldOptimization.whitelist")}</span>
+                        <span className="text-xs text-gray-400">{t("agentAutonomy.activities.yieldOptimization.apy")}</span>
                       </div>
                     </div>
                   </div>
@@ -602,11 +573,11 @@ export default function LandingPage() {
                       <span className="text-sm">🛡️</span>
                     </div>
                     <div className="flex-1">
-                      <p className="text-sm text-gray-800 font-medium">阻止可疑交易</p>
-                      <p className="text-xs text-gray-500 mt-1">18:45 · 安全拦截</p>
+                      <p className="text-sm text-gray-800 font-medium">{t("agentAutonomy.activities.riskAlert.title")}</p>
+                      <p className="text-xs text-gray-500 mt-1">{t("agentAutonomy.activities.riskAlert.time")}</p>
                       <div className="mt-2 bg-white rounded-lg p-3 border border-red-100">
-                        <p className="text-xs text-gray-600">检测到未授权合约交互请求</p>
-                        <p className="text-xs text-red-600 mt-1">✗ 合约不在白名单中，已自动拒绝</p>
+                        <p className="text-xs text-gray-600">{t("agentAutonomy.activities.riskAlert.unauthorized")}</p>
+                        <p className="text-xs text-red-600 mt-1">{t("agentAutonomy.activities.riskAlert.blocked")}</p>
                       </div>
                     </div>
                   </div>
@@ -625,7 +596,7 @@ export default function LandingPage() {
               <div className="bg-white rounded-3xl border border-gray-200 p-6 shadow-lg">
                 <h3 className="text-xl font-semibold text-gray-900 mb-6 flex items-center gap-2">
                   <Shield className="w-6 h-6 text-orange-500" />
-                  安全策略配置
+                  {t("agentAutonomy.securityConfig")}
                 </h3>
 
                 {/* Policy Items */}
@@ -637,13 +608,13 @@ export default function LandingPage() {
                         <Wallet className="w-5 h-5 text-orange-500" />
                       </div>
                       <div>
-                        <p className="font-medium text-gray-900">日交易限额</p>
-                        <p className="text-sm text-gray-500">24小时内最大支出</p>
+                        <p className="font-medium text-gray-900">{t("agentAutonomy.dailyLimit.title")}</p>
+                        <p className="text-sm text-gray-500">{t("agentAutonomy.dailyLimit.desc")}</p>
                       </div>
                     </div>
                     <div className="text-right">
                       <p className="font-semibold text-gray-900">$1,000</p>
-                      <p className="text-xs text-green-600">✓ 已启用</p>
+                      <p className="text-xs text-green-600">{t("agentAutonomy.enabled")}</p>
                     </div>
                   </div>
 
@@ -654,13 +625,13 @@ export default function LandingPage() {
                         <ArrowRight className="w-5 h-5 text-blue-500" />
                       </div>
                       <div>
-                        <p className="font-medium text-gray-900">单笔限额</p>
-                        <p className="text-sm text-gray-500">每次交易最大金额</p>
+                        <p className="font-medium text-gray-900">{t("agentAutonomy.singleLimit.title")}</p>
+                        <p className="text-sm text-gray-500">{t("agentAutonomy.singleLimit.desc")}</p>
                       </div>
                     </div>
                     <div className="text-right">
                       <p className="font-semibold text-gray-900">$500</p>
-                      <p className="text-xs text-green-600">✓ 已启用</p>
+                      <p className="text-xs text-green-600">{t("agentAutonomy.enabled")}</p>
                     </div>
                   </div>
 
@@ -671,13 +642,13 @@ export default function LandingPage() {
                         <Check className="w-5 h-5 text-green-500" />
                       </div>
                       <div>
-                        <p className="font-medium text-gray-900">合约白名单</p>
-                        <p className="text-sm text-gray-500">仅允许交互的合约</p>
+                        <p className="font-medium text-gray-900">{t("agentAutonomy.whitelist.title")}</p>
+                        <p className="text-sm text-gray-500">{t("agentAutonomy.whitelist.desc")}</p>
                       </div>
                     </div>
                     <div className="text-right">
                       <p className="font-semibold text-gray-900">12 个</p>
-                      <p className="text-xs text-green-600">✓ 已启用</p>
+                      <p className="text-xs text-green-600">{t("agentAutonomy.enabled")}</p>
                     </div>
                   </div>
 
@@ -688,13 +659,13 @@ export default function LandingPage() {
                         <Lock className="w-5 h-5 text-purple-500" />
                       </div>
                       <div>
-                        <p className="font-medium text-gray-900">大额确认</p>
-                        <p className="text-sm text-gray-500">超出限额需人工审批</p>
+                        <p className="font-medium text-gray-900">{t("agentAutonomy.largeTxConfirm.title")}</p>
+                        <p className="text-sm text-gray-500">{t("agentAutonomy.largeTxConfirm.desc")}</p>
                       </div>
                     </div>
                     <div className="text-right">
-                      <p className="font-semibold text-gray-900">开启</p>
-                      <p className="text-xs text-green-600">✓ 已启用</p>
+                      <p className="font-semibold text-gray-900">{t("agentAutonomy.largeTxConfirm.status")}</p>
+                      <p className="text-xs text-green-600">{t("agentAutonomy.enabled")}</p>
                     </div>
                   </div>
                 </div>
@@ -702,8 +673,8 @@ export default function LandingPage() {
                 {/* Summary */}
                 <div className="mt-6 p-4 bg-orange-50 rounded-xl border border-orange-100">
                   <p className="text-sm text-gray-700">
-                    <span className="font-semibold text-orange-600">安全提示：</span>
-                    OpenClaw 的所有操作都在您设定的策略边界内执行。超出限额或遇到可疑交易时，系统会自动拦截并通知您。
+                    <span className="font-semibold text-orange-600">{t("agentAutonomy.securityTip.label")}</span>
+                    {t("agentAutonomy.securityTip.content")}
                   </p>
                 </div>
               </div>
@@ -712,15 +683,15 @@ export default function LandingPage() {
               <div className="grid grid-cols-3 gap-4">
                 <div className="bg-white rounded-2xl p-4 border border-gray-100 text-center">
                   <p className="text-2xl font-bold text-gray-900">156</p>
-                  <p className="text-xs text-gray-500">自动执行</p>
+                  <p className="text-xs text-gray-500">{t("agentAutonomy.stats.autoExecuted")}</p>
                 </div>
                 <div className="bg-white rounded-2xl p-4 border border-gray-100 text-center">
                   <p className="text-2xl font-bold text-orange-500">3</p>
-                  <p className="text-xs text-gray-500">待审批</p>
+                  <p className="text-xs text-gray-500">{t("agentAutonomy.stats.pendingApproval")}</p>
                 </div>
                 <div className="bg-white rounded-2xl p-4 border border-gray-100 text-center">
                   <p className="text-2xl font-bold text-green-500">0</p>
-                  <p className="text-xs text-gray-500">安全拦截</p>
+                  <p className="text-xs text-gray-500">{t("agentAutonomy.stats.blocked")}</p>
                 </div>
               </div>
             </motion.div>
@@ -742,7 +713,7 @@ export default function LandingPage() {
               <div>
                 <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-orange-50 border border-orange-100 mb-6">
                   <Shield className="w-4 h-4 text-orange-500" />
-                  <span className="text-orange-600 text-sm font-medium">TEE 硬件安全</span>
+                  <span className="text-orange-600 text-sm font-medium">{t("features.tee.title")}</span>
                 </div>
                 <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">
                   {t("security.title")}
@@ -784,8 +755,8 @@ export default function LandingPage() {
                     <div className="w-32 h-32 bg-white rounded-3xl shadow-2xl flex items-center justify-center mx-auto mb-6">
                       <Shield className="w-16 h-16 text-orange-500" />
                     </div>
-                    <p className="text-gray-700 font-semibold text-lg">TEE 可信执行环境</p>
-                    <p className="text-gray-400 text-sm mt-2">Hardware-Level Security</p>
+                    <p className="text-gray-700 font-semibold text-lg">{t("security.teeTitle")}</p>
+                    <p className="text-gray-400 text-sm mt-2">{t("security.teeSubtitle")}</p>
                   </motion.div>
                 </div>
               </div>
@@ -806,14 +777,14 @@ export default function LandingPage() {
           >
             <div className="inline-flex items-center gap-2 text-xs font-semibold tracking-[0.12em] uppercase text-orange-500 mb-5">
               <span className="w-4 h-px bg-orange-500"></span>
-              Agent 能力
+              {t("agentRoles.badge")}
               <span className="w-4 h-px bg-orange-500"></span>
             </div>
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              一个钱包，胜任所有场景
+              {t("agentRoles.title")}
             </h2>
             <p className="text-base text-gray-500 leading-relaxed max-w-2xl mx-auto">
-              您的完整 Web3 AI 团队。从 DeFi 交易到资产管理，Claw Wallet 让 Agent 安全处理一切链上操作。
+              {t("agentRoles.subtitle")}
             </p>
           </motion.div>
 
@@ -821,39 +792,39 @@ export default function LandingPage() {
             {[
               { 
                 icon: "📈", 
-                title: "DeFi 交易员", 
-                desc: "自动执行 Swap、流动性挖矿、收益聚合，24/7 监控市场机会",
-                tags: ["DEX 交易", "收益 farming", "自动复利"]
+                titleKey: "agentRoles.defiTrader.title", 
+                descKey: "agentRoles.defiTrader.desc",
+                tagKeys: ["agentRoles.defiTrader.tag0", "agentRoles.defiTrader.tag1", "agentRoles.defiTrader.tag2"]
               },
               { 
                 icon: "💼", 
-                title: "资产管理员", 
-                desc: "跨链资产配置、再平衡、风险监控，保持投资组合最优状态",
-                tags: ["跨链桥接", "资产再平衡", "风险评估"]
+                titleKey: "agentRoles.assetManager.title", 
+                descKey: "agentRoles.assetManager.desc",
+                tagKeys: ["agentRoles.assetManager.tag0", "agentRoles.assetManager.tag1", "agentRoles.assetManager.tag2"]
               },
               { 
                 icon: "🛡️", 
-                title: "安全审计员", 
-                desc: "每笔交易前自动扫描合约风险，拦截可疑操作，保护资产安全",
-                tags: ["合约扫描", "风险评分", "异常拦截"]
+                titleKey: "agentRoles.securityAuditor.title", 
+                descKey: "agentRoles.securityAuditor.desc",
+                tagKeys: ["agentRoles.securityAuditor.tag0", "agentRoles.securityAuditor.tag1", "agentRoles.securityAuditor.tag2"]
               },
               { 
                 icon: "📊", 
-                title: "数据分析师", 
-                desc: "追踪链上数据、生成收益报告、监控 Gas 费用，提供数据洞察",
-                tags: ["链上分析", "收益报告", "Gas 优化"]
+                titleKey: "agentRoles.dataAnalyst.title", 
+                descKey: "agentRoles.dataAnalyst.desc",
+                tagKeys: ["agentRoles.dataAnalyst.tag0", "agentRoles.dataAnalyst.tag1", "agentRoles.dataAnalyst.tag2"]
               },
               { 
                 icon: "🤝", 
-                title: "支付助理", 
-                desc: "处理定期付款、薪资发放、订阅管理，支持多币种批量转账",
-                tags: ["定期支付", "批量转账", "多币种"]
+                titleKey: "agentRoles.paymentAssistant.title", 
+                descKey: "agentRoles.paymentAssistant.desc",
+                tagKeys: ["agentRoles.paymentAssistant.tag0", "agentRoles.paymentAssistant.tag1", "agentRoles.paymentAssistant.tag2"]
               },
               { 
                 icon: "🔍", 
-                title: "链上研究员", 
-                desc: "追踪新项目、监控空投机会、分析代币经济，主动呈现研究结果",
-                tags: ["空投追踪", "项目调研", "代币分析"]
+                titleKey: "agentRoles.onChainResearcher.title", 
+                descKey: "agentRoles.onChainResearcher.desc",
+                tagKeys: ["agentRoles.onChainResearcher.tag0", "agentRoles.onChainResearcher.tag1", "agentRoles.onChainResearcher.tag2"]
               },
             ].map((role, idx) => (
               <motion.div
@@ -865,12 +836,12 @@ export default function LandingPage() {
                 transition={{ duration: 0.4, delay: idx * 0.1 }}
               >
                 <div className="text-3xl mb-4">{role.icon}</div>
-                <h3 className="text-lg font-bold mb-2 text-gray-900">{role.title}</h3>
-                <p className="text-sm text-gray-500 leading-relaxed mb-4">{role.desc}</p>
+                <h3 className="text-lg font-bold mb-2 text-gray-900">{t(role.titleKey)}</h3>
+                <p className="text-sm text-gray-500 leading-relaxed mb-4">{t(role.descKey)}</p>
                 <div className="flex flex-wrap gap-2">
-                  {role.tags.map((tag, i) => (
+                  {role.tagKeys.map((tagKey, i) => (
                     <span key={i} className="px-2 py-1 rounded bg-gray-100 text-[10px] text-gray-500 border border-gray-200">
-                      {tag}
+                      {t(tagKey)}
                     </span>
                   ))}
                 </div>
@@ -880,21 +851,37 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* Testimonials Section - 用户使用反馈 */}
+      {/* Testimonials Section */}
       <section id="testimonials" className="py-24 bg-white border-t border-gray-100">
         <div className="max-w-6xl mx-auto px-6">
           {/* Section Header */}
           <div className="text-center mb-16">
-            <span className="text-orange-500 text-sm font-semibold uppercase tracking-wider">用户评价</span>
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mt-3 mb-4">开发者们怎么说</h2>
-            <p className="text-gray-500 text-lg max-w-xl mx-auto">来自 DeFi 开发者、量化工程师和协议创始人的真实反馈</p>
+            <span className="text-orange-500 text-sm font-semibold uppercase tracking-wider">{t("testimonialsContent.badge")}</span>
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mt-3 mb-4">{t("testimonialsContent.title")}</h2>
+            <p className="text-gray-500 text-lg max-w-xl mx-auto">{t("testimonialsContent.subtitle")}</p>
           </div>
 
           {/* Testimonials Grid */}
           <div className="grid md:grid-cols-3 gap-8">
-            {testimonials.map((testimonial, index) => (
+            {[
+              {
+                key: "testimonialsContent.user1",
+                rating: 5,
+                avatar: "👨‍💼",
+              },
+              {
+                key: "testimonialsContent.user2",
+                rating: 5,
+                avatar: "👩‍💻",
+              },
+              {
+                key: "testimonialsContent.user3",
+                rating: 5,
+                avatar: "🧑‍🚀",
+              },
+            ].map((item, index) => (
               <motion.div
-                key={testimonial.name}
+                key={item.key}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -903,27 +890,27 @@ export default function LandingPage() {
               >
                 {/* Star Rating */}
                 <div className="flex gap-0.5 mb-6">
-                  {[...Array(testimonial.rating)].map((_, i) => (
+                  {[...Array(item.rating)].map((_, i) => (
                     <Star key={i} className="w-4 h-4 fill-orange-400 text-orange-400" />
                   ))}
                 </div>
 
                 {/* Quote */}
                 <p className="text-gray-600 leading-relaxed mb-8 min-h-[80px]">
-                  "{currentLang === 'zh' ? testimonial.content : testimonial.contentEn}"
+                  "{t(`${item.key}.content`)}"
                 </p>
 
                 {/* Author */}
                 <div className="flex items-center gap-4 pt-6 border-t border-gray-100">
                   <div className="w-12 h-12 rounded-full bg-gradient-to-br from-orange-100 to-orange-200 flex items-center justify-center text-xl">
-                    {testimonial.avatar}
+                    {item.avatar}
                   </div>
                   <div>
                     <p className="font-semibold text-gray-900">
-                      {currentLang === 'zh' ? testimonial.name : testimonial.nameEn}
+                      {t(`${item.key}.name`)}
                     </p>
                     <p className="text-gray-400 text-sm">
-                      {currentLang === 'zh' ? testimonial.role : testimonial.roleEn} · {testimonial.company}
+                      {t(`${item.key}.role`)}
                     </p>
                   </div>
                 </div>
@@ -938,9 +925,9 @@ export default function LandingPage() {
         <div className="max-w-3xl mx-auto px-6">
           {/* Section Header */}
           <div className="text-center mb-16">
-            <span className="text-orange-500 text-sm font-semibold uppercase tracking-wider">常见问题</span>
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mt-3 mb-4">有疑问？我们来解答</h2>
-            <p className="text-gray-500 text-lg">关于 ClawWallet 的常见问题</p>
+            <span className="text-orange-500 text-sm font-semibold uppercase tracking-wider">{t("faq.title")}</span>
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mt-3 mb-4">{t("faq.title")}</h2>
+            <p className="text-gray-500 text-lg">{t("faq.subtitle")}</p>
           </div>
 
           {/* FAQ Items */}
@@ -965,12 +952,12 @@ export default function LandingPage() {
             viewport={{ once: true }}
             className="mt-12 text-center"
           >
-            <p className="text-gray-500 mb-4">还有其他问题？</p>
-            <a 
-              href="mailto:support@clawwallet.io" 
+            <p className="text-gray-500 mb-4">{t("faq.moreQuestions")}</p>
+            <a
+              href="mailto:support@clawwallet.io"
               className="inline-flex items-center gap-2 text-orange-500 hover:text-orange-600 font-medium"
             >
-              联系我们
+              {t("faq.contactUs")}
               <ArrowRight className="w-4 h-4" />
             </a>
           </motion.div>
@@ -993,25 +980,29 @@ export default function LandingPage() {
             <div className="absolute -bottom-24 -left-24 w-48 h-48 bg-orange-50 rounded-full blur-3xl opacity-50" />
             
             <div className="relative">
-              {/* Icon */}
+              {/* Logo */}
               <motion.div
                 initial={{ scale: 0 }}
                 whileInView={{ scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.2, type: "spring" }}
-                className="w-20 h-20 bg-gradient-to-br from-orange-400 to-orange-600 rounded-2xl flex items-center justify-center mx-auto mb-8 shadow-lg shadow-orange-500/30"
+                className="w-20 h-20 rounded-2xl flex items-center justify-center mx-auto mb-8 shadow-lg shadow-orange-500/30 overflow-hidden bg-white"
               >
-                <Sparkles className="w-10 h-10 text-white" />
+                <img 
+                  src="/claw.png" 
+                  alt="ClawWallet"
+                  className="w-full h-full object-cover"
+                />
               </motion.div>
               
               {/* Title */}
               <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-                准备好开始了吗？
+                {t("cta.title")}
               </h2>
               <p className="text-gray-500 text-lg mb-10 max-w-lg mx-auto">
-                加入数千名开发者，为 AI Agent 添加加密能力
+                {t("cta.subtitle")}
               </p>
-              
+
               {/* Install Command */}
               <div className="inline-flex flex-col sm:flex-row items-center gap-3 p-2 bg-gray-900 rounded-2xl border border-gray-800 shadow-2xl mb-8">
                 <code className="text-sm text-gray-300 font-mono px-4 py-2">{installCommand}</code>
@@ -1026,30 +1017,30 @@ export default function LandingPage() {
                   {copied ? (
                     <>
                       <Check className="w-4 h-4" />
-                      已复制
+                      {t("cta.copied")}
                     </>
                   ) : (
                     <>
                       <Copy className="w-4 h-4" />
-                      复制命令
+                      {t("cta.copyCommand")}
                     </>
                   )}
                 </button>
               </div>
-              
+
               {/* Features */}
               <div className="flex flex-wrap justify-center gap-6 text-sm text-gray-400">
                 <span className="flex items-center gap-2">
                   <Check className="w-4 h-4 text-green-500" />
-                  免费开源
+                  {t("cta.features.opensource")}
                 </span>
                 <span className="flex items-center gap-2">
                   <Check className="w-4 h-4 text-green-500" />
-                  无需注册
+                  {t("cta.features.noreg")}
                 </span>
                 <span className="flex items-center gap-2">
                   <Check className="w-4 h-4 text-green-500" />
-                  即刻使用
+                  {t("cta.features.instant")}
                 </span>
               </div>
             </div>
