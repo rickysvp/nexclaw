@@ -287,8 +287,8 @@ export default function LandingPage() {
       </nav>
 
       {/* Hero Section */}
-      <section className="relative pt-32 pb-20 lg:pt-40">
-        <div className="max-w-5xl mx-auto px-6 text-center">
+      <section className="relative pt-32 pb-20 lg:pt-40 min-h-screen flex flex-col">
+        <div className="max-w-5xl mx-auto px-6 text-center flex-1 flex flex-col justify-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -352,6 +352,33 @@ export default function LandingPage() {
               </p>
             </motion.div>
           </motion.div>
+        </div>
+
+        {/* Partners Section - Inside Hero */}
+        <div className="mt-auto pt-16">
+          <div className="max-w-5xl mx-auto px-6">
+            <p className="text-center text-gray-400 text-xs mb-6">{t("partners.title")}</p>
+            <div className="flex flex-wrap justify-center items-center gap-8 md:gap-16">
+              {partners.map((partner, index) => (
+                <motion.div
+                  key={partner.name}
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.5 + index * 0.1 }}
+                  className="flex flex-col items-center gap-2 text-gray-500 hover:text-gray-800 transition-colors group"
+                >
+                  <div className="w-10 h-10 md:w-12 md:h-12 group-hover:scale-110 transition-transform duration-300">
+                    <img 
+                      src={partner.logoPath} 
+                      alt={partner.name}
+                      className="w-full h-full object-contain"
+                    />
+                  </div>
+                  <span className="font-medium text-xs tracking-wide">{partner.name}</span>
+                </motion.div>
+              ))}
+            </div>
+          </div>
         </div>
       </section>
 
@@ -434,33 +461,6 @@ export default function LandingPage() {
                 </div>
               </div>
             </motion.div>
-          </div>
-        </div>
-      </section>
-
-      {/* Partners Section - 合作项目 - First Screen */}
-      <section className="py-10 bg-white border-y border-gray-100">
-        <div className="max-w-5xl mx-auto px-6">
-          <p className="text-center text-gray-400 text-xs mb-6">{t("partners.title")}</p>
-          <div className="flex flex-wrap justify-center items-center gap-8 md:gap-16">
-            {partners.map((partner, index) => (
-              <motion.div
-                key={partner.name}
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.5 + index * 0.1 }}
-                className="flex flex-col items-center gap-2 text-gray-500 hover:text-gray-800 transition-colors group"
-              >
-                <div className="w-10 h-10 md:w-12 md:h-12 group-hover:scale-110 transition-transform duration-300">
-                  <img 
-                    src={partner.logoPath} 
-                    alt={partner.name}
-                    className="w-full h-full object-contain"
-                  />
-                </div>
-                <span className="font-medium text-xs tracking-wide">{partner.name}</span>
-              </motion.div>
-            ))}
           </div>
         </div>
       </section>
