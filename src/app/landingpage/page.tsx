@@ -464,209 +464,267 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* Usage Example Section - Chat Interface */}
+      {/* Usage Example Section - Agent Autonomy */}
       <section className="py-24 bg-white border-t border-gray-100">
-        <div className="max-w-4xl mx-auto px-6">
+        <div className="max-w-6xl mx-auto px-6">
           {/* Section Header */}
           <div className="text-center mb-12">
-            <span className="text-orange-500 text-sm font-semibold uppercase tracking-wider">使用示例</span>
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mt-3">与 OpenClaw 对话即可管理钱包</h2>
-            <p className="text-gray-500 mt-4 max-w-xl mx-auto">像聊天一样发送指令，OpenClaw 帮您完成所有操作</p>
+            <span className="text-orange-500 text-sm font-semibold uppercase tracking-wider">自主交互</span>
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mt-3">OpenClaw 主动管理您的资产</h2>
+            <p className="text-gray-500 mt-4 max-w-2xl mx-auto">不是被动响应，而是具备自主行动能力的 AI Agent。通过安全策略限定资金管理边界，让 OpenClaw 主动为您优化投资组合</p>
           </div>
 
-          {/* Chat Interface */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="bg-gray-50 rounded-3xl border border-gray-200 overflow-hidden shadow-xl"
-          >
-            {/* Chat Header */}
-            <div className="bg-white border-b border-gray-100 px-6 py-4 flex items-center gap-3">
-              <div className="w-10 h-10 rounded-full bg-gradient-to-br from-orange-500 to-orange-600 flex items-center justify-center">
-                <Bot className="w-5 h-5 text-white" />
-              </div>
-              <div>
-                <h3 className="font-semibold text-gray-900">OpenClaw</h3>
-                <p className="text-xs text-gray-400">AI Agent 助手</p>
-              </div>
-              <div className="ml-auto flex items-center gap-2">
-                <span className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></span>
-                <span className="text-xs text-gray-400">在线</span>
-              </div>
-            </div>
-
-            {/* Chat Messages */}
-            <div className="p-6 space-y-6">
-              {/* Message 1: Create Wallet */}
-              <motion.div
-                initial={{ opacity: 0, x: -20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.2 }}
-                className="flex gap-4"
-              >
-                <div className="w-10 h-10 rounded-full bg-gray-200 flex items-center justify-center flex-shrink-0">
-                  <span className="text-lg">👤</span>
-                </div>
-                <div className="flex-1">
-                  <div className="bg-white rounded-2xl rounded-tl-sm px-5 py-3 shadow-sm border border-gray-100">
-                    <p className="text-gray-700">@openclaw 创建钱包</p>
-                  </div>
-                  <span className="text-xs text-gray-400 mt-1 ml-1">10:30</span>
-                </div>
-              </motion.div>
-
-              {/* Response 1 */}
-              <motion.div
-                initial={{ opacity: 0, x: 20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.4 }}
-                className="flex gap-4"
-              >
-                <div className="w-10 h-10 rounded-full bg-gradient-to-br from-orange-500 to-orange-600 flex items-center justify-center flex-shrink-0">
+          {/* Two Column Layout */}
+          <div className="grid lg:grid-cols-2 gap-8">
+            {/* Left: Agent Activity Log */}
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="bg-gray-50 rounded-3xl border border-gray-200 overflow-hidden shadow-xl"
+            >
+              {/* Header */}
+              <div className="bg-white border-b border-gray-100 px-6 py-4 flex items-center gap-3">
+                <div className="w-10 h-10 rounded-full bg-gradient-to-br from-orange-500 to-orange-600 flex items-center justify-center">
                   <Bot className="w-5 h-5 text-white" />
                 </div>
-                <div className="flex-1">
-                  <div className="bg-orange-50 rounded-2xl rounded-tl-sm px-5 py-4 border border-orange-100">
-                    <p className="text-gray-800 mb-2">✅ 钱包创建成功！</p>
-                    <div className="bg-white rounded-lg p-3 border border-orange-100">
-                      <p className="text-sm text-gray-600">地址: <span className="font-mono text-gray-800">0x7a2f...9c4d</span></p>
-                      <p className="text-sm text-gray-600">网络: <span className="text-gray-800">Ethereum</span></p>
-                      <p className="text-sm text-gray-600">UID: <span className="font-mono text-gray-800">claw_wallet_abc123</span></p>
+                <div>
+                  <h3 className="font-semibold text-gray-900">OpenClaw Agent</h3>
+                  <p className="text-xs text-gray-400">自主运行中</p>
+                </div>
+                <div className="ml-auto flex items-center gap-2">
+                  <span className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></span>
+                  <span className="text-xs text-gray-400">监控市场</span>
+                </div>
+              </div>
+
+              {/* Activity Log */}
+              <div className="p-6 space-y-4 max-h-[500px] overflow-y-auto">
+                {/* Activity 1: Market Analysis */}
+                <motion.div
+                  initial={{ opacity: 0, y: 10 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.2 }}
+                  className="bg-white rounded-xl p-4 border border-gray-100 shadow-sm"
+                >
+                  <div className="flex items-start gap-3">
+                    <div className="w-8 h-8 rounded-full bg-blue-50 flex items-center justify-center flex-shrink-0">
+                      <span className="text-sm">📊</span>
+                    </div>
+                    <div className="flex-1">
+                      <p className="text-sm text-gray-800 font-medium">检测到 ETH 价格回调 5%</p>
+                      <p className="text-xs text-gray-500 mt-1">09:15 · 市场分析</p>
                     </div>
                   </div>
-                  <span className="text-xs text-gray-400 mt-1 ml-1">10:30</span>
-                </div>
-              </motion.div>
+                </motion.div>
 
-              {/* Message 2: Check Balance */}
-              <motion.div
-                initial={{ opacity: 0, x: -20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.6 }}
-                className="flex gap-4"
-              >
-                <div className="w-10 h-10 rounded-full bg-gray-200 flex items-center justify-center flex-shrink-0">
-                  <span className="text-lg">👤</span>
-                </div>
-                <div className="flex-1">
-                  <div className="bg-white rounded-2xl rounded-tl-sm px-5 py-3 shadow-sm border border-gray-100">
-                    <p className="text-gray-700">@openclaw 查询余额</p>
-                  </div>
-                  <span className="text-xs text-gray-400 mt-1 ml-1">10:32</span>
-                </div>
-              </motion.div>
-
-              {/* Response 2 */}
-              <motion.div
-                initial={{ opacity: 0, x: 20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.8 }}
-                className="flex gap-4"
-              >
-                <div className="w-10 h-10 rounded-full bg-gradient-to-br from-orange-500 to-orange-600 flex items-center justify-center flex-shrink-0">
-                  <Bot className="w-5 h-5 text-white" />
-                </div>
-                <div className="flex-1">
-                  <div className="bg-orange-50 rounded-2xl rounded-tl-sm px-5 py-4 border border-orange-100">
-                    <p className="text-gray-800 mb-3">💰 您的钱包余额：</p>
-                    <div className="space-y-2">
-                      <div className="flex justify-between items-center bg-white rounded-lg p-3 border border-orange-100">
-                        <span className="text-gray-600">ETH</span>
-                        <span className="font-semibold text-gray-800">1.25 ETH</span>
-                      </div>
-                      <div className="flex justify-between items-center bg-white rounded-lg p-3 border border-orange-100">
-                        <span className="text-gray-600">USDC</span>
-                        <span className="font-semibold text-gray-800">500 USDC</span>
+                {/* Activity 2: Strategy Decision */}
+                <motion.div
+                  initial={{ opacity: 0, y: 10 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.3 }}
+                  className="bg-white rounded-xl p-4 border border-gray-100 shadow-sm"
+                >
+                  <div className="flex items-start gap-3">
+                    <div className="w-8 h-8 rounded-full bg-purple-50 flex items-center justify-center flex-shrink-0">
+                      <span className="text-sm">🧠</span>
+                    </div>
+                    <div className="flex-1">
+                      <p className="text-sm text-gray-800 font-medium">触发定投策略：买入 0.05 ETH</p>
+                      <p className="text-xs text-gray-500 mt-1">09:16 · 策略执行</p>
+                      <div className="mt-2 flex items-center gap-2">
+                        <span className="text-xs px-2 py-1 bg-green-50 text-green-600 rounded">✓ 在限额内</span>
+                        <span className="text-xs text-gray-400">日限额: $1000 / 已用: $150</span>
                       </div>
                     </div>
                   </div>
-                  <span className="text-xs text-gray-400 mt-1 ml-1">10:32</span>
-                </div>
-              </motion.div>
+                </motion.div>
 
-              {/* Message 3: Send Transaction */}
-              <motion.div
-                initial={{ opacity: 0, x: -20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 1.0 }}
-                className="flex gap-4"
-              >
-                <div className="w-10 h-10 rounded-full bg-gray-200 flex items-center justify-center flex-shrink-0">
-                  <span className="text-lg">👤</span>
-                </div>
-                <div className="flex-1">
-                  <div className="bg-white rounded-2xl rounded-tl-sm px-5 py-3 shadow-sm border border-gray-100">
-                    <p className="text-gray-700">@openclaw 发送 0.1 ETH 到 0x1234...5678</p>
-                  </div>
-                  <span className="text-xs text-gray-400 mt-1 ml-1">10:35</span>
-                </div>
-              </motion.div>
-
-              {/* Response 3 */}
-              <motion.div
-                initial={{ opacity: 0, x: 20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 1.2 }}
-                className="flex gap-4"
-              >
-                <div className="w-10 h-10 rounded-full bg-gradient-to-br from-orange-500 to-orange-600 flex items-center justify-center flex-shrink-0">
-                  <Bot className="w-5 h-5 text-white" />
-                </div>
-                <div className="flex-1">
-                  <div className="bg-orange-50 rounded-2xl rounded-tl-sm px-5 py-4 border border-orange-100">
-                    <p className="text-gray-800 mb-2">🚀 交易已提交！</p>
-                    <div className="bg-white rounded-lg p-3 border border-orange-100">
-                      <p className="text-sm text-gray-600">金额: <span className="text-gray-800">0.1 ETH</span></p>
-                      <p className="text-sm text-gray-600">接收: <span className="font-mono text-gray-800">0x1234...5678</span></p>
-                      <p className="text-sm text-gray-600">状态: <span className="text-green-600">✓ 已确认</span></p>
+                {/* Activity 3: Transaction Pending Approval */}
+                <motion.div
+                  initial={{ opacity: 0, y: 10 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.4 }}
+                  className="bg-orange-50 rounded-xl p-4 border border-orange-100"
+                >
+                  <div className="flex items-start gap-3">
+                    <div className="w-8 h-8 rounded-full bg-orange-100 flex items-center justify-center flex-shrink-0">
+                      <span className="text-sm">⏳</span>
+                    </div>
+                    <div className="flex-1">
+                      <p className="text-sm text-gray-800 font-medium">大额交易待确认</p>
+                      <p className="text-xs text-gray-500 mt-1">14:30 · 需要人工审批</p>
+                      <div className="mt-2 bg-white rounded-lg p-3 border border-orange-100">
+                        <p className="text-xs text-gray-600">发送 2 ETH 到 0x789...abc</p>
+                        <p className="text-xs text-orange-600 mt-1">⚠️ 超出单笔限额 ($500)，需确认</p>
+                      </div>
                     </div>
                   </div>
-                  <span className="text-xs text-gray-400 mt-1 ml-1">10:35</span>
-                </div>
-              </motion.div>
-            </div>
+                </motion.div>
 
-            {/* Chat Input */}
-            <div className="bg-white border-t border-gray-100 px-6 py-4">
-              <div className="flex items-center gap-3">
-                <div className="flex-1 bg-gray-100 rounded-full px-5 py-3 text-gray-400 text-sm">
-                  @openclaw 输入指令...
-                </div>
-                <button className="w-10 h-10 rounded-full bg-orange-500 flex items-center justify-center text-white hover:bg-orange-600 transition-colors">
-                  <ArrowRight className="w-5 h-5" />
-                </button>
-              </div>
-            </div>
-          </motion.div>
+                {/* Activity 4: Yield Optimization */}
+                <motion.div
+                  initial={{ opacity: 0, y: 10 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.5 }}
+                  className="bg-white rounded-xl p-4 border border-gray-100 shadow-sm"
+                >
+                  <div className="flex items-start gap-3">
+                    <div className="w-8 h-8 rounded-full bg-green-50 flex items-center justify-center flex-shrink-0">
+                      <span className="text-sm">🌾</span>
+                    </div>
+                    <div className="flex-1">
+                      <p className="text-sm text-gray-800 font-medium">自动质押 100 USDC 到 Aave</p>
+                      <p className="text-xs text-gray-500 mt-1">16:00 · 收益优化</p>
+                      <div className="mt-2 flex items-center gap-2">
+                        <span className="text-xs px-2 py-1 bg-green-50 text-green-600 rounded">✓ 白名单合约</span>
+                        <span className="text-xs text-gray-400">APY: 4.2%</span>
+                      </div>
+                    </div>
+                  </div>
+                </motion.div>
 
-          {/* Feature Tags */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.3 }}
-            className="mt-12 flex flex-wrap justify-center gap-4"
-          >
-            {[
-              { icon: "💬", text: "自然语言交互" },
-              { icon: "⚡", text: "即时响应" },
-              { icon: "🔒", text: "安全确认" },
-              { icon: "📊", text: "实时余额" },
-            ].map((item, i) => (
-              <div key={i} className="flex items-center gap-2 px-4 py-2 bg-gray-100 rounded-full">
-                <span>{item.icon}</span>
-                <span className="text-sm text-gray-600">{item.text}</span>
+                {/* Activity 5: Risk Alert */}
+                <motion.div
+                  initial={{ opacity: 0, y: 10 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.6 }}
+                  className="bg-red-50 rounded-xl p-4 border border-red-100"
+                >
+                  <div className="flex items-start gap-3">
+                    <div className="w-8 h-8 rounded-full bg-red-100 flex items-center justify-center flex-shrink-0">
+                      <span className="text-sm">🛡️</span>
+                    </div>
+                    <div className="flex-1">
+                      <p className="text-sm text-gray-800 font-medium">阻止可疑交易</p>
+                      <p className="text-xs text-gray-500 mt-1">18:45 · 安全拦截</p>
+                      <div className="mt-2 bg-white rounded-lg p-3 border border-red-100">
+                        <p className="text-xs text-gray-600">检测到未授权合约交互请求</p>
+                        <p className="text-xs text-red-600 mt-1">✗ 合约不在白名单中，已自动拒绝</p>
+                      </div>
+                    </div>
+                  </div>
+                </motion.div>
               </div>
-            ))}
-          </motion.div>
+            </motion.div>
+
+            {/* Right: Security Policy Settings */}
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="space-y-6"
+            >
+              <div className="bg-white rounded-3xl border border-gray-200 p-6 shadow-lg">
+                <h3 className="text-xl font-semibold text-gray-900 mb-6 flex items-center gap-2">
+                  <Shield className="w-6 h-6 text-orange-500" />
+                  安全策略配置
+                </h3>
+
+                {/* Policy Items */}
+                <div className="space-y-4">
+                  {/* Daily Limit */}
+                  <div className="flex items-center justify-between p-4 bg-gray-50 rounded-xl">
+                    <div className="flex items-center gap-3">
+                      <div className="w-10 h-10 rounded-lg bg-orange-100 flex items-center justify-center">
+                        <Wallet className="w-5 h-5 text-orange-500" />
+                      </div>
+                      <div>
+                        <p className="font-medium text-gray-900">日交易限额</p>
+                        <p className="text-sm text-gray-500">24小时内最大支出</p>
+                      </div>
+                    </div>
+                    <div className="text-right">
+                      <p className="font-semibold text-gray-900">$1,000</p>
+                      <p className="text-xs text-green-600">✓ 已启用</p>
+                    </div>
+                  </div>
+
+                  {/* Single Transaction Limit */}
+                  <div className="flex items-center justify-between p-4 bg-gray-50 rounded-xl">
+                    <div className="flex items-center gap-3">
+                      <div className="w-10 h-10 rounded-lg bg-blue-100 flex items-center justify-center">
+                        <ArrowRight className="w-5 h-5 text-blue-500" />
+                      </div>
+                      <div>
+                        <p className="font-medium text-gray-900">单笔限额</p>
+                        <p className="text-sm text-gray-500">每次交易最大金额</p>
+                      </div>
+                    </div>
+                    <div className="text-right">
+                      <p className="font-semibold text-gray-900">$500</p>
+                      <p className="text-xs text-green-600">✓ 已启用</p>
+                    </div>
+                  </div>
+
+                  {/* Whitelist */}
+                  <div className="flex items-center justify-between p-4 bg-gray-50 rounded-xl">
+                    <div className="flex items-center gap-3">
+                      <div className="w-10 h-10 rounded-lg bg-green-100 flex items-center justify-center">
+                        <Check className="w-5 h-5 text-green-500" />
+                      </div>
+                      <div>
+                        <p className="font-medium text-gray-900">合约白名单</p>
+                        <p className="text-sm text-gray-500">仅允许交互的合约</p>
+                      </div>
+                    </div>
+                    <div className="text-right">
+                      <p className="font-semibold text-gray-900">12 个</p>
+                      <p className="text-xs text-green-600">✓ 已启用</p>
+                    </div>
+                  </div>
+
+                  {/* Approval Required */}
+                  <div className="flex items-center justify-between p-4 bg-gray-50 rounded-xl">
+                    <div className="flex items-center gap-3">
+                      <div className="w-10 h-10 rounded-lg bg-purple-100 flex items-center justify-center">
+                        <Lock className="w-5 h-5 text-purple-500" />
+                      </div>
+                      <div>
+                        <p className="font-medium text-gray-900">大额确认</p>
+                        <p className="text-sm text-gray-500">超出限额需人工审批</p>
+                      </div>
+                    </div>
+                    <div className="text-right">
+                      <p className="font-semibold text-gray-900">开启</p>
+                      <p className="text-xs text-green-600">✓ 已启用</p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Summary */}
+                <div className="mt-6 p-4 bg-orange-50 rounded-xl border border-orange-100">
+                  <p className="text-sm text-gray-700">
+                    <span className="font-semibold text-orange-600">安全提示：</span>
+                    OpenClaw 的所有操作都在您设定的策略边界内执行。超出限额或遇到可疑交易时，系统会自动拦截并通知您。
+                  </p>
+                </div>
+              </div>
+
+              {/* Stats */}
+              <div className="grid grid-cols-3 gap-4">
+                <div className="bg-white rounded-2xl p-4 border border-gray-100 text-center">
+                  <p className="text-2xl font-bold text-gray-900">156</p>
+                  <p className="text-xs text-gray-500">自动执行</p>
+                </div>
+                <div className="bg-white rounded-2xl p-4 border border-gray-100 text-center">
+                  <p className="text-2xl font-bold text-orange-500">3</p>
+                  <p className="text-xs text-gray-500">待审批</p>
+                </div>
+                <div className="bg-white rounded-2xl p-4 border border-gray-100 text-center">
+                  <p className="text-2xl font-bold text-green-500">0</p>
+                  <p className="text-xs text-gray-500">安全拦截</p>
+                </div>
+              </div>
+            </motion.div>
+          </div>
         </div>
       </section>
 
