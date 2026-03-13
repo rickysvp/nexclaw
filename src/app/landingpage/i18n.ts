@@ -60,24 +60,24 @@ export const translations = {
       en: 'Zero Configuration',
     },
     cliTab: {
-      zh: '命令行',
-      en: 'CLI',
+      zh: '我是人类',
+      en: 'I am Human',
     },
     openclawTab: {
-      zh: 'OpenClaw',
-      en: 'OpenClaw',
+      zh: '我是 Agent',
+      en: 'I am Agent',
     },
     installCommand: {
       zh: '安装 clawwallet.cc/clawwallet.md',
       en: 'Install clawwallet.cc/clawwallet.md',
     },
     runInTerminal: {
-      zh: '在终端运行',
-      en: 'Run in Terminal',
+      zh: '在终端中运行安装命令',
+      en: 'Run install command in terminal',
     },
     sendToOpenClaw: {
-      zh: '发送给 OpenClaw',
-      en: 'Send to OpenClaw',
+      zh: '发送给 OpenClaw 自动安装',
+      en: 'Send to OpenClaw for auto-install',
     },
     noRegistration: {
       zh: '无需注册，复制后即可使用',
@@ -95,10 +95,6 @@ export const translations = {
       zh: '复制后发送给 OpenClaw 即可自动安装',
       en: 'Copy and send to OpenClaw for automatic installation',
     },
-    scrollDown: {
-      zh: '向下滚动',
-      en: 'Scroll Down',
-    },
   },
 
   // Partners Section
@@ -106,62 +102,6 @@ export const translations = {
     title: {
       zh: '已支持的主流公链',
       en: 'Supported Mainstream Chains',
-    },
-  },
-
-  // Features Section
-  features: {
-    badge: {
-      zh: '核心特性',
-      en: 'Core Features',
-    },
-    title: {
-      zh: '企业级安全，开箱即用',
-      en: 'Enterprise Security, Ready Out of the Box',
-    },
-    subtitle: {
-      zh: '专为 AI Agent 设计的加密钱包，让每一次链上交互都安全可控',
-      en: 'A crypto wallet designed for AI Agents, making every on-chain interaction secure and controllable',
-    },
-    tee: {
-      title: {
-        zh: 'TEE 硬件级安全',
-        en: 'TEE Hardware-Level Security',
-      },
-      desc: {
-        zh: '基于 AWS Nitro Enclaves 的可信执行环境，私钥在硬件隔离环境中生成和存储，连我们自己也无法访问',
-        en: 'Based on AWS Nitro Enclaves trusted execution environment, private keys are generated and stored in hardware-isolated environments that even we cannot access',
-      },
-    },
-    fast: {
-      title: {
-        zh: '极速部署',
-        en: 'Instant Deployment',
-      },
-      desc: {
-        zh: '一行命令即可部署，3 秒完成安装，无需复杂配置',
-        en: 'Deploy with a single command, complete installation in 3 seconds, no complex configuration needed',
-      },
-    },
-    chains: {
-      title: {
-        zh: '多链支持',
-        en: 'Multi-Chain Support',
-      },
-      desc: {
-        zh: '支持 Ethereum、Solana、Base、Arbitrum 等主流公链，更多链持续集成中',
-        en: 'Support Ethereum, Solana, Base, Arbitrum and other mainstream chains, more chains coming soon',
-      },
-    },
-    native: {
-      title: {
-        zh: '原生集成',
-        en: 'Native Integration',
-      },
-      desc: {
-        zh: '作为 OpenClaw 原生 Skill，通过自然语言即可操控您的加密资产',
-        en: 'As a native OpenClaw Skill, control your crypto assets through natural language',
-      },
     },
   },
 
@@ -182,6 +122,48 @@ export const translations = {
     chains: {
       zh: '支持公链',
       en: 'Supported Chains',
+    },
+  },
+
+  // Features Section
+  features: {
+    title: {
+      zh: '核心特性',
+      en: 'Core Features',
+    },
+    subtitle: {
+      zh: '为 AI Agent 打造的专业级钱包解决方案',
+      en: 'Professional wallet solution built for AI Agents',
+    },
+    tee: {
+      title: {
+        zh: 'TEE 安全架构',
+        en: 'TEE Security Architecture',
+      },
+      desc: {
+        zh: '基于 AWS Nitro Enclaves 的硬件级安全隔离，私钥永不离开安全环境',
+        en: 'Hardware-level security isolation based on AWS Nitro Enclaves, private keys never leave the secure environment',
+      },
+    },
+    fast: {
+      title: {
+        zh: '3 秒极速创建',
+        en: '3-Second Fast Creation',
+      },
+      desc: {
+        zh: '无私钥，无需复杂配置，一行命令即刻生成可用钱包',
+        en: 'No private keys, no complex configuration, generate a usable wallet with one command',
+      },
+    },
+    multichain: {
+      title: {
+        zh: '多链原生支持',
+        en: 'Multi-Chain Native Support',
+      },
+      desc: {
+        zh: 'Ethereum、Polygon、BSC、Arbitrum 等主流公链一键切换',
+        en: 'One-click switching between mainstream public chains like Ethereum, Polygon, BSC, Arbitrum',
+      },
     },
   },
 
