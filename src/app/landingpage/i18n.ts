@@ -44,8 +44,8 @@ export const translations = {
       en: 'A Secure Crypto Wallet Purpose-Built for AI Agents',
     },
     subtitle: {
-      zh: '一句话，为你的OpenClaw部署安全的无私钥多链钱包，确保你的加密资产被安全使用。',
-      en: 'Deploy a secure, keyless, multi-chain wallet for your OpenClaw with a single command. Ensure your crypto assets are used safely.',
+      zh: '仅需3秒，为你的OpenClaw部署安全的无私钥多链钱包，确保你的加密资产在你的允许范围内被安全使用。',
+      en: 'In just 3 seconds, deploy a secure, keyless, multi-chain wallet for your OpenClaw. Ensure your crypto assets are used safely within your permitted scope.',
     },
     feature1: {
       zh: 'TEE 安全架构',
