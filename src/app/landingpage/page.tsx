@@ -77,34 +77,25 @@ const partners = [
 
 const testimonials = [
   {
-    name: "张明",
-    nameEn: "Zhang Ming",
-    role: "加密货币爱好者",
-    roleEn: "Crypto Enthusiast",
-    company: "个人用户",
-    avatar: "👨‍💻",
+    name: "0xchine",
+    nameEn: "0xchine",
+    avatar: "/avatars/0xchine.jpg",
     content: "作为一名普通用户，我一直觉得加密钱包操作复杂又不安全。直到发现 ClawWallet - 不到 5 分钟就完成了设置，我的 AI Agent 现在可以帮我管理加密资产，而我完全不用担心安全问题。TEE 架构真的很让人放心！",
     contentEn: "As an average user, I always found crypto wallets complicated and insecure. Until I discovered ClawWallet - setup took less than 5 minutes, and now my AI Agent manages my crypto assets while I have complete peace of mind thanks to the TEE architecture!",
     rating: 5,
   },
   {
-    name: "李雪",
-    nameEn: "Li Xue",
-    role: "加密新手",
-    roleEn: "Crypto Newbie",
-    company: "个人用户",
-    avatar: "👩‍💼",
+    name: "0xyilu",
+    nameEn: "0xyilu",
+    avatar: "/avatars/0xyilu.jpg",
     content: "我是第一次接触加密货币，ClawWallet 让整个过程变得超级简单。我只需要通过自然语言告诉我的 OpenClaw Agent 我想做什么，它就会自动处理所有交易。完全不需要了解复杂的区块链知识，太适合我这样的新手了！",
     contentEn: "I'm new to crypto, and ClawWallet made the entire process super easy. I just tell my OpenClaw Agent what I want to do in natural language, and it handles all transactions automatically. No need to understand complex blockchain knowledge - perfect for beginners like me!",
     rating: 5,
   },
   {
-    name: "王强",
-    nameEn: "Wang Qiang",
-    role: "AI 技术爱好者",
-    roleEn: "AI Tech Enthusiast",
-    company: "个人用户",
-    avatar: "👨‍🚀",
+    name: "seven_nad",
+    nameEn: "seven_nad",
+    avatar: "/avatars/seven_nad.png",
     content: "以前最担心的就是私钥丢失或被盗，现在有了 ClawWallet 的无私钥设计，我再也不用记那些复杂的助记词了。我的 AI Agent 可以在我的授权范围内自主操作，同时我还能随时查看所有交易记录，感觉对资产的控制更到位了。",
     contentEn: "I used to worry about losing or having my private keys stolen. Now with ClawWallet's keyless design, I don't have to remember complex mnemonics. My AI Agent can operate autonomously within my authorized scope, and I can check all transaction records anytime - I feel more in control of my assets than ever.",
     rating: 5,
@@ -916,8 +907,8 @@ export default function LandingPage() {
 
                 {/* Author */}
                 <div className="flex items-center gap-4 pt-6 border-t border-gray-100">
-                  <div className="w-12 h-12 rounded-full bg-gradient-to-br from-orange-100 to-orange-200 flex items-center justify-center text-xl">
-                    {testimonial.avatar}
+                  <div className="w-12 h-12 rounded-full overflow-hidden">
+                    <img src={testimonial.avatar} alt={testimonial.name} className="w-full h-full object-cover" />
                   </div>
                   <div>
                     <p className="font-semibold text-gray-900">
