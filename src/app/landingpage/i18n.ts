@@ -485,8 +485,8 @@ export const translations = {
         en: 'Can I export my private key?',
       },
       answer: {
-        zh: '可以。作为自托管钱包，您拥有私钥的完全控制权，可随时在设置中导出私钥或助记词。建议导出后安全离线存储，切勿通过网络传输或告知他人。',
-        en: 'Yes. As a self-custodial wallet, you have full control over your private key. You can export your private key or mnemonic phrase anytime in settings. Store them securely offline and never share them online or with others.',
+        zh: '可以。作为自托管钱包，您拥有私钥的完全控制权，可随时在设置中导出私钥，建议导出后安全离线存储。',
+        en: 'Yes. As a self-custodial wallet, you have full control over your private key. You can export your private key anytime in settings. We recommend storing it securely offline after export.',
       },
     },
     q4: {
