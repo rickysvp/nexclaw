@@ -41,11 +41,11 @@ export const translations = {
     },
     title: {
       zh: '专为 AI Agent构建的安全加密钱包',
-      en: 'A Secure Crypto Wallet Purpose-Built for AI Agents',
+      en: 'A Secure Crypto Wallet Built Specifically for AI Agents',
     },
     subtitle: {
       zh: '仅需3秒，为你的OpenClaw部署安全的无私钥多链钱包，确保你的加密资产在你的允许范围内被安全使用。',
-      en: 'In just 3 seconds, deploy a secure, keyless, multi-chain wallet for your OpenClaw. Ensure your crypto assets are used safely within your permitted scope.',
+      en: 'Deploy a secure, keyless, multi-chain wallet for your OpenClaw in just 3 seconds. Ensure your crypto assets are used safely within your authorized scope.',
     },
     feature1: {
       zh: 'TEE 安全架构',
@@ -476,7 +476,7 @@ export const translations = {
       },
       answer: {
         zh: '绝对安全。Claw Wallet 采用自托管架构，私钥通过 AWS Nitro Enclaves TEE 技术分片加密存储，只有您本人可以访问。AI Agent将在严格风控策略下执行您的意图，以确保您的资产安全。',
-        en: 'Absolutely secure. Claw Wallet uses a self-custodial architecture where private keys are sharded and encrypted using AWS Nitro Enclaves TEE technology, accessible only by you. AI Agent will execute your intentions under strict risk control strategies to ensure your assets are secure.',
+        en: 'Absolutely secure. Claw Wallet uses a self-custodial architecture where private keys are sharded and encrypted using AWS Nitro Enclaves TEE technology, accessible only by you. AI Agents will execute your intentions under strict risk control strategies to ensure your assets remain secure.',
       },
     },
     q3: {
@@ -486,7 +486,7 @@ export const translations = {
       },
       answer: {
         zh: '可以。作为自托管钱包，您拥有私钥的完全控制权，可随时在设置中导出私钥，建议导出后安全离线存储。',
-        en: 'Yes. As a self-custodial wallet, you have full control over your private key. You can export your private key anytime in settings. We recommend storing it securely offline after export.',
+        en: 'Yes. As a self-custodial wallet, you have full control over your private key. You can export your private key at any time in settings. We recommend securely storing it offline after export.',
       },
     },
     q4: {
