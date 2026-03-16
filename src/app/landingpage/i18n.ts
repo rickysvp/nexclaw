@@ -475,8 +475,8 @@ export const translations = {
         en: 'Are my assets secure?',
       },
       answer: {
-        zh: '绝对安全。Claw Wallet 采用自托管架构，私钥通过 AWS Nitro Enclaves TEE 技术分片加密存储，只有您本人可以访问。同时配备多重风控策略：交易限额、合约白名单、大额二次确认等，全方位保护您的资产。',
-        en: 'Absolutely secure. Claw Wallet uses a self-custodial architecture where private keys are sharded and encrypted using AWS Nitro Enclaves TEE technology, accessible only by you. Multiple risk control strategies are in place: transaction limits, contract whitelists, large transaction confirmations, and more.',
+        zh: '绝对安全。Claw Wallet 采用自托管架构，私钥通过 AWS Nitro Enclaves TEE 技术分片加密存储，只有您本人可以访问。AI Agent将在严格风控策略下执行您的意图，以确保您的资产安全。',
+        en: 'Absolutely secure. Claw Wallet uses a self-custodial architecture where private keys are sharded and encrypted using AWS Nitro Enclaves TEE technology, accessible only by you. AI Agent will execute your intentions under strict risk control strategies to ensure your assets are secure.',
       },
     },
     q3: {
