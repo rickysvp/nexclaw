@@ -40,7 +40,7 @@ export const translations = {
       en: 'Powered by OpenClaw',
     },
     title: {
-      zh: '专属Agent的安全加密钱包',
+      zh: '专为 AI Agent构建的安全加密钱包',
       en: 'A Secure Crypto Wallet Purpose-Built for AI Agents',
     },
     subtitle: {
