@@ -64,7 +64,7 @@ export default function HelpSection() {
     },
     {
       title: 'API 文档',
-      description: '开发者接口文档',
+      description: '用户接口文档',
       icon: FileText,
       href: '#',
     },

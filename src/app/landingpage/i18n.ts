@@ -432,12 +432,12 @@ export const translations = {
       en: 'User Reviews',
     },
     title: {
-      zh: '开发者们怎么说',
-      en: 'What Developers Say',
+      zh: '用户评价',
+      en: 'What Users Say',
     },
     subtitle: {
-      zh: '来自 DeFi 开发者、量化工程师和协议创始人的真实反馈',
-      en: 'Real feedback from DeFi developers, quantitative engineers, and protocol founders',
+      zh: '来自 DeFi 用户、量化策略师和 Web3 创始人的真实反馈',
+      en: 'Real feedback from DeFi users, quantitative strategists, and Web3 founders',
     },
   },
 
@@ -461,32 +461,32 @@ export const translations = {
     },
     q1: {
       question: {
-        zh: 'ClawWallet 是什么？',
-        en: 'What is ClawWallet?',
+        zh: 'Claw Wallet 是什么？',
+        en: 'What is Claw Wallet?',
       },
       answer: {
-        zh: 'ClawWallet 是专为 OpenClaw AI Agent 设计的原生安全加密钱包 Skill。通过简单的命令安装，即可为您的 AI Agent 添加安全的多链钱包能力。',
-        en: 'ClawWallet is a native secure crypto wallet Skill designed specifically for OpenClaw AI Agents. Install with a simple command to add secure multi-chain wallet capabilities to your AI Agent.',
+        zh: 'Claw Wallet是面向AI Agent的自托管加密钱包，用户拥有完全控制权，支持AI Agent在风控策略下自主执行链上操作，同时您可随时导出私钥自行管理。',
+        en: 'Claw Wallet is a self-custodial crypto wallet designed for AI Agents. Users have full control, supporting AI Agents to autonomously execute on-chain operations under risk control strategies, while you can export your private key anytime for self-management.',
       },
     },
     q2: {
-      question: {
-        zh: '如何安装 ClawWallet？',
-        en: 'How to install ClawWallet?',
-      },
-      answer: {
-        zh: '只需在终端运行命令 npx ClawWallet@latest install clawwallet，或直接向 OpenClaw 发送「安装 clawwallet」即可自动完成部署。',
-        en: 'Simply run the command npx ClawWallet@latest install clawwallet in your terminal, or send "install clawwallet" directly to OpenClaw for automatic deployment.',
-      },
-    },
-    q3: {
       question: {
         zh: '我的资产安全吗？',
         en: 'Are my assets secure?',
       },
       answer: {
-        zh: '绝对安全。ClawWallet 采用 AWS Nitro Enclaves TEE 技术，私钥在硬件安全环境中生成和存储，连我们自己也无法访问。',
-        en: 'Absolutely. ClawWallet uses AWS Nitro Enclaves TEE technology. Private keys are generated and stored in a hardware-secure environment that even we cannot access.',
+        zh: '绝对安全。Claw Wallet 采用自托管架构，私钥通过 AWS Nitro Enclaves TEE 技术分片加密存储，只有您本人可以访问。同时配备多重风控策略：交易限额、合约白名单、大额二次确认等，全方位保护您的资产。',
+        en: 'Absolutely secure. Claw Wallet uses a self-custodial architecture where private keys are sharded and encrypted using AWS Nitro Enclaves TEE technology, accessible only by you. Multiple risk control strategies are in place: transaction limits, contract whitelists, large transaction confirmations, and more.',
+      },
+    },
+    q3: {
+      question: {
+        zh: '我可以导出私钥吗？',
+        en: 'Can I export my private key?',
+      },
+      answer: {
+        zh: '可以。作为自托管钱包，您拥有私钥的完全控制权，可随时在设置中导出私钥或助记词。建议导出后安全离线存储，切勿通过网络传输或告知他人。',
+        en: 'Yes. As a self-custodial wallet, you have full control over your private key. You can export your private key or mnemonic phrase anytime in settings. Store them securely offline and never share them online or with others.',
       },
     },
     q4: {
@@ -495,18 +495,18 @@ export const translations = {
         en: 'Which blockchains are supported?',
       },
       answer: {
-        zh: '目前支持 Ethereum、Polygon、BSC、Arbitrum 等主流公链，未来将持续添加更多网络支持。',
-        en: 'Currently supports mainstream public chains including Ethereum, Polygon, BSC, Arbitrum, with more networks to be added continuously in the future.',
+        zh: '目前支持 Ethereum、Polygon、BSC、Arbitrum、Optimism、Base 等 20+ 主流公链，未来将持续添加更多网络支持。',
+        en: 'Currently supports 20+ mainstream chains including Ethereum, Polygon, BSC, Arbitrum, Optimism, Base, with more networks to be added continuously.',
       },
     },
     q5: {
       question: {
-        zh: '需要私钥吗？',
-        en: 'Do I need a private key?',
+        zh: 'AI Agent 如何操作我的钱包？',
+        en: 'How does AI Agent operate my wallet?',
       },
       answer: {
-        zh: '不需要。ClawWallet 通过 OpenClaw 账户体系安全管理，无需管理复杂的私钥，也不会有私钥丢失的风险。',
-        en: 'No. ClawWallet securely manages through the OpenClaw account system, no need to manage complex private keys, and no risk of losing private keys.',
+        zh: '您可以设置精细的权限策略，包括每日交易限额、允许交互的合约白名单、单笔交易上限等。Agent 只能在您授权的范围内操作，超出限制会触发二次确认通知。',
+        en: 'You can set granular permission policies, including daily transaction limits, contract whitelists, and single transaction caps. Agents can only operate within your authorized scope, and actions beyond limits will trigger confirmation notifications.',
       },
     },
   },
@@ -526,8 +526,8 @@ export const translations = {
       en: 'Ready to Get Started?',
     },
     readySubtitle: {
-      zh: '加入数千名开发者，为 AI Agent 添加加密能力',
-      en: 'Join thousands of developers adding crypto capabilities to AI Agents',
+      zh: '加入数千名用户，让 AI Agent 为你安全管理链上资产',
+      en: 'Join thousands of users, let AI Agent manage your on-chain assets securely',
     },
     copyCommand: {
       zh: '复制命令',

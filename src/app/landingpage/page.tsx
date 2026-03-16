@@ -79,8 +79,8 @@ const testimonials = [
   {
     name: "张明",
     nameEn: "Zhang Ming",
-    role: "AI 开发者",
-    roleEn: "AI Developer",
+    role: "AI 用户",
+    roleEn: "AI User",
     company: "TechFlow",
     avatar: "👨‍💻",
     content: "ClawWallet 让我们的 AI Agent 瞬间拥有了加密支付能力，集成过程不到5分钟。TEE安全架构让我们非常放心。",

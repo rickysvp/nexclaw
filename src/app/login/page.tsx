@@ -438,7 +438,7 @@ export default function LoginPage() {
             <p className="text-[#A09890] text-sm">
               还没有账户？{" "}
               <button 
-                onClick={() => router.push("/login")}
+                onClick={() => alert("注册功能即将上线，请使用演示账户登录")}
                 className="text-[#FF4D2E] hover:text-[#FF6B47] font-medium transition-colors"
               >
                 立即注册

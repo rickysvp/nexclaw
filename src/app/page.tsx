@@ -100,7 +100,7 @@ export default function Home() {
 
   const testimonials = [
     { quote: "Claw Wallet 是目前唯一真正为 OpenClaw Agent 设计的钱包方案，TEE 分片架构让我对 Agent 自主操作资金完全放心。", handle: "@0xchine · DeFi 研究员", avatar: "/avatars/0xchine.jpg" },
-    { quote: "从创建钱包到给 Agent 授权只花了 3 分钟，权限粒度控制得很好，日限额 + 合约白名单设计非常专业。", handle: "@0xyilu · Web3 开发者", avatar: "/avatars/0xyilu.jpg" },
+    { quote: "从创建钱包到给 Agent 授权只花了 3 分钟，权限粒度控制得很好，日限额 + 合约白名单设计非常专业。", handle: "@0xyilu · Web3 用户", avatar: "/avatars/0xyilu.jpg" },
     { quote: "我们的 OpenClaw Agent 每天自动执行几十笔链上操作，Claw Wallet 的审计日志让整个过程完全透明可追溯。", handle: "@seven_nad · 协议创始人", avatar: "/avatars/seven_nad.png" },
   ];
 
@@ -787,7 +787,7 @@ export default function Home() {
               立即为你的 Agent<br />部署专属钱包
             </h2>
             <p className="text-base text-gray-500 max-w-md mx-auto mb-10 leading-relaxed">
-              加入正在使用 Claw Wallet 的 OpenClaw 开发者社区，让你的 AI Agent 安全执行每一笔链上操作。
+              加入正在使用 Claw Wallet 的 OpenClaw 用户社区，让你的 AI Agent 安全执行每一笔链上操作。
             </p>
             <motion.a href="/login" className="inline-flex items-center gap-3 px-10 py-5 rounded-xl bg-gray-900 text-white text-base font-bold no-underline hover:bg-gray-800 transition-colors" whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
               免费创建钱包 <ArrowRight className="h-5 w-5" />
@@ -816,7 +816,7 @@ export default function Home() {
               </ul>
             </div>
             <div>
-              <h4 className="text-xs font-bold tracking-wider uppercase text-gray-500 mb-4">开发者</h4>
+              <h4 className="text-xs font-bold tracking-wider uppercase text-gray-500 mb-4">用户</h4>
               <ul className="space-y-2.5">
                 <li><a href="/docs" className="text-sm text-gray-500 hover:text-gray-900 transition-colors no-underline">API 文档</a></li>
                 <li><a href="#" className="text-sm text-gray-500 hover:text-gray-900 transition-colors no-underline">GitHub</a></li>
