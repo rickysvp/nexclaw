@@ -1,10 +1,2 @@
-[00:00:00.742] Server  LOG     ✓ Ready in 538ms
-[00:01:24.877] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:01:29.550] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:01:31.455] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[01:55:15.129] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[02:05:03.547] Server  LOG     ✓ Compiled in 678ms
-[02:05:19.000] Server  LOG     ✓ Compiled in 74ms
-[02:05:35.679] Server  LOG     ✓ Compiled in 462ms
-[02:09:43.174] Server  LOG     ✓ Compiled in 97ms
-[02:33:28.164] Server  LOG     ✓ Compiled in 71ms
+[01:14:24.039] Server  ERROR   ⨯ Error: ENOENT: no such file or directory, open '/Users/ricky/AICode/NexClaw/dist/dev/server/app/page/build-manifest.json'
+[01:14:27.053] Server  LOG     ○ Compiling /_error ...
