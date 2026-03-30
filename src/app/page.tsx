@@ -259,8 +259,8 @@ export default function Home() {
             {/* Logo */}
             <motion.a href="/" className="flex items-center gap-3 group" whileHover={{ scale: 1.02 }}>
               <div className="relative">
-                <img src="/claw.png" alt="Claw" className="w-16 h-16 object-contain" />
-                <div className="absolute -inset-4 bg-red-500/10 rounded-full blur-3xl group-hover:bg-red-500/20 transition-all" />
+                <img src="/claw.png" alt="Claw" className="w-20 h-20 object-contain" />
+                <div className="absolute -inset-6 bg-red-500/10 rounded-full blur-3xl group-hover:bg-red-500/20 transition-all" />
               </div>
             </motion.a>
 
