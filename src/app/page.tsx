@@ -260,7 +260,7 @@ export default function Home() {
             <motion.a href="/" className="flex items-center gap-3 group" whileHover={{ scale: 1.02 }}>
               <div className="relative">
                 <img src="/claw.png" alt="Claw" className="w-10 h-10 object-contain" />
-                <div className="absolute inset-0 bg-red-500/10 rounded-full blur-xl group-hover:bg-red-500/20 transition-all" />
+                <div className="absolute -inset-2 bg-red-500/10 rounded-full blur-2xl group-hover:bg-red-500/20 transition-all" />
               </div>
             </motion.a>
 
@@ -341,9 +341,9 @@ export default function Home() {
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.4, duration: 0.6 }}
-                className="mt-6 text-lg text-neutral-600 leading-relaxed max-w-md"
+                className="mt-6 text-lg text-neutral-600 leading-relaxed max-w-md font-bold italic"
               >
-                ClawWallet 是为 AI Agent 构建的 Web3 安全钱包，采用 TEE 硬件加密分片架构。通过自然语言对话，让 AI 安全地管理加密资产。
+                Claw Wallet 是为 AI Agent 构建的 Web3 安全钱包，采用 TEE 硬件加密分片架构。通过自然语言对话，让 AI 安全地管理加密资产。
               </motion.p>
               
               {/* Install Command */}
@@ -1199,7 +1199,7 @@ USDC: 1,250 ($1,250)`}</code>
               <a href="/" className="flex items-center gap-2.5 mb-5 group">
                 <div className="relative">
                   <img src="/claw.png" alt="Claw" className="w-9 h-9 object-contain" />
-                  <div className="absolute inset-0 bg-red-500/10 rounded-full blur-xl opacity-0 group-hover:opacity-100 transition-opacity" />
+                  <div className="absolute -inset-2 bg-red-500/10 rounded-full blur-2xl opacity-0 group-hover:opacity-100 transition-opacity" />
                 </div>
               </a>
               <p className="text-sm text-neutral-500 max-w-sm leading-relaxed">
