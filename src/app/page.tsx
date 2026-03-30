@@ -262,7 +262,6 @@ export default function Home() {
                 <img src="/claw.png" alt="Claw" className="w-10 h-10 object-contain" />
                 <div className="absolute inset-0 bg-red-500/10 rounded-full blur-xl group-hover:bg-red-500/20 transition-all" />
               </div>
-              <span className="text-xl font-semibold tracking-tight">Claw</span>
             </motion.a>
 
             {/* Nav Links */}
@@ -1202,7 +1201,6 @@ USDC: 1,250 ($1,250)`}</code>
                   <img src="/claw.png" alt="Claw" className="w-9 h-9 object-contain" />
                   <div className="absolute inset-0 bg-red-500/10 rounded-full blur-xl opacity-0 group-hover:opacity-100 transition-opacity" />
                 </div>
-                <span className="text-xl font-bold tracking-tight">Claw Wallet</span>
               </a>
               <p className="text-sm text-neutral-500 max-w-sm leading-relaxed">
                 专为 AI Agent 构建的安全加密钱包。自托管、无私钥管理、智能风控。让 AI 安全地管理加密资产。
