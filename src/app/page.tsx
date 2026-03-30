@@ -257,12 +257,12 @@ export default function Home() {
         <div className="mx-4 mt-4">
           <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between bg-white/70 backdrop-blur-xl rounded-2xl border border-white/20 shadow-lg shadow-neutral-900/5">
             {/* Logo */}
-            <motion.a href="/" className="flex items-center gap-2.5 group" whileHover={{ scale: 1.02 }}>
+            <motion.a href="/" className="flex items-center gap-3 group" whileHover={{ scale: 1.02 }}>
               <div className="relative">
-                <img src="/claw.png" alt="Claw" className="w-8 h-8 object-contain" />
+                <img src="/claw.png" alt="Claw" className="w-10 h-10 object-contain" />
                 <div className="absolute inset-0 bg-red-500/10 rounded-full blur-xl group-hover:bg-red-500/20 transition-all" />
               </div>
-              <span className="text-lg font-semibold tracking-tight">Claw</span>
+              <span className="text-xl font-semibold tracking-tight">Claw</span>
             </motion.a>
 
             {/* Nav Links */}
@@ -344,7 +344,7 @@ export default function Home() {
                 transition={{ delay: 0.4, duration: 0.6 }}
                 className="mt-6 text-lg text-neutral-600 leading-relaxed max-w-md"
               >
-                自托管架构，私钥永不离开你的环境。通过自然语言对话，让 AI 安全地管理加密资产。
+                ClawWallet 是为 AI Agent 构建的 Web3 安全钱包，采用 TEE 硬件加密分片架构。通过自然语言对话，让 AI 安全地管理加密资产。
               </motion.p>
               
               {/* Install Command */}
