@@ -1,7 +1,7 @@
 'use client';
 
 import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { 
   Shield, 
   Lock, 
@@ -112,11 +112,79 @@ const securityLayers = [
   { icon: Layers, title: '策略引擎', desc: '自定义安全规则', detail: '灵活配置转账限额、白名单、多重签名等安全策略' },
 ];
 
-const supportedPlatforms = [
-  { name: 'OpenClaw', status: '官方支持', color: colors.lobster[500], description: '原生集成，开箱即用' },
-  { name: 'Claude Code', status: '已集成', color: colors.neutral[600], description: 'MCP Server 支持' },
-  { name: 'AutoGPT', status: '已集成', color: colors.neutral[600], description: 'Plugin 系统兼容' },
-  { name: 'LangChain', status: '开发中', color: colors.neutral[400], description: 'Tool 集成进行中' },
+const chatScenarios = [
+  {
+    id: 'swap',
+    label: 'Swap',
+    icon: Zap,
+    color: 'bg-yellow-50 text-yellow-600',
+    messages: [
+      { role: 'user', content: '把 1000 USDC 换成 ETH' },
+      { role: 'agent', content: '正在查询最优兑换路径...\n\nUniswap V3: 0.3842 ETH\nCurve: 0.3839 ETH\n1inch: 0.3841 ETH\n\n推荐 Uniswap V3，滑点 0.05%' },
+      { role: 'user', content: '确认兑换' },
+      { role: 'agent', content: '✓ 兑换成功！\n获得: 0.3842 ETH\nGas: 0.002 ETH\n交易哈希: 0x8b2d...7a1f' }
+    ]
+  },
+  {
+    id: 'bridge',
+    label: '跨链',
+    icon: Globe,
+    color: 'bg-purple-50 text-purple-600',
+    messages: [
+      { role: 'user', content: '跨链 500 USDC 到 Arbitrum' },
+      { role: 'agent', content: '正在查询跨链方案...\n\nLayerZero: 手续费 0.5 USDC，10-15分钟\nStargate: 手续费 0.8 USDC，5-10分钟\n\n推荐 LayerZero，成本最低' },
+      { role: 'user', content: '确认跨链' },
+      { role: 'agent', content: '✓ 跨链交易已发起！\n预计到账: 499.5 USDC\n交易 ID: 0x9c4f...2e8b\n可在历史记录中追踪进度' }
+    ]
+  },
+  {
+    id: 'dca',
+    label: '定投',
+    icon: Activity,
+    color: 'bg-blue-50 text-blue-600',
+    messages: [
+      { role: 'user', content: '设置每周定投 100 USDC 买 ETH' },
+      { role: 'agent', content: '正在创建定投策略...\n\n频率: 每周一 09:00\n金额: 100 USDC\n目标: ETH\n策略: 市价单\n\n预计年化收益: 根据市场波动' },
+      { role: 'user', content: '确认创建' },
+      { role: 'agent', content: '✓ 定投策略已创建！\n策略 ID: DCA-8842\n首次执行: 2024-01-15\n可随时暂停或修改' }
+    ]
+  },
+  {
+    id: 'risk',
+    label: '风控',
+    icon: Shield,
+    color: 'bg-red-50 text-red-600',
+    messages: [
+      { role: 'user', content: '检查我的钱包安全状态' },
+      { role: 'agent', content: '正在扫描安全状态...\n\n✓ 私钥存储: TEE 环境安全\n✓ 交易权限: 正常\n⚠ 发现: 1笔待确认的高风险交易\n\n建议: 开启双因素认证' },
+      { role: 'user', content: '查看风险交易' },
+      { role: 'agent', content: '✓ 已拦截可疑交易！\n目标: 0x9f3a...2b1c\n金额: 5 ETH\n风险: 合约未审计\n已自动阻止执行' }
+    ]
+  },
+  {
+    id: 'defi',
+    label: 'DeFi',
+    icon: Layers,
+    color: 'bg-green-50 text-green-600',
+    messages: [
+      { role: 'user', content: '在 Aave 存入 5000 USDC' },
+      { role: 'agent', content: '正在计算收益...\n\n存入: 5000 USDC\nAPY: 4.2%\n预估月收益: 17.5 USDC\n健康因子: N/A (无借款)\n\nGas 费预估: 0.003 ETH' },
+      { role: 'user', content: '确认存入' },
+      { role: 'agent', content: '✓ 存入成功！\n获得 aUSDC: 5000\n开始计息\n交易哈希: 0x3a7c...9f2e' }
+    ]
+  },
+  {
+    id: 'transfer',
+    label: '转账',
+    icon: Wallet,
+    color: 'bg-orange-50 text-orange-600',
+    messages: [
+      { role: 'user', content: '转 2 ETH 给 0x742d...f0bEb' },
+      { role: 'agent', content: '正在准备交易...\n\n发送方: 0x7a8b...3c4d\n接收方: 0x742d...f0bEb\n金额: 2 ETH\nGas 费: 0.001 ETH\n总计: 2.001 ETH' },
+      { role: 'user', content: '确认转账' },
+      { role: 'agent', content: '✓ 交易已提交！\n预计确认: 12 秒\n交易哈希: 0x3f8a...9c2e\n可在历史记录查看' }
+    ]
+  }
 ];
 
 const stats = [
@@ -183,6 +251,131 @@ const Card = ({ children, className = '', hover = false }: { children: React.Rea
     {children}
   </div>
 );
+
+// Chat Demo Component with Auto-switching
+const ChatDemoCard = () => {
+  const [activeScenario, setActiveScenario] = useState(0);
+  const [visibleMessages, setVisibleMessages] = useState<number[]>([]);
+  const [isTyping, setIsTyping] = useState(false);
+
+  // Auto-switch scenario every 15 seconds
+  useEffect(() => {
+    const scenarioTimer = setInterval(() => {
+      setActiveScenario((prev) => (prev + 1) % chatScenarios.length);
+      setVisibleMessages([]);
+    }, 15000);
+
+    return () => clearInterval(scenarioTimer);
+  }, []);
+
+  // Animate messages one by one
+  useEffect(() => {
+    setVisibleMessages([]);
+    let msgIndex = 0;
+    const currentScenario = chatScenarios[activeScenario];
+    
+    const showNextMessage = () => {
+      if (msgIndex < currentScenario.messages.length) {
+        setIsTyping(true);
+        setTimeout(() => {
+          setVisibleMessages((prev) => [...prev, msgIndex]);
+          setIsTyping(false);
+          msgIndex++;
+          setTimeout(showNextMessage, 1500);
+        }, 800);
+      }
+    };
+
+    const timer = setTimeout(showNextMessage, 500);
+    return () => clearTimeout(timer);
+  }, [activeScenario]);
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, x: 40 }}
+      whileInView={{ opacity: 1, x: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.6 }}
+      className="h-full"
+    >
+      <Card className="p-0 shadow-2xl shadow-neutral-900/5 overflow-hidden h-full flex flex-col" hover>
+        {/* Chat Header */}
+        <div className="px-6 py-4 border-b border-neutral-100 bg-neutral-50/50">
+          <p className="text-xs font-semibold tracking-[0.2em] uppercase text-neutral-400 text-center">
+            自然语言对话交互
+          </p>
+        </div>
+
+        {/* Chat Messages */}
+        <div className="flex-1 p-6 space-y-4 overflow-y-auto max-h-[400px] min-h-[300px]">
+          <AnimatePresence mode="wait">
+            {visibleMessages.map((msgIdx) => {
+              const currentScenario = chatScenarios[activeScenario];
+              const msg = currentScenario.messages[msgIdx];
+              if (!msg) return null;
+              return (
+                <motion.div
+                  key={`${activeScenario}-${msgIdx}`}
+                  initial={{ opacity: 0, y: 10, scale: 0.95 }}
+                  animate={{ opacity: 1, y: 0, scale: 1 }}
+                  exit={{ opacity: 0, y: -10 }}
+                  transition={{ duration: 0.3 }}
+                  className={`flex ${msg.role === 'user' ? 'justify-end' : 'justify-start'}`}
+                >
+                  <div className={`max-w-[85%] rounded-2xl px-4 py-3 text-sm whitespace-pre-line ${
+                    msg.role === 'user'
+                      ? 'bg-red-500 text-white rounded-br-md'
+                      : 'bg-neutral-100 text-neutral-700 rounded-bl-md'
+                  }`}>
+                    {msg.content}
+                  </div>
+                </motion.div>
+              );
+            })}
+          </AnimatePresence>
+          
+          {/* Typing indicator */}
+          {isTyping && (
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              className="flex justify-start"
+            >
+              <div className="bg-neutral-100 rounded-2xl rounded-bl-md px-4 py-3 flex items-center gap-1">
+                <span className="w-1.5 h-1.5 bg-neutral-400 rounded-full animate-bounce" style={{ animationDelay: '0ms' }} />
+                <span className="w-1.5 h-1.5 bg-neutral-400 rounded-full animate-bounce" style={{ animationDelay: '150ms' }} />
+                <span className="w-1.5 h-1.5 bg-neutral-400 rounded-full animate-bounce" style={{ animationDelay: '300ms' }} />
+              </div>
+            </motion.div>
+          )}
+        </div>
+
+        {/* Scenario Tags */}
+        <div className="px-6 py-4 border-t border-neutral-100 bg-neutral-50/30">
+          <div className="flex flex-wrap gap-2 justify-center">
+            {chatScenarios.map((s, idx) => (
+              <button
+                key={s.id}
+                onClick={() => {
+                  setActiveScenario(idx);
+                  setVisibleMessages([]);
+                }}
+                className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium transition-all ${
+                  idx === activeScenario 
+                    ? `${s.color} ring-2 ring-offset-1 ring-neutral-200` 
+                    : 'bg-neutral-100 text-neutral-500 hover:bg-neutral-200'
+                }`}
+              >
+                <s.icon className="w-3.5 h-3.5" />
+                {s.label}
+              </button>
+            ))}
+          </div>
+        </div>
+      </Card>
+    </motion.div>
+  );
+};
 
 const SectionHeader = ({ label, title, description, light = false }: { label: string; title: string; description?: string; light?: boolean }) => (
   <motion.div
@@ -258,9 +451,8 @@ export default function Home() {
           <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between bg-white/70 backdrop-blur-xl rounded-2xl border border-white/20 shadow-lg shadow-neutral-900/5">
             {/* Logo */}
             <motion.a href="/" className="flex items-center gap-3 group" whileHover={{ scale: 1.02 }}>
-              <div className="relative">
-                <img src="/claw.png" alt="Claw" className="object-contain" style={{ width: '50px', height: '50px' }} />
-                <div className="absolute -inset-2 bg-red-500/10 rounded-full blur-xl group-hover:bg-red-500/20 transition-all" />
+              <div className="relative h-10 w-auto">
+                <img src="/claw.png" alt="Claw" className="h-full w-auto object-contain" />
               </div>
             </motion.a>
 
@@ -1077,56 +1269,7 @@ USDC: 1,250 ($1,250)`}</code>
               </motion.button>
             </motion.div>
 
-            <motion.div
-              initial={{ opacity: 0, x: 40 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-            >
-              <Card className="p-8 shadow-2xl shadow-neutral-900/5" hover>
-                <p className="text-xs font-semibold tracking-[0.2em] uppercase text-neutral-400 mb-8 text-center">
-                  支持主流 AI Agent 平台
-                </p>
-                
-                <div className="space-y-4">
-                  {supportedPlatforms.map((platform, idx) => (
-                    <motion.div
-                      key={platform.name}
-                      initial={{ opacity: 0, x: 20 }}
-                      whileInView={{ opacity: 1, x: 0 }}
-                      viewport={{ once: true }}
-                      transition={{ delay: idx * 0.1 }}
-                      whileHover={{ x: 4, scale: 1.01 }}
-                      className="flex items-center justify-between p-5 rounded-xl bg-neutral-50 hover:bg-white border border-transparent hover:border-neutral-200 hover:shadow-lg transition-all cursor-pointer group"
-                    >
-                      <div className="flex items-center gap-4">
-                        <div className="w-10 h-10 rounded-xl bg-white border border-neutral-200 flex items-center justify-center text-base font-semibold shadow-sm group-hover:border-neutral-300 transition-colors">
-                          {platform.name[0]}
-                        </div>
-                        <div>
-                          <span className="font-semibold text-neutral-900 block">{platform.name}</span>
-                          <span className="text-xs text-neutral-500">{platform.description}</span>
-                        </div>
-                      </div>
-                      <span className={`text-xs px-3 py-1.5 rounded-full font-medium ${
-                        platform.status === '官方支持' 
-                          ? 'bg-red-50 text-red-600' 
-                          : platform.status === '已集成'
-                          ? 'bg-green-50 text-green-600'
-                          : 'bg-neutral-100 text-neutral-500'
-                      }`}>
-                        {platform.status}
-                      </span>
-                    </motion.div>
-                  ))}
-                </div>
-
-                <a href="#" className="mt-8 flex items-center justify-center gap-2 text-sm font-medium text-red-500 hover:text-red-600 transition-colors group">
-                  查看集成文档 
-                  <ExternalLink className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-                </a>
-              </Card>
-            </motion.div>
+            <ChatDemoCard />
           </div>
         </div>
       </section>
@@ -1198,9 +1341,8 @@ USDC: 1,250 ($1,250)`}</code>
           <div className="grid md:grid-cols-4 gap-12 mb-12">
             <div className="md:col-span-2">
               <a href="/" className="flex items-center gap-2.5 mb-5 group">
-                <div className="relative">
-                  <img src="/claw.png" alt="Claw" className="object-contain" style={{ width: '50px', height: '50px' }} />
-                  <div className="absolute -inset-2 bg-red-500/10 rounded-full blur-2xl opacity-0 group-hover:opacity-100 transition-opacity" />
+                <div className="relative h-10 w-auto">
+                  <img src="/claw.png" alt="Claw" className="h-full w-auto object-contain" />
                 </div>
               </a>
               <p className="text-sm text-neutral-500 max-w-sm leading-relaxed">
@@ -1244,7 +1386,7 @@ USDC: 1,250 ($1,250)`}</code>
             <div className="flex items-center gap-6">
               <a href="#" className="text-sm text-neutral-400 hover:text-neutral-600 transition-colors">隐私政策</a>
               <a href="#" className="text-sm text-neutral-400 hover:text-neutral-600 transition-colors">服务条款</a>
-              <span className="text-sm font-medium text-neutral-900 bg-neutral-100 px-3 py-1 rounded-full">v1.2.0</span>
+              <span className="text-sm font-medium text-neutral-900 bg-neutral-100 px-3 py-1 rounded-full">v1.3.0</span>
             </div>
           </div>
         </div>
