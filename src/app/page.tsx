@@ -259,7 +259,7 @@ export default function Home() {
             {/* Logo */}
             <motion.a href="/" className="flex items-center gap-3 group" whileHover={{ scale: 1.02 }}>
               <div className="relative">
-                <img src="/claw.png" alt="Claw" className="w-10 h-10 object-contain" />
+                <img src="/claw.png" alt="Claw" className="object-contain" style={{ width: '50px', height: '50px' }} />
                 <div className="absolute -inset-2 bg-red-500/10 rounded-full blur-xl group-hover:bg-red-500/20 transition-all" />
               </div>
             </motion.a>
@@ -1199,7 +1199,7 @@ USDC: 1,250 ($1,250)`}</code>
             <div className="md:col-span-2">
               <a href="/" className="flex items-center gap-2.5 mb-5 group">
                 <div className="relative">
-                  <img src="/claw.png" alt="Claw" className="w-9 h-9 object-contain" />
+                  <img src="/claw.png" alt="Claw" className="object-contain" style={{ width: '50px', height: '50px' }} />
                   <div className="absolute -inset-2 bg-red-500/10 rounded-full blur-2xl opacity-0 group-hover:opacity-100 transition-opacity" />
                 </div>
               </a>
