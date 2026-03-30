@@ -259,8 +259,8 @@ export default function Home() {
             {/* Logo */}
             <motion.a href="/" className="flex items-center gap-3 group" whileHover={{ scale: 1.02 }}>
               <div className="relative">
-                <img src="/claw.png" alt="Claw" className="w-12 h-12 object-contain" />
-                <div className="absolute -inset-3 bg-red-500/10 rounded-full blur-2xl group-hover:bg-red-500/20 transition-all" />
+                <img src="/claw.png" alt="Claw" className="w-16 h-16 object-contain" />
+                <div className="absolute -inset-4 bg-red-500/10 rounded-full blur-3xl group-hover:bg-red-500/20 transition-all" />
               </div>
             </motion.a>
 
@@ -405,7 +405,7 @@ export default function Home() {
                 {[
                   { icon: Shield, label: '自托管' },
                   { icon: Lock, label: 'TEE 加密' },
-                  { icon: Fingerprint, label: 'AI 风控' },
+                  { icon: Fingerprint, label: 'AI 安全风控' },
                 ].map((item, i) => (
                   <motion.div 
                     key={item.label}
