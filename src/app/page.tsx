@@ -267,24 +267,29 @@ export default function Home() {
 
             {/* Nav Links */}
             <div className="hidden md:flex items-center gap-1">
-              {['功能', '安全', '开发者', '定价'].map((item, i) => (
+              {[
+                { label: '功能', href: '#features' },
+                { label: '安全', href: '#security' },
+                { label: '开发者', href: '#developer' },
+                { label: 'Dashboard', href: '/dashboard' },
+              ].map((item, i) => (
                 <motion.a 
-                  key={item}
-                  href="#" 
+                  key={item.label}
+                  href={item.href}
                   initial={{ opacity: 0, y: -10 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.1 + i * 0.05 }}
                   className="px-4 py-2 text-sm text-neutral-600 hover:text-neutral-900 rounded-xl hover:bg-neutral-100/80 transition-all"
                   whileHover={{ y: -1 }}
                 >
-                  {item}
+                  {item.label}
                 </motion.a>
               ))}
             </div>
 
             {/* CTA */}
             <motion.a 
-              href="#install" 
+              href="/dashboard" 
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: 0.3 }}
