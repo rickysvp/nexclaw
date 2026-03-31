@@ -153,7 +153,7 @@ const chatScenarios = [
     id: 'risk',
     label: '风控',
     icon: Shield,
-    color: 'bg-red-50 text-red-600',
+    color: 'bg-orange-50 text-orange-600',
     messages: [
       { role: 'user', content: '检查我的钱包安全状态' },
       { role: 'agent', content: '正在扫描安全状态...\n\n✓ 私钥存储: TEE 环境安全\n✓ 交易权限: 正常\n⚠ 发现: 1笔待确认的高风险交易\n\n建议: 开启双因素认证' },
@@ -565,7 +565,7 @@ const Badge = ({ children, variant = 'default', className = '' }: { children: Re
   <span 
     className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium transition-all duration-200 ${
       variant === 'default' 
-        ? 'bg-red-50 text-red-600 border border-red-100' 
+        ? 'bg-orange-50 text-orange-600 border border-orange-100' 
         : variant === 'ghost'
         ? 'bg-transparent text-neutral-500'
         : 'bg-white/80 backdrop-blur-sm border border-neutral-200 text-neutral-600'
@@ -687,7 +687,7 @@ const ChatDemoCard = () => {
                 >
                   <div className={`max-w-[85%] rounded-2xl px-4 py-3 text-sm whitespace-pre-line ${
                     msg.role === 'user'
-                      ? 'bg-red-500 text-white rounded-br-md'
+                      ? 'bg-orange-500 text-white rounded-br-md'
                       : 'bg-neutral-100 text-neutral-700 rounded-bl-md'
                   }`}>
                     {msg.content}
@@ -748,7 +748,7 @@ const SectionHeader = ({ label, title, description, light = false }: { label?: s
     className="text-center max-w-2xl mx-auto mb-16"
   >
     {label && (
-      <span className={`inline-block text-xs font-semibold tracking-[0.2em] uppercase mb-4 ${light ? 'text-neutral-500' : 'text-red-500'}`}>
+      <span className={`inline-block text-xs font-semibold tracking-[0.2em] uppercase mb-4 ${light ? 'text-neutral-500' : 'text-orange-500'}`}>
         {label}
       </span>
     )}
@@ -769,7 +769,7 @@ const SectionHeader = ({ label, title, description, light = false }: { label?: s
 
 export default function Home() {
   const [activeTab, setActiveTab] = useState(0);
-  const [activeStrategy, setActiveStrategy] = useState('transfer');
+  const [activeStrategy, setActiveStrategy] = useState<'transfer' | 'defi' | 'dca' | 'copy' | 'staking' | 'lending' | 'create' | 'market' | 'price' | 'arbitrage' | 'mining' | 'meme' | 'ipo' | 'perps' | 'audit'>('transfer');
   const [copied, setCopied] = useState(false);
   const [visibleMessages, setVisibleMessages] = useState<number[]>([]);
   const [isTyping, setIsTyping] = useState(false);
@@ -790,7 +790,7 @@ export default function Home() {
 
   // 自动切换策略标签
   useEffect(() => {
-    const strategyTypes = ['create', 'market', 'price', 'arbitrage', 'mining', 'meme', 'ipo', 'perps', 'audit', 'transfer', 'defi', 'dca', 'copy', 'staking', 'lending'];
+    const strategyTypes: Array<'create' | 'market' | 'price' | 'arbitrage' | 'mining' | 'meme' | 'ipo' | 'perps' | 'audit' | 'transfer' | 'defi' | 'dca' | 'copy' | 'staking' | 'lending'> = ['create', 'market', 'price', 'arbitrage', 'mining', 'meme', 'ipo', 'perps', 'audit', 'transfer', 'defi', 'dca', 'copy', 'staking', 'lending'];
     let currentIndex = strategyTypes.indexOf(activeStrategy);
     
     const interval = setInterval(() => {
@@ -935,7 +935,7 @@ export default function Home() {
               >
                 让 AI Agent
                 <br />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-red-600">
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-orange-600">
                   拥有安全钱包
                 </span>
               </motion.h1>
@@ -1088,7 +1088,7 @@ export default function Home() {
                 <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-tight">
                   <span className="block">给你的 AI Agent</span>
                   <span className="block">安装 Claw Wallet</span>
-                  <span className="text-red-500">
+                  <span className="text-orange-500">
                     它将会帮你
                   </span>
                 </h2>
@@ -1104,21 +1104,21 @@ export default function Home() {
                   transition={{ delay: 0.2, duration: 0.6 }}
                   className="mt-8 flex flex-wrap gap-2"
                 >
-                  <button onClick={() => setActiveStrategy('create')} className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${activeStrategy === 'create' ? 'bg-red-500 text-white shadow-lg shadow-red-500/20' : 'bg-neutral-100 text-neutral-700 hover:bg-neutral-200'}`}>创建钱包</button>
-                  <button onClick={() => setActiveStrategy('market')} className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${activeStrategy === 'market' ? 'bg-red-500 text-white shadow-lg shadow-red-500/20' : 'bg-neutral-100 text-neutral-700 hover:bg-neutral-200'}`}>市场动态</button>
-                  <button onClick={() => setActiveStrategy('price')} className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${activeStrategy === 'price' ? 'bg-red-500 text-white shadow-lg shadow-red-500/20' : 'bg-neutral-100 text-neutral-700 hover:bg-neutral-200'}`}>跟踪币价</button>
-                  <button onClick={() => setActiveStrategy('arbitrage')} className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${activeStrategy === 'arbitrage' ? 'bg-red-500 text-white shadow-lg shadow-red-500/20' : 'bg-neutral-100 text-neutral-700 hover:bg-neutral-200'}`}>自动套利</button>
-                  <button onClick={() => setActiveStrategy('mining')} className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${activeStrategy === 'mining' ? 'bg-red-500 text-white shadow-lg shadow-red-500/20' : 'bg-neutral-100 text-neutral-700 hover:bg-neutral-200'}`}>挖矿</button>
-                  <button onClick={() => setActiveStrategy('meme')} className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${activeStrategy === 'meme' ? 'bg-red-500 text-white shadow-lg shadow-red-500/20' : 'bg-neutral-100 text-neutral-700 hover:bg-neutral-200'}`}>Meme</button>
-                  <button onClick={() => setActiveStrategy('ipo')} className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${activeStrategy === 'ipo' ? 'bg-red-500 text-white shadow-lg shadow-red-500/20' : 'bg-neutral-100 text-neutral-700 hover:bg-neutral-200'}`}>币股打新</button>
-                  <button onClick={() => setActiveStrategy('perps')} className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${activeStrategy === 'perps' ? 'bg-red-500 text-white shadow-lg shadow-red-500/20' : 'bg-neutral-100 text-neutral-700 hover:bg-neutral-200'}`}>Perps</button>
-                  <button onClick={() => setActiveStrategy('audit')} className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${activeStrategy === 'audit' ? 'bg-red-500 text-white shadow-lg shadow-red-500/20' : 'bg-neutral-100 text-neutral-700 hover:bg-neutral-200'}`}>安全审计</button>
-                  <button onClick={() => setActiveStrategy('transfer')} className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${activeStrategy === 'transfer' ? 'bg-red-500 text-white shadow-lg shadow-red-500/20' : 'bg-neutral-100 text-neutral-700 hover:bg-neutral-200'}`}>转账</button>
-                  <button onClick={() => setActiveStrategy('defi')} className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${activeStrategy === 'defi' ? 'bg-red-500 text-white shadow-lg shadow-red-500/20' : 'bg-neutral-100 text-neutral-700 hover:bg-neutral-200'}`}>DeFi</button>
-                  <button onClick={() => setActiveStrategy('dca')} className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${activeStrategy === 'dca' ? 'bg-red-500 text-white shadow-lg shadow-red-500/20' : 'bg-neutral-100 text-neutral-700 hover:bg-neutral-200'}`}>定投</button>
-                  <button onClick={() => setActiveStrategy('copy')} className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${activeStrategy === 'copy' ? 'bg-red-500 text-white shadow-lg shadow-red-500/20' : 'bg-neutral-100 text-neutral-700 hover:bg-neutral-200'}`}>跟单</button>
-                  <button onClick={() => setActiveStrategy('staking')} className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${activeStrategy === 'staking' ? 'bg-red-500 text-white shadow-lg shadow-red-500/20' : 'bg-neutral-100 text-neutral-700 hover:bg-neutral-200'}`}>质押</button>
-                  <button onClick={() => setActiveStrategy('lending')} className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${activeStrategy === 'lending' ? 'bg-red-500 text-white shadow-lg shadow-red-500/20' : 'bg-neutral-100 text-neutral-700 hover:bg-neutral-200'}`}>借贷</button>
+                  <button onClick={() => setActiveStrategy('create')} className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${activeStrategy === 'create' ? 'bg-orange-500 text-white shadow-lg shadow-orange-500/20' : 'bg-neutral-100 text-neutral-700 hover:bg-neutral-200'}`}>创建钱包</button>
+                  <button onClick={() => setActiveStrategy('market')} className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${activeStrategy === 'market' ? 'bg-orange-500 text-white shadow-lg shadow-orange-500/20' : 'bg-neutral-100 text-neutral-700 hover:bg-neutral-200'}`}>市场动态</button>
+                  <button onClick={() => setActiveStrategy('price')} className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${activeStrategy === 'price' ? 'bg-orange-500 text-white shadow-lg shadow-orange-500/20' : 'bg-neutral-100 text-neutral-700 hover:bg-neutral-200'}`}>跟踪币价</button>
+                  <button onClick={() => setActiveStrategy('arbitrage')} className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${activeStrategy === 'arbitrage' ? 'bg-orange-500 text-white shadow-lg shadow-orange-500/20' : 'bg-neutral-100 text-neutral-700 hover:bg-neutral-200'}`}>自动套利</button>
+                  <button onClick={() => setActiveStrategy('mining')} className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${activeStrategy === 'mining' ? 'bg-orange-500 text-white shadow-lg shadow-orange-500/20' : 'bg-neutral-100 text-neutral-700 hover:bg-neutral-200'}`}>挖矿</button>
+                  <button onClick={() => setActiveStrategy('meme')} className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${activeStrategy === 'meme' ? 'bg-orange-500 text-white shadow-lg shadow-orange-500/20' : 'bg-neutral-100 text-neutral-700 hover:bg-neutral-200'}`}>Meme</button>
+                  <button onClick={() => setActiveStrategy('ipo')} className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${activeStrategy === 'ipo' ? 'bg-orange-500 text-white shadow-lg shadow-orange-500/20' : 'bg-neutral-100 text-neutral-700 hover:bg-neutral-200'}`}>币股打新</button>
+                  <button onClick={() => setActiveStrategy('perps')} className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${activeStrategy === 'perps' ? 'bg-orange-500 text-white shadow-lg shadow-orange-500/20' : 'bg-neutral-100 text-neutral-700 hover:bg-neutral-200'}`}>Perps</button>
+                  <button onClick={() => setActiveStrategy('audit')} className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${activeStrategy === 'audit' ? 'bg-orange-500 text-white shadow-lg shadow-orange-500/20' : 'bg-neutral-100 text-neutral-700 hover:bg-neutral-200'}`}>安全审计</button>
+                  <button onClick={() => setActiveStrategy('transfer')} className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${activeStrategy === 'transfer' ? 'bg-orange-500 text-white shadow-lg shadow-orange-500/20' : 'bg-neutral-100 text-neutral-700 hover:bg-neutral-200'}`}>转账</button>
+                  <button onClick={() => setActiveStrategy('defi')} className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${activeStrategy === 'defi' ? 'bg-orange-500 text-white shadow-lg shadow-orange-500/20' : 'bg-neutral-100 text-neutral-700 hover:bg-neutral-200'}`}>DeFi</button>
+                  <button onClick={() => setActiveStrategy('dca')} className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${activeStrategy === 'dca' ? 'bg-orange-500 text-white shadow-lg shadow-orange-500/20' : 'bg-neutral-100 text-neutral-700 hover:bg-neutral-200'}`}>定投</button>
+                  <button onClick={() => setActiveStrategy('copy')} className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${activeStrategy === 'copy' ? 'bg-orange-500 text-white shadow-lg shadow-orange-500/20' : 'bg-neutral-100 text-neutral-700 hover:bg-neutral-200'}`}>跟单</button>
+                  <button onClick={() => setActiveStrategy('staking')} className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${activeStrategy === 'staking' ? 'bg-orange-500 text-white shadow-lg shadow-orange-500/20' : 'bg-neutral-100 text-neutral-700 hover:bg-neutral-200'}`}>质押</button>
+                  <button onClick={() => setActiveStrategy('lending')} className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${activeStrategy === 'lending' ? 'bg-orange-500 text-white shadow-lg shadow-orange-500/20' : 'bg-neutral-100 text-neutral-700 hover:bg-neutral-200'}`}>借贷</button>
                 </motion.div>
                 
                 {/* Install Command */}
@@ -1174,7 +1174,7 @@ export default function Home() {
             </div>
 
             {/* Chat Interface */}
-            <div className="flex flex-col">
+            <div className="flex flex-col" style={{ height: '600px' }}>
               <motion.div
                 initial={{ opacity: 0, scale: 0.9, x: 50 }}
                 whileInView={{ opacity: 1, scale: 1, x: 0 }}
@@ -1205,7 +1205,7 @@ export default function Home() {
                             transition={{ duration: 0.3 }}
                             className="flex justify-end"
                           >
-                            <div className="max-w-[85%] rounded-2xl px-4 py-3 text-sm whitespace-pre-line bg-red-500 text-white rounded-br-md">
+                            <div className="max-w-[85%] rounded-2xl px-4 py-3 text-sm whitespace-pre-line bg-orange-500 text-white rounded-br-md">
                               {strategyDescriptions[activeStrategy].chatContent.title}
                             </div>
                           </motion.div>
@@ -1223,7 +1223,7 @@ export default function Home() {
                                 transition={{ duration: 0.3 }}
                                 className={`flex ${isAI ? 'justify-start' : 'justify-end'}`}
                               >
-                                <div className={`max-w-[85%] rounded-2xl px-4 py-3 text-sm whitespace-pre-line ${isAI ? 'bg-neutral-100 text-neutral-700 rounded-bl-md' : 'bg-red-500 text-white rounded-br-md'}`}>
+                                <div className={`max-w-[85%] rounded-2xl px-4 py-3 text-sm whitespace-pre-line ${isAI ? 'bg-neutral-100 text-neutral-700 rounded-bl-md' : 'bg-orange-500 text-white rounded-br-md'}`}>
                                   {message}
                                 </div>
                               </motion.div>
@@ -1255,9 +1255,9 @@ export default function Home() {
                       <input 
                         type="text" 
                         placeholder="输入你的指令... 例如：查询余额、转账、创建钱包" 
-                        className="flex-1 px-4 py-3 rounded-full border border-neutral-200 focus:outline-none focus:ring-2 focus:ring-red-500/30 focus:border-red-500 transition-all text-sm"
+                        className="flex-1 px-4 py-3 rounded-full border border-neutral-200 focus:outline-none focus:ring-2 focus:ring-orange-500/30 focus:border-orange-500 transition-all text-sm"
                       />
-                      <button className="px-6 py-3 bg-red-500 text-white rounded-full font-medium shadow-lg shadow-red-500/20 hover:bg-red-600 transition-all">
+                      <button className="px-6 py-3 bg-orange-500 text-white rounded-full font-medium shadow-lg shadow-orange-500/20 hover:bg-orange-600 transition-all">
                         Ask Claw
                       </button>
                     </div>
@@ -1277,8 +1277,8 @@ export default function Home() {
       <section className="py-32 px-6 bg-neutral-900 text-white relative overflow-hidden">
         {/* Background Effects */}
         <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute top-0 left-1/4 w-96 h-96 bg-red-500/10 rounded-full blur-3xl" />
-          <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-red-600/10 rounded-full blur-3xl" />
+          <div className="absolute top-0 left-1/4 w-96 h-96 bg-orange-500/10 rounded-full blur-3xl" />
+          <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-orange-600/10 rounded-full blur-3xl" />
         </div>
 
         <div className="max-w-6xl mx-auto relative">
@@ -1303,7 +1303,7 @@ export default function Home() {
               >
                 <div className="absolute -top-4 -left-2 text-8xl font-bold text-white/[0.03] select-none">{item.step}</div>
                 <div className="relative p-8 rounded-3xl bg-white/[0.03] border border-white/[0.08] backdrop-blur-sm hover:bg-white/[0.05] hover:border-white/[0.12] transition-all duration-300 h-full">
-                  <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-red-500 to-red-600 flex items-center justify-center mb-6 shadow-lg shadow-red-500/20 group-hover:shadow-red-500/30 group-hover:scale-105 transition-all duration-300">
+                  <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-orange-500 to-orange-600 flex items-center justify-center mb-6 shadow-lg shadow-orange-500/20 group-hover:shadow-orange-500/30 group-hover:scale-105 transition-all duration-300">
                     <item.icon className="w-7 h-7 text-white" />
                   </div>
                   <h3 className="text-xl font-semibold mb-3">{item.title}</h3>
@@ -1336,7 +1336,7 @@ export default function Home() {
 
               <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-tight">
                 安全至上，
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-red-600">
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-orange-600">
                   层层防护
                 </span>
               </h2>
@@ -1344,7 +1344,7 @@ export default function Home() {
                 AI Agent 和加密资产是高价值目标。Claw Wallet 从设计之初就将安全作为核心，采用企业级安全架构保护你的资产。
               </p>
               <p className="mt-4 text-neutral-600 leading-relaxed">
-                不同于其他方案将私钥交给 Agent，Claw Wallet 采用<span className="font-semibold text-red-500">自托管架构</span>，私钥永远在你的控制之下。
+                不同于其他方案将私钥交给 Agent，Claw Wallet 采用<span className="font-semibold text-orange-500">自托管架构</span>，私钥永远在你的控制之下。
               </p>
 
               <div className="mt-10 grid grid-cols-2 gap-4">
@@ -1356,10 +1356,10 @@ export default function Home() {
                     viewport={{ once: true }}
                     transition={{ delay: idx * 0.1 }}
                     whileHover={{ y: -4, scale: 1.02 }}
-                    className="p-5 rounded-2xl bg-white border border-neutral-100 hover:border-red-100 hover:shadow-xl hover:shadow-red-500/5 transition-all cursor-pointer group"
+                    className="p-5 rounded-2xl bg-white border border-neutral-100 hover:border-orange-100 hover:shadow-xl hover:shadow-orange-500/5 transition-all cursor-pointer group"
                   >
                     <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-neutral-100 to-neutral-50 flex items-center justify-center mb-4 group-hover:from-red-50 group-hover:to-red-100 transition-all duration-300">
-                      <layer.icon className="w-6 h-6 text-neutral-600 group-hover:text-red-500 transition-colors" />
+                      <layer.icon className="w-6 h-6 text-neutral-600 group-hover:text-orange-500 transition-colors" />
                     </div>
                     <h4 className="font-semibold text-neutral-900">{layer.title}</h4>
                     <p className="text-xs text-neutral-500 mt-1">{layer.desc}</p>
@@ -1397,7 +1397,7 @@ export default function Home() {
                   <motion.div 
                     animate={{ scale: [1, 1.1, 1] }}
                     transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                    className="absolute inset-20 rounded-full bg-gradient-to-br from-red-500 to-red-600 flex items-center justify-center shadow-2xl shadow-red-500/30"
+                    className="absolute inset-20 rounded-full bg-gradient-to-br from-orange-500 to-orange-600 flex items-center justify-center shadow-2xl shadow-orange-500/30"
                   >
                     <Shield className="w-12 h-12 text-white" />
                   </motion.div>
@@ -1462,7 +1462,7 @@ export default function Home() {
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-tight">
             准备好让你的 Agent
             <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-red-600">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-orange-600">
               拥有安全钱包了吗？
             </span>
           </h2>
