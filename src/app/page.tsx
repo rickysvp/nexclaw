@@ -1182,27 +1182,25 @@ export default function Home() {
                 transition={{ duration: 0.6 }}
                 style={{ height: '100%', width: '100%' }}
               >
-                <Card className="overflow-hidden shadow-2xl shadow-neutral-900/10 border-neutral-200/50 h-full w-full flex flex-col"
-                >
-                  {/* Chat Content */}
-                  <div className="p-6 bg-white space-y-6 flex flex-col" style={{ height: '100%', width: '100%' }}>
-                    {/* Option Selection */}
-                    <AnimatePresence mode="wait">
-                      <motion.div
-                        key={activeStrategy}
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        exit={{ opacity: 0, y: -20 }}
-                        transition={{ duration: 0.4 }}
-                        className="bg-neutral-50 rounded-xl p-5 flex flex-col flex-1"
-                      >
-                        {/* Messages Container */}
-                        <div className="messages-container space-y-4 mb-4" style={{ flex: 1, overflowY: 'auto', scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
-                          <style jsx>{`
-                            .messages-container::-webkit-scrollbar {
-                              display: none;
-                            }
-                          `}</style>
+                {/* Chat Content */}
+                <div className="space-y-6 flex flex-col" style={{ height: '100%', width: '100%' }}>
+                  {/* Option Selection */}
+                  <AnimatePresence mode="wait">
+                    <motion.div
+                      key={activeStrategy}
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: -20 }}
+                      transition={{ duration: 0.4 }}
+                      className="flex flex-col flex-1"
+                    >
+                      {/* Messages Container */}
+                      <div className="messages-container space-y-4" style={{ flex: 1, overflowY: 'auto', scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
+                        <style jsx>{`
+                          .messages-container::-webkit-scrollbar {
+                            display: none;
+                          }
+                        `}</style>
                           {/* User's initial request (title) */}
                           <motion.div
                             key={`title-${activeStrategy}`}
@@ -1255,20 +1253,7 @@ export default function Home() {
 
                       </motion.div>
                     </AnimatePresence>
-                    
-                    {/* Message Input */}
-                    <div className="flex gap-3 mt-auto">
-                      <input 
-                        type="text" 
-                        placeholder="输入你的指令... 例如：查询余额、转账、创建钱包" 
-                        className="flex-1 px-4 py-3 rounded-full border border-neutral-200 focus:outline-none focus:ring-2 focus:ring-orange-500/30 focus:border-orange-500 transition-all text-sm"
-                      />
-                      <button className="px-6 py-3 bg-orange-500 text-white rounded-full font-medium shadow-lg shadow-orange-500/20 hover:bg-orange-600 transition-all">
-                        Ask Claw
-                      </button>
-                    </div>
                   </div>
-                </Card>
               </motion.div>
             </div>
           </div>
