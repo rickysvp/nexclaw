@@ -1174,18 +1174,18 @@ export default function Home() {
             </div>
 
             {/* Chat Interface */}
-            <div className="flex flex-col" style={{ height: '600px' }}>
+            <div className="flex flex-col" style={{ height: '600px', width: '100%' }}>
               <motion.div
                 initial={{ opacity: 0, scale: 0.9, x: 50 }}
                 whileInView={{ opacity: 1, scale: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6 }}
-                style={{ height: '100%' }}
+                style={{ height: '100%', width: '100%' }}
               >
-                <Card className="overflow-hidden shadow-2xl shadow-neutral-900/10 border-neutral-200/50 h-full flex flex-col"
+                <Card className="overflow-hidden shadow-2xl shadow-neutral-900/10 border-neutral-200/50 h-full w-full flex flex-col"
                 >
                   {/* Chat Content */}
-                  <div className="p-6 bg-white space-y-6 flex flex-col" style={{ height: '100%' }}>
+                  <div className="p-6 bg-white space-y-6 flex flex-col" style={{ height: '100%', width: '100%' }}>
                     {/* Option Selection */}
                     <AnimatePresence mode="wait">
                       <motion.div
@@ -1197,7 +1197,12 @@ export default function Home() {
                         className="bg-neutral-50 rounded-xl p-5 flex flex-col flex-1"
                       >
                         {/* Messages Container */}
-                        <div className="messages-container space-y-4 mb-4" style={{ flex: 1, overflowY: 'auto' }}>
+                        <div className="messages-container space-y-4 mb-4" style={{ flex: 1, overflowY: 'auto', scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
+                          <style jsx>{`
+                            .messages-container::-webkit-scrollbar {
+                              display: none;
+                            }
+                          `}</style>
                           {/* User's initial request (title) */}
                           <motion.div
                             key={`title-${activeStrategy}`}
