@@ -19,11 +19,15 @@ import {
   Zap,
   Users,
   BarChart3,
+  Menu,
+  X,
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { mockWallets, mockTransactions, mockAlerts } from '@/lib/mockData';
 import { Wallet as WalletType, Transaction, Alert } from '@/types';
+import AgentStrategy from '@/components/wallet/AgentStrategy';
+import { useAgentStrategyStore } from '@/lib/agent-strategy-store';
 
 // Animation variants
 const containerVariants = {
@@ -47,6 +51,8 @@ export default function DashboardOverview() {
   const [alerts, setAlerts] = useState<Alert[]>([]);
   const [isRefreshing, setIsRefreshing] = useState(false);
   const [mounted, setMounted] = useState(false);
+  const [rightSidebarOpen, setRightSidebarOpen] = useState(false);
+  const { selectStrategy, selectedStrategy, executeStrategy } = useAgentStrategyStore();
 
   useEffect(() => {
     setMounted(true);
@@ -79,6 +85,11 @@ export default function DashboardOverview() {
       loadData();
       setIsRefreshing(false);
     }, 1000);
+  };
+
+  const handleStrategySelect = (strategy: any) => {
+    selectStrategy(strategy);
+    setRightSidebarOpen(true);
   };
 
   const stats = [
@@ -276,6 +287,9 @@ export default function DashboardOverview() {
               </div>
             )}
           </div>
+
+          {/* Agent Strategy */}
+          <AgentStrategy onStrategySelect={handleStrategySelect} />
         </motion.div>
 
         {/* Right Column */}
@@ -352,6 +366,182 @@ export default function DashboardOverview() {
           </div>
         </motion.div>
       </div>
+
+      {/* Right Sidebar for Strategy Details */}
+      {rightSidebarOpen && (
+        <>
+          {/* Backdrop for Right Sidebar */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={() => setRightSidebarOpen(false)}
+            className="fixed inset-0 bg-black/80 backdrop-blur-sm z-40"
+          />
+          
+          <motion.div
+            initial={{ x: '100%' }}
+            animate={{ x: 0 }}
+            exit={{ x: '100%' }}
+            transition={{ type: 'spring', damping: 25, stiffness: 200 }}
+            className="fixed right-0 top-0 h-full w-96 bg-white border-l border-gray-200 z-50 flex flex-col"
+          >
+            {/* Sidebar Header */}
+            <div className="h-16 flex items-center justify-between px-4 border-b border-gray-200">
+              <h2 className="text-lg font-bold text-gray-900">策略详情</h2>
+              <button
+                onClick={() => setRightSidebarOpen(false)}
+                className="p-2 rounded-lg bg-gray-100 text-gray-500 hover:text-gray-900 hover:bg-gray-200 transition-colors"
+              >
+                <X className="h-5 w-5" />
+              </button>
+            </div>
+
+            {/* Strategy Details */}
+            <div className="flex-1 p-4 overflow-y-auto">
+              {selectedStrategy && (
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.3 }}
+                  className="space-y-4"
+                >
+                  <div className="bg-white border border-gray-200 rounded-2xl p-4">
+                    <h3 className="font-medium text-gray-900 text-lg">{selectedStrategy.name}</h3>
+                    <p className="text-sm text-gray-500 mt-1">{selectedStrategy.description}</p>
+                    <div className="mt-4 space-y-2">
+                      <div className="flex items-center justify-between text-sm">
+                        <span className="text-gray-500">状态:</span>
+                        <Badge
+                          variant={
+                            selectedStrategy.status === 'active'
+                              ? 'default'
+                              : selectedStrategy.status === 'pending'
+                              ? 'secondary'
+                              : 'destructive'
+                          }
+                          className={
+                            selectedStrategy.status === 'active'
+                              ? 'bg-green-100 text-green-700'
+                              : selectedStrategy.status === 'pending'
+                              ? 'bg-yellow-100 text-yellow-700 animate-pulse'
+                              : 'bg-red-100 text-red-700'
+                          }
+                        >
+                          {selectedStrategy.status === 'active'
+                            ? '运行中'
+                            : selectedStrategy.status === 'pending'
+                            ? '执行中...'
+                            : '已停止'}
+                        </Badge>
+                      </div>
+                      <div className="flex items-center justify-between text-sm">
+                        <span className="text-gray-500">风险等级:</span>
+                        <Badge
+                          variant="secondary"
+                          className={
+                            selectedStrategy.risk === 'low'
+                              ? 'bg-blue-100 text-blue-700'
+                              : selectedStrategy.risk === 'medium'
+                              ? 'bg-yellow-100 text-yellow-700'
+                              : 'bg-red-100 text-red-700'
+                          }
+                        >
+                          {selectedStrategy.risk === 'low'
+                            ? '低风险'
+                            : selectedStrategy.risk === 'medium'
+                            ? '中风险'
+                            : '高风险'}
+                        </Badge>
+                      </div>
+                      <div className="flex items-center justify-between text-sm">
+                        <span className="text-gray-500">收益:</span>
+                        <motion.span 
+                          className={`font-medium ${selectedStrategy.profit?.startsWith('+') ? 'text-green-600' : 'text-red-600'}`}
+                          initial={{ scale: 1 }}
+                          animate={{ scale: [1, 1.1, 1] }}
+                          transition={{ duration: 0.5, repeat: selectedStrategy.status === 'active' ? Infinity : 0, repeatType: 'reverse' }}
+                        >
+                          {selectedStrategy.profit || 'N/A'}
+                        </motion.span>
+                      </div>
+                      {selectedStrategy.lastExecuted && (
+                        <div className="flex items-center justify-between text-sm">
+                          <span className="text-gray-500">上次执行:</span>
+                          <span>{selectedStrategy.lastExecuted}</span>
+                        </div>
+                      )}
+                      {selectedStrategy.nextExecution && (
+                        <div className="flex items-center justify-between text-sm">
+                          <span className="text-gray-500">下次执行:</span>
+                          <span>{selectedStrategy.nextExecution}</span>
+                        </div>
+                      )}
+                    </div>
+                  </div>
+
+                  <div className="bg-white border border-gray-200 rounded-2xl p-4">
+                    <h3 className="font-medium text-gray-900">策略配置</h3>
+                    <div className="mt-4 space-y-3">
+                      <div>
+                        <label className="block text-sm text-gray-500 mb-1">执行频率</label>
+                        <div className="bg-gray-50 rounded-lg p-2">
+                          <span className="text-sm">{selectedStrategy.config?.frequency || '每周一次'}</span>
+                        </div>
+                      </div>
+                      <div>
+                        <label className="block text-sm text-gray-500 mb-1">目标资产</label>
+                        <div className="bg-gray-50 rounded-lg p-2">
+                          <span className="text-sm">{selectedStrategy.config?.asset || 'BTC'}</span>
+                        </div>
+                      </div>
+                      <div>
+                        <label className="block text-sm text-gray-500 mb-1">执行金额</label>
+                        <div className="bg-gray-50 rounded-lg p-2">
+                          <span className="text-sm">{selectedStrategy.config?.amount || '0.001'} {selectedStrategy.config?.asset || 'BTC'}</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="bg-white border border-gray-200 rounded-2xl p-4">
+                    <h3 className="font-medium text-gray-900">历史执行记录</h3>
+                    <div className="mt-4 space-y-2">
+                      <div className="flex items-center justify-between text-sm">
+                        <span>2024-01-15 09:00</span>
+                        <Badge variant="default" className="bg-green-100 text-green-700">成功</Badge>
+                      </div>
+                      <div className="flex items-center justify-between text-sm">
+                        <span>2024-01-08 09:00</span>
+                        <Badge variant="default" className="bg-green-100 text-green-700">成功</Badge>
+                      </div>
+                      <div className="flex items-center justify-between text-sm">
+                        <span>2024-01-01 09:00</span>
+                        <Badge variant="default" className="bg-green-100 text-green-700">成功</Badge>
+                      </div>
+                    </div>
+                  </div>
+                </motion.div>
+              )}
+            </div>
+
+            {/* Sidebar Footer */}
+            <div className="p-4 border-t border-gray-200 space-y-2">
+              <Button variant="default" className="w-full bg-[#FF4D2E] hover:bg-[#FF4D2E]/90">
+                编辑策略
+              </Button>
+              <Button 
+                variant="outline" 
+                className="w-full" 
+                onClick={() => selectedStrategy && executeStrategy(selectedStrategy.id)}
+                disabled={selectedStrategy?.status === 'pending'}
+              >
+                {selectedStrategy?.status === 'pending' ? '执行中...' : '立即执行'}
+              </Button>
+            </div>
+          </motion.div>
+        </>
+      )}
     </motion.div>
   );
 }

@@ -194,6 +194,369 @@ const stats = [
   { value: '99.9%', label: '安全运行' },
 ];
 
+const strategyDescriptions = {
+  create: {
+    features: [
+      '快速创建安全钱包',
+      '助记词备份',
+      '多链支持',
+      '硬件级加密保护'
+    ],
+    chatContent: {
+      title: '创建一个新的加密钱包',
+      messages: [
+        '我想创建一个新的加密钱包',
+        '正在准备创建钱包...\n\n安全级别: 高\n支持链: Ethereum, Base, Arbitrum, Optimism\n加密方式: TEE 硬件加密',
+        '确认创建',
+        '✓ 钱包创建成功！\n地址: 0x7a8b...3c4d\n请保存好你的助记词\n可在设置中查看详情'
+      ],
+      options: ['标准', '高级', '企业级'],
+      selectedOption: '标准',
+      transaction: {
+        title: '创建新钱包',
+        details: '安全级别: 高 · 多链支持',
+        button: '确认创建'
+      }
+    }
+  },
+  market: {
+    features: [
+      '实时市场新闻',
+      'KOL 观点跟踪',
+      '市场情绪分析',
+      '热点事件提醒'
+    ],
+    chatContent: {
+      title: '查看最新市场动态',
+      messages: [
+        '查看最新的加密市场动态',
+        '正在获取市场信息...\n\n• 比特币突破 70,000 美元\n• 以太坊上海升级成功\n• KOL @CryptoExpert 看好 Solana\n• DeFi 总锁仓量增长 15%',
+        '订阅市场动态',
+        '✓ 已成功订阅市场动态！\n将定期为你推送重要市场信息\n可在设置中调整订阅偏好'
+      ],
+      options: ['每日', '每周', '实时'],
+      selectedOption: '每日',
+      transaction: {
+        title: '订阅市场动态',
+        details: '包含新闻、KOL 观点和市场情绪',
+        button: '确认订阅'
+      }
+    }
+  },
+  price: {
+    features: [
+      '实时币价跟踪',
+      '价格预警设置',
+      '历史价格分析',
+      '多交易所对比'
+    ],
+    chatContent: {
+      title: '跟踪比特币和以太坊价格',
+      messages: [
+        '帮我跟踪比特币和以太坊的价格',
+        '正在获取实时价格...\n\n比特币 (BTC): $69,500.00 (+2.5%)\n以太坊 (ETH): $3,850.00 (+1.8%)\n24小时交易量: $45B\n市场总市值: $2.3T',
+        '设置价格预警',
+        '✓ 价格预警设置成功！\n比特币: 突破 $70,000 时提醒\n以太坊: 跌破 $3,700 时提醒\n可在设置中查看和修改预警'
+      ],
+      options: ['BTC', 'ETH', 'SOL', 'BNB'],
+      selectedOption: 'BTC',
+      transaction: {
+        title: '设置价格预警',
+        details: '比特币: $70,000 · 以太坊: $3,700',
+        button: '确认设置'
+      }
+    }
+  },
+  arbitrage: {
+    features: [
+      '跨交易所套利',
+      '自动执行交易',
+      '风险控制',
+      '收益分析'
+    ],
+    chatContent: {
+      title: '设置自动套利策略',
+      messages: [
+        '帮我设置自动套利策略',
+        '正在分析套利机会...\n\n交易所: Binance vs OKX\n代币: ETH\n套利空间: 0.5%\n预计收益: $50/天\n风险等级: 低',
+        '确认设置',
+        '✓ 自动套利策略设置成功！\n策略 ID: ARB-7789\n已开始监控套利机会\n可在策略中心查看详情'
+      ],
+      options: ['低风险', '中风险', '高风险'],
+      selectedOption: '低风险',
+      transaction: {
+        title: '设置自动套利策略',
+        details: 'ETH 跨交易所套利 · 预期收益: $50/天',
+        button: '确认设置'
+      }
+    }
+  },
+  mining: {
+    features: [
+      '多协议挖矿集成',
+      '流动性挖矿',
+      '收益优化',
+      '风险评估'
+    ],
+    chatContent: {
+      title: '在 DeFi 协议中挖矿',
+      messages: [
+        '我想在 DeFi 协议中挖矿',
+        '正在分析挖矿机会...\n\n年化收益: 12.5%\n锁定期: 30 天\n风险等级: 中\n最低投资: 100 USDC',
+        '确认参与',
+        '✓ 已成功参与挖矿！\n投资金额: 100 USDC\n预计年化: 12.5%\n可在 DeFi 中心查看详情'
+      ],
+      options: ['100 USDC', '500 USDC', '1000 USDC', '5000 USDC'],
+      selectedOption: '100 USDC',
+      transaction: {
+        title: '参与 DeFi 挖矿',
+        details: '年化收益: 12.5% · 锁定期: 30 天',
+        button: '确认参与'
+      }
+    }
+  },
+  meme: {
+    features: [
+      '自动 meme 打狗',
+      '市场情绪分析',
+      '趋势跟踪',
+      '收益策略'
+    ],
+    chatContent: {
+      title: '自动 meme 打狗策略',
+      messages: [
+        '我想设置自动 meme 打狗策略',
+        '正在分析 meme 市场...\n\n当前热点: PEPE, DOGE\n市场情绪: 极度看涨\n风险等级: 高\n潜在收益: 50-100%',
+        '确认设置',
+        '✓ 自动 meme 打狗策略已设置！\n已开始监控 meme 币市场\n将在合适时机自动执行交易\n可在策略中心查看详情'
+      ],
+      options: ['低风险', '中风险', '高风险', '激进'],
+      selectedOption: '高风险',
+      transaction: {
+        title: '设置自动 meme 打狗策略',
+        details: '监控: PEPE, DOGE · 风险: 高',
+        button: '确认设置'
+      }
+    }
+  },
+  ipo: {
+    features: [
+      '币股打新',
+      '项目分析',
+      '申购策略',
+      '收益跟踪'
+    ],
+    chatContent: {
+      title: '参与币股打新',
+      messages: [
+        '我想参与币股打新',
+        '正在查询最新打新项目...\n\n项目: Coinbase IPO\n发行价: $250\n申购时间: 2024-06-15\n预期收益: 20-30%',
+        '确认申购',
+        '✓ 已成功申购 Coinbase IPO！\n申购金额: $1,000\n申购数量: 4 股\n可在投资中心查看详情'
+      ],
+      options: ['$500', '$1000', '$5000', '$10000'],
+      selectedOption: '$1000',
+      transaction: {
+        title: '申购 Coinbase IPO',
+        details: '发行价: $250 · 预期收益: 20-30%',
+        button: '确认申购'
+      }
+    }
+  },
+  perps: {
+    features: [
+      '永续合约交易',
+      '杠杆管理',
+      '自动止盈止损',
+      '策略优化'
+    ],
+    chatContent: {
+      title: '交易 ETH 永续合约',
+      messages: [
+        '我想交易 ETH 永续合约',
+        '正在分析市场...\n\n当前价格: $3,850\n杠杆倍数: 5x\n止盈价格: $4,200\n止损价格: $3,700',
+        '确认交易',
+        '✓ 已成功开仓 ETH 永续合约！\n方向: 多头\n杠杆: 5x\n开仓价格: $3,850\n可在衍生品中心查看详情'
+      ],
+      options: ['1x', '5x', '10x', '20x'],
+      selectedOption: '5x',
+      transaction: {
+        title: '开仓 ETH 永续合约',
+        details: '多头 · 5x 杠杆 · 止盈: $4,200',
+        button: '确认开仓'
+      }
+    }
+  },
+  audit: {
+    features: [
+      '智能合约安全审计',
+      '风险评估',
+      '漏洞检测',
+      '安全建议'
+    ],
+    chatContent: {
+      title: '安全审计智能合约',
+      messages: [
+        '帮我审计一个智能合约',
+        '正在进行安全审计...\n\n合约地址: 0x1234...5678\n链: Ethereum\n风险等级: 低\n发现问题: 1 个小漏洞\n安全评分: 95/100',
+        '查看详细报告',
+        '✓ 安全审计完成！\n已生成详细报告\n包含漏洞修复建议\n可在安全中心查看完整报告'
+      ],
+      options: ['基础审计', '全面审计', '深度审计'],
+      selectedOption: '全面审计',
+      transaction: {
+        title: '智能合约安全审计',
+        details: '合约地址: 0x1234...5678 · 链: Ethereum',
+        button: '确认审计'
+      }
+    }
+  },
+  transfer: {
+    features: [
+      '快速安全的加密货币转账',
+      '支持多链地址',
+      '智能地址验证',
+      '实时转账状态跟踪'
+    ],
+    chatContent: {
+      title: '转账到 0x742d...f0bEb',
+      messages: [
+        '我想转 2 ETH 给 0x742d...f0bEb',
+        '正在准备交易...\n\n发送方: 0x7a8b...3c4d\n接收方: 0x742d...f0bEb\n金额: 2 ETH\nGas 费: 0.001 ETH\n总计: 2.001 ETH',
+        '确认转账',
+        '✓ 交易已提交！\n预计确认: 12 秒\n交易哈希: 0x3f8a...9c2e\n可在历史记录查看'
+      ],
+      options: ['25%', '50%', '75%', 'Max'],
+      selectedOption: 'Max',
+      transaction: {
+        title: '转账 2 ETH → 0x742d...f0bEb',
+        details: 'Ethereum · 预估 gas ~0.001 ETH',
+        button: '确认转账'
+      }
+    }
+  },
+  defi: {
+    features: [
+      '去中心化金融协议集成',
+      '流动性挖矿',
+      '收益优化策略',
+      '智能合约安全检查'
+    ],
+    chatContent: {
+      title: '在 Uniswap 兑换 USDC 为 ETH',
+      messages: [
+        '把 1000 USDC 换成 ETH',
+        '正在查询最优兑换路径...\n\nUniswap V3: 0.3842 ETH\nCurve: 0.3839 ETH\n1inch: 0.3841 ETH\n\n推荐 Uniswap V3，滑点 0.05%',
+        '确认兑换',
+        '✓ 兑换成功！\n获得: 0.3842 ETH\nGas: 0.002 ETH\n交易哈希: 0x8b2d...7a1f'
+      ],
+      options: ['Option 1', 'Option 2', 'Option 3', 'Option 4'],
+      selectedOption: 'Option 1',
+      transaction: {
+        title: '兑换 1000 USDC → 0.3842 ETH',
+        details: 'Uniswap V3 · 滑点 0.05% · Gas ~0.002 ETH',
+        button: '确认兑换'
+      }
+    }
+  },
+  dca: {
+    features: [
+      '定期定额投资',
+      '自动执行交易',
+      '成本平均策略',
+      '投资组合跟踪'
+    ],
+    chatContent: {
+      title: '设置每周定投 100 USDC 买 ETH',
+      messages: [
+        '设置每周定投 100 USDC 买 ETH',
+        '正在创建定投策略...\n\n频率: 每周一 09:00\n金额: 100 USDC\n目标: ETH\n策略: 市价单\n\n预计年化收益: 根据市场波动',
+        '确认创建',
+        '✓ 定投策略已创建！\n策略 ID: DCA-8842\n首次执行: 2024-01-15\n可随时暂停或修改'
+      ],
+      options: ['每周', '每两周', '每月'],
+      selectedOption: '每周',
+      transaction: {
+        title: '创建定投策略: 每周 100 USDC 买 ETH',
+        details: '每周一 09:00 · 市价单',
+        button: '确认创建'
+      }
+    }
+  },
+  copy: {
+    features: [
+      '跟随专业交易员',
+      '自动复制交易',
+      '风险控制',
+      '业绩分析'
+    ],
+    chatContent: {
+      title: '跟随 top 交易员的交易策略',
+      messages: [
+        '我想跟随 top 交易员的交易',
+        '正在查找优质交易员...\n\n交易员: TraderPro\n收益率: +120% (30天)\n最大回撤: 15%\n交易频率: 平均每天 2-3 笔',
+        '确认跟随',
+        '✓ 跟随成功！\n交易员: TraderPro\n跟随比例: 100%\n最大单笔: 0.5 ETH\n可随时调整设置'
+      ],
+      options: ['50%', '75%', '100%', '150%'],
+      selectedOption: '100%',
+      transaction: {
+        title: '跟随 TraderPro 的交易策略',
+        details: '跟随比例: 100% · 最大单笔: 0.5 ETH',
+        button: '确认跟随'
+      }
+    }
+  },
+  staking: {
+    features: [
+      '质押加密资产获得收益',
+      '支持多种质押协议',
+      '自动复投收益',
+      '质押状态监控'
+    ],
+    chatContent: {
+      title: '在 Lido 质押 ETH 获得 5.2% APY',
+      messages: [
+        '我想质押 ETH 获得收益',
+        '正在查询质押选项...\n\nLido: 5.2% APY · 流动性好\nRocket Pool: 5.5% APY · 去中心化\nCoinbase: 4.8% APY · 安全可靠',
+        '选择 Lido',
+        '✓ 质押成功！\n质押金额: 1 ETH\n预计年化: 5.2%\n已获得 stETH: 0.999\n可随时 unstake'
+      ],
+      options: ['1 ETH', '2 ETH', '5 ETH', 'Max'],
+      selectedOption: '1 ETH',
+      transaction: {
+        title: '质押 1 ETH → Lido',
+        details: '预计年化: 5.2% · 获得 stETH',
+        button: '确认质押'
+      }
+    }
+  },
+  lending: {
+    features: [
+      '借出资产获得利息',
+      '灵活的借贷期限',
+      '实时利率跟踪',
+      '安全的借贷协议'
+    ],
+    chatContent: {
+      title: '在 Aave 存入 USDC 获得 4.2% APY',
+      messages: [
+        '我想在 Aave 存入 USDC',
+        '正在计算收益...\n\n存入: 5000 USDC\nAPY: 4.2%\n预估月收益: 17.5 USDC\n健康因子: N/A (无借款)\n\nGas 费预估: 0.003 ETH',
+        '确认存入',
+        '✓ 存入成功！\n获得 aUSDC: 5000\n开始计息\n交易哈希: 0x3a7c...9f2e'
+      ],
+      options: ['1000 USDC', '2500 USDC', '5000 USDC', 'Max'],
+      selectedOption: '5000 USDC',
+      transaction: {
+        title: '存入 5000 USDC → Aave',
+        details: 'APY: 4.2% · 预估月收益: 17.5 USDC',
+        button: '确认存入'
+      }
+    }
+  }
+};
+
 // ============================================
 // Components
 // ============================================
@@ -377,16 +740,18 @@ const ChatDemoCard = () => {
   );
 };
 
-const SectionHeader = ({ label, title, description, light = false }: { label: string; title: string; description?: string; light?: boolean }) => (
+const SectionHeader = ({ label, title, description, light = false }: { label?: string; title: string; description?: string; light?: boolean }) => (
   <motion.div
     initial={{ opacity: 0, y: 20 }}
     whileInView={{ opacity: 1, y: 0 }}
     viewport={{ once: true }}
     className="text-center max-w-2xl mx-auto mb-16"
   >
-    <span className={`inline-block text-xs font-semibold tracking-[0.2em] uppercase mb-4 ${light ? 'text-neutral-500' : 'text-red-500'}`}>
-      {label}
-    </span>
+    {label && (
+      <span className={`inline-block text-xs font-semibold tracking-[0.2em] uppercase mb-4 ${light ? 'text-neutral-500' : 'text-red-500'}`}>
+        {label}
+      </span>
+    )}
     <h2 className={`text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight ${light ? 'text-white' : 'text-neutral-900'}`}>
       {title}
     </h2>
@@ -404,7 +769,10 @@ const SectionHeader = ({ label, title, description, light = false }: { label: st
 
 export default function Home() {
   const [activeTab, setActiveTab] = useState(0);
+  const [activeStrategy, setActiveStrategy] = useState('transfer');
   const [copied, setCopied] = useState(false);
+  const [visibleMessages, setVisibleMessages] = useState<number[]>([]);
+  const [isTyping, setIsTyping] = useState(false);
   const containerRef = useRef(null);
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -420,6 +788,55 @@ export default function Home() {
     setTimeout(() => setCopied(false), 2000);
   };
 
+  // 自动切换策略标签
+  useEffect(() => {
+    const strategyTypes = ['create', 'market', 'price', 'arbitrage', 'mining', 'meme', 'ipo', 'perps', 'audit', 'transfer', 'defi', 'dca', 'copy', 'staking', 'lending'];
+    let currentIndex = strategyTypes.indexOf(activeStrategy);
+    
+    const interval = setInterval(() => {
+      currentIndex = (currentIndex + 1) % strategyTypes.length;
+      setActiveStrategy(strategyTypes[currentIndex]);
+    }, 10000); // 每10秒切换一次
+
+    return () => clearInterval(interval);
+  }, [activeStrategy]);
+
+  // 当策略变化时，重新显示消息
+  useEffect(() => {
+    setVisibleMessages([]);
+    setIsTyping(false); // 重置打字状态
+    let msgIndex = 0;
+    let timers: NodeJS.Timeout[] = [];
+    const currentChatContent = strategyDescriptions[activeStrategy].chatContent;
+    
+    const showNextMessage = () => {
+      if (msgIndex < currentChatContent.messages.length) {
+        setIsTyping(true);
+        const timer1 = setTimeout(() => {
+          setVisibleMessages((prev) => [...prev, msgIndex]);
+          setIsTyping(false);
+          msgIndex++;
+          const timer2 = setTimeout(showNextMessage, 1500);
+          timers.push(timer2);
+        }, 800);
+        timers.push(timer1);
+      }
+    };
+
+    const timer = setTimeout(showNextMessage, 500);
+    timers.push(timer);
+    
+    return () => {
+      timers.forEach(t => clearTimeout(t));
+      setIsTyping(false); // 清理时也重置打字状态
+    };
+  }, [activeStrategy]);
+
+  // 消息会自动向上推，不需要手动滚动
+  useEffect(() => {
+    // 移除自动滚动功能，因为我们使用了 overflow-y-hidden
+  }, [visibleMessages, isTyping]);
+
   return (
     <main ref={containerRef} className="min-h-screen bg-white text-neutral-900 overflow-x-hidden selection:bg-red-100 selection:text-red-900">
       {/* Animated Background */}
@@ -434,7 +851,7 @@ export default function Home() {
         />
         <motion.div 
           style={{ y: backgroundY }}
-          className="absolute bottom-0 left-0 w-[800px] h-[800px] bg-gradient-to-tr from-neutral-100/60 via-transparent to-transparent rounded-full blur-3xl"
+          className="absolute bottom-0 left-0 w-[800px] h-[800px] bg-gradient-to-tr from-red-100/30 via-transparent to-transparent rounded-full blur-3xl"
         />
       </div>
 
@@ -498,20 +915,15 @@ export default function Home() {
           Hero Section
       ============================================ */}
       <motion.section style={{ opacity: heroOpacity }} className="relative min-h-screen flex items-center pt-32 pb-20 px-6">
-        <div className="max-w-6xl mx-auto w-full relative">
-          <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
-            {/* Content */}
-            <div className="max-w-xl">
+        <div className="max-w-4xl mx-auto w-full relative">
+          <div className="flex flex-col items-center text-center">
               {/* Badge */}
               <motion.div 
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.2, duration: 0.6 }}
               >
-                <Badge>
-                  <Sparkles className="w-3.5 h-3.5" />
-                  专为 AI Agent 设计
-                </Badge>
+                <img src="/claw.png" alt="Claw Wallet" className="h-12 w-auto" />
               </motion.div>
               
               {/* Headline */}
@@ -519,7 +931,7 @@ export default function Home() {
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.3, duration: 0.6 }}
-                className="mt-6 text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-[1.05]"
+                className="mt-8 text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-tight"
               >
                 让 AI Agent
                 <br />
@@ -533,7 +945,7 @@ export default function Home() {
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.4, duration: 0.6 }}
-                className="mt-6 text-lg text-neutral-600 leading-relaxed max-w-md font-bold italic"
+                className="mt-6 text-lg md:text-xl text-neutral-600 leading-relaxed max-w-2xl font-medium"
               >
                 Claw Wallet 是为 AI Agent 构建的 Web3 安全钱包，采用 TEE 硬件加密分片架构。通过自然语言对话，让 AI 安全地管理加密资产。
               </motion.p>
@@ -613,124 +1025,34 @@ export default function Home() {
                 ))}
               </motion.div>
             </div>
+          </div>
 
-            {/* Demo Card */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.9, x: 50 }}
-              animate={{ opacity: 1, scale: 1, x: 0 }}
-              transition={{ delay: 0.4, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-              className="relative"
-            >
-              <Card className="overflow-hidden shadow-2xl shadow-neutral-900/10 border-neutral-200/50">
-                {/* Window Header */}
-                <div className="px-5 py-4 bg-neutral-50/80 border-b border-neutral-100 flex items-center gap-3">
-                  <div className="flex gap-2">
-                    <div className="w-3 h-3 rounded-full bg-red-400" />
-                    <div className="w-3 h-3 rounded-full bg-amber-400" />
-                    <div className="w-3 h-3 rounded-full bg-green-400" />
+        {/* Supported Chains */}
+        <div className="absolute bottom-24 left-0 right-0">
+          <div className="max-w-6xl mx-auto px-6">
+            <div className="flex flex-wrap justify-center items-center gap-8">
+              {[
+                { name: 'Bitcoin', logo: '/logos/BTC.png' },
+                { name: 'Ethereum', logo: '/logos/ethereum.png' },
+                { name: 'BSC', logo: '/logos/BSC.png' },
+                { name: 'SUI', logo: '/logos/sui.png' },
+                { name: 'MONAD', logo: '/logos/monad.png' },
+                { name: 'BASE', logo: '/logos/base.png', hasBg: true, hasBorder: true },
+                { name: 'Solana', logo: '/logos/solana.png' }
+              ].map((chain, index) => (
+                <motion.div
+                  key={chain.name}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 1.2 + index * 0.1, duration: 0.5 }}
+                  className="flex items-center justify-center"
+                >
+                  <div className={`w-12 h-12 flex items-center justify-center cursor-pointer group ${chain.hasBg ? 'bg-neutral-100 rounded-full' : ''} ${chain.hasBorder ? 'border border-neutral-200' : ''}`}>
+                    <img src={chain.logo} alt={chain.name} className="w-full h-full object-contain rounded-full grayscale opacity-70 group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-110 transition-all duration-300" />
                   </div>
-                  <span className="ml-4 text-xs text-neutral-400 font-medium">Claw Wallet</span>
-                </div>
-                
-                {/* Chat */}
-                <div className="p-6 bg-gradient-to-b from-neutral-50/50 to-white space-y-4">
-                  <motion.div 
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: 0.8 }}
-                    className="flex gap-3"
-                  >
-                    <div className="w-9 h-9 rounded-full bg-gradient-to-br from-red-500 to-red-600 flex items-center justify-center shadow-lg shadow-red-500/20">
-                      <img src="/claw.png" alt="Claw" className="w-5 h-5 object-contain brightness-0 invert" />
-                    </div>
-                    <div className="bg-white rounded-2xl rounded-tl-sm px-4 py-3 shadow-sm border border-neutral-100 max-w-[85%]">
-                      <p className="text-sm text-neutral-700">你好！我是 Claw Wallet。今天需要我帮你做什么？</p>
-                    </div>
-                  </motion.div>
-                  
-                  <motion.div 
-                    initial={{ opacity: 0, x: 20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: 1 }}
-                    className="flex gap-3 justify-end"
-                  >
-                    <div className="bg-neutral-900 rounded-2xl rounded-tr-sm px-4 py-3 shadow-lg">
-                      <p className="text-sm text-white/90">查询我的 ETH 和 USDC 余额</p>
-                    </div>
-                  </motion.div>
-                  
-                  <motion.div 
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: 1.2 }}
-                    className="flex gap-3"
-                  >
-                    <div className="w-9 h-9 rounded-full bg-gradient-to-br from-red-500 to-red-600 flex items-center justify-center shadow-lg shadow-red-500/20">
-                      <img src="/claw.png" alt="Claw" className="w-5 h-5 object-contain brightness-0 invert" />
-                    </div>
-                    <div className="bg-white rounded-2xl rounded-tl-sm px-4 py-4 shadow-sm border border-neutral-100 max-w-[90%]">
-                      <p className="text-sm text-neutral-700 mb-4">已为您查询到以下资产：</p>
-                      <div className="space-y-2">
-                        {[
-                          { token: 'ETH', name: 'Ethereum', balance: '2.45', value: '$4,890', color: '#627EEA' },
-                          { token: 'USDC', name: 'USD Coin', balance: '1,250', value: '$1,250', color: '#2775CA' },
-                        ].map((asset, i) => (
-                          <motion.div 
-                            key={asset.token}
-                            initial={{ opacity: 0, y: 10 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ delay: 1.4 + i * 0.1 }}
-                            className="flex items-center justify-between p-3 bg-neutral-50/80 rounded-xl border border-neutral-100"
-                          >
-                            <div className="flex items-center gap-3">
-                              <div className="w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold" style={{ backgroundColor: `${asset.color}15`, color: asset.color }}>
-                                {asset.token[0]}
-                              </div>
-                              <div>
-                                <p className="text-sm font-semibold text-neutral-900">{asset.name}</p>
-                                <p className="text-xs text-neutral-500">{asset.token}</p>
-                              </div>
-                            </div>
-                            <div className="text-right">
-                              <p className="text-sm font-semibold text-neutral-900">{asset.balance}</p>
-                              <p className="text-xs text-red-500 font-medium">{asset.value}</p>
-                            </div>
-                          </motion.div>
-                        ))}
-                      </div>
-                    </div>
-                  </motion.div>
-                </div>
-              </Card>
-
-              {/* Floating Elements */}
-              <motion.div
-                animate={{ y: [0, -10, 0] }}
-                transition={{ repeat: Infinity, duration: 4, ease: "easeInOut" }}
-                className="absolute -bottom-6 -left-6 bg-white rounded-2xl p-4 shadow-2xl border border-neutral-100"
-              >
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-green-50 to-green-100 flex items-center justify-center">
-                    <Shield className="w-5 h-5 text-green-600" />
-                  </div>
-                  <div>
-                    <p className="text-sm font-semibold text-neutral-900">安全连接</p>
-                    <p className="text-xs text-neutral-500">已验证</p>
-                  </div>
-                </div>
-              </motion.div>
-
-              <motion.div
-                animate={{ y: [0, 10, 0] }}
-                transition={{ repeat: Infinity, duration: 5, ease: "easeInOut", delay: 1 }}
-                className="absolute -top-4 -right-4 bg-white rounded-xl p-3 shadow-xl border border-neutral-100"
-              >
-                <div className="flex items-center gap-2">
-                  <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
-                  <span className="text-xs font-medium text-neutral-700">实时同步</span>
-                </div>
-              </motion.div>
-            </motion.div>
+                </motion.div>
+              ))}
+            </div>
           </div>
         </div>
 
@@ -751,294 +1073,203 @@ export default function Home() {
         </motion.div>
       </motion.section>
 
-      {/* Stats Section */}
-      <section className="py-20 px-6 border-y border-neutral-100 bg-neutral-50/30">
+      {/* ============================================          Agent Integration Section      ============================================ */}
+      <section className="py-32 px-6 bg-gradient-to-b from-neutral-50 to-white">
         <div className="max-w-6xl mx-auto">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            {stats.map((stat, i) => (
+          <div className="grid lg:grid-cols-2 gap-16">
+            <div className="flex flex-col">
               <motion.div
-                key={stat.label}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
+                initial={{ opacity: 0, x: -40 }}
+                whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: i * 0.1 }}
-                className="text-center"
+                transition={{ duration: 0.6 }}
               >
-                <p className="text-3xl md:text-4xl font-bold text-neutral-900">{stat.value}</p>
-                <p className="mt-2 text-sm text-neutral-500">{stat.label}</p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
 
-      {/* ============================================
-          Features Section
-      ============================================ */}
-      <section id="features" className="py-32 px-6">
-        <div className="max-w-6xl mx-auto">
-          <SectionHeader 
-            label="功能特性" 
-            title="一个 Agent，多种超能力"
-            description="通过自然语言对话，让 AI Agent 安全地管理加密资产"
-          />
-
-          <div className="grid lg:grid-cols-2 gap-8 items-start">
-            {/* Feature List */}
-            <div className="space-y-3">
-              {features.map((feature, idx) => (
-                <motion.button
-                  key={feature.id}
-                  initial={{ opacity: 0, x: -20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
+                <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-tight">
+                  <span className="block">给你的 AI Agent</span>
+                  <span className="block">安装 Claw Wallet</span>
+                  <span className="text-red-500">
+                    它将会帮你
+                  </span>
+                </h2>
+                <p className="text-lg text-neutral-600 mt-6">
+                  通过简单的 Skill 安装，你的 AI Agent 就能拥有完整的钱包能力，一切都在安全可控的环境中完成。
+                </p>
+                
+                {/* Strategy Tabs */}
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{ delay: idx * 0.1 }}
-                  onClick={() => setActiveTab(idx)}
-                  className={`w-full text-left p-6 rounded-2xl border-2 transition-all duration-300 ${
-                    activeTab === idx 
-                      ? 'bg-white border-red-200 shadow-xl shadow-red-500/5' 
-                      : 'bg-white/50 border-transparent hover:border-neutral-200 hover:bg-white hover:shadow-lg'
-                  }`}
+                  transition={{ delay: 0.2, duration: 0.6 }}
+                  className="mt-8 flex flex-wrap gap-2"
                 >
-                  <div className="flex items-start gap-4">
-                    <div className={`w-12 h-12 rounded-xl flex items-center justify-center transition-all duration-300 ${
-                      activeTab === idx ? 'bg-gradient-to-br from-red-500 to-red-600 shadow-lg shadow-red-500/20' : 'bg-neutral-100'
-                    }`}>
-                      <feature.icon className={`w-6 h-6 transition-colors ${activeTab === idx ? 'text-white' : 'text-neutral-500'}`} />
-                    </div>
-                    <div className="flex-1">
-                      <div className="flex items-center justify-between">
-                        <h3 className="font-semibold text-lg text-neutral-900">{feature.title}</h3>
-                        <ChevronRight className={`w-5 h-5 text-neutral-400 transition-transform duration-300 ${activeTab === idx ? 'rotate-90 text-red-500' : ''}`} />
-                      </div>
-                      <p className="mt-2 text-sm text-neutral-500 leading-relaxed">{feature.description}</p>
-                    </div>
+                  <button onClick={() => setActiveStrategy('create')} className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${activeStrategy === 'create' ? 'bg-red-500 text-white shadow-lg shadow-red-500/20' : 'bg-neutral-100 text-neutral-700 hover:bg-neutral-200'}`}>创建钱包</button>
+                  <button onClick={() => setActiveStrategy('market')} className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${activeStrategy === 'market' ? 'bg-red-500 text-white shadow-lg shadow-red-500/20' : 'bg-neutral-100 text-neutral-700 hover:bg-neutral-200'}`}>市场动态</button>
+                  <button onClick={() => setActiveStrategy('price')} className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${activeStrategy === 'price' ? 'bg-red-500 text-white shadow-lg shadow-red-500/20' : 'bg-neutral-100 text-neutral-700 hover:bg-neutral-200'}`}>跟踪币价</button>
+                  <button onClick={() => setActiveStrategy('arbitrage')} className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${activeStrategy === 'arbitrage' ? 'bg-red-500 text-white shadow-lg shadow-red-500/20' : 'bg-neutral-100 text-neutral-700 hover:bg-neutral-200'}`}>自动套利</button>
+                  <button onClick={() => setActiveStrategy('mining')} className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${activeStrategy === 'mining' ? 'bg-red-500 text-white shadow-lg shadow-red-500/20' : 'bg-neutral-100 text-neutral-700 hover:bg-neutral-200'}`}>挖矿</button>
+                  <button onClick={() => setActiveStrategy('meme')} className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${activeStrategy === 'meme' ? 'bg-red-500 text-white shadow-lg shadow-red-500/20' : 'bg-neutral-100 text-neutral-700 hover:bg-neutral-200'}`}>Meme</button>
+                  <button onClick={() => setActiveStrategy('ipo')} className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${activeStrategy === 'ipo' ? 'bg-red-500 text-white shadow-lg shadow-red-500/20' : 'bg-neutral-100 text-neutral-700 hover:bg-neutral-200'}`}>币股打新</button>
+                  <button onClick={() => setActiveStrategy('perps')} className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${activeStrategy === 'perps' ? 'bg-red-500 text-white shadow-lg shadow-red-500/20' : 'bg-neutral-100 text-neutral-700 hover:bg-neutral-200'}`}>Perps</button>
+                  <button onClick={() => setActiveStrategy('audit')} className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${activeStrategy === 'audit' ? 'bg-red-500 text-white shadow-lg shadow-red-500/20' : 'bg-neutral-100 text-neutral-700 hover:bg-neutral-200'}`}>安全审计</button>
+                  <button onClick={() => setActiveStrategy('transfer')} className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${activeStrategy === 'transfer' ? 'bg-red-500 text-white shadow-lg shadow-red-500/20' : 'bg-neutral-100 text-neutral-700 hover:bg-neutral-200'}`}>转账</button>
+                  <button onClick={() => setActiveStrategy('defi')} className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${activeStrategy === 'defi' ? 'bg-red-500 text-white shadow-lg shadow-red-500/20' : 'bg-neutral-100 text-neutral-700 hover:bg-neutral-200'}`}>DeFi</button>
+                  <button onClick={() => setActiveStrategy('dca')} className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${activeStrategy === 'dca' ? 'bg-red-500 text-white shadow-lg shadow-red-500/20' : 'bg-neutral-100 text-neutral-700 hover:bg-neutral-200'}`}>定投</button>
+                  <button onClick={() => setActiveStrategy('copy')} className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${activeStrategy === 'copy' ? 'bg-red-500 text-white shadow-lg shadow-red-500/20' : 'bg-neutral-100 text-neutral-700 hover:bg-neutral-200'}`}>跟单</button>
+                  <button onClick={() => setActiveStrategy('staking')} className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${activeStrategy === 'staking' ? 'bg-red-500 text-white shadow-lg shadow-red-500/20' : 'bg-neutral-100 text-neutral-700 hover:bg-neutral-200'}`}>质押</button>
+                  <button onClick={() => setActiveStrategy('lending')} className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${activeStrategy === 'lending' ? 'bg-red-500 text-white shadow-lg shadow-red-500/20' : 'bg-neutral-100 text-neutral-700 hover:bg-neutral-200'}`}>借贷</button>
+                </motion.div>
+                
+                {/* Install Command */}
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.3, duration: 0.6 }}
+                  className="mt-12"
+                >
+                  <p className="text-sm text-neutral-500 mb-3 font-medium">发送给 OpenClaw 安装：</p>
+                  <div className="flex items-center gap-3">
+                    <motion.div 
+                      className="flex-1 flex items-center gap-3 px-5 py-4 bg-neutral-900 rounded-xl shadow-xl shadow-neutral-900/20"
+                      whileHover={{ scale: 1.01 }}
+                      transition={{ type: "spring", stiffness: 400 }}
+                    >
+                      <Terminal className="w-4 h-4 text-red-400" />
+                      <code className="text-white font-mono text-sm tracking-wide">claw install wallet</code>
+                    </motion.div>
+                    <motion.button
+                      onClick={copyCommand}
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                      className="px-4 py-4 bg-white border border-neutral-200 rounded-xl hover:border-neutral-300 hover:bg-neutral-50 transition-all shadow-sm"
+                    >
+                      <AnimatePresence mode="wait">
+                        {copied ? (
+                          <motion.div
+                            key="check"
+                            initial={{ scale: 0 }}
+                            animate={{ scale: 1 }}
+                            exit={{ scale: 0 }}
+                          >
+                            <Check className="w-5 h-5 text-green-600" />
+                          </motion.div>
+                        ) : (
+                          <motion.div
+                            key="copy"
+                            initial={{ scale: 0 }}
+                            animate={{ scale: 1 }}
+                            exit={{ scale: 0 }}
+                          >
+                            <Copy className="w-5 h-5 text-neutral-600" />
+                          </motion.div>
+                        )}
+                      </AnimatePresence>
+                    </motion.button>
                   </div>
-                </motion.button>
-              ))}
+                </motion.div>
+
+              </motion.div>
             </div>
 
-            {/* Demo Panel */}
-            <div className="lg:sticky lg:top-28">
-              <AnimatePresence mode="wait">
-                <motion.div
-                  key={activeTab}
-                  initial={{ opacity: 0, y: 20, scale: 0.95 }}
-                  animate={{ opacity: 1, y: 0, scale: 1 }}
-                  exit={{ opacity: 0, y: -20, scale: 0.95 }}
-                  transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+            {/* Chat Interface */}
+            <div className="flex flex-col">
+              <motion.div
+                initial={{ opacity: 0, scale: 0.9, x: 50 }}
+                whileInView={{ opacity: 1, scale: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+              >
+                <Card className="overflow-hidden shadow-2xl shadow-neutral-900/10 border-neutral-200/50 h-full flex flex-col"
                 >
-                  <Card className="overflow-hidden shadow-2xl shadow-neutral-900/10 border-neutral-200/50">
-                    <div className="px-5 py-4 bg-neutral-50/80 border-b border-neutral-100 flex items-center justify-between">
-                      <div className="flex items-center gap-3">
-                        <div className={`w-8 h-8 rounded-lg flex items-center justify-center ${
-                          activeTab === 0 ? 'bg-blue-50' : 
-                          activeTab === 1 ? 'bg-green-50' : 
-                          activeTab === 2 ? 'bg-red-50' : 'bg-purple-50'
-                        }`}>
-                          {(() => {
-                            const Icon = features[activeTab].icon;
-                            return <Icon className={`w-4 h-4 ${
-                              activeTab === 0 ? 'text-blue-500' : 
-                              activeTab === 1 ? 'text-green-500' : 
-                              activeTab === 2 ? 'text-red-500' : 'text-purple-500'
-                            }`} />;
-                          })()}
-                        </div>
-                        <span className="text-sm font-medium text-neutral-700">{features[activeTab].label}</span>
-                      </div>
-                      <div className="flex gap-1.5">
-                        {[1, 2, 3].map((i) => (
-                          <div key={i} className={`w-2 h-2 rounded-full ${i === 1 ? 'bg-neutral-400' : 'bg-neutral-200'}`} />
-                        ))}
-                      </div>
-                    </div>
-                    <div className="p-6 bg-gradient-to-b from-neutral-50/30 to-white min-h-[400px]">
-                      {activeTab === 0 && (
-                        <div className="space-y-3">
-                          {[
-                            { token: 'ETH', name: 'Ethereum', balance: '2.45', value: '$4,890', change: '+5.2%', color: '#627EEA' },
-                            { token: 'USDC', name: 'USD Coin', balance: '1,250', value: '$1,250', change: '0%', color: '#2775CA' },
-                            { token: 'WBTC', name: 'Wrapped BTC', balance: '0.05', value: '$2,100', change: '-2.1%', color: '#F7931A' },
-                          ].map((asset, i) => (
-                            <motion.div 
-                              key={asset.token}
-                              initial={{ opacity: 0, x: -20 }}
-                              animate={{ opacity: 1, x: 0 }}
-                              transition={{ delay: i * 0.1 }}
-                              className="flex items-center justify-between p-4 bg-white rounded-xl border border-neutral-100 hover:border-neutral-200 hover:shadow-md transition-all cursor-pointer group"
-                            >
-                              <div className="flex items-center gap-4">
-                                <div className="w-10 h-10 rounded-full flex items-center justify-center text-sm font-bold" style={{ backgroundColor: `${asset.color}15`, color: asset.color }}>
-                                  {asset.token[0]}
-                                </div>
-                                <div>
-                                  <p className="text-sm font-semibold text-neutral-900">{asset.name}</p>
-                                  <p className="text-xs text-neutral-500">{asset.token}</p>
-                                </div>
-                              </div>
-                              <div className="text-right">
-                                <p className="text-sm font-semibold text-neutral-900">{asset.balance}</p>
-                                <p className={`text-xs font-medium ${asset.change.startsWith('+') ? 'text-green-600' : asset.change === '0%' ? 'text-neutral-500' : 'text-red-500'}`}>
-                                  {asset.value} · {asset.change}
-                                </p>
-                              </div>
-                            </motion.div>
-                          ))}
-                        </div>
-                      )}
-
-                      {activeTab === 1 && (
-                        <div className="space-y-5">
-                          <div className="text-center py-8">
-                            <div className="relative w-32 h-32 mx-auto">
-                              <svg className="w-full h-full -rotate-90">
-                                <circle cx="64" cy="64" r="56" stroke="#f5f5f5" strokeWidth="10" fill="none" />
-                                <motion.circle
-                                  cx="64" cy="64" r="56"
-                                  stroke="url(#gradient)"
-                                  strokeWidth="10"
-                                  fill="none"
-                                  strokeLinecap="round"
-                                  initial={{ strokeDasharray: "0 351" }}
-                                  animate={{ strokeDasharray: "316 351" }}
-                                  transition={{ duration: 1.5, delay: 0.3 }}
-                                />
-                                <defs>
-                                  <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                                    <stop offset="0%" stopColor="#EF4444" />
-                                    <stop offset="100%" stopColor="#DC2626" />
-                                  </linearGradient>
-                                </defs>
-                              </svg>
-                              <div className="absolute inset-0 flex items-center justify-center">
-                                <span className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-red-600">98</span>
-                              </div>
-                            </div>
-                            <p className="mt-4 text-sm font-semibold text-neutral-900">安全评分</p>
-                            <p className="text-xs text-neutral-500">您的钱包非常安全</p>
-                          </div>
-                          <div className="space-y-3">
-                            {[
-                              { label: '私钥自托管', status: '已启用', color: 'green' },
-                              { label: 'TEE 硬件加密', status: '运行中', color: 'green' },
-                              { label: '多重签名', status: '已配置', color: 'green' },
-                            ].map((item, i) => (
-                              <motion.div 
-                                key={item.label}
-                                initial={{ opacity: 0, x: -20 }}
-                                animate={{ opacity: 1, x: 0 }}
-                                transition={{ delay: 0.5 + i * 0.1 }}
-                                className="flex items-center justify-between p-4 bg-white rounded-xl border border-neutral-100"
-                              >
-                                <span className="text-sm font-medium text-neutral-700">{item.label}</span>
-                                <span className={`text-xs px-3 py-1 rounded-full font-medium ${
-                                  item.color === 'green' ? 'bg-green-50 text-green-600' : 'bg-neutral-100 text-neutral-600'
-                                }`}>
-                                  {item.status}
-                                </span>
-                              </motion.div>
-                            ))}
-                          </div>
-                        </div>
-                      )}
-
-                      {activeTab === 2 && (
-                        <div className="space-y-4">
-                          {[
-                            { title: '可疑交易已拦截', time: '2分钟前', type: 'blocked', desc: '检测到异常转账行为' },
-                            { title: '大额转账确认', time: '1小时前', type: 'warning', desc: '超过设定限额，需人工确认' },
-                          ].map((alert, i) => (
-                            <motion.div 
-                              key={i}
-                              initial={{ opacity: 0, x: -20 }}
-                              animate={{ opacity: 1, x: 0 }}
-                              transition={{ delay: i * 0.15 }}
-                              className={`p-5 rounded-xl border ${alert.type === 'blocked' ? 'bg-gradient-to-r from-red-50 to-transparent border-red-100' : 'bg-gradient-to-r from-amber-50 to-transparent border-amber-100'}`}
-                            >
-                              <div className="flex items-start gap-4">
-                                <div className={`w-10 h-10 rounded-xl flex items-center justify-center ${alert.type === 'blocked' ? 'bg-red-100' : 'bg-amber-100'}`}>
-                                  <Activity className={`w-5 h-5 ${alert.type === 'blocked' ? 'text-red-600' : 'text-amber-600'}`} />
-                                </div>
-                                <div className="flex-1">
-                                  <div className="flex items-center justify-between">
-                                    <p className={`text-sm font-semibold ${alert.type === 'blocked' ? 'text-red-900' : 'text-amber-900'}`}>{alert.title}</p>
-                                    <span className={`text-xs px-2.5 py-1 rounded-full font-medium ${alert.type === 'blocked' ? 'bg-red-200 text-red-800' : 'bg-amber-200 text-amber-800'}`}>
-                                      {alert.type === 'blocked' ? '已阻止' : '待确认'}
-                                    </span>
-                                  </div>
-                                  <p className={`text-xs mt-1 ${alert.type === 'blocked' ? 'text-red-600' : 'text-amber-600'}`}>{alert.desc}</p>
-                                  <p className="text-xs text-neutral-400 mt-1">{alert.time}</p>
-                                </div>
-                              </div>
-                            </motion.div>
-                          ))}
-                          <motion.div 
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ delay: 0.4 }}
-                            className="p-5 bg-white rounded-xl border border-neutral-100"
+                  {/* Chat Content */}
+                  <div className="p-6 bg-white space-y-6 flex flex-col flex-1">
+                    {/* Option Selection */}
+                    <AnimatePresence mode="wait">
+                      <motion.div
+                        key={activeStrategy}
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: -20 }}
+                        transition={{ duration: 0.4 }}
+                        className="bg-neutral-50 rounded-xl p-5 flex flex-col flex-1"
+                      >
+                        {/* Messages Container */}
+                        <div className="messages-container space-y-4 mb-4 flex-1 overflow-y-auto">
+                          {/* User's initial request (title) */}
+                          <motion.div
+                            key={`title-${activeStrategy}`}
+                            initial={{ opacity: 0, x: 20 }}
+                            animate={{ opacity: 1, x: 0 }}
+                            transition={{ duration: 0.3 }}
+                            className="flex justify-end"
                           >
-                            <p className="text-sm font-semibold text-neutral-900 mb-4">风控策略</p>
-                            <div className="space-y-3 text-sm">
-                              {[
-                                { label: '每日转账限额', value: '1,000 USDC' },
-                                { label: '单笔最大金额', value: '500 USDC' },
-                                { label: '新地址验证', value: '已启用', highlight: true },
-                              ].map((item, i) => (
-                                <div key={item.label} className="flex justify-between items-center">
-                                  <span className="text-neutral-500">{item.label}</span>
-                                  <span className={`font-medium ${item.highlight ? 'text-green-600' : 'text-neutral-900'}`}>{item.value}</span>
-                                </div>
-                              ))}
+                            <div className="max-w-[85%] rounded-2xl px-4 py-3 text-sm whitespace-pre-line bg-red-500 text-white rounded-br-md">
+                              {strategyDescriptions[activeStrategy].chatContent.title}
                             </div>
                           </motion.div>
-                        </div>
-                      )}
-
-                      {activeTab === 3 && (
-                        <div className="space-y-3">
-                          {[
-                            { name: 'Ethereum', symbol: 'ETH', balance: '2.45', color: '#627EEA', tag: '主网' },
-                            { name: 'Base', symbol: 'ETH', balance: '1.20', color: '#0052FF', tag: 'L2' },
-                            { name: 'Arbitrum', symbol: 'ETH', balance: '0.80', color: '#28A0F0', tag: 'L2' },
-                            { name: 'Optimism', symbol: 'ETH', balance: '0.50', color: '#FF0420', tag: 'L2' },
-                          ].map((chain, i) => (
-                            <motion.div 
-                              key={chain.name}
-                              initial={{ opacity: 0, y: 10 }}
-                              animate={{ opacity: 1, y: 0 }}
-                              transition={{ delay: i * 0.08 }}
-                              className="flex items-center justify-between p-4 bg-white rounded-xl border border-neutral-100 hover:border-neutral-200 hover:shadow-md transition-all cursor-pointer group"
+                          
+                          {/* Other messages */}
+                          {visibleMessages.map((msgIdx) => {
+                            const message = strategyDescriptions[activeStrategy].chatContent.messages[msgIdx];
+                            if (!message) return null;
+                            const isAI = msgIdx % 2 === 1; // AI messages are at odd indices (second, fourth, etc.)
+                            return (
+                              <motion.div
+                                key={msgIdx}
+                                initial={{ opacity: 0, x: isAI ? -20 : 20 }}
+                                animate={{ opacity: 1, x: 0 }}
+                                transition={{ duration: 0.3 }}
+                                className={`flex ${isAI ? 'justify-start' : 'justify-end'}`}
+                              >
+                                <div className={`max-w-[85%] rounded-2xl px-4 py-3 text-sm whitespace-pre-line ${isAI ? 'bg-neutral-100 text-neutral-700 rounded-bl-md' : 'bg-red-500 text-white rounded-br-md'}`}>
+                                  {message}
+                                </div>
+                              </motion.div>
+                            );
+                          })}
+                          
+                          {/* Typing indicator */}
+                          {isTyping && (
+                            <motion.div
+                              initial={{ opacity: 0 }}
+                              animate={{ opacity: 1 }}
+                              className="flex justify-start"
                             >
-                              <div className="flex items-center gap-4">
-                                <div className="w-10 h-10 rounded-full flex items-center justify-center text-sm font-bold" style={{ backgroundColor: `${chain.color}15`, color: chain.color }}>
-                                  {chain.name[0]}
-                                </div>
-                                <div>
-                                  <div className="flex items-center gap-2">
-                                    <p className="text-sm font-semibold text-neutral-900 group-hover:text-red-500 transition-colors">{chain.name}</p>
-                                    <span className="text-[10px] px-1.5 py-0.5 bg-neutral-100 text-neutral-500 rounded-full">{chain.tag}</span>
-                                  </div>
-                                  <p className="text-xs text-neutral-500">{chain.symbol}</p>
-                                </div>
-                              </div>
-                              <div className="flex items-center gap-3">
-                                <span className="text-sm font-semibold text-neutral-900">{chain.balance} {chain.symbol}</span>
-                                <ChevronRight className="w-4 h-4 text-neutral-300 group-hover:text-neutral-500 transition-colors" />
+                              <div className="bg-neutral-100 rounded-2xl rounded-bl-md px-4 py-3 flex items-center gap-1">
+                                <span className="w-1.5 h-1.5 bg-neutral-400 rounded-full animate-bounce" style={{ animationDelay: '0ms' }} />
+                                <span className="w-1.5 h-1.5 bg-neutral-400 rounded-full animate-bounce" style={{ animationDelay: '150ms' }} />
+                                <span className="w-1.5 h-1.5 bg-neutral-400 rounded-full animate-bounce" style={{ animationDelay: '300ms' }} />
                               </div>
                             </motion.div>
-                          ))}
+                          )}
                         </div>
-                      )}
+                        
+
+                      </motion.div>
+                    </AnimatePresence>
+                    
+                    {/* Message Input */}
+                    <div className="flex gap-3 mt-auto">
+                      <input 
+                        type="text" 
+                        placeholder="输入你的指令... 例如：查询余额、转账、创建钱包" 
+                        className="flex-1 px-4 py-3 rounded-full border border-neutral-200 focus:outline-none focus:ring-2 focus:ring-red-500/30 focus:border-red-500 transition-all text-sm"
+                      />
+                      <button className="px-6 py-3 bg-red-500 text-white rounded-full font-medium shadow-lg shadow-red-500/20 hover:bg-red-600 transition-all">
+                        Ask Claw
+                      </button>
                     </div>
-                  </Card>
-                </motion.div>
-              </AnimatePresence>
+                  </div>
+                </Card>
+              </motion.div>
             </div>
           </div>
         </div>
       </section>
+
+
 
       {/* ============================================
           How It Works
@@ -1052,7 +1283,6 @@ export default function Home() {
 
         <div className="max-w-6xl mx-auto relative">
           <SectionHeader 
-            label="快速开始" 
             title="三步即刻开始"
             light
           />
@@ -1091,9 +1321,9 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ============================================
-          Security Section
-      ============================================ */}
+
+
+      {/* ============================================          Security Section      ============================================ */}
       <section id="security" className="py-32 px-6">
         <div className="max-w-6xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
@@ -1103,7 +1333,7 @@ export default function Home() {
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
             >
-              <span className="inline-block text-xs font-semibold tracking-[0.2em] uppercase text-red-500 mb-4">安全架构</span>
+
               <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-tight">
                 安全至上，
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-red-600">
@@ -1212,71 +1442,9 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ============================================
-          Developer Section
-      ============================================ */}
-      <section className="py-32 px-6 bg-gradient-to-b from-neutral-50 to-white">
-        <div className="max-w-6xl mx-auto">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
-            <motion.div
-              initial={{ opacity: 0, x: -40 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-            >
-              <span className="inline-block text-xs font-semibold tracking-[0.2em] uppercase text-red-500 mb-4">Agent 集成</span>
-              <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-tight">
-                给你的 Agent
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-red-600">
-                  一个安全的钱包
-                </span>
-              </h2>
-              <p className="mt-6 text-lg text-neutral-600 leading-relaxed">
-                通过简单的 Skill 安装，你的 AI Agent 就能拥有完整的钱包能力。查询余额、执行转账、管理资产，一切都在安全可控的环境中完成。
-              </p>
 
-              <div className="mt-8 rounded-2xl overflow-hidden bg-neutral-900 shadow-2xl shadow-neutral-900/20">
-                <div className="flex items-center gap-2 px-5 py-4 border-b border-white/10 bg-neutral-900/50">
-                  <div className="w-3 h-3 rounded-full bg-red-400" />
-                  <div className="w-3 h-3 rounded-full bg-amber-400" />
-                  <div className="w-3 h-3 rounded-full bg-green-400" />
-                  <span className="ml-4 text-xs text-neutral-500 font-mono">terminal</span>
-                </div>
-                <div className="p-6">
-                  <pre className="text-sm font-mono leading-relaxed text-neutral-300">
-                    <code>{`$ claw install wallet
-`}<span className="text-green-400">✓</span>{` Successfully installed Claw Wallet
 
-$ claw wallet create
-`}<span className="text-green-400">✓</span>{` Wallet created securely
-  Address: 0x7a8b...3c4d
-
-$ claw balance
-ETH:  2.45  ($4,890)
-USDC: 1,250 ($1,250)`}</code>
-                  </pre>
-                </div>
-              </div>
-
-              <motion.button
-                onClick={copyCommand}
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-                className="mt-4 flex items-center gap-2 text-sm text-neutral-500 hover:text-red-500 transition-colors"
-              >
-                {copied ? <Check className="w-4 h-4" /> : <Copy className="w-4 h-4" />}
-                {copied ? '已复制!' : '复制安装命令'}
-              </motion.button>
-            </motion.div>
-
-            <ChatDemoCard />
-          </div>
-        </div>
-      </section>
-
-      {/* ============================================
-          CTA Section
-      ============================================ */}
+      {/* ============================================          CTA Section      ============================================ */}
       <section className="py-32 px-6 relative overflow-hidden">
         {/* Background */}
         <div className="absolute inset-0 pointer-events-none">
@@ -1290,10 +1458,7 @@ USDC: 1,250 ($1,250)`}</code>
           transition={{ duration: 0.6 }}
           className="max-w-3xl mx-auto text-center relative"
         >
-          <Badge className="mb-6">
-            <Sparkles className="w-3.5 h-3.5" />
-            开始构建
-          </Badge>
+          <img src="/claw.png" alt="Claw Wallet" className="h-12 w-auto mb-6" />
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-tight">
             准备好让你的 Agent
             <br />
@@ -1333,9 +1498,9 @@ USDC: 1,250 ($1,250)`}</code>
         </motion.div>
       </section>
 
-      {/* ============================================
-          Footer
-      ============================================ */}
+
+
+      {/* ============================================          Footer      ============================================ */}
       <footer className="py-16 px-6 border-t border-neutral-100 bg-neutral-50/30">
         <div className="max-w-6xl mx-auto">
           <div className="grid md:grid-cols-4 gap-12 mb-12">
@@ -1386,7 +1551,7 @@ USDC: 1,250 ($1,250)`}</code>
             <div className="flex items-center gap-6">
               <a href="#" className="text-sm text-neutral-400 hover:text-neutral-600 transition-colors">隐私政策</a>
               <a href="#" className="text-sm text-neutral-400 hover:text-neutral-600 transition-colors">服务条款</a>
-              <span className="text-sm font-medium text-neutral-900 bg-neutral-100 px-3 py-1 rounded-full">v1.3.0</span>
+              <span className="text-sm font-medium text-neutral-900 bg-neutral-100 px-3 py-1 rounded-full">v1.6.0</span>
             </div>
           </div>
         </div>
