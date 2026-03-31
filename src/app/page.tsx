@@ -1180,11 +1180,12 @@ export default function Home() {
                 whileInView={{ opacity: 1, scale: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6 }}
+                style={{ height: '100%' }}
               >
                 <Card className="overflow-hidden shadow-2xl shadow-neutral-900/10 border-neutral-200/50 h-full flex flex-col"
                 >
                   {/* Chat Content */}
-                  <div className="p-6 bg-white space-y-6 flex flex-col flex-1">
+                  <div className="p-6 bg-white space-y-6 flex flex-col" style={{ height: '100%' }}>
                     {/* Option Selection */}
                     <AnimatePresence mode="wait">
                       <motion.div
@@ -1196,7 +1197,7 @@ export default function Home() {
                         className="bg-neutral-50 rounded-xl p-5 flex flex-col flex-1"
                       >
                         {/* Messages Container */}
-                        <div className="messages-container space-y-4 mb-4 flex-1 overflow-y-auto">
+                        <div className="messages-container space-y-4 mb-4" style={{ flex: 1, overflowY: 'auto' }}>
                           {/* User's initial request (title) */}
                           <motion.div
                             key={`title-${activeStrategy}`}
