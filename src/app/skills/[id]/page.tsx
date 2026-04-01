@@ -131,6 +131,12 @@ const Badge = ({ children, variant = 'default', className = '' }: { children: Re
   </span>
 );
 
+export function generateStaticParams() {
+  return skillsData.map((skill) => ({
+    id: skill.id,
+  }));
+}
+
 export default function SkillDetailPage() {
   const { id } = useParams<{ id: string }>();
   const router = useRouter();

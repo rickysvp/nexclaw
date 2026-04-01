@@ -553,32 +553,32 @@ const strategyDescriptions = {
 // Components
 // ============================================
 
-const Button = ({ 
-  children, 
-  variant = 'primary', 
+const Button = ({
+  children,
+  variant = 'primary',
   size = 'md',
   className = '',
   icon: Icon
-}: { 
-  children: React.ReactNode; 
+}: {
+  children: React.ReactNode;
   variant?: 'primary' | 'secondary' | 'ghost' | 'outline';
   size?: 'sm' | 'md' | 'lg';
   className?: string;
   icon?: React.ComponentType<{ className?: string }>;
 }) => {
-  const baseStyles = 'inline-flex items-center justify-center gap-2 font-medium transition-all duration-300 rounded-xl';
+  const baseStyles = 'inline-flex items-center justify-center gap-2 font-bold transition-all duration-200 rounded-full border-2 border-slate-800';
   const variants = {
-    primary: 'bg-neutral-900 text-white hover:bg-neutral-800 shadow-lg shadow-neutral-900/10 hover:shadow-xl hover:shadow-neutral-900/20 hover:-translate-y-0.5',
-    secondary: 'bg-white text-neutral-900 border border-neutral-200 hover:border-neutral-300 hover:bg-neutral-50 hover:-translate-y-0.5',
-    outline: 'bg-transparent text-neutral-700 border border-neutral-300 hover:border-neutral-400 hover:bg-neutral-50',
-    ghost: 'text-neutral-600 hover:text-neutral-900 hover:bg-neutral-100',
+    primary: 'bg-orange-500 text-white shadow-hard hover:shadow-hard-hover active:shadow-hard-active',
+    secondary: 'bg-white text-slate-800 shadow-hard-sm hover:shadow-hard hover:border-orange-500',
+    outline: 'bg-transparent text-slate-800 border-2 border-slate-800 hover:bg-slate-800 hover:text-white',
+    ghost: 'text-slate-600 hover:text-slate-900 hover:bg-slate-100 border-transparent',
   };
   const sizes = {
-    sm: 'px-4 py-2 text-sm',
-    md: 'px-5 py-2.5 text-sm',
-    lg: 'px-8 py-4 text-base',
+    sm: 'px-4 py-2 text-sm min-h-[36px]',
+    md: 'px-5 py-2.5 text-sm min-h-[44px]',
+    lg: 'px-8 py-4 text-base min-h-[52px]',
   };
-  
+
   return (
     <button className={`${baseStyles} ${variants[variant]} ${sizes[size]} ${className}`}>
       {children}
@@ -588,7 +588,7 @@ const Button = ({
 };
 
 const Card = ({ children, className = '', hover = false }: { children: React.ReactNode; className?: string; hover?: boolean }) => (
-  <div className={`bg-white rounded-2xl border border-neutral-100/80 shadow-sm ${hover ? 'hover:shadow-xl hover:shadow-neutral-900/5 hover:border-neutral-200 transition-all duration-300 hover:-translate-y-1' : ''} ${className}`}>
+  <div className={`bg-white rounded-2xl border-2 border-slate-800 shadow-hard ${hover ? 'hover:shadow-hard-hover animate-wiggle' : ''} ${className}`}>
     {children}
   </div>
 );
@@ -723,7 +723,7 @@ const SectionHeader = ({ label, title, description, light = false }: { label?: s
     initial={{ opacity: 0, y: 20 }}
     whileInView={{ opacity: 1, y: 0 }}
     viewport={{ once: true }}
-    className="text-center max-w-2xl mx-auto mb-16"
+    className="text-center max-w-2xl mx-auto mb-16 relative"
   >
     {label && (
       <span className={`inline-block text-xs font-semibold tracking-[0.2em] uppercase mb-4 ${light ? 'text-neutral-500' : 'text-orange-500'}`}>
@@ -733,6 +733,8 @@ const SectionHeader = ({ label, title, description, light = false }: { label?: s
     <h2 className={`text-3xl md:text-4xl font-bold ${light ? 'text-white' : 'text-neutral-900'}`}>
       {title}
     </h2>
+    <div className={`absolute -top-8 -right-8 w-16 h-16 rounded-full bg-orange-500/10 -z-10`} />
+    <div className={`absolute -bottom-4 -left-4 w-8 h-8 bg-orange-500/20 rounded-full -z-10`} />
     {description && (
       <p className={`mt-6 text-lg leading-relaxed ${light ? 'text-neutral-400' : 'text-neutral-600'}`}>
         {description}
@@ -890,16 +892,25 @@ export default function Home() {
       {/* ============================================
           Hero Section
       ============================================ */}
-      <motion.section style={{ opacity: heroOpacity }} className="relative min-h-screen flex items-center pt-16 pb-20 px-6">
+      <motion.section style={{ opacity: heroOpacity }} className="relative min-h-screen flex items-center pt-16 pb-20 px-6 overflow-hidden">
+        {/* Geometric Decorations */}
+        <div className="absolute top-32 left-10 w-20 h-20 rounded-full bg-orange-500/10 animate-float" />
+        <div className="absolute top-48 right-20 w-12 h-12 rounded-full bg-orange-500/20 animate-float" style={{ animationDelay: '0.5s' }} />
+        <div className="absolute bottom-40 left-1/4 w-8 h-8 rounded-full bg-orange-500/15 animate-float" style={{ animationDelay: '1s' }} />
+        <div className="absolute top-1/3 right-1/4 w-4 h-4 bg-slate-800 rounded-full" />
+        <div className="absolute bottom-1/3 left-20 w-6 h-6 bg-slate-800 rotate-45" />
+
         <div className="max-w-4xl mx-auto w-full relative">
           <div className="flex flex-col items-center text-center">
               {/* Badge */}
-              <motion.div 
+              <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.2, duration: 0.6 }}
+                className="relative"
               >
                 <img src="/claw.png" alt="Claw Wallet" className="h-12 w-auto" />
+                <div className="absolute -top-2 -right-2 w-4 h-4 bg-orange-500 rounded-full" />
               </motion.div>
               
               {/* Headline */}
@@ -936,19 +947,19 @@ export default function Home() {
               >
                 <p className="text-sm text-neutral-500 mb-3 font-medium">发送给 OpenClaw 安装：</p>
                 <div className="flex items-center gap-3">
-                  <motion.div 
-                    className="flex-1 flex items-center gap-3 px-5 py-4 bg-neutral-900 rounded-xl shadow-xl shadow-neutral-900/20"
+                  <motion.div
+                    className="flex-1 flex items-center gap-3 px-5 py-4 bg-slate-800 rounded-full border-2 border-slate-800 shadow-hard"
                     whileHover={{ scale: 1.01 }}
                     transition={{ type: "spring", stiffness: 400 }}
                   >
-                    <Terminal className="w-4 h-4 text-red-400" />
+                    <Terminal className="w-4 h-4 text-orange-400" />
                     <code className="text-white font-mono text-sm tracking-wide">claw install wallet</code>
                   </motion.div>
                   <motion.button
                     onClick={copyCommand}
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
-                    className="px-4 py-4 bg-white border border-neutral-200 rounded-xl hover:border-neutral-300 hover:bg-neutral-50 transition-all shadow-sm"
+                    className="px-4 py-4 bg-white rounded-full border-2 border-slate-800 shadow-hard-sm hover:shadow-hard transition-all"
                   >
                     <AnimatePresence mode="wait">
                       {copied ? (
@@ -1065,7 +1076,7 @@ export default function Home() {
           <p className="mt-3 text-neutral-500">为不同类型的用户提供专业的加密资产安全管理方案</p>
           <div className="mt-8 flex flex-wrap justify-center gap-3">
             {['OpenClaw用户', 'AI Agent', 'Web3新用户', '加密投资者', 'DeFi用户', '交易员', 'AI团队', '区块链开发者', '机构用户', '跨境中小企业'].map((tag) => (
-              <span key={tag} className="px-5 py-2.5 bg-neutral-100 text-neutral-700 rounded-full text-sm font-medium">
+              <span key={tag} className="px-5 py-2.5 bg-white border-2 border-slate-800 text-slate-800 rounded-full text-sm font-bold hover:bg-orange-500 hover:border-orange-500 hover:text-white transition-all shadow-sm hover:shadow-hard">
                 {tag}
               </span>
             ))}
@@ -1285,19 +1296,19 @@ export default function Home() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1 }}
-                className="p-6 rounded-2xl bg-neutral-50 border border-neutral-100 hover:shadow-lg transition-all cursor-pointer group"
+                className="p-6 rounded-2xl bg-white border-2 border-slate-800 shadow-hard hover:shadow-hard-hover cursor-pointer group"
               >
                 <div className="flex items-start justify-between">
                   <div className="flex-1">
-                    <h4 className="font-semibold text-neutral-900 group-hover:text-orange-500 transition-colors">{skill.name}</h4>
-                    <p className="text-xs text-neutral-500 mt-1">{skill.author}</p>
+                    <h4 className="font-bold text-slate-800 group-hover:text-orange-500 transition-colors">{skill.name}</h4>
+                    <p className="text-xs text-slate-500 mt-1">{skill.author}</p>
                   </div>
                   <div className="flex items-center gap-3">
-                    <span className="text-xs text-neutral-400">{skill.installs}</span>
-                    <Github className="w-4 h-4 text-neutral-400" />
+                    <span className="text-xs text-slate-400 font-medium">{skill.installs}</span>
+                    <Github className="w-4 h-4 text-slate-400" />
                   </div>
                 </div>
-                <p className="text-sm text-neutral-600 mt-3">{skill.desc}</p>
+                <p className="text-sm text-slate-600 mt-3">{skill.desc}</p>
               </motion.div>
             ))}
           </div>
@@ -1338,20 +1349,17 @@ export default function Home() {
                 transition={{ delay: idx * 0.15, duration: 0.6 }}
                 className="relative group"
               >
-                <div className="absolute -top-4 -left-2 text-8xl font-bold text-white/[0.03] select-none">{item.step}</div>
-                <div className="relative p-8 rounded-3xl bg-white/[0.03] border border-white/[0.08] backdrop-blur-sm hover:bg-white/[0.05] hover:border-white/[0.12] transition-all duration-300 h-full">
-                  <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-orange-500 to-orange-600 flex items-center justify-center mb-6 shadow-lg shadow-orange-500/20 group-hover:shadow-orange-500/30 group-hover:scale-105 transition-all duration-300">
+                <div className="absolute -top-4 -left-2 text-8xl font-black text-white/5 select-none">{item.step}</div>
+                <div className="relative p-8 rounded-2xl bg-white border-2 border-slate-800 shadow-hard hover:shadow-hard-hover transition-all h-full">
+                  <div className="w-14 h-14 rounded-full bg-orange-500 flex items-center justify-center mb-6 shadow-hard-sm">
                     <item.icon className="w-7 h-7 text-white" />
                   </div>
-                  <h3 className="text-xl font-semibold mb-3">{item.title}</h3>
-                  <p className="text-neutral-400 text-sm leading-relaxed mb-6">{item.desc}</p>
-                  <div className="p-4 rounded-xl bg-black/30 border border-white/10 font-mono text-sm text-neutral-300">
+                  <h3 className="text-xl font-bold text-slate-800 mb-3">{item.title}</h3>
+                  <p className="text-slate-600 text-sm leading-relaxed mb-6">{item.desc}</p>
+                  <div className="p-4 rounded-full bg-slate-100 border-2 border-slate-800 font-mono text-sm text-slate-800">
                     "{item.command}"
                   </div>
                 </div>
-                {idx < 2 && (
-                  <div className="hidden md:block absolute top-1/2 -right-4 w-8 h-[2px] bg-gradient-to-r from-white/20 to-transparent" />
-                )}
               </motion.div>
             ))}
           </div>
@@ -1447,7 +1455,7 @@ export default function Home() {
                   viewport={{ once: true }}
                   transition={{ delay: 0.5 }}
                   animate={{ y: [0, -8, 0] }}
-                  className="absolute bottom-8 right-8 bg-white rounded-2xl p-5 shadow-2xl border border-neutral-100"
+                  className="absolute bottom-8 right-8 bg-white rounded-2xl p-5 shadow-hard border-2 border-slate-800"
                 >
                   <div className="flex items-center gap-4">
                     <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-green-50 to-green-100 flex items-center justify-center">
@@ -1466,7 +1474,7 @@ export default function Home() {
                   viewport={{ once: true }}
                   transition={{ delay: 0.7 }}
                   animate={{ y: [0, 8, 0] }}
-                  className="absolute top-8 left-8 bg-white rounded-xl p-4 shadow-xl border border-neutral-100"
+                  className="absolute top-8 left-8 bg-white rounded-2xl p-4 shadow-hard border-2 border-slate-800"
                 >
                   <div className="flex items-center gap-3">
                     <div className="w-3 h-3 rounded-full bg-green-500 animate-pulse" />
@@ -1510,18 +1518,17 @@ export default function Home() {
           <div className="mt-10">
             <p className="text-sm text-neutral-500 mb-4 font-medium">发送给 OpenClaw 立即安装：</p>
             <div className="flex items-center justify-center gap-3 max-w-md mx-auto">
-              <motion.div 
-                className="flex-1 flex items-center gap-3 px-5 py-4 bg-neutral-900 rounded-xl shadow-xl shadow-neutral-900/20"
+              <motion.div className="flex-1 flex items-center gap-3 px-5 py-4 bg-slate-800 rounded-full border-2 border-slate-800 shadow-hard"
                 whileHover={{ scale: 1.01 }}
               >
-                <Terminal className="w-4 h-4 text-red-400" />
+                <Terminal className="w-4 h-4 text-orange-400" />
                 <code className="text-white font-mono text-sm tracking-wide">claw install wallet</code>
               </motion.div>
               <motion.button
                 onClick={copyCommand}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="px-4 py-4 bg-white border border-neutral-200 rounded-xl hover:border-neutral-300 hover:bg-neutral-50 transition-all shadow-sm"
+                className="px-4 py-4 bg-white rounded-full border-2 border-slate-800 shadow-hard-sm hover:shadow-hard transition-all"
               >
                 {copied ? <Check className="w-5 h-5 text-green-600" /> : <Copy className="w-5 h-5 text-neutral-600" />}
               </motion.button>
@@ -1553,18 +1560,18 @@ export default function Home() {
             ].map((item, i) => (
               <div
                 key={i}
-                className="bg-white rounded-xl border border-neutral-100 overflow-hidden"
+                className="bg-white rounded-2xl border-2 border-slate-800 shadow-hard overflow-hidden"
               >
                 <button
                   onClick={() => setOpenFaqIndex(openFaqIndex === i ? null : i)}
-                  className="w-full px-6 py-4 flex items-center justify-between text-left"
+                  className="w-full px-6 py-4 flex items-center justify-between text-left hover:bg-slate-50 transition-colors"
                 >
-                  <span className="font-semibold text-neutral-900">{item.q}</span>
-                  <ChevronDown className={`w-5 h-5 text-neutral-400 transition-transform ${openFaqIndex === i ? 'rotate-180' : ''}`} />
+                  <span className="font-bold text-slate-800">{item.q}</span>
+                  <ChevronDown className={`w-5 h-5 text-orange-500 transition-transform ${openFaqIndex === i ? 'rotate-180' : ''}`} />
                 </button>
                 {openFaqIndex === i && (
-                  <div className="px-6 pb-4">
-                    <p className="text-neutral-600 text-sm">{item.a}</p>
+                  <div className="px-6 pb-4 border-t-2 border-slate-100">
+                    <p className="text-slate-600 text-sm mt-3">{item.a}</p>
                   </div>
                 )}
               </div>
@@ -1584,7 +1591,7 @@ export default function Home() {
               {[1, 2].map((_, i) => (
                 <div key={i} className="flex items-center gap-16 px-8 shrink-0">
                   {['Uniswap', 'Aave', 'Chainlink', 'OpenSea', 'Coinbase', 'Binance', 'Paradigm', 'Dragonfly'].map((partner) => (
-                    <div key={partner} className="text-2xl font-bold text-neutral-300 hover:text-orange-500 transition-colors whitespace-nowrap">
+                    <div key={partner} className="text-2xl font-black text-slate-800/30 hover:text-orange-500 transition-colors whitespace-nowrap">
                       {partner}
                     </div>
                   ))}
