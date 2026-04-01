@@ -929,8 +929,11 @@ export default function Home() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.3, duration: 0.6 }}
                 className="mt-4 text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold tracking-tight leading-[1.1]"
-                dangerouslySetInnerHTML={{ __html: t('hero.title', currentLang) }}
-              />
+              >
+                {currentLang === 'zh' ? '让AI Agent' : 'Let AI Agent'}
+                <br />
+                <span className="text-primary">{currentLang === 'zh' ? '拥有安全钱包' : 'Have a Secure Wallet'}</span>
+              </motion.h1>
 
               
               {/* Description */}

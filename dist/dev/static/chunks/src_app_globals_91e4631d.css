@@ -5299,6 +5299,10 @@
     app-:  6;
   }
 
+  .\[app-\:\b r\] {
+    app-:  r;
+  }
+
   .\[key\:\\Q4ng\] {
     key: Q4ng;
   }
@@ -5309,6 +5313,18 @@
 
   .\[key\:r\10 �ng\] {
     key: r �ng;
+  }
+
+  .\[key\:y\f 4ng\] {
+    key: y 4ng;
+  }
+
+  .\[key\:ï�\] {
+    key: ï�;
+  }
+
+  .\[key\:�04ng\] {
+    key: �04ng;
   }
 
   .\[key\:��4ng\] {
@@ -5325,6 +5341,10 @@
 
   .\[name\:�\13 �ng\] {
     name: � �ng;
+  }
+
+  .\[name\:�\$�ng\] {
+    name: �$ �ng;
   }
 
   :where(.divide-x-reverse > :not(:last-child)) {
