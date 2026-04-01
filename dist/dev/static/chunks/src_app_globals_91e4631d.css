@@ -1175,6 +1175,10 @@
     margin-right: calc(var(--spacing) * 2);
   }
 
+  .mr-4 {
+    margin-right: calc(var(--spacing) * 4);
+  }
+
   .mb-1 {
     margin-bottom: calc(var(--spacing) * 1);
   }
@@ -1634,6 +1638,10 @@
 
   .w-96 {
     width: calc(var(--spacing) * 96);
+  }
+
+  .w-\[\12 5c\] {
+    width:  5c;
   }
 
   .w-\[200px\] {
@@ -5291,12 +5299,20 @@
     app-:  � ;
   }
 
+  .\[app-a\:6\] {
+    app-a: 6;
+  }
+
   .\[app\:\4 6\] {
     app:  6;
   }
 
   .\[key\:0\10 �ng\] {
     key: 0 �ng;
+  }
+
+  .\[key\:\\Q4ng\] {
+    key: Q4ng;
   }
 
   .\[key\:\^\^4ng\] {

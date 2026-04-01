@@ -1,6 +1,6 @@
 {
   "name": "claw-wallet",
-  "version": "3.11.11",
+  "version": "3.11.12",
   "private": true,
   "scripts": {
     "dev": "next dev -p 3001",

@@ -22,6 +22,8 @@ import {
   Github,
   MessageSquare
 } from 'lucide-react';
+import { Language, languages, t } from './i18n';
+import { LanguageSwitcher } from './LanguageSwitcher';
 
 const DiscordIcon = ({ className }: { className?: string }) => (
   <svg className={className} viewBox="0 0 24 24" fill="currentColor">
@@ -753,6 +755,7 @@ export default function Home() {
   const [visibleMessages, setVisibleMessages] = useState<number[]>([]);
   const [isTyping, setIsTyping] = useState(false);
   const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(null);
+  const [currentLang, setCurrentLang] = useState<Language>('zh');
   const containerRef = useRef(null);
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -854,26 +857,33 @@ export default function Home() {
 
           {/* Nav Links */}
           <div className="hidden md:flex items-center gap-1">
-            {[
-              { label: '功能', href: '#features' },
-              { label: '安全', href: '#security' },
-              { label: '开发者', href: '#developer' },
-              { label: 'Dashboard', href: '/dashboard' },
-            ].map((item, i) => (
-              <motion.a
-                key={item.label}
-                href={item.href}
-                initial={{ opacity: 0, y: -10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.1 + i * 0.05 }}
-                className="px-4 py-2 text-sm text-neutral-600 hover:text-neutral-900 rounded-xl hover:bg-neutral-100/80 transition-all"
-                whileHover={{ y: -1 }}
-              >
-                {item.label}
-              </motion.a>
-            ))}
+            {
+              [
+                { key: 'nav.features', href: '#features' },
+                { key: 'nav.security', href: '#security' },
+                { key: 'nav.howItWorks', href: '#how-it-works' },
+                { key: 'nav.login', href: '/dashboard' },
+              ].map((item, i) => (
+                <motion.a
+                  key={item.key}
+                  href={item.href}
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.1 + i * 0.05 }}
+                  className="px-4 py-2 text-sm text-neutral-600 hover:text-neutral-900 rounded-xl hover:bg-neutral-100/80 transition-all"
+                  whileHover={{ y: -1 }}
+                >
+                  {t(item.key, currentLang)}
+                </motion.a>
+              ))
+            }
           </div>
 
+          {/* Language Switcher */}
+          <div className="mr-4">
+            <LanguageSwitcher currentLang={currentLang} onLanguageChange={setCurrentLang} />
+          </div>
+          
           {/* CTA */}
           <motion.a
             href="/dashboard"
@@ -884,7 +894,7 @@ export default function Home() {
             whileHover={{ scale: 1.02, y: -1 }}
             whileTap={{ scale: 0.98 }}
           >
-            开始使用
+            {t('nav.createWallet', currentLang)}
           </motion.a>
         </div>
       </motion.nav>
@@ -920,11 +930,7 @@ export default function Home() {
                 transition={{ delay: 0.3, duration: 0.6 }}
                 className="mt-4 text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-bold tracking-tight leading-[1.1]"
               >
-                让 AI Agent
-                <br />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-orange-600">
-                  拥有安全钱包
-                </span>
+                {t('hero.title', currentLang)}
               </motion.h1>
               
               {/* Description */}
@@ -934,7 +940,7 @@ export default function Home() {
                 transition={{ delay: 0.4, duration: 0.6 }}
                 className="mt-6 text-lg md:text-xl text-neutral-600 leading-relaxed max-w-2xl font-medium"
               >
-                Claw Wallet 是为 AI Agent 构建的 Web3 安全钱包，采用 TEE 硬件加密分片架构。通过自然语言对话，让 AI 安全地管理加密资产。
+                {t('hero.subtitle', currentLang)}
               </motion.p>
               
               {/* Install Command */}
@@ -945,7 +951,7 @@ export default function Home() {
                 className="mt-8"
                 id="install"
               >
-                <p className="text-sm text-neutral-500 mb-3 font-medium">发送给 OpenClaw 安装：</p>
+                <p className="text-sm text-neutral-500 mb-3 font-medium">{t('hero.copyHint', currentLang)}</p>
                 <div className="flex items-center gap-3">
                   <motion.div
                     className="flex-1 flex items-center gap-3 px-5 py-4 bg-slate-800 rounded-full border-2 border-slate-800 shadow-hard"
@@ -1042,9 +1048,9 @@ export default function Home() {
             viewport={{ once: true }}
             className="text-3xl md:text-4xl font-bold"
           >
-            Claw Wallet 适合哪些人
+            {currentLang === 'zh' ? 'Claw Wallet 适合哪些人' : 'Who is Claw Wallet for'}
           </motion.h2>
-          <p className="mt-3 text-neutral-500">为不同类型的用户提供专业的加密资产安全管理方案</p>
+          <p className="mt-3 text-neutral-500">{currentLang === 'zh' ? '为不同类型的用户提供专业的加密资产安全管理方案' : 'Professional crypto asset security management solutions for different types of users'}</p>
           <div className="mt-8 flex flex-wrap justify-center gap-3">
             {['OpenClaw用户', 'AI Agent', 'Web3新用户', '加密投资者', 'DeFi用户', '交易员', 'AI团队', '区块链开发者', '机构用户', '跨境中小企业'].map((tag) => (
               <span key={tag} className="px-5 py-2.5 bg-white border-2 border-slate-800 text-slate-800 rounded-full text-sm font-bold hover:bg-orange-500 hover:border-orange-500 hover:text-white transition-all shadow-sm hover:shadow-hard">
@@ -1070,14 +1076,14 @@ export default function Home() {
               >
 
                 <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-tight">
-                  <span className="block">给你的 AI Agent</span>
-                  <span className="block text-orange-500">安装 Claw Wallet</span>
+                  <span className="block">{currentLang === 'zh' ? '给你的 AI Agent' : 'Give your AI Agent'}</span>
+                  <span className="block text-orange-500">{currentLang === 'zh' ? '安装 Claw Wallet' : 'Install Claw Wallet'}</span>
                   <span className="text-slate-800">
-                    它将会帮你
+                    {currentLang === 'zh' ? '它将会帮你' : 'It will help you'}
                   </span>
                 </h2>
                 <p className="text-lg text-neutral-600 mt-6">
-                  通过简单的 Skill 安装，你的 AI Agent 就能拥有完整的钱包能力，一切都在安全可控的环境中完成。
+                  {currentLang === 'zh' ? '通过简单的 Skill 安装，你的 AI Agent 就能拥有完整的钱包能力，一切都在安全可控的环境中完成。' : 'With a simple Skill installation, your AI Agent can have full wallet capabilities, all in a secure and controlled environment.'}
                 </p>
                 
                 {/* Strategy Tabs */}
@@ -1302,14 +1308,14 @@ export default function Home() {
             viewport={{ once: true }}
             className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-white text-center mb-16"
           >
-            三步即刻开始
+            {t('howItWorks.title', currentLang)}
           </motion.h2>
 
           <div className="grid md:grid-cols-3 gap-8">
             {[
-              { step: '01', title: '安装 Skill', desc: '复制命令并发送给 AI Agent 或 Openclaw', icon: Terminal, command: 'claw install wallet' },
-              { step: '02', title: '创建钱包', desc: '通过自然语言让 AI Agent 创建钱包并在官网激活', icon: Wallet, command: '帮我创建一个安全钱包' },
-              { step: '03', title: '开始使用', desc: '使用自然语言指挥 AI Agent 执行各种操作', icon: Zap, command: '查询余额并转账' },
+              { step: '01', title: currentLang === 'zh' ? '安装 Skill' : 'Install Skill', desc: currentLang === 'zh' ? '复制命令并发送给 AI Agent 或 Openclaw' : 'Copy the command and send it to your AI Agent or Openclaw', icon: Terminal, command: 'claw install wallet' },
+              { step: '02', title: currentLang === 'zh' ? '创建钱包' : 'Create Wallet', desc: currentLang === 'zh' ? '通过自然语言让 AI Agent 创建钱包并在官网激活' : 'Use natural language to have your AI Agent create a wallet and activate it on the official website', icon: Wallet, command: currentLang === 'zh' ? '帮我创建一个安全钱包' : 'Help me create a secure wallet' },
+              { step: '03', title: currentLang === 'zh' ? '开始使用' : 'Start Using', desc: currentLang === 'zh' ? '使用自然语言指挥 AI Agent 执行各种操作' : 'Use natural language to direct your AI Agent to perform various operations', icon: Zap, command: currentLang === 'zh' ? '查询余额并转账' : 'Check balance and transfer' },
             ].map((item, idx) => (
               <motion.div
                 key={item.step}
@@ -1350,16 +1356,16 @@ export default function Home() {
             >
 
               <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-tight">
-                安全至上，
+                {currentLang === 'zh' ? '安全至上，' : 'Security First, '}
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-orange-600">
-                  层层防护
+                  {currentLang === 'zh' ? '层层防护' : 'Layered Protection'}
                 </span>
               </h2>
               <p className="mt-6 text-lg text-neutral-600 leading-relaxed">
-                AI Agent 和加密资产是高价值目标。Claw Wallet 从设计之初就将安全作为核心，采用企业级安全架构保护你的资产。
+                {currentLang === 'zh' ? 'AI Agent 和加密资产是高价值目标。Claw Wallet 从设计之初就将安全作为核心，采用企业级安全架构保护你的资产。' : 'AI Agents and crypto assets are high-value targets. Claw Wallet was designed with security as the core, using enterprise-grade security architecture to protect your assets.'}
               </p>
               <p className="mt-4 text-neutral-600 leading-relaxed">
-                不同于其他方案将私钥交给 Agent，Claw Wallet 采用<span className="font-semibold text-orange-500">自托管架构</span>，私钥永远在你的控制之下。
+                {currentLang === 'zh' ? '不同于其他方案将私钥交给 Agent，Claw Wallet 采用' : 'Unlike other solutions that give private keys to Agents, Claw Wallet uses a '}<span className="font-semibold text-orange-500">{currentLang === 'zh' ? '自托管架构' : 'self-custody architecture'}</span>{currentLang === 'zh' ? '，私钥永远在你的控制之下。' : ', with private keys always under your control.'}
               </p>
 
               <div className="mt-10 grid grid-cols-2 gap-4">
@@ -1475,18 +1481,14 @@ export default function Home() {
         >
 
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-tight">
-            准备好让你的 Agent
-            <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-orange-600">
-              拥有安全钱包了吗？
-            </span>
+            {t('cta.title', currentLang)}
           </h2>
           <p className="mt-6 text-lg text-neutral-600 leading-relaxed">
-            加入数千名开发者的行列，使用 Claw Wallet 为 AI Agent 提供安全可靠的加密资产管理能力。
+            {t('cta.subtitle', currentLang)}
           </p>
           
           <div className="mt-10">
-            <p className="text-sm text-neutral-500 mb-4 font-medium">发送给 OpenClaw 立即安装：</p>
+            <p className="text-sm text-neutral-500 mb-4 font-medium">{t('hero.copyHint', currentLang)}</p>
             <div className="flex items-center justify-center gap-3 max-w-md mx-auto">
               <motion.div className="flex-1 flex items-center gap-3 px-5 py-4 bg-slate-800 rounded-full border-2 border-slate-800 shadow-hard"
                 whileHover={{ scale: 1.01 }}
@@ -1506,7 +1508,7 @@ export default function Home() {
           </div>
 
           <div className="mt-10 flex flex-wrap justify-center gap-4">
-            <Button size="lg" icon={Code2}>查看文档</Button>
+            <Button size="lg" icon={Code2}>{currentLang === 'zh' ? '查看文档' : 'View Documentation'}</Button>
             <Button variant="secondary" size="lg" icon={Github}>GitHub</Button>
           </div>
         </motion.div>
@@ -1518,15 +1520,15 @@ export default function Home() {
       <section className="py-20 px-6 bg-slate-50">
         <div className="max-w-3xl mx-auto">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold">常见问题</h2>
+            <h2 className="text-3xl md:text-4xl font-bold">{t('faq.title', currentLang)}</h2>
           </div>
           <div className="space-y-3">
             {[
-              { q: '支持哪些区块链？', a: '支持 Bitcoin、Ethereum、BSC、SUI、Monad、Base、Solana 等 7 条主流区块链，覆盖主流 DeFi 与跨链场景' },
-              { q: '需要注册吗？', a: '安装 Skill 后需在官网激活钱包并绑定唯一 PIN 码，用于管理签名授权。整个过程不到 1 分钟' },
-              { q: '私钥如何保管？', a: '基于 AWS Nitro Enclaves 的 TEE 可信执行环境，私钥以分片加密形式存储于硬件隔离区域，AI Agent 无法触碰私钥。用户可选择导出私钥自行管理' },
-              { q: '交易安全如何保障？', a: '五层安全防护：额度限制、合约白名单、频率控制、审批流程、实时风控监测。高额交易需二次授权确认' },
-              { q: '支持哪些 AI Agent？', a: '支持 OpenClaw 等主流 AI Agent 平台，通过自然语言即可完成钱包创建、转账、DeFi 交易等全部链上操作' },
+              { q: currentLang === 'zh' ? '支持哪些区块链？' : 'Which blockchains are supported?', a: currentLang === 'zh' ? '支持 Bitcoin、Ethereum、BSC、SUI、Monad、Base、Solana 等 7 条主流区块链，覆盖主流 DeFi 与跨链场景' : 'Supports 7 mainstream blockchains including Bitcoin, Ethereum, BSC, SUI, Monad, Base, and Solana, covering mainstream DeFi and cross-chain scenarios' },
+              { q: currentLang === 'zh' ? '需要注册吗？' : 'Do I need to register?', a: currentLang === 'zh' ? '安装 Skill 后需在官网激活钱包并绑定唯一 PIN 码，用于管理签名授权。整个过程不到 1 分钟' : 'After installing the Skill, you need to activate the wallet on the official website and bind a unique PIN for managing signature authorizations. The entire process takes less than 1 minute' },
+              { q: currentLang === 'zh' ? '私钥如何保管？' : 'How are private keys stored?', a: currentLang === 'zh' ? '基于 AWS Nitro Enclaves 的 TEE 可信执行环境，私钥以分片加密形式存储于硬件隔离区域，AI Agent 无法触碰私钥。用户可选择导出私钥自行管理' : 'Based on AWS Nitro Enclaves TEE trusted execution environment, private keys are stored in hardware-isolated regions in sharded encrypted form. AI Agents cannot access private keys. Users can choose to export private keys for self-management' },
+              { q: currentLang === 'zh' ? '交易安全如何保障？' : 'How is transaction security ensured?', a: currentLang === 'zh' ? '五层安全防护：额度限制、合约白名单、频率控制、审批流程、实时风控监测。高额交易需二次授权确认' : 'Five-layer security protection: limit restrictions, contract whitelist, frequency control, approval process, real-time risk control monitoring. High-value transactions require secondary authorization confirmation' },
+              { q: currentLang === 'zh' ? '支持哪些 AI Agent？' : 'Which AI Agents are supported?', a: currentLang === 'zh' ? '支持 OpenClaw 等主流 AI Agent 平台，通过自然语言即可完成钱包创建、转账、DeFi 交易等全部链上操作' : 'Supports mainstream AI Agent platforms like OpenClaw, allowing you to complete all on-chain operations such as wallet creation, transfers, and DeFi transactions through natural language' },
             ].map((item, i) => (
               <div
                 key={i}
@@ -1555,7 +1557,7 @@ export default function Home() {
       ============================================ */}
       <section className="py-20 px-6 bg-white">
         <div className="max-w-6xl mx-auto text-center">
-          <SectionHeader title="合作伙伴" />
+          <SectionHeader title={currentLang === 'zh' ? '合作伙伴' : 'Partners'} />
           <div className="mt-12 overflow-hidden">
             <div className="flex animate-marquee">
               {[1, 2].map((_, i) => (
@@ -1607,45 +1609,65 @@ export default function Home() {
                 </div>
               </a>
               <p className="text-sm text-neutral-500 max-w-sm leading-relaxed">
-                专为 AI Agent 构建的安全加密钱包。自托管、无私钥管理、智能风控。让 AI 安全地管理加密资产。
+                {currentLang === 'zh' ? '专为 AI Agent 构建的安全加密钱包。自托管、无私钥管理、智能风控。让 AI 安全地管理加密资产。' : 'A secure crypto wallet built for AI Agents. Self-custody, no private key management, intelligent risk control. Let AI securely manage crypto assets.'}
               </p>
               <div className="mt-6 flex items-center gap-4">
                 <div className="flex items-center gap-2">
-                  <span className="text-xs text-neutral-400">安全审计由</span>
+                  <span className="text-xs text-neutral-400">{currentLang === 'zh' ? '安全审计由' : 'Security audit by'}</span>
                   <img src="/bitslab.png" alt="Bitslab" className="h-5 w-auto" />
                 </div>
               </div>
             </div>
             <div>
-              <h4 className="font-semibold text-sm mb-5 text-neutral-900">产品</h4>
+              <h4 className="font-semibold text-sm mb-5 text-neutral-900">{currentLang === 'zh' ? '产品' : 'Product'}</h4>
               <ul className="space-y-3 text-sm text-neutral-500">
-                {['功能特性', '安全架构', '如何使用'].map((item) => (
-                  <li key={item}>
-                    <a href={item === '如何使用' ? '#how-it-works' : '#'} className="hover:text-neutral-900 transition-colors hover:translate-x-0.5 inline-block">
-                      {item}
-                    </a>
-                  </li>
-                ))}
+                {currentLang === 'zh' ? 
+                  ['功能特性', '安全架构', '如何使用'].map((item) => (
+                    <li key={item}>
+                      <a href={item === '如何使用' ? '#how-it-works' : '#'} className="hover:text-neutral-900 transition-colors hover:translate-x-0.5 inline-block">
+                        {item}
+                      </a>
+                    </li>
+                  ))
+                : 
+                  ['Features', 'Security Architecture', 'How It Works'].map((item) => (
+                    <li key={item}>
+                      <a href={item === 'How It Works' ? '#how-it-works' : '#'} className="hover:text-neutral-900 transition-colors hover:translate-x-0.5 inline-block">
+                        {item}
+                      </a>
+                    </li>
+                  ))
+                }
               </ul>
             </div>
             <div>
-              <h4 className="font-semibold text-sm mb-5 text-neutral-900">开发者</h4>
+              <h4 className="font-semibold text-sm mb-5 text-neutral-900">{currentLang === 'zh' ? '开发者' : 'Developers'}</h4>
               <ul className="space-y-3 text-sm text-neutral-500">
-                {['文档', 'API 参考', 'GitHub', 'SDK'].map((item) => (
-                  <li key={item}>
-                    <a href="#" className="hover:text-neutral-900 transition-colors hover:translate-x-0.5 inline-block">
-                      {item}
-                    </a>
-                  </li>
-                ))}
+                {currentLang === 'zh' ? 
+                  ['文档', 'API 参考', 'GitHub', 'SDK'].map((item) => (
+                    <li key={item}>
+                      <a href="#" className="hover:text-neutral-900 transition-colors hover:translate-x-0.5 inline-block">
+                        {item}
+                      </a>
+                    </li>
+                  ))
+                : 
+                  ['Documentation', 'API Reference', 'GitHub', 'SDK'].map((item) => (
+                    <li key={item}>
+                      <a href="#" className="hover:text-neutral-900 transition-colors hover:translate-x-0.5 inline-block">
+                        {item}
+                      </a>
+                    </li>
+                  ))
+                }
               </ul>
             </div>
           </div>
           <div className="pt-8 border-t border-neutral-100 flex flex-col sm:flex-row justify-between items-center gap-4">
-            <p className="text-sm text-neutral-400">© 2026 Claw Wallet. All rights reserved.</p>
+            <p className="text-sm text-neutral-400">{t('footer.copyright', currentLang)}. All rights reserved.</p>
             <div className="flex items-center gap-6">
-              <a href="#" className="text-sm text-neutral-400 hover:text-neutral-600 transition-colors">隐私政策</a>
-              <a href="#" className="text-sm text-neutral-400 hover:text-neutral-600 transition-colors">服务条款</a>
+              <a href="#" className="text-sm text-neutral-400 hover:text-neutral-600 transition-colors">{currentLang === 'zh' ? '隐私政策' : 'Privacy Policy'}</a>
+              <a href="#" className="text-sm text-neutral-400 hover:text-neutral-600 transition-colors">{currentLang === 'zh' ? '服务条款' : 'Terms of Service'}</a>
               <div className="flex items-center gap-4">
                 <a href="#" className="text-neutral-400 hover:text-neutral-900 transition-colors">
                   <Github className="w-4 h-4" />

@@ -14,3 +14,57 @@
 [01:01:17.531] Browser WARN    Please ensure that the container has a non-static position, like 'relative', 'fixed', or 'absolute' to ensure scroll offset is calculated correctly.
 [01:05:59.266] Server  LOG     ✓ Compiled in 3.4s
 [01:56:53.443] Server  LOG     ✓ Compiled in 278ms
+[01:58:26.124] Browser ERROR   Encountered two children with the same key, `%s`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version. 2
+[01:58:27.630] Browser ERROR   Encountered two children with the same key, `%s`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version. 2
+[01:58:28.426] Browser ERROR   Encountered two children with the same key, `%s`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version. 2
+[01:58:37.625] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[01:58:37.780] Browser WARN    Please ensure that the container has a non-static position, like 'relative', 'fixed', or 'absolute' to ensure scroll offset is calculated correctly.
+[02:01:38.391] Browser ERROR   Encountered two children with the same key, `%s`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version. 1
+[02:01:39.884] Browser ERROR   Encountered two children with the same key, `%s`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version. 1
+[02:01:40.685] Browser ERROR   Encountered two children with the same key, `%s`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version. 1
+[02:01:42.179] Browser ERROR   Encountered two children with the same key, `%s`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version. 1
+[02:01:42.996] Browser ERROR   Encountered two children with the same key, `%s`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version. 1
+[02:01:57.678] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[02:01:57.844] Browser WARN    Please ensure that the container has a non-static position, like 'relative', 'fixed', or 'absolute' to ensure scroll offset is calculated correctly.
+[02:03:26.003] Browser ERROR   Encountered two children with the same key, `%s`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version. 2
+[02:03:27.495] Browser ERROR   Encountered two children with the same key, `%s`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version. 2
+[02:03:28.294] Browser ERROR   Encountered two children with the same key, `%s`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version. 2
+[02:03:38.194] Server  LOG     ✓ Compiled in 685ms
+[02:04:05.673] Server  LOG     ✓ Compiled in 313ms
+[02:04:19.822] Server  LOG     ✓ Compiled in 478ms
+[02:04:32.859] Server  LOG     ✓ Compiled in 312ms
+[02:04:55.892] Server  LOG     ✓ Compiled in 244ms
+[02:05:06.889] Browser ERROR   Encountered two children with the same key, `%s`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version. 2
+[02:05:08.402] Browser ERROR   Encountered two children with the same key, `%s`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version. 2
+[02:05:09.455] Browser ERROR   Encountered two children with the same key, `%s`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version. 2
+[02:05:12.721] Server  LOG     ✓ Compiled in 455ms
+[02:05:25.360] Server  LOG     ✓ Compiled in 912ms
+[02:06:35.832] Server  LOG     ✓ Compiled in 279ms
+[02:06:53.179] Server  LOG     ✓ Compiled in 222ms
+[02:08:07.040] Server  LOG     ✓ Compiled in 417ms
+[02:08:17.115] Server  LOG     ✓ Compiled in 116ms
+[02:08:27.709] Server  LOG     ✓ Compiled in 243ms
+[02:08:34.423] Server  LOG     ✓ Compiled in 188ms
+[02:09:16.345] Server  LOG     ✓ Compiled in 123ms
+[02:09:16.451] Browser ERROR   ./src/app/page.tsx:1636:150
+Parsing ecmascript source code failed
+  1634 |               <h4 className="font-semibold text-sm mb-5 text-neutral-900">{currentLang === 'zh' ? '开发者' : 'Developers'}</h4>
+  1635 |               <ul className="space-y-3 text-sm text-neutral-500">
+> 1636 |                 {currentLang === 'zh' ? ['文档', 'API 参考', 'GitHub', 'SDK'] : ['Documentation', 'API Reference', 'GitHub', 'SDK']}.map((item) => (
+       |                                                                                                                                                      ^
+  1637 |                   <li key={item}>
+  1638 |                     <a href="#" className="hover:text-neutral-900 transition-colors hover:translate-x-0.5 inline-block">
+  1639 |                       {item}
+
+Unexpected token. Did you mean `{'>'}` or `&gt;`?
+
+Import traces:
+  Client Component Browser:
+    ./src/app/page.tsx [Client Component Browser]
+    ./src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/app/page.tsx [Client Component SSR]
+    ./src/app/page.tsx [Server Component]
+[02:09:40.429] Server  LOG     ✓ Compiled in 192ms
+[02:09:49.671] Server  LOG     ✓ Compiled in 179ms
