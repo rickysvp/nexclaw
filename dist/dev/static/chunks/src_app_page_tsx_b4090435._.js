@@ -42,11 +42,11 @@ var _s = __turbopack_context__.k.signature(), _s1 = __turbopack_context__.k.sign
 ;
 const DiscordIcon = (t0)=>{
     const $ = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$compiler$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["c"])(4);
-    if ($[0] !== "0fba4b2a75f2f8dc045eb5b6408706b8c9b703550dc0b62e092341c96128962b") {
+    if ($[0] !== "0fd8b60fb8072d37202a73c9f232a1e95f81bec34cca84301952a79ec5c60183") {
         for(let $i = 0; $i < 4; $i += 1){
             $[$i] = Symbol.for("react.memo_cache_sentinel");
         }
-        $[0] = "0fba4b2a75f2f8dc045eb5b6408706b8c9b703550dc0b62e092341c96128962b";
+        $[0] = "0fd8b60fb8072d37202a73c9f232a1e95f81bec34cca84301952a79ec5c60183";
     }
     const { className } = t0;
     let t1;
@@ -762,11 +762,11 @@ const strategyDescriptions = {
 // ============================================
 const Button = (t0)=>{
     const $ = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$compiler$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["c"])(9);
-    if ($[0] !== "0fba4b2a75f2f8dc045eb5b6408706b8c9b703550dc0b62e092341c96128962b") {
+    if ($[0] !== "0fd8b60fb8072d37202a73c9f232a1e95f81bec34cca84301952a79ec5c60183") {
         for(let $i = 0; $i < 9; $i += 1){
             $[$i] = Symbol.for("react.memo_cache_sentinel");
         }
-        $[0] = "0fba4b2a75f2f8dc045eb5b6408706b8c9b703550dc0b62e092341c96128962b";
+        $[0] = "0fd8b60fb8072d37202a73c9f232a1e95f81bec34cca84301952a79ec5c60183";
     }
     const { children, variant: t1, size: t2, className: t3, icon: Icon } = t0;
     const variant = t1 === undefined ? "primary" : t1;
@@ -837,11 +837,11 @@ const Button = (t0)=>{
 _c1 = Button;
 const Card = (t0)=>{
     const $ = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$compiler$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["c"])(4);
-    if ($[0] !== "0fba4b2a75f2f8dc045eb5b6408706b8c9b703550dc0b62e092341c96128962b") {
+    if ($[0] !== "0fd8b60fb8072d37202a73c9f232a1e95f81bec34cca84301952a79ec5c60183") {
         for(let $i = 0; $i < 4; $i += 1){
             $[$i] = Symbol.for("react.memo_cache_sentinel");
         }
-        $[0] = "0fba4b2a75f2f8dc045eb5b6408706b8c9b703550dc0b62e092341c96128962b";
+        $[0] = "0fd8b60fb8072d37202a73c9f232a1e95f81bec34cca84301952a79ec5c60183";
     }
     const { children, className: t1, hover: t2 } = t0;
     const className = t1 === undefined ? "" : t1;
@@ -1113,11 +1113,11 @@ _s(ChatDemoCard, "WdxurFU7BlR1Y3RjeUfAbFb7R1Q=");
 _c3 = ChatDemoCard;
 const SectionHeader = (t0)=>{
     const $ = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$compiler$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["c"])(19);
-    if ($[0] !== "0fba4b2a75f2f8dc045eb5b6408706b8c9b703550dc0b62e092341c96128962b") {
+    if ($[0] !== "0fd8b60fb8072d37202a73c9f232a1e95f81bec34cca84301952a79ec5c60183") {
         for(let $i = 0; $i < 19; $i += 1){
             $[$i] = Symbol.for("react.memo_cache_sentinel");
         }
-        $[0] = "0fba4b2a75f2f8dc045eb5b6408706b8c9b703550dc0b62e092341c96128962b";
+        $[0] = "0fd8b60fb8072d37202a73c9f232a1e95f81bec34cca84301952a79ec5c60183";
     }
     const { label, title, description, light: t1 } = t0;
     const light = t1 === undefined ? false : t1;
@@ -3695,6 +3695,34 @@ function Home() {
                                             {
                                                 name: 'TagClaw',
                                                 logo: '/Partners/tagclaw.png'
+                                            },
+                                            {
+                                                name: 'Ethereum',
+                                                logo: '/logos/ethereum.png'
+                                            },
+                                            {
+                                                name: 'Solana',
+                                                logo: '/logos/solana.png'
+                                            },
+                                            {
+                                                name: 'BSC',
+                                                logo: '/logos/BSC.png'
+                                            },
+                                            {
+                                                name: 'Polygon',
+                                                logo: '/logos/polygon.png'
+                                            },
+                                            {
+                                                name: 'Base',
+                                                logo: '/logos/base.png'
+                                            },
+                                            {
+                                                name: 'Sui',
+                                                logo: '/logos/sui.png'
+                                            },
+                                            {
+                                                name: 'Monad',
+                                                logo: '/logos/monad.png'
                                             }
                                         ].map((partner)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                                 className: "flex items-center justify-center h-12 w-32 transition-all duration-300 hover:scale-110",
@@ -3704,12 +3732,12 @@ function Home() {
                                                     className: "max-h-full max-w-full object-contain"
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/app/page.tsx",
-                                                    lineNumber: 1756,
+                                                    lineNumber: 1777,
                                                     columnNumber: 23
                                                 }, this)
                                             }, partner.name, false, {
                                                 fileName: "[project]/src/app/page.tsx",
-                                                lineNumber: 1755,
+                                                lineNumber: 1776,
                                                 columnNumber: 33
                                             }, this))
                                     }, i_3, false, {
@@ -3760,17 +3788,17 @@ function Home() {
                                                     className: "h-full w-auto object-contain"
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/app/page.tsx",
-                                                    lineNumber: 1771,
+                                                    lineNumber: 1792,
                                                     columnNumber: 19
                                                 }, this)
                                             }, void 0, false, {
                                                 fileName: "[project]/src/app/page.tsx",
-                                                lineNumber: 1770,
+                                                lineNumber: 1791,
                                                 columnNumber: 17
                                             }, this)
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/page.tsx",
-                                            lineNumber: 1769,
+                                            lineNumber: 1790,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -3778,7 +3806,7 @@ function Home() {
                                             children: "专为 AI Agent 构建的安全加密钱包。自托管、无私钥管理、智能风控。让 AI 安全地管理加密资产。"
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/page.tsx",
-                                            lineNumber: 1774,
+                                            lineNumber: 1795,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -3791,7 +3819,7 @@ function Home() {
                                                         children: "安全审计由"
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/app/page.tsx",
-                                                        lineNumber: 1779,
+                                                        lineNumber: 1800,
                                                         columnNumber: 19
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("img", {
@@ -3800,24 +3828,24 @@ function Home() {
                                                         className: "h-5 w-auto"
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/app/page.tsx",
-                                                        lineNumber: 1780,
+                                                        lineNumber: 1801,
                                                         columnNumber: 19
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/src/app/page.tsx",
-                                                lineNumber: 1778,
+                                                lineNumber: 1799,
                                                 columnNumber: 17
                                             }, this)
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/page.tsx",
-                                            lineNumber: 1777,
+                                            lineNumber: 1798,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/app/page.tsx",
-                                    lineNumber: 1768,
+                                    lineNumber: 1789,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -3827,7 +3855,7 @@ function Home() {
                                             children: "产品"
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/page.tsx",
-                                            lineNumber: 1785,
+                                            lineNumber: 1806,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("ul", {
@@ -3843,23 +3871,23 @@ function Home() {
                                                         children: item_3
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/app/page.tsx",
-                                                        lineNumber: 1788,
+                                                        lineNumber: 1809,
                                                         columnNumber: 21
                                                     }, this)
                                                 }, item_3, false, {
                                                     fileName: "[project]/src/app/page.tsx",
-                                                    lineNumber: 1787,
+                                                    lineNumber: 1808,
                                                     columnNumber: 57
                                                 }, this))
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/page.tsx",
-                                            lineNumber: 1786,
+                                            lineNumber: 1807,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/app/page.tsx",
-                                    lineNumber: 1784,
+                                    lineNumber: 1805,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -3869,7 +3897,7 @@ function Home() {
                                             children: "开发者"
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/page.tsx",
-                                            lineNumber: 1795,
+                                            lineNumber: 1816,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("ul", {
@@ -3886,29 +3914,29 @@ function Home() {
                                                         children: item_4
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/app/page.tsx",
-                                                        lineNumber: 1798,
+                                                        lineNumber: 1819,
                                                         columnNumber: 21
                                                     }, this)
                                                 }, item_4, false, {
                                                     fileName: "[project]/src/app/page.tsx",
-                                                    lineNumber: 1797,
+                                                    lineNumber: 1818,
                                                     columnNumber: 66
                                                 }, this))
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/page.tsx",
-                                            lineNumber: 1796,
+                                            lineNumber: 1817,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/app/page.tsx",
-                                    lineNumber: 1794,
+                                    lineNumber: 1815,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/app/page.tsx",
-                            lineNumber: 1767,
+                            lineNumber: 1788,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -3919,7 +3947,7 @@ function Home() {
                                     children: "© 2026 Claw Wallet. All rights reserved."
                                 }, void 0, false, {
                                     fileName: "[project]/src/app/page.tsx",
-                                    lineNumber: 1806,
+                                    lineNumber: 1827,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -3931,7 +3959,7 @@ function Home() {
                                             children: "隐私政策"
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/page.tsx",
-                                            lineNumber: 1808,
+                                            lineNumber: 1829,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
@@ -3940,7 +3968,7 @@ function Home() {
                                             children: "服务条款"
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/page.tsx",
-                                            lineNumber: 1809,
+                                            lineNumber: 1830,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -3953,12 +3981,12 @@ function Home() {
                                                         className: "w-4 h-4"
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/app/page.tsx",
-                                                        lineNumber: 1812,
+                                                        lineNumber: 1833,
                                                         columnNumber: 19
                                                     }, this)
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/app/page.tsx",
-                                                    lineNumber: 1811,
+                                                    lineNumber: 1832,
                                                     columnNumber: 17
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
@@ -3972,17 +4000,17 @@ function Home() {
                                                             d: "M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/app/page.tsx",
-                                                            lineNumber: 1816,
+                                                            lineNumber: 1837,
                                                             columnNumber: 21
                                                         }, this)
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/app/page.tsx",
-                                                        lineNumber: 1815,
+                                                        lineNumber: 1836,
                                                         columnNumber: 19
                                                     }, this)
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/app/page.tsx",
-                                                    lineNumber: 1814,
+                                                    lineNumber: 1835,
                                                     columnNumber: 17
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
@@ -3992,41 +4020,41 @@ function Home() {
                                                         className: "w-4 h-4"
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/app/page.tsx",
-                                                        lineNumber: 1820,
+                                                        lineNumber: 1841,
                                                         columnNumber: 19
                                                     }, this)
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/app/page.tsx",
-                                                    lineNumber: 1819,
+                                                    lineNumber: 1840,
                                                     columnNumber: 17
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/src/app/page.tsx",
-                                            lineNumber: 1810,
+                                            lineNumber: 1831,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/app/page.tsx",
-                                    lineNumber: 1807,
+                                    lineNumber: 1828,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/app/page.tsx",
-                            lineNumber: 1805,
+                            lineNumber: 1826,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/src/app/page.tsx",
-                    lineNumber: 1766,
+                    lineNumber: 1787,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/src/app/page.tsx",
-                lineNumber: 1765,
+                lineNumber: 1786,
                 columnNumber: 7
             }, this)
         ]

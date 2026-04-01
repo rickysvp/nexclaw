@@ -1573,6 +1573,13 @@ export default function Home() {
                     { name: 'Pinai', logo: '/Partners/pinai.avif' },
                     { name: 'Superpower', logo: '/Partners/superpower.jpg' },
                     { name: 'TagClaw', logo: '/Partners/tagclaw.png' },
+                    { name: 'Ethereum', logo: '/logos/ethereum.png' },
+                    { name: 'Solana', logo: '/logos/solana.png' },
+                    { name: 'BSC', logo: '/logos/BSC.png' },
+                    { name: 'Polygon', logo: '/logos/polygon.png' },
+                    { name: 'Base', logo: '/logos/base.png' },
+                    { name: 'Sui', logo: '/logos/sui.png' },
+                    { name: 'Monad', logo: '/logos/monad.png' },
                   ].map((partner) => (
                     <div key={partner.name} className="flex items-center justify-center h-12 w-32 transition-all duration-300 hover:scale-110">
                       <img 

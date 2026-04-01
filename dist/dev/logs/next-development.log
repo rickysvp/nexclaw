@@ -8,3 +8,5 @@
 [00:27:04.880] Server  LOG     ✓ Compiled in 107ms
 [00:33:00.647] Server  LOG     ✓ Compiled in 1047ms
 [00:33:07.995] Server  LOG     ✓ Compiled in 150ms
+[00:53:05.835] Server  LOG     ○ Compiling /dashboard ...
+[00:54:48.153] Server  LOG     ✓ Compiled in 2.9s
