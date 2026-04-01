@@ -40,6 +40,109 @@ export const translations = {
     copyBtn: { zh: '复制', en: 'Copy' },
     copied: { zh: '已复制', en: 'Copied' },
   },
+  
+  // Trust Indicators
+  trust: {
+    selfCustody: { zh: '自托管', en: 'Self-custody' },
+    teeEncryption: { zh: 'TEE 加密', en: 'TEE Encryption' },
+    aiSecurity: { zh: 'AI 安全风控', en: 'AI Security Risk Control' },
+    naturalLanguage: { zh: '自然语言交互', en: 'Natural Language Interaction' },
+  },
+  
+  // Who is it for
+  whoFor: {
+    openClawUsers: { zh: 'OpenClaw用户', en: 'OpenClaw Users' },
+    aiAgent: { zh: 'AI Agent', en: 'AI Agent' },
+    web3NewUsers: { zh: 'Web3新用户', en: 'Web3 New Users' },
+    cryptoInvestors: { zh: '加密投资者', en: 'Crypto Investors' },
+    defiUsers: { zh: 'DeFi用户', en: 'DeFi Users' },
+    traders: { zh: '交易员', en: 'Traders' },
+    aiTeams: { zh: 'AI团队', en: 'AI Teams' },
+    blockchainDevelopers: { zh: '区块链开发者', en: 'Blockchain Developers' },
+    institutionalUsers: { zh: '机构用户', en: 'Institutional Users' },
+    crossBorderSmes: { zh: '跨境中小企业', en: 'Cross-border SMEs' },
+  },
+  
+  // Strategy Tabs
+  strategies: {
+    create: { zh: '创建钱包', en: 'Create Wallet' },
+    market: { zh: '市场动态', en: 'Market Dynamics' },
+    price: { zh: '跟踪币价', en: 'Track Prices' },
+    arbitrage: { zh: '自动套利', en: 'Auto Arbitrage' },
+    mining: { zh: '挖矿', en: 'Mining' },
+    meme: { zh: 'Meme', en: 'Meme' },
+    ipo: { zh: '币股打新', en: 'Token IPO' },
+    perps: { zh: 'Perps', en: 'Perps' },
+    audit: { zh: '安全审计', en: 'Security Audit' },
+    transfer: { zh: '转账', en: 'Transfer' },
+    defi: { zh: 'DeFi', en: 'DeFi' },
+    dca: { zh: '定投', en: 'DCA' },
+    copy: { zh: '跟单', en: 'Copy Trade' },
+    staking: { zh: '质押', en: 'Staking' },
+    lending: { zh: '借贷', en: 'Lending' },
+  },
+  
+  // Recommended Skills
+  skills: {
+    walletManager: {
+      name: { zh: 'Wallet Manager', en: 'Wallet Manager' },
+      desc: { zh: 'AI Agent 加密钱包管理，支持多链', en: 'AI Agent crypto wallet management, multi-chain support' },
+    },
+    defiStrategist: {
+      name: { zh: 'DeFi Strategist', en: 'DeFi Strategist' },
+      desc: { zh: '智能 DeFi 收益优化策略', en: 'Intelligent DeFi yield optimization strategies' },
+    },
+    tradingAssistant: {
+      name: { zh: 'Trading Assistant', en: 'Trading Assistant' },
+      desc: { zh: '专业交易信号与执行助手', en: 'Professional trading signals and execution assistant' },
+    },
+    portfolioTracker: {
+      name: { zh: 'Portfolio Tracker', en: 'Portfolio Tracker' },
+      desc: { zh: '实时组合追踪与分析', en: 'Real-time portfolio tracking and analysis' },
+    },
+    securityMonitor: {
+      name: { zh: 'Security Monitor', en: 'Security Monitor' },
+      desc: { zh: '7x24 安全监控与预警', en: '24/7 security monitoring and alerting' },
+    },
+    nftAggregator: {
+      name: { zh: 'NFT Aggregator', en: 'NFT Aggregator' },
+      desc: { zh: '多平台 NFT 聚合交易', en: 'Multi-platform NFT aggregation trading' },
+    },
+  },
+  
+  // Security Layers
+  security: {
+    layers: [
+      {
+        title: { zh: '私钥自托管', en: 'Self-custody' },
+        desc: { zh: '你的私钥，你的控制', en: 'Your private key, your control' },
+        detail: { zh: '私钥始终存储在你的本地环境，永远不会上传到任何服务器', en: 'Private keys are always stored in your local environment and never uploaded to any server' },
+      },
+      {
+        title: { zh: 'TEE 硬件加密', en: 'TEE Hardware Encryption' },
+        desc: { zh: 'AWS Nitro Enclaves', en: 'AWS Nitro Enclaves' },
+        detail: { zh: '基于可信执行环境的硬件级加密保护', en: 'Hardware-level encryption protection based on trusted execution environment' },
+      },
+      {
+        title: { zh: '智能风控引擎', en: 'AI Risk Control Engine' },
+        desc: { zh: 'AI 实时防护', en: 'AI Real-time Protection' },
+        detail: { zh: '机器学习模型实时分析交易行为，识别潜在风险', en: 'Machine learning models analyze transaction behavior in real-time to identify potential risks' },
+      },
+      {
+        title: { zh: '策略引擎', en: 'Policy Engine' },
+        desc: { zh: '自定义安全规则', en: 'Custom Security Rules' },
+        detail: { zh: '灵活配置转账限额、白名单、多重签名等安全策略', en: 'Flexible configuration of transfer limits, whitelists, multi-signature and other security policies' },
+      },
+    ],
+  },
+  
+  // Chat Scenarios
+  chatScenarios: {
+    swap: { zh: 'Swap', en: 'Swap' },
+    bridge: { zh: '跨链', en: 'Bridge' },
+    dca: { zh: '定投', en: 'DCA' },
+    risk: { zh: '风控', en: 'Risk Control' },
+  },
 
   // Use Cases Section
   useCases: {

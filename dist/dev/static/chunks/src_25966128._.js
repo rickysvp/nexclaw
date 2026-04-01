@@ -76,6 +76,274 @@ const translations = {
             en: 'Copied'
         }
     },
+    // Trust Indicators
+    trust: {
+        selfCustody: {
+            zh: '自托管',
+            en: 'Self-custody'
+        },
+        teeEncryption: {
+            zh: 'TEE 加密',
+            en: 'TEE Encryption'
+        },
+        aiSecurity: {
+            zh: 'AI 安全风控',
+            en: 'AI Security Risk Control'
+        },
+        naturalLanguage: {
+            zh: '自然语言交互',
+            en: 'Natural Language Interaction'
+        }
+    },
+    // Who is it for
+    whoFor: {
+        openClawUsers: {
+            zh: 'OpenClaw用户',
+            en: 'OpenClaw Users'
+        },
+        aiAgent: {
+            zh: 'AI Agent',
+            en: 'AI Agent'
+        },
+        web3NewUsers: {
+            zh: 'Web3新用户',
+            en: 'Web3 New Users'
+        },
+        cryptoInvestors: {
+            zh: '加密投资者',
+            en: 'Crypto Investors'
+        },
+        defiUsers: {
+            zh: 'DeFi用户',
+            en: 'DeFi Users'
+        },
+        traders: {
+            zh: '交易员',
+            en: 'Traders'
+        },
+        aiTeams: {
+            zh: 'AI团队',
+            en: 'AI Teams'
+        },
+        blockchainDevelopers: {
+            zh: '区块链开发者',
+            en: 'Blockchain Developers'
+        },
+        institutionalUsers: {
+            zh: '机构用户',
+            en: 'Institutional Users'
+        },
+        crossBorderSmes: {
+            zh: '跨境中小企业',
+            en: 'Cross-border SMEs'
+        }
+    },
+    // Strategy Tabs
+    strategies: {
+        create: {
+            zh: '创建钱包',
+            en: 'Create Wallet'
+        },
+        market: {
+            zh: '市场动态',
+            en: 'Market Dynamics'
+        },
+        price: {
+            zh: '跟踪币价',
+            en: 'Track Prices'
+        },
+        arbitrage: {
+            zh: '自动套利',
+            en: 'Auto Arbitrage'
+        },
+        mining: {
+            zh: '挖矿',
+            en: 'Mining'
+        },
+        meme: {
+            zh: 'Meme',
+            en: 'Meme'
+        },
+        ipo: {
+            zh: '币股打新',
+            en: 'Token IPO'
+        },
+        perps: {
+            zh: 'Perps',
+            en: 'Perps'
+        },
+        audit: {
+            zh: '安全审计',
+            en: 'Security Audit'
+        },
+        transfer: {
+            zh: '转账',
+            en: 'Transfer'
+        },
+        defi: {
+            zh: 'DeFi',
+            en: 'DeFi'
+        },
+        dca: {
+            zh: '定投',
+            en: 'DCA'
+        },
+        copy: {
+            zh: '跟单',
+            en: 'Copy Trade'
+        },
+        staking: {
+            zh: '质押',
+            en: 'Staking'
+        },
+        lending: {
+            zh: '借贷',
+            en: 'Lending'
+        }
+    },
+    // Recommended Skills
+    skills: {
+        walletManager: {
+            name: {
+                zh: 'Wallet Manager',
+                en: 'Wallet Manager'
+            },
+            desc: {
+                zh: 'AI Agent 加密钱包管理，支持多链',
+                en: 'AI Agent crypto wallet management, multi-chain support'
+            }
+        },
+        defiStrategist: {
+            name: {
+                zh: 'DeFi Strategist',
+                en: 'DeFi Strategist'
+            },
+            desc: {
+                zh: '智能 DeFi 收益优化策略',
+                en: 'Intelligent DeFi yield optimization strategies'
+            }
+        },
+        tradingAssistant: {
+            name: {
+                zh: 'Trading Assistant',
+                en: 'Trading Assistant'
+            },
+            desc: {
+                zh: '专业交易信号与执行助手',
+                en: 'Professional trading signals and execution assistant'
+            }
+        },
+        portfolioTracker: {
+            name: {
+                zh: 'Portfolio Tracker',
+                en: 'Portfolio Tracker'
+            },
+            desc: {
+                zh: '实时组合追踪与分析',
+                en: 'Real-time portfolio tracking and analysis'
+            }
+        },
+        securityMonitor: {
+            name: {
+                zh: 'Security Monitor',
+                en: 'Security Monitor'
+            },
+            desc: {
+                zh: '7x24 安全监控与预警',
+                en: '24/7 security monitoring and alerting'
+            }
+        },
+        nftAggregator: {
+            name: {
+                zh: 'NFT Aggregator',
+                en: 'NFT Aggregator'
+            },
+            desc: {
+                zh: '多平台 NFT 聚合交易',
+                en: 'Multi-platform NFT aggregation trading'
+            }
+        }
+    },
+    // Security Layers
+    security: {
+        layers: [
+            {
+                title: {
+                    zh: '私钥自托管',
+                    en: 'Self-custody'
+                },
+                desc: {
+                    zh: '你的私钥，你的控制',
+                    en: 'Your private key, your control'
+                },
+                detail: {
+                    zh: '私钥始终存储在你的本地环境，永远不会上传到任何服务器',
+                    en: 'Private keys are always stored in your local environment and never uploaded to any server'
+                }
+            },
+            {
+                title: {
+                    zh: 'TEE 硬件加密',
+                    en: 'TEE Hardware Encryption'
+                },
+                desc: {
+                    zh: 'AWS Nitro Enclaves',
+                    en: 'AWS Nitro Enclaves'
+                },
+                detail: {
+                    zh: '基于可信执行环境的硬件级加密保护',
+                    en: 'Hardware-level encryption protection based on trusted execution environment'
+                }
+            },
+            {
+                title: {
+                    zh: '智能风控引擎',
+                    en: 'AI Risk Control Engine'
+                },
+                desc: {
+                    zh: 'AI 实时防护',
+                    en: 'AI Real-time Protection'
+                },
+                detail: {
+                    zh: '机器学习模型实时分析交易行为，识别潜在风险',
+                    en: 'Machine learning models analyze transaction behavior in real-time to identify potential risks'
+                }
+            },
+            {
+                title: {
+                    zh: '策略引擎',
+                    en: 'Policy Engine'
+                },
+                desc: {
+                    zh: '自定义安全规则',
+                    en: 'Custom Security Rules'
+                },
+                detail: {
+                    zh: '灵活配置转账限额、白名单、多重签名等安全策略',
+                    en: 'Flexible configuration of transfer limits, whitelists, multi-signature and other security policies'
+                }
+            }
+        ]
+    },
+    // Chat Scenarios
+    chatScenarios: {
+        swap: {
+            zh: 'Swap',
+            en: 'Swap'
+        },
+        bridge: {
+            zh: '跨链',
+            en: 'Bridge'
+        },
+        dca: {
+            zh: '定投',
+            en: 'DCA'
+        },
+        risk: {
+            zh: '风控',
+            en: 'Risk Control'
+        }
+    },
     // Use Cases Section
     useCases: {
         title: {
@@ -3288,11 +3556,11 @@ var _s = __turbopack_context__.k.signature(), _s1 = __turbopack_context__.k.sign
 ;
 const DiscordIcon = (t0)=>{
     const $ = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$compiler$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["c"])(4);
-    if ($[0] !== "747a9fd07077a81cd5f10eb3512ca17d6be781adce996111868b8f81f52f4fa6") {
+    if ($[0] !== "1a5ca0b77bef6e5401ea2ec51f9fd8f8f13d4f735baee21b5470961ea8155487") {
         for(let $i = 0; $i < 4; $i += 1){
             $[$i] = Symbol.for("react.memo_cache_sentinel");
         }
-        $[0] = "747a9fd07077a81cd5f10eb3512ca17d6be781adce996111868b8f81f52f4fa6";
+        $[0] = "1a5ca0b77bef6e5401ea2ec51f9fd8f8f13d4f735baee21b5470961ea8155487";
     }
     const { className } = t0;
     let t1;
@@ -4008,11 +4276,11 @@ const strategyDescriptions = {
 // ============================================
 const Button = (t0)=>{
     const $ = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$compiler$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["c"])(9);
-    if ($[0] !== "747a9fd07077a81cd5f10eb3512ca17d6be781adce996111868b8f81f52f4fa6") {
+    if ($[0] !== "1a5ca0b77bef6e5401ea2ec51f9fd8f8f13d4f735baee21b5470961ea8155487") {
         for(let $i = 0; $i < 9; $i += 1){
             $[$i] = Symbol.for("react.memo_cache_sentinel");
         }
-        $[0] = "747a9fd07077a81cd5f10eb3512ca17d6be781adce996111868b8f81f52f4fa6";
+        $[0] = "1a5ca0b77bef6e5401ea2ec51f9fd8f8f13d4f735baee21b5470961ea8155487";
     }
     const { children, variant: t1, size: t2, className: t3, icon: Icon } = t0;
     const variant = t1 === undefined ? "primary" : t1;
@@ -4083,11 +4351,11 @@ const Button = (t0)=>{
 _c1 = Button;
 const Card = (t0)=>{
     const $ = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$compiler$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["c"])(4);
-    if ($[0] !== "747a9fd07077a81cd5f10eb3512ca17d6be781adce996111868b8f81f52f4fa6") {
+    if ($[0] !== "1a5ca0b77bef6e5401ea2ec51f9fd8f8f13d4f735baee21b5470961ea8155487") {
         for(let $i = 0; $i < 4; $i += 1){
             $[$i] = Symbol.for("react.memo_cache_sentinel");
         }
-        $[0] = "747a9fd07077a81cd5f10eb3512ca17d6be781adce996111868b8f81f52f4fa6";
+        $[0] = "1a5ca0b77bef6e5401ea2ec51f9fd8f8f13d4f735baee21b5470961ea8155487";
     }
     const { children, className: t1, hover: t2 } = t0;
     const className = t1 === undefined ? "" : t1;
@@ -4326,7 +4594,7 @@ const ChatDemoCard = ()=>{
                                         lineNumber: 654,
                                         columnNumber: 17
                                     }, ("TURBOPACK compile-time value", void 0)),
-                                    s.label
+                                    (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$app$2f$i18n$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["t"])(`chatScenarios.${s.id}`, currentLang)
                                 ]
                             }, s.id, true, {
                                 fileName: "[project]/src/app/page.tsx",
@@ -4359,11 +4627,11 @@ _s(ChatDemoCard, "WdxurFU7BlR1Y3RjeUfAbFb7R1Q=");
 _c3 = ChatDemoCard;
 const SectionHeader = (t0)=>{
     const $ = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$compiler$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["c"])(19);
-    if ($[0] !== "747a9fd07077a81cd5f10eb3512ca17d6be781adce996111868b8f81f52f4fa6") {
+    if ($[0] !== "1a5ca0b77bef6e5401ea2ec51f9fd8f8f13d4f735baee21b5470961ea8155487") {
         for(let $i = 0; $i < 19; $i += 1){
             $[$i] = Symbol.for("react.memo_cache_sentinel");
         }
-        $[0] = "747a9fd07077a81cd5f10eb3512ca17d6be781adce996111868b8f81f52f4fa6";
+        $[0] = "1a5ca0b77bef6e5401ea2ec51f9fd8f8f13d4f735baee21b5470961ea8155487";
     }
     const { label, title, description, light: t1 } = t0;
     const light = t1 === undefined ? false : t1;
@@ -4498,7 +4766,7 @@ function Home() {
     const [visibleMessages, setVisibleMessages] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])([]);
     const [isTyping, setIsTyping] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(false);
     const [openFaqIndex, setOpenFaqIndex] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(null);
-    const [currentLang, setCurrentLang] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])('zh');
+    const [currentLang1, setCurrentLang] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])('zh');
     const containerRef = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useRef"])(null);
     const { scrollYProgress } = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$value$2f$use$2d$scroll$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useScroll"])({
         target: containerRef,
@@ -4742,7 +5010,7 @@ function Home() {
                                     whileHover: {
                                         y: -1
                                     },
-                                    children: (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$app$2f$i18n$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["t"])(item.key, currentLang)
+                                    children: (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$app$2f$i18n$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["t"])(item.key, currentLang1)
                                 }, item.key, false, {
                                     fileName: "[project]/src/app/page.tsx",
                                     lineNumber: 874,
@@ -4756,7 +5024,7 @@ function Home() {
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                             className: "mr-4",
                             children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$app$2f$LanguageSwitcher$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["LanguageSwitcher"], {
-                                currentLang: currentLang,
+                                currentLang: currentLang1,
                                 onLanguageChange: setCurrentLang
                             }, void 0, false, {
                                 fileName: "[project]/src/app/page.tsx",
@@ -4789,7 +5057,7 @@ function Home() {
                             whileTap: {
                                 scale: 0.98
                             },
-                            children: (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$app$2f$i18n$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["t"])('nav.createWallet', currentLang)
+                            children: (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$app$2f$i18n$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["t"])('nav.createWallet', currentLang1)
                         }, void 0, false, {
                             fileName: "[project]/src/app/page.tsx",
                             lineNumber: 895,
@@ -4910,7 +5178,7 @@ function Home() {
                                     },
                                     className: "mt-4 text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold tracking-tight leading-[1.1]",
                                     children: [
-                                        currentLang === 'zh' ? '让AI Agent' : 'Let AI Agent',
+                                        currentLang1 === 'zh' ? '让AI Agent' : 'Let AI Agent',
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("br", {}, void 0, false, {
                                             fileName: "[project]/src/app/page.tsx",
                                             lineNumber: 960,
@@ -4918,7 +5186,7 @@ function Home() {
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                             className: "text-orange-500",
-                                            children: currentLang === 'zh' ? '拥有安全钱包' : 'Have a Secure Wallet'
+                                            children: currentLang1 === 'zh' ? '拥有安全钱包' : 'Have a Secure Wallet'
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/page.tsx",
                                             lineNumber: 961,
@@ -4944,7 +5212,7 @@ function Home() {
                                         duration: 0.6
                                     },
                                     className: "mt-6 text-lg md:text-xl text-neutral-600 leading-relaxed max-w-2xl font-medium",
-                                    children: (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$app$2f$i18n$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["t"])('hero.subtitle', currentLang)
+                                    children: (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$app$2f$i18n$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["t"])('hero.subtitle', currentLang1)
                                 }, void 0, false, {
                                     fileName: "[project]/src/app/page.tsx",
                                     lineNumber: 966,
@@ -4968,7 +5236,7 @@ function Home() {
                                     children: [
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                                             className: "text-sm text-neutral-500 mb-3 font-medium",
-                                            children: (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$app$2f$i18n$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["t"])('hero.copyHint', currentLang)
+                                            children: (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$app$2f$i18n$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["t"])('hero.copyHint', currentLang1)
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/page.tsx",
                                             lineNumber: 990,
@@ -5099,19 +5367,19 @@ function Home() {
                                     children: [
                                         {
                                             icon: __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$shield$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Shield$3e$__["Shield"],
-                                            label: '自托管'
+                                            label: (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$app$2f$i18n$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["t"])('trust.selfCustody', currentLang1)
                                         },
                                         {
                                             icon: __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$lock$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Lock$3e$__["Lock"],
-                                            label: 'TEE 加密'
+                                            label: (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$app$2f$i18n$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["t"])('trust.teeEncryption', currentLang1)
                                         },
                                         {
                                             icon: __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$fingerprint$2d$pattern$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Fingerprint$3e$__["Fingerprint"],
-                                            label: 'AI 安全风控'
+                                            label: (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$app$2f$i18n$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["t"])('trust.aiSecurity', currentLang1)
                                         },
                                         {
                                             icon: __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$message$2d$square$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__MessageSquare$3e$__["MessageSquare"],
-                                            label: '自然语言交互'
+                                            label: (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$app$2f$i18n$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["t"])('trust.naturalLanguage', currentLang1)
                                         }
                                     ].map((item_0, i_0)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["motion"].div, {
                                             initial: {
@@ -5132,17 +5400,17 @@ function Home() {
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/app/page.tsx",
                                                     lineNumber: 1059,
-                                                    columnNumber: 21
+                                                    columnNumber: 23
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                                     children: item_0.label
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/app/page.tsx",
                                                     lineNumber: 1060,
-                                                    columnNumber: 21
+                                                    columnNumber: 23
                                                 }, this)
                                             ]
-                                        }, item_0.label, true, {
+                                        }, i_0, true, {
                                             fileName: "[project]/src/app/page.tsx",
                                             lineNumber: 1050,
                                             columnNumber: 37
@@ -5228,7 +5496,7 @@ function Home() {
                                 once: true
                             },
                             className: "text-3xl md:text-4xl font-bold",
-                            children: currentLang === 'zh' ? 'Claw Wallet 适合哪些人' : 'Who is Claw Wallet for'
+                            children: currentLang1 === 'zh' ? 'Claw Wallet 适合哪些人' : 'Who is Claw Wallet for'
                         }, void 0, false, {
                             fileName: "[project]/src/app/page.tsx",
                             lineNumber: 1090,
@@ -5236,7 +5504,7 @@ function Home() {
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                             className: "mt-3 text-neutral-500",
-                            children: currentLang === 'zh' ? '为不同类型的用户提供专业的加密资产安全管理方案' : 'Professional crypto asset security management solutions for different types of users'
+                            children: currentLang1 === 'zh' ? '为不同类型的用户提供专业的加密资产安全管理方案' : 'Professional crypto asset security management solutions for different types of users'
                         }, void 0, false, {
                             fileName: "[project]/src/app/page.tsx",
                             lineNumber: 1101,
@@ -5245,23 +5513,23 @@ function Home() {
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                             className: "mt-8 flex flex-wrap justify-center gap-3",
                             children: [
-                                'OpenClaw用户',
-                                'AI Agent',
-                                'Web3新用户',
-                                '加密投资者',
-                                'DeFi用户',
-                                '交易员',
-                                'AI团队',
-                                '区块链开发者',
-                                '机构用户',
-                                '跨境中小企业'
-                            ].map((tag)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$app$2f$i18n$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["t"])('whoFor.openClawUsers', currentLang1),
+                                (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$app$2f$i18n$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["t"])('whoFor.aiAgent', currentLang1),
+                                (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$app$2f$i18n$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["t"])('whoFor.web3NewUsers', currentLang1),
+                                (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$app$2f$i18n$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["t"])('whoFor.cryptoInvestors', currentLang1),
+                                (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$app$2f$i18n$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["t"])('whoFor.defiUsers', currentLang1),
+                                (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$app$2f$i18n$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["t"])('whoFor.traders', currentLang1),
+                                (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$app$2f$i18n$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["t"])('whoFor.aiTeams', currentLang1),
+                                (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$app$2f$i18n$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["t"])('whoFor.blockchainDevelopers', currentLang1),
+                                (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$app$2f$i18n$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["t"])('whoFor.institutionalUsers', currentLang1),
+                                (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$app$2f$i18n$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["t"])('whoFor.crossBorderSmes', currentLang1)
+                            ].map((tag, index)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                     className: "px-5 py-2.5 bg-white border-2 border-slate-800 text-slate-800 rounded-full text-sm font-bold hover:bg-orange-500 hover:border-orange-500 hover:text-white transition-all shadow-sm hover:shadow-hard",
                                     children: tag
-                                }, tag, false, {
+                                }, index, false, {
                                     fileName: "[project]/src/app/page.tsx",
                                     lineNumber: 1103,
-                                    columnNumber: 125
+                                    columnNumber: 428
                                 }, this))
                         }, void 0, false, {
                             fileName: "[project]/src/app/page.tsx",
@@ -5309,7 +5577,7 @@ function Home() {
                                             children: [
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                                     className: "block",
-                                                    children: currentLang === 'zh' ? '给你的 AI Agent' : 'Give your AI Agent'
+                                                    children: currentLang1 === 'zh' ? '给你的 AI Agent' : 'Give your AI Agent'
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/app/page.tsx",
                                                     lineNumber: 1130,
@@ -5317,7 +5585,7 @@ function Home() {
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                                     className: "block text-orange-500",
-                                                    children: currentLang === 'zh' ? '安装 Claw Wallet' : 'Install Claw Wallet'
+                                                    children: currentLang1 === 'zh' ? '安装 Claw Wallet' : 'Install Claw Wallet'
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/app/page.tsx",
                                                     lineNumber: 1131,
@@ -5325,7 +5593,7 @@ function Home() {
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                                     className: "text-slate-800",
-                                                    children: currentLang === 'zh' ? '它将会帮你' : 'It will help you'
+                                                    children: currentLang1 === 'zh' ? '它将会帮你' : 'It will help you'
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/app/page.tsx",
                                                     lineNumber: 1132,
@@ -5339,7 +5607,7 @@ function Home() {
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                                             className: "text-lg text-neutral-600 mt-6",
-                                            children: currentLang === 'zh' ? '通过简单的 Skill 安装，你的 AI Agent 就能拥有完整的钱包能力，一切都在安全可控的环境中完成。' : 'With a simple Skill installation, your AI Agent can have full wallet capabilities, all in a secure and controlled environment.'
+                                            children: currentLang1 === 'zh' ? '通过简单的 Skill 安装，你的 AI Agent 就能拥有完整的钱包能力，一切都在安全可控的环境中完成。' : 'With a simple Skill installation, your AI Agent can have full wallet capabilities, all in a secure and controlled environment.'
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/page.tsx",
                                             lineNumber: 1136,
@@ -5366,7 +5634,7 @@ function Home() {
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
                                                     onClick: ()=>setActiveStrategy('create'),
                                                     className: `px-4 py-2 rounded-full text-sm font-bold border-2 transition-all ${activeStrategy === 'create' ? 'bg-orange-500 text-white border-orange-500' : 'bg-white text-slate-800 border-slate-800 hover:bg-orange-500 hover:border-orange-500 hover:text-white'}`,
-                                                    children: "创建钱包"
+                                                    children: (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$app$2f$i18n$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["t"])('strategies.create', currentLang1)
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/app/page.tsx",
                                                     lineNumber: 1153,
@@ -5375,7 +5643,7 @@ function Home() {
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
                                                     onClick: ()=>setActiveStrategy('market'),
                                                     className: `px-4 py-2 rounded-full text-sm font-bold border-2 transition-all ${activeStrategy === 'market' ? 'bg-orange-500 text-white border-orange-500' : 'bg-white text-slate-800 border-slate-800 hover:bg-orange-500 hover:border-orange-500 hover:text-white'}`,
-                                                    children: "市场动态"
+                                                    children: (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$app$2f$i18n$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["t"])('strategies.market', currentLang1)
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/app/page.tsx",
                                                     lineNumber: 1154,
@@ -5384,7 +5652,7 @@ function Home() {
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
                                                     onClick: ()=>setActiveStrategy('price'),
                                                     className: `px-4 py-2 rounded-full text-sm font-bold border-2 transition-all ${activeStrategy === 'price' ? 'bg-orange-500 text-white border-orange-500' : 'bg-white text-slate-800 border-slate-800 hover:bg-orange-500 hover:border-orange-500 hover:text-white'}`,
-                                                    children: "跟踪币价"
+                                                    children: (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$app$2f$i18n$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["t"])('strategies.price', currentLang1)
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/app/page.tsx",
                                                     lineNumber: 1155,
@@ -5393,7 +5661,7 @@ function Home() {
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
                                                     onClick: ()=>setActiveStrategy('arbitrage'),
                                                     className: `px-4 py-2 rounded-full text-sm font-bold border-2 transition-all ${activeStrategy === 'arbitrage' ? 'bg-orange-500 text-white border-orange-500' : 'bg-white text-slate-800 border-slate-800 hover:bg-orange-500 hover:border-orange-500 hover:text-white'}`,
-                                                    children: "自动套利"
+                                                    children: (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$app$2f$i18n$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["t"])('strategies.arbitrage', currentLang1)
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/app/page.tsx",
                                                     lineNumber: 1156,
@@ -5402,7 +5670,7 @@ function Home() {
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
                                                     onClick: ()=>setActiveStrategy('mining'),
                                                     className: `px-4 py-2 rounded-full text-sm font-bold border-2 transition-all ${activeStrategy === 'mining' ? 'bg-orange-500 text-white border-orange-500' : 'bg-white text-slate-800 border-slate-800 hover:bg-orange-500 hover:border-orange-500 hover:text-white'}`,
-                                                    children: "挖矿"
+                                                    children: (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$app$2f$i18n$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["t"])('strategies.mining', currentLang1)
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/app/page.tsx",
                                                     lineNumber: 1157,
@@ -5411,7 +5679,7 @@ function Home() {
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
                                                     onClick: ()=>setActiveStrategy('meme'),
                                                     className: `px-4 py-2 rounded-full text-sm font-bold border-2 transition-all ${activeStrategy === 'meme' ? 'bg-orange-500 text-white border-orange-500' : 'bg-white text-slate-800 border-slate-800 hover:bg-orange-500 hover:border-orange-500 hover:text-white'}`,
-                                                    children: "Meme"
+                                                    children: (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$app$2f$i18n$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["t"])('strategies.meme', currentLang1)
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/app/page.tsx",
                                                     lineNumber: 1158,
@@ -5420,7 +5688,7 @@ function Home() {
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
                                                     onClick: ()=>setActiveStrategy('ipo'),
                                                     className: `px-4 py-2 rounded-full text-sm font-bold border-2 transition-all ${activeStrategy === 'ipo' ? 'bg-orange-500 text-white border-orange-500' : 'bg-white text-slate-800 border-slate-800 hover:bg-orange-500 hover:border-orange-500 hover:text-white'}`,
-                                                    children: "币股打新"
+                                                    children: (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$app$2f$i18n$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["t"])('strategies.ipo', currentLang1)
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/app/page.tsx",
                                                     lineNumber: 1159,
@@ -5429,7 +5697,7 @@ function Home() {
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
                                                     onClick: ()=>setActiveStrategy('perps'),
                                                     className: `px-4 py-2 rounded-full text-sm font-bold border-2 transition-all ${activeStrategy === 'perps' ? 'bg-orange-500 text-white border-orange-500' : 'bg-white text-slate-800 border-slate-800 hover:bg-orange-500 hover:border-orange-500 hover:text-white'}`,
-                                                    children: "Perps"
+                                                    children: (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$app$2f$i18n$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["t"])('strategies.perps', currentLang1)
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/app/page.tsx",
                                                     lineNumber: 1160,
@@ -5438,7 +5706,7 @@ function Home() {
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
                                                     onClick: ()=>setActiveStrategy('audit'),
                                                     className: `px-4 py-2 rounded-full text-sm font-bold border-2 transition-all ${activeStrategy === 'audit' ? 'bg-orange-500 text-white border-orange-500' : 'bg-white text-slate-800 border-slate-800 hover:bg-orange-500 hover:border-orange-500 hover:text-white'}`,
-                                                    children: "安全审计"
+                                                    children: (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$app$2f$i18n$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["t"])('strategies.audit', currentLang1)
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/app/page.tsx",
                                                     lineNumber: 1161,
@@ -5447,7 +5715,7 @@ function Home() {
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
                                                     onClick: ()=>setActiveStrategy('transfer'),
                                                     className: `px-4 py-2 rounded-full text-sm font-bold border-2 transition-all ${activeStrategy === 'transfer' ? 'bg-orange-500 text-white border-orange-500' : 'bg-white text-slate-800 border-slate-800 hover:bg-orange-500 hover:border-orange-500 hover:text-white'}`,
-                                                    children: "转账"
+                                                    children: (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$app$2f$i18n$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["t"])('strategies.transfer', currentLang1)
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/app/page.tsx",
                                                     lineNumber: 1162,
@@ -5456,7 +5724,7 @@ function Home() {
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
                                                     onClick: ()=>setActiveStrategy('defi'),
                                                     className: `px-4 py-2 rounded-full text-sm font-bold border-2 transition-all ${activeStrategy === 'defi' ? 'bg-orange-500 text-white border-orange-500' : 'bg-white text-slate-800 border-slate-800 hover:bg-orange-500 hover:border-orange-500 hover:text-white'}`,
-                                                    children: "DeFi"
+                                                    children: (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$app$2f$i18n$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["t"])('strategies.defi', currentLang1)
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/app/page.tsx",
                                                     lineNumber: 1163,
@@ -5465,7 +5733,7 @@ function Home() {
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
                                                     onClick: ()=>setActiveStrategy('dca'),
                                                     className: `px-4 py-2 rounded-full text-sm font-bold border-2 transition-all ${activeStrategy === 'dca' ? 'bg-orange-500 text-white border-orange-500' : 'bg-white text-slate-800 border-slate-800 hover:bg-orange-500 hover:border-orange-500 hover:text-white'}`,
-                                                    children: "定投"
+                                                    children: (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$app$2f$i18n$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["t"])('strategies.dca', currentLang1)
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/app/page.tsx",
                                                     lineNumber: 1164,
@@ -5474,7 +5742,7 @@ function Home() {
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
                                                     onClick: ()=>setActiveStrategy('copy'),
                                                     className: `px-4 py-2 rounded-full text-sm font-bold border-2 transition-all ${activeStrategy === 'copy' ? 'bg-orange-500 text-white border-orange-500' : 'bg-white text-slate-800 border-slate-800 hover:bg-orange-500 hover:border-orange-500 hover:text-white'}`,
-                                                    children: "跟单"
+                                                    children: (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$app$2f$i18n$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["t"])('strategies.copy', currentLang1)
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/app/page.tsx",
                                                     lineNumber: 1165,
@@ -5483,7 +5751,7 @@ function Home() {
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
                                                     onClick: ()=>setActiveStrategy('staking'),
                                                     className: `px-4 py-2 rounded-full text-sm font-bold border-2 transition-all ${activeStrategy === 'staking' ? 'bg-orange-500 text-white border-orange-500' : 'bg-white text-slate-800 border-slate-800 hover:bg-orange-500 hover:border-orange-500 hover:text-white'}`,
-                                                    children: "质押"
+                                                    children: (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$app$2f$i18n$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["t"])('strategies.staking', currentLang1)
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/app/page.tsx",
                                                     lineNumber: 1166,
@@ -5492,7 +5760,7 @@ function Home() {
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
                                                     onClick: ()=>setActiveStrategy('lending'),
                                                     className: `px-4 py-2 rounded-full text-sm font-bold border-2 transition-all ${activeStrategy === 'lending' ? 'bg-orange-500 text-white border-orange-500' : 'bg-white text-slate-800 border-slate-800 hover:bg-orange-500 hover:border-orange-500 hover:text-white'}`,
-                                                    children: "借贷"
+                                                    children: (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$app$2f$i18n$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["t"])('strategies.lending', currentLang1)
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/app/page.tsx",
                                                     lineNumber: 1167,
@@ -5889,34 +6157,28 @@ function Home() {
                             className: "mt-12 grid md:grid-cols-2 lg:grid-cols-3 gap-6",
                             children: [
                                 {
-                                    name: 'Wallet Manager',
-                                    installs: '12.5K',
-                                    desc: 'AI Agent 加密钱包管理，支持多链'
+                                    key: 'walletManager',
+                                    installs: '12.5K'
                                 },
                                 {
-                                    name: 'DeFi Strategist',
-                                    installs: '8.2K',
-                                    desc: '智能 DeFi 收益优化策略'
+                                    key: 'defiStrategist',
+                                    installs: '8.2K'
                                 },
                                 {
-                                    name: 'Trading Assistant',
-                                    installs: '6.8K',
-                                    desc: '专业交易信号与执行助手'
+                                    key: 'tradingAssistant',
+                                    installs: '6.8K'
                                 },
                                 {
-                                    name: 'Portfolio Tracker',
-                                    installs: '15.3K',
-                                    desc: '实时组合追踪与分析'
+                                    key: 'portfolioTracker',
+                                    installs: '15.3K'
                                 },
                                 {
-                                    name: 'Security Monitor',
-                                    installs: '9.1K',
-                                    desc: '7x24 安全监控与预警'
+                                    key: 'securityMonitor',
+                                    installs: '9.1K'
                                 },
                                 {
-                                    name: 'NFT Aggregator',
-                                    installs: '5.4K',
-                                    desc: '多平台 NFT 聚合交易'
+                                    key: 'nftAggregator',
+                                    installs: '5.4K'
                                 }
                             ].map((skill, i_1)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["motion"].div, {
                                     initial: {
@@ -5942,16 +6204,16 @@ function Home() {
                                                     className: "flex-1",
                                                     children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h4", {
                                                         className: "font-bold text-slate-800 group-hover:text-orange-500 transition-colors",
-                                                        children: skill.name
+                                                        children: (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$app$2f$i18n$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["t"])(`skills.${skill.key}.name`, currentLang1)
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/app/page.tsx",
-                                                        lineNumber: 1388,
-                                                        columnNumber: 21
+                                                        lineNumber: 1382,
+                                                        columnNumber: 23
                                                     }, this)
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/app/page.tsx",
-                                                    lineNumber: 1387,
-                                                    columnNumber: 19
+                                                    lineNumber: 1381,
+                                                    columnNumber: 21
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                                     className: "flex items-center gap-3",
@@ -5961,40 +6223,40 @@ function Home() {
                                                             children: skill.installs
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/app/page.tsx",
-                                                            lineNumber: 1391,
-                                                            columnNumber: 21
+                                                            lineNumber: 1385,
+                                                            columnNumber: 23
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$github$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Github$3e$__["Github"], {
                                                             className: "w-4 h-4 text-slate-400"
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/app/page.tsx",
-                                                            lineNumber: 1392,
-                                                            columnNumber: 21
+                                                            lineNumber: 1386,
+                                                            columnNumber: 23
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/src/app/page.tsx",
-                                                    lineNumber: 1390,
-                                                    columnNumber: 19
+                                                    lineNumber: 1384,
+                                                    columnNumber: 21
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/src/app/page.tsx",
-                                            lineNumber: 1386,
-                                            columnNumber: 17
+                                            lineNumber: 1380,
+                                            columnNumber: 19
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                                             className: "text-sm text-slate-600 mt-3",
-                                            children: skill.desc
+                                            children: (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$app$2f$i18n$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["t"])(`skills.${skill.key}.desc`, currentLang1)
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/page.tsx",
-                                            lineNumber: 1395,
-                                            columnNumber: 17
+                                            lineNumber: 1389,
+                                            columnNumber: 19
                                         }, this)
                                     ]
-                                }, skill.name, true, {
+                                }, skill.key, true, {
                                     fileName: "[project]/src/app/page.tsx",
-                                    lineNumber: 1375,
+                                    lineNumber: 1369,
                                     columnNumber: 34
                                 }, this))
                         }, void 0, false, {
@@ -6024,20 +6286,20 @@ function Home() {
                                 className: "absolute top-0 left-1/4 w-96 h-96 bg-orange-500/10 rounded-full blur-3xl"
                             }, void 0, false, {
                                 fileName: "[project]/src/app/page.tsx",
-                                lineNumber: 1407,
+                                lineNumber: 1401,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                 className: "absolute bottom-0 right-1/4 w-96 h-96 bg-orange-600/10 rounded-full blur-3xl"
                             }, void 0, false, {
                                 fileName: "[project]/src/app/page.tsx",
-                                lineNumber: 1408,
+                                lineNumber: 1402,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/app/page.tsx",
-                        lineNumber: 1406,
+                        lineNumber: 1400,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -6056,10 +6318,10 @@ function Home() {
                                     once: true
                                 },
                                 className: "text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-white text-center mb-16",
-                                children: (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$app$2f$i18n$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["t"])('howItWorks.title', currentLang)
+                                children: (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$app$2f$i18n$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["t"])('howItWorks.title', currentLang1)
                             }, void 0, false, {
                                 fileName: "[project]/src/app/page.tsx",
-                                lineNumber: 1412,
+                                lineNumber: 1406,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -6067,24 +6329,24 @@ function Home() {
                                 children: [
                                     {
                                         step: '01',
-                                        title: currentLang === 'zh' ? '安装 Skill' : 'Install Skill',
-                                        desc: currentLang === 'zh' ? '复制命令并发送给 AI Agent 或 Openclaw' : 'Copy the command and send it to your AI Agent or Openclaw',
+                                        title: currentLang1 === 'zh' ? '安装 Skill' : 'Install Skill',
+                                        desc: currentLang1 === 'zh' ? '复制命令并发送给 AI Agent 或 Openclaw' : 'Copy the command and send it to your AI Agent or Openclaw',
                                         icon: __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$terminal$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Terminal$3e$__["Terminal"],
                                         command: 'claw install wallet'
                                     },
                                     {
                                         step: '02',
-                                        title: currentLang === 'zh' ? '创建钱包' : 'Create Wallet',
-                                        desc: currentLang === 'zh' ? '通过自然语言让 AI Agent 创建钱包并在官网激活' : 'Use natural language to have your AI Agent create a wallet and activate it on the official website',
+                                        title: currentLang1 === 'zh' ? '创建钱包' : 'Create Wallet',
+                                        desc: currentLang1 === 'zh' ? '通过自然语言让 AI Agent 创建钱包并在官网激活' : 'Use natural language to have your AI Agent create a wallet and activate it on the official website',
                                         icon: __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$wallet$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Wallet$3e$__["Wallet"],
-                                        command: currentLang === 'zh' ? '帮我创建一个安全钱包' : 'Help me create a secure wallet'
+                                        command: currentLang1 === 'zh' ? '帮我创建一个安全钱包' : 'Help me create a secure wallet'
                                     },
                                     {
                                         step: '03',
-                                        title: currentLang === 'zh' ? '开始使用' : 'Start Using',
-                                        desc: currentLang === 'zh' ? '使用自然语言指挥 AI Agent 执行各种操作' : 'Use natural language to direct your AI Agent to perform various operations',
+                                        title: currentLang1 === 'zh' ? '开始使用' : 'Start Using',
+                                        desc: currentLang1 === 'zh' ? '使用自然语言指挥 AI Agent 执行各种操作' : 'Use natural language to direct your AI Agent to perform various operations',
                                         icon: __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$zap$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Zap$3e$__["Zap"],
-                                        command: currentLang === 'zh' ? '查询余额并转账' : 'Check balance and transfer'
+                                        command: currentLang1 === 'zh' ? '查询余额并转账' : 'Check balance and transfer'
                                     }
                                 ].map((item_1, idx)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["motion"].div, {
                                         initial: {
@@ -6109,7 +6371,7 @@ function Home() {
                                                 children: item_1.step
                                             }, void 0, false, {
                                                 fileName: "[project]/src/app/page.tsx",
-                                                lineNumber: 1455,
+                                                lineNumber: 1449,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -6121,12 +6383,12 @@ function Home() {
                                                             className: "w-7 h-7 text-white"
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/app/page.tsx",
-                                                            lineNumber: 1458,
+                                                            lineNumber: 1452,
                                                             columnNumber: 21
                                                         }, this)
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/app/page.tsx",
-                                                        lineNumber: 1457,
+                                                        lineNumber: 1451,
                                                         columnNumber: 19
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
@@ -6134,7 +6396,7 @@ function Home() {
                                                         children: item_1.title
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/app/page.tsx",
-                                                        lineNumber: 1460,
+                                                        lineNumber: 1454,
                                                         columnNumber: 19
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -6142,7 +6404,7 @@ function Home() {
                                                         children: item_1.desc
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/app/page.tsx",
-                                                        lineNumber: 1461,
+                                                        lineNumber: 1455,
                                                         columnNumber: 19
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -6154,36 +6416,36 @@ function Home() {
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/src/app/page.tsx",
-                                                        lineNumber: 1462,
+                                                        lineNumber: 1456,
                                                         columnNumber: 19
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/src/app/page.tsx",
-                                                lineNumber: 1456,
+                                                lineNumber: 1450,
                                                 columnNumber: 17
                                             }, this)
                                         ]
                                     }, item_1.step, true, {
                                         fileName: "[project]/src/app/page.tsx",
-                                        lineNumber: 1443,
+                                        lineNumber: 1437,
                                         columnNumber: 35
                                     }, this))
                             }, void 0, false, {
                                 fileName: "[project]/src/app/page.tsx",
-                                lineNumber: 1424,
+                                lineNumber: 1418,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/app/page.tsx",
-                        lineNumber: 1411,
+                        lineNumber: 1405,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/app/page.tsx",
-                lineNumber: 1404,
+                lineNumber: 1398,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
@@ -6213,46 +6475,46 @@ function Home() {
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
                                         className: "text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-tight",
                                         children: [
-                                            currentLang === 'zh' ? '安全至上，' : 'Security First, ',
+                                            currentLang1 === 'zh' ? '安全至上，' : 'Security First, ',
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                                 className: "text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-orange-600",
-                                                children: currentLang === 'zh' ? '层层防护' : 'Layered Protection'
+                                                children: currentLang1 === 'zh' ? '层层防护' : 'Layered Protection'
                                             }, void 0, false, {
                                                 fileName: "[project]/src/app/page.tsx",
-                                                lineNumber: 1491,
+                                                lineNumber: 1485,
                                                 columnNumber: 17
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/app/page.tsx",
-                                        lineNumber: 1489,
+                                        lineNumber: 1483,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                                         className: "mt-6 text-lg text-neutral-600 leading-relaxed",
-                                        children: currentLang === 'zh' ? 'AI Agent 和加密资产是高价值目标。Claw Wallet 从设计之初就将安全作为核心，采用企业级安全架构保护你的资产。' : 'AI Agents and crypto assets are high-value targets. Claw Wallet was designed with security as the core, using enterprise-grade security architecture to protect your assets.'
+                                        children: currentLang1 === 'zh' ? 'AI Agent 和加密资产是高价值目标。Claw Wallet 从设计之初就将安全作为核心，采用企业级安全架构保护你的资产。' : 'AI Agents and crypto assets are high-value targets. Claw Wallet was designed with security as the core, using enterprise-grade security architecture to protect your assets.'
                                     }, void 0, false, {
                                         fileName: "[project]/src/app/page.tsx",
-                                        lineNumber: 1495,
+                                        lineNumber: 1489,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                                         className: "mt-4 text-neutral-600 leading-relaxed",
                                         children: [
-                                            currentLang === 'zh' ? '不同于其他方案将私钥交给 Agent，Claw Wallet 采用' : 'Unlike other solutions that give private keys to Agents, Claw Wallet uses a ',
+                                            currentLang1 === 'zh' ? '不同于其他方案将私钥交给 Agent，Claw Wallet 采用' : 'Unlike other solutions that give private keys to Agents, Claw Wallet uses a ',
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                                 className: "font-semibold text-orange-500",
-                                                children: currentLang === 'zh' ? '自托管架构' : 'self-custody architecture'
+                                                children: currentLang1 === 'zh' ? '自托管架构' : 'self-custody architecture'
                                             }, void 0, false, {
                                                 fileName: "[project]/src/app/page.tsx",
-                                                lineNumber: 1499,
+                                                lineNumber: 1493,
                                                 columnNumber: 158
                                             }, this),
-                                            currentLang === 'zh' ? '，私钥永远在你的控制之下。' : ', with private keys always under your control.'
+                                            currentLang1 === 'zh' ? '，私钥永远在你的控制之下。' : ', with private keys always under your control.'
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/app/page.tsx",
-                                        lineNumber: 1498,
+                                        lineNumber: 1492,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -6284,53 +6546,53 @@ function Home() {
                                                             className: "w-6 h-6 text-white"
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/app/page.tsx",
-                                                            lineNumber: 1518,
+                                                            lineNumber: 1512,
                                                             columnNumber: 23
                                                         }, this)
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/app/page.tsx",
-                                                        lineNumber: 1517,
+                                                        lineNumber: 1511,
                                                         columnNumber: 21
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h4", {
                                                         className: "font-bold text-slate-800",
-                                                        children: layer.title
+                                                        children: (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$app$2f$i18n$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["t"])(`security.layers.${idx_0}.title`, currentLang1)
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/app/page.tsx",
-                                                        lineNumber: 1520,
+                                                        lineNumber: 1514,
                                                         columnNumber: 21
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                                                         className: "text-xs text-slate-500 mt-1 font-medium",
-                                                        children: layer.desc
+                                                        children: (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$app$2f$i18n$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["t"])(`security.layers.${idx_0}.desc`, currentLang1)
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/app/page.tsx",
-                                                        lineNumber: 1521,
+                                                        lineNumber: 1515,
                                                         columnNumber: 21
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                                                         className: "text-xs text-slate-400 mt-2",
-                                                        children: layer.detail
+                                                        children: (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$app$2f$i18n$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["t"])(`security.layers.${idx_0}.detail`, currentLang1)
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/app/page.tsx",
-                                                        lineNumber: 1522,
+                                                        lineNumber: 1516,
                                                         columnNumber: 21
                                                     }, this)
                                                 ]
-                                            }, layer.title, true, {
+                                            }, idx_0, true, {
                                                 fileName: "[project]/src/app/page.tsx",
-                                                lineNumber: 1503,
+                                                lineNumber: 1497,
                                                 columnNumber: 55
                                             }, this))
                                     }, void 0, false, {
                                         fileName: "[project]/src/app/page.tsx",
-                                        lineNumber: 1502,
+                                        lineNumber: 1496,
                                         columnNumber: 15
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/app/page.tsx",
-                                lineNumber: 1477,
+                                lineNumber: 1471,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["motion"].div, {
@@ -6367,7 +6629,7 @@ function Home() {
                                                     className: "absolute inset-0 rounded-full border-2 border-dashed border-red-200/60"
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/app/page.tsx",
-                                                    lineNumber: 1541,
+                                                    lineNumber: 1535,
                                                     columnNumber: 19
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["motion"].div, {
@@ -6382,7 +6644,7 @@ function Home() {
                                                     className: "absolute inset-8 rounded-full border-2 border-dashed border-red-300/60"
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/app/page.tsx",
-                                                    lineNumber: 1548,
+                                                    lineNumber: 1542,
                                                     columnNumber: 19
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["motion"].div, {
@@ -6397,7 +6659,7 @@ function Home() {
                                                     className: "absolute inset-16 rounded-full border-2 border-red-400/60"
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/app/page.tsx",
-                                                    lineNumber: 1555,
+                                                    lineNumber: 1549,
                                                     columnNumber: 19
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["motion"].div, {
@@ -6418,18 +6680,18 @@ function Home() {
                                                         className: "w-12 h-12 text-white"
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/app/page.tsx",
-                                                        lineNumber: 1569,
+                                                        lineNumber: 1563,
                                                         columnNumber: 21
                                                     }, this)
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/app/page.tsx",
-                                                    lineNumber: 1562,
+                                                    lineNumber: 1556,
                                                     columnNumber: 19
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/src/app/page.tsx",
-                                            lineNumber: 1540,
+                                            lineNumber: 1534,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["motion"].div, {
@@ -6464,12 +6726,12 @@ function Home() {
                                                             className: "w-6 h-6 text-green-600"
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/app/page.tsx",
-                                                            lineNumber: 1589,
+                                                            lineNumber: 1583,
                                                             columnNumber: 23
                                                         }, this)
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/app/page.tsx",
-                                                        lineNumber: 1588,
+                                                        lineNumber: 1582,
                                                         columnNumber: 21
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -6479,7 +6741,7 @@ function Home() {
                                                                 children: "100%"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/src/app/page.tsx",
-                                                                lineNumber: 1592,
+                                                                lineNumber: 1586,
                                                                 columnNumber: 23
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -6487,24 +6749,24 @@ function Home() {
                                                                 children: "自托管"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/src/app/page.tsx",
-                                                                lineNumber: 1593,
+                                                                lineNumber: 1587,
                                                                 columnNumber: 23
                                                             }, this)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/src/app/page.tsx",
-                                                        lineNumber: 1591,
+                                                        lineNumber: 1585,
                                                         columnNumber: 21
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/src/app/page.tsx",
-                                                lineNumber: 1587,
+                                                lineNumber: 1581,
                                                 columnNumber: 19
                                             }, this)
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/page.tsx",
-                                            lineNumber: 1574,
+                                            lineNumber: 1568,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["motion"].div, {
@@ -6537,7 +6799,7 @@ function Home() {
                                                         className: "w-3 h-3 rounded-full bg-green-500 animate-pulse"
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/app/page.tsx",
-                                                        lineNumber: 1612,
+                                                        lineNumber: 1606,
                                                         columnNumber: 21
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -6545,45 +6807,45 @@ function Home() {
                                                         children: "实时监控中"
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/app/page.tsx",
-                                                        lineNumber: 1613,
+                                                        lineNumber: 1607,
                                                         columnNumber: 21
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/src/app/page.tsx",
-                                                lineNumber: 1611,
+                                                lineNumber: 1605,
                                                 columnNumber: 19
                                             }, this)
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/page.tsx",
-                                            lineNumber: 1598,
+                                            lineNumber: 1592,
                                             columnNumber: 17
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/app/page.tsx",
-                                    lineNumber: 1538,
+                                    lineNumber: 1532,
                                     columnNumber: 15
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/src/app/page.tsx",
-                                lineNumber: 1527,
+                                lineNumber: 1521,
                                 columnNumber: 13
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/app/page.tsx",
-                        lineNumber: 1476,
+                        lineNumber: 1470,
                         columnNumber: 11
                     }, this)
                 }, void 0, false, {
                     fileName: "[project]/src/app/page.tsx",
-                    lineNumber: 1475,
+                    lineNumber: 1469,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/src/app/page.tsx",
-                lineNumber: 1474,
+                lineNumber: 1468,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
@@ -6595,12 +6857,12 @@ function Home() {
                             className: "absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gradient-to-r from-red-100/40 to-neutral-100/40 rounded-full blur-3xl"
                         }, void 0, false, {
                             fileName: "[project]/src/app/page.tsx",
-                            lineNumber: 1628,
+                            lineNumber: 1622,
                             columnNumber: 11
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/src/app/page.tsx",
-                        lineNumber: 1627,
+                        lineNumber: 1621,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["motion"].div, {
@@ -6622,18 +6884,18 @@ function Home() {
                         children: [
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
                                 className: "text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-tight",
-                                children: (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$app$2f$i18n$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["t"])('cta.title', currentLang)
+                                children: (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$app$2f$i18n$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["t"])('cta.title', currentLang1)
                             }, void 0, false, {
                                 fileName: "[project]/src/app/page.tsx",
-                                lineNumber: 1643,
+                                lineNumber: 1637,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                                 className: "mt-6 text-lg text-neutral-600 leading-relaxed",
-                                children: (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$app$2f$i18n$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["t"])('cta.subtitle', currentLang)
+                                children: (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$app$2f$i18n$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["t"])('cta.subtitle', currentLang1)
                             }, void 0, false, {
                                 fileName: "[project]/src/app/page.tsx",
-                                lineNumber: 1646,
+                                lineNumber: 1640,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -6641,10 +6903,10 @@ function Home() {
                                 children: [
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                                         className: "text-sm text-neutral-500 mb-4 font-medium",
-                                        children: (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$app$2f$i18n$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["t"])('hero.copyHint', currentLang)
+                                        children: (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$app$2f$i18n$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["t"])('hero.copyHint', currentLang1)
                                     }, void 0, false, {
                                         fileName: "[project]/src/app/page.tsx",
-                                        lineNumber: 1651,
+                                        lineNumber: 1645,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -6660,7 +6922,7 @@ function Home() {
                                                         className: "w-4 h-4 text-orange-400"
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/app/page.tsx",
-                                                        lineNumber: 1656,
+                                                        lineNumber: 1650,
                                                         columnNumber: 17
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("code", {
@@ -6668,13 +6930,13 @@ function Home() {
                                                         children: "claw install wallet"
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/app/page.tsx",
-                                                        lineNumber: 1657,
+                                                        lineNumber: 1651,
                                                         columnNumber: 17
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/src/app/page.tsx",
-                                                lineNumber: 1653,
+                                                lineNumber: 1647,
                                                 columnNumber: 15
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["motion"].button, {
@@ -6690,30 +6952,30 @@ function Home() {
                                                     className: "w-5 h-5 text-green-600"
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/app/page.tsx",
-                                                    lineNumber: 1664,
+                                                    lineNumber: 1658,
                                                     columnNumber: 27
                                                 }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$copy$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Copy$3e$__["Copy"], {
                                                     className: "w-5 h-5 text-neutral-600"
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/app/page.tsx",
-                                                    lineNumber: 1664,
+                                                    lineNumber: 1658,
                                                     columnNumber: 74
                                                 }, this)
                                             }, void 0, false, {
                                                 fileName: "[project]/src/app/page.tsx",
-                                                lineNumber: 1659,
+                                                lineNumber: 1653,
                                                 columnNumber: 15
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/app/page.tsx",
-                                        lineNumber: 1652,
+                                        lineNumber: 1646,
                                         columnNumber: 13
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/app/page.tsx",
-                                lineNumber: 1650,
+                                lineNumber: 1644,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -6722,10 +6984,10 @@ function Home() {
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(Button, {
                                         size: "lg",
                                         icon: __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$code$2d$xml$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Code2$3e$__["Code2"],
-                                        children: currentLang === 'zh' ? '查看文档' : 'View Documentation'
+                                        children: currentLang1 === 'zh' ? '查看文档' : 'View Documentation'
                                     }, void 0, false, {
                                         fileName: "[project]/src/app/page.tsx",
-                                        lineNumber: 1670,
+                                        lineNumber: 1664,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(Button, {
@@ -6735,25 +6997,25 @@ function Home() {
                                         children: "GitHub"
                                     }, void 0, false, {
                                         fileName: "[project]/src/app/page.tsx",
-                                        lineNumber: 1671,
+                                        lineNumber: 1665,
                                         columnNumber: 13
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/app/page.tsx",
-                                lineNumber: 1669,
+                                lineNumber: 1663,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/app/page.tsx",
-                        lineNumber: 1631,
+                        lineNumber: 1625,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/app/page.tsx",
-                lineNumber: 1625,
+                lineNumber: 1619,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
@@ -6765,39 +7027,39 @@ function Home() {
                             className: "text-center mb-12",
                             children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
                                 className: "text-3xl md:text-4xl font-bold",
-                                children: (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$app$2f$i18n$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["t"])('faq.title', currentLang)
+                                children: (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$app$2f$i18n$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["t"])('faq.title', currentLang1)
                             }, void 0, false, {
                                 fileName: "[project]/src/app/page.tsx",
-                                lineNumber: 1682,
+                                lineNumber: 1676,
                                 columnNumber: 13
                             }, this)
                         }, void 0, false, {
                             fileName: "[project]/src/app/page.tsx",
-                            lineNumber: 1681,
+                            lineNumber: 1675,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                             className: "space-y-3",
                             children: [
                                 {
-                                    q: currentLang === 'zh' ? '支持哪些区块链？' : 'Which blockchains are supported?',
-                                    a: currentLang === 'zh' ? '支持 Bitcoin、Ethereum、BSC、SUI、Monad、Base、Solana 等 7 条主流区块链，覆盖主流 DeFi 与跨链场景' : 'Supports 7 mainstream blockchains including Bitcoin, Ethereum, BSC, SUI, Monad, Base, and Solana, covering mainstream DeFi and cross-chain scenarios'
+                                    q: currentLang1 === 'zh' ? '支持哪些区块链？' : 'Which blockchains are supported?',
+                                    a: currentLang1 === 'zh' ? '支持 Bitcoin、Ethereum、BSC、SUI、Monad、Base、Solana 等 7 条主流区块链，覆盖主流 DeFi 与跨链场景' : 'Supports 7 mainstream blockchains including Bitcoin, Ethereum, BSC, SUI, Monad, Base, and Solana, covering mainstream DeFi and cross-chain scenarios'
                                 },
                                 {
-                                    q: currentLang === 'zh' ? '需要注册吗？' : 'Do I need to register?',
-                                    a: currentLang === 'zh' ? '安装 Skill 后需在官网激活钱包并绑定唯一 PIN 码，用于管理签名授权。整个过程不到 1 分钟' : 'After installing the Skill, you need to activate the wallet on the official website and bind a unique PIN for managing signature authorizations. The entire process takes less than 1 minute'
+                                    q: currentLang1 === 'zh' ? '需要注册吗？' : 'Do I need to register?',
+                                    a: currentLang1 === 'zh' ? '安装 Skill 后需在官网激活钱包并绑定唯一 PIN 码，用于管理签名授权。整个过程不到 1 分钟' : 'After installing the Skill, you need to activate the wallet on the official website and bind a unique PIN for managing signature authorizations. The entire process takes less than 1 minute'
                                 },
                                 {
-                                    q: currentLang === 'zh' ? '私钥如何保管？' : 'How are private keys stored?',
-                                    a: currentLang === 'zh' ? '基于 AWS Nitro Enclaves 的 TEE 可信执行环境，私钥以分片加密形式存储于硬件隔离区域，AI Agent 无法触碰私钥。用户可选择导出私钥自行管理' : 'Based on AWS Nitro Enclaves TEE trusted execution environment, private keys are stored in hardware-isolated regions in sharded encrypted form. AI Agents cannot access private keys. Users can choose to export private keys for self-management'
+                                    q: currentLang1 === 'zh' ? '私钥如何保管？' : 'How are private keys stored?',
+                                    a: currentLang1 === 'zh' ? '基于 AWS Nitro Enclaves 的 TEE 可信执行环境，私钥以分片加密形式存储于硬件隔离区域，AI Agent 无法触碰私钥。用户可选择导出私钥自行管理' : 'Based on AWS Nitro Enclaves TEE trusted execution environment, private keys are stored in hardware-isolated regions in sharded encrypted form. AI Agents cannot access private keys. Users can choose to export private keys for self-management'
                                 },
                                 {
-                                    q: currentLang === 'zh' ? '交易安全如何保障？' : 'How is transaction security ensured?',
-                                    a: currentLang === 'zh' ? '五层安全防护：额度限制、合约白名单、频率控制、审批流程、实时风控监测。高额交易需二次授权确认' : 'Five-layer security protection: limit restrictions, contract whitelist, frequency control, approval process, real-time risk control monitoring. High-value transactions require secondary authorization confirmation'
+                                    q: currentLang1 === 'zh' ? '交易安全如何保障？' : 'How is transaction security ensured?',
+                                    a: currentLang1 === 'zh' ? '五层安全防护：额度限制、合约白名单、频率控制、审批流程、实时风控监测。高额交易需二次授权确认' : 'Five-layer security protection: limit restrictions, contract whitelist, frequency control, approval process, real-time risk control monitoring. High-value transactions require secondary authorization confirmation'
                                 },
                                 {
-                                    q: currentLang === 'zh' ? '支持哪些 AI Agent？' : 'Which AI Agents are supported?',
-                                    a: currentLang === 'zh' ? '支持 OpenClaw 等主流 AI Agent 平台，通过自然语言即可完成钱包创建、转账、DeFi 交易等全部链上操作' : 'Supports mainstream AI Agent platforms like OpenClaw, allowing you to complete all on-chain operations such as wallet creation, transfers, and DeFi transactions through natural language'
+                                    q: currentLang1 === 'zh' ? '支持哪些 AI Agent？' : 'Which AI Agents are supported?',
+                                    a: currentLang1 === 'zh' ? '支持 OpenClaw 等主流 AI Agent 平台，通过自然语言即可完成钱包创建、转账、DeFi 交易等全部链上操作' : 'Supports mainstream AI Agent platforms like OpenClaw, allowing you to complete all on-chain operations such as wallet creation, transfers, and DeFi transactions through natural language'
                                 }
                             ].map((item_2, i_2)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                     className: "bg-white rounded-2xl border-2 border-slate-800 shadow-hard overflow-hidden",
@@ -6811,20 +7073,20 @@ function Home() {
                                                     children: item_2.q
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/app/page.tsx",
-                                                    lineNumber: 1702,
+                                                    lineNumber: 1696,
                                                     columnNumber: 19
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$chevron$2d$down$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__ChevronDown$3e$__["ChevronDown"], {
                                                     className: `w-5 h-5 text-orange-500 transition-transform ${openFaqIndex === i_2 ? 'rotate-180' : ''}`
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/app/page.tsx",
-                                                    lineNumber: 1703,
+                                                    lineNumber: 1697,
                                                     columnNumber: 19
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/src/app/page.tsx",
-                                            lineNumber: 1701,
+                                            lineNumber: 1695,
                                             columnNumber: 17
                                         }, this),
                                         openFaqIndex === i_2 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -6834,34 +7096,34 @@ function Home() {
                                                 children: item_2.a
                                             }, void 0, false, {
                                                 fileName: "[project]/src/app/page.tsx",
-                                                lineNumber: 1706,
+                                                lineNumber: 1700,
                                                 columnNumber: 21
                                             }, this)
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/page.tsx",
-                                            lineNumber: 1705,
+                                            lineNumber: 1699,
                                             columnNumber: 42
                                         }, this)
                                     ]
                                 }, i_2, true, {
                                     fileName: "[project]/src/app/page.tsx",
-                                    lineNumber: 1700,
+                                    lineNumber: 1694,
                                     columnNumber: 35
                                 }, this))
                         }, void 0, false, {
                             fileName: "[project]/src/app/page.tsx",
-                            lineNumber: 1684,
+                            lineNumber: 1678,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/src/app/page.tsx",
-                    lineNumber: 1680,
+                    lineNumber: 1674,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/src/app/page.tsx",
-                lineNumber: 1679,
+                lineNumber: 1673,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
@@ -6870,10 +7132,10 @@ function Home() {
                     className: "max-w-6xl mx-auto text-center",
                     children: [
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(SectionHeader, {
-                            title: currentLang === 'zh' ? '合作伙伴' : 'Partners'
+                            title: currentLang1 === 'zh' ? '合作伙伴' : 'Partners'
                         }, void 0, false, {
                             fileName: "[project]/src/app/page.tsx",
-                            lineNumber: 1718,
+                            lineNumber: 1712,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -6970,38 +7232,38 @@ function Home() {
                                                     className: "max-h-full max-w-full object-contain"
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/app/page.tsx",
-                                                    lineNumber: 1780,
+                                                    lineNumber: 1774,
                                                     columnNumber: 23
                                                 }, this)
                                             }, partner.name, false, {
                                                 fileName: "[project]/src/app/page.tsx",
-                                                lineNumber: 1779,
+                                                lineNumber: 1773,
                                                 columnNumber: 33
                                             }, this))
                                     }, i_3, false, {
                                         fileName: "[project]/src/app/page.tsx",
-                                        lineNumber: 1721,
+                                        lineNumber: 1715,
                                         columnNumber: 39
                                     }, this))
                             }, void 0, false, {
                                 fileName: "[project]/src/app/page.tsx",
-                                lineNumber: 1720,
+                                lineNumber: 1714,
                                 columnNumber: 13
                             }, this)
                         }, void 0, false, {
                             fileName: "[project]/src/app/page.tsx",
-                            lineNumber: 1719,
+                            lineNumber: 1713,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/src/app/page.tsx",
-                    lineNumber: 1717,
+                    lineNumber: 1711,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/src/app/page.tsx",
-                lineNumber: 1716,
+                lineNumber: 1710,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("footer", {
@@ -7026,25 +7288,25 @@ function Home() {
                                                     className: "h-full w-auto object-contain"
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/app/page.tsx",
-                                                    lineNumber: 1795,
+                                                    lineNumber: 1789,
                                                     columnNumber: 19
                                                 }, this)
                                             }, void 0, false, {
                                                 fileName: "[project]/src/app/page.tsx",
-                                                lineNumber: 1794,
+                                                lineNumber: 1788,
                                                 columnNumber: 17
                                             }, this)
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/page.tsx",
-                                            lineNumber: 1793,
+                                            lineNumber: 1787,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                                             className: "text-sm text-neutral-500 max-w-sm leading-relaxed",
-                                            children: currentLang === 'zh' ? '专为 AI Agent 构建的安全加密钱包。自托管、无私钥管理、智能风控。让 AI 安全地管理加密资产。' : 'A secure crypto wallet built for AI Agents. Self-custody, no private key management, intelligent risk control. Let AI securely manage crypto assets.'
+                                            children: currentLang1 === 'zh' ? '专为 AI Agent 构建的安全加密钱包。自托管、无私钥管理、智能风控。让 AI 安全地管理加密资产。' : 'A secure crypto wallet built for AI Agents. Self-custody, no private key management, intelligent risk control. Let AI securely manage crypto assets.'
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/page.tsx",
-                                            lineNumber: 1798,
+                                            lineNumber: 1792,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -7054,10 +7316,10 @@ function Home() {
                                                 children: [
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                                         className: "text-xs text-neutral-400",
-                                                        children: currentLang === 'zh' ? '安全审计由' : 'Security audit by'
+                                                        children: currentLang1 === 'zh' ? '安全审计由' : 'Security audit by'
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/app/page.tsx",
-                                                        lineNumber: 1803,
+                                                        lineNumber: 1797,
                                                         columnNumber: 19
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("img", {
@@ -7066,39 +7328,39 @@ function Home() {
                                                         className: "h-5 w-auto"
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/app/page.tsx",
-                                                        lineNumber: 1804,
+                                                        lineNumber: 1798,
                                                         columnNumber: 19
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/src/app/page.tsx",
-                                                lineNumber: 1802,
+                                                lineNumber: 1796,
                                                 columnNumber: 17
                                             }, this)
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/page.tsx",
-                                            lineNumber: 1801,
+                                            lineNumber: 1795,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/app/page.tsx",
-                                    lineNumber: 1792,
+                                    lineNumber: 1786,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                     children: [
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h4", {
                                             className: "font-semibold text-sm mb-5 text-neutral-900",
-                                            children: currentLang === 'zh' ? '产品' : 'Product'
+                                            children: currentLang1 === 'zh' ? '产品' : 'Product'
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/page.tsx",
-                                            lineNumber: 1809,
+                                            lineNumber: 1803,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("ul", {
                                             className: "space-y-3 text-sm text-neutral-500",
-                                            children: currentLang === 'zh' ? [
+                                            children: currentLang1 === 'zh' ? [
                                                 '功能特性',
                                                 '安全架构',
                                                 '如何使用'
@@ -7109,12 +7371,12 @@ function Home() {
                                                         children: item_3
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/app/page.tsx",
-                                                        lineNumber: 1812,
+                                                        lineNumber: 1806,
                                                         columnNumber: 23
                                                     }, this)
                                                 }, item_3, false, {
                                                     fileName: "[project]/src/app/page.tsx",
-                                                    lineNumber: 1811,
+                                                    lineNumber: 1805,
                                                     columnNumber: 80
                                                 }, this)) : [
                                                 'Features',
@@ -7127,38 +7389,38 @@ function Home() {
                                                         children: item_4
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/app/page.tsx",
-                                                        lineNumber: 1816,
+                                                        lineNumber: 1810,
                                                         columnNumber: 23
                                                     }, this)
                                                 }, item_4, false, {
                                                     fileName: "[project]/src/app/page.tsx",
-                                                    lineNumber: 1815,
+                                                    lineNumber: 1809,
                                                     columnNumber: 98
                                                 }, this))
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/page.tsx",
-                                            lineNumber: 1810,
+                                            lineNumber: 1804,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/app/page.tsx",
-                                    lineNumber: 1808,
+                                    lineNumber: 1802,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                     children: [
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h4", {
                                             className: "font-semibold text-sm mb-5 text-neutral-900",
-                                            children: currentLang === 'zh' ? '开发者' : 'Developers'
+                                            children: currentLang1 === 'zh' ? '开发者' : 'Developers'
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/page.tsx",
-                                            lineNumber: 1823,
+                                            lineNumber: 1817,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("ul", {
                                             className: "space-y-3 text-sm text-neutral-500",
-                                            children: currentLang === 'zh' ? [
+                                            children: currentLang1 === 'zh' ? [
                                                 '文档',
                                                 'API 参考',
                                                 'GitHub',
@@ -7170,12 +7432,12 @@ function Home() {
                                                         children: item_5
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/app/page.tsx",
-                                                        lineNumber: 1826,
+                                                        lineNumber: 1820,
                                                         columnNumber: 23
                                                     }, this)
                                                 }, item_5, false, {
                                                     fileName: "[project]/src/app/page.tsx",
-                                                    lineNumber: 1825,
+                                                    lineNumber: 1819,
                                                     columnNumber: 89
                                                 }, this)) : [
                                                 'Documentation',
@@ -7189,29 +7451,29 @@ function Home() {
                                                         children: item_6
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/app/page.tsx",
-                                                        lineNumber: 1830,
+                                                        lineNumber: 1824,
                                                         columnNumber: 23
                                                     }, this)
                                                 }, item_6, false, {
                                                     fileName: "[project]/src/app/page.tsx",
-                                                    lineNumber: 1829,
+                                                    lineNumber: 1823,
                                                     columnNumber: 96
                                                 }, this))
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/page.tsx",
-                                            lineNumber: 1824,
+                                            lineNumber: 1818,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/app/page.tsx",
-                                    lineNumber: 1822,
+                                    lineNumber: 1816,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/app/page.tsx",
-                            lineNumber: 1791,
+                            lineNumber: 1785,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -7220,12 +7482,12 @@ function Home() {
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                                     className: "text-sm text-neutral-400",
                                     children: [
-                                        (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$app$2f$i18n$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["t"])('footer.copyright', currentLang),
+                                        (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$app$2f$i18n$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["t"])('footer.copyright', currentLang1),
                                         ". All rights reserved."
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/app/page.tsx",
-                                    lineNumber: 1838,
+                                    lineNumber: 1832,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -7234,19 +7496,19 @@ function Home() {
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
                                             href: "#",
                                             className: "text-sm text-neutral-400 hover:text-neutral-600 transition-colors",
-                                            children: currentLang === 'zh' ? '隐私政策' : 'Privacy Policy'
+                                            children: currentLang1 === 'zh' ? '隐私政策' : 'Privacy Policy'
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/page.tsx",
-                                            lineNumber: 1840,
+                                            lineNumber: 1834,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
                                             href: "#",
                                             className: "text-sm text-neutral-400 hover:text-neutral-600 transition-colors",
-                                            children: currentLang === 'zh' ? '服务条款' : 'Terms of Service'
+                                            children: currentLang1 === 'zh' ? '服务条款' : 'Terms of Service'
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/page.tsx",
-                                            lineNumber: 1841,
+                                            lineNumber: 1835,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -7259,12 +7521,12 @@ function Home() {
                                                         className: "w-4 h-4"
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/app/page.tsx",
-                                                        lineNumber: 1844,
+                                                        lineNumber: 1838,
                                                         columnNumber: 19
                                                     }, this)
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/app/page.tsx",
-                                                    lineNumber: 1843,
+                                                    lineNumber: 1837,
                                                     columnNumber: 17
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
@@ -7278,17 +7540,17 @@ function Home() {
                                                             d: "M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/app/page.tsx",
-                                                            lineNumber: 1848,
+                                                            lineNumber: 1842,
                                                             columnNumber: 21
                                                         }, this)
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/app/page.tsx",
-                                                        lineNumber: 1847,
+                                                        lineNumber: 1841,
                                                         columnNumber: 19
                                                     }, this)
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/app/page.tsx",
-                                                    lineNumber: 1846,
+                                                    lineNumber: 1840,
                                                     columnNumber: 17
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
@@ -7298,41 +7560,41 @@ function Home() {
                                                         className: "w-4 h-4"
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/app/page.tsx",
-                                                        lineNumber: 1852,
+                                                        lineNumber: 1846,
                                                         columnNumber: 19
                                                     }, this)
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/app/page.tsx",
-                                                    lineNumber: 1851,
+                                                    lineNumber: 1845,
                                                     columnNumber: 17
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/src/app/page.tsx",
-                                            lineNumber: 1842,
+                                            lineNumber: 1836,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/app/page.tsx",
-                                    lineNumber: 1839,
+                                    lineNumber: 1833,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/app/page.tsx",
-                            lineNumber: 1837,
+                            lineNumber: 1831,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/src/app/page.tsx",
-                    lineNumber: 1790,
+                    lineNumber: 1784,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/src/app/page.tsx",
-                lineNumber: 1789,
+                lineNumber: 1783,
                 columnNumber: 7
             }, this)
         ]

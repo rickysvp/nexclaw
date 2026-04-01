@@ -710,7 +710,7 @@ const ChatDemoCard = () => {
                 }`}
               >
                 <s.icon className="w-3.5 h-3.5" />
-                {s.label}
+                {t(`chatScenarios.${s.id}`, currentLang)}
               </button>
             ))}
           </div>
@@ -1002,23 +1002,25 @@ export default function Home() {
                 transition={{ delay: 0.7, duration: 0.6 }}
                 className="mt-10 flex items-center gap-8"
               >
-                {[
-                  { icon: Shield, label: '自托管' },
-                  { icon: Lock, label: 'TEE 加密' },
-                  { icon: Fingerprint, label: 'AI 安全风控' },
-                  { icon: MessageSquare, label: '自然语言交互' },
-                ].map((item, i) => (
-                  <motion.div 
-                    key={item.label}
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.8 + i * 0.1 }}
-                    className="flex items-center gap-2 text-sm text-neutral-500"
-                  >
-                    <item.icon className="w-4 h-4 text-green-500" />
-                    <span>{item.label}</span>
-                  </motion.div>
-                ))}
+                {
+                  [
+                    { icon: Shield, label: t('trust.selfCustody', currentLang) },
+                    { icon: Lock, label: t('trust.teeEncryption', currentLang) },
+                    { icon: Fingerprint, label: t('trust.aiSecurity', currentLang) },
+                    { icon: MessageSquare, label: t('trust.naturalLanguage', currentLang) },
+                  ].map((item, i) => (
+                    <motion.div 
+                      key={i}
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: 0.8 + i * 0.1 }}
+                      className="flex items-center gap-2 text-sm text-neutral-500"
+                    >
+                      <item.icon className="w-4 h-4 text-green-500" />
+                      <span>{item.label}</span>
+                    </motion.div>
+                  ))
+                }
               </motion.div>
             </div>
           </div>
@@ -1055,11 +1057,24 @@ export default function Home() {
           </motion.h2>
           <p className="mt-3 text-neutral-500">{currentLang === 'zh' ? '为不同类型的用户提供专业的加密资产安全管理方案' : 'Professional crypto asset security management solutions for different types of users'}</p>
           <div className="mt-8 flex flex-wrap justify-center gap-3">
-            {['OpenClaw用户', 'AI Agent', 'Web3新用户', '加密投资者', 'DeFi用户', '交易员', 'AI团队', '区块链开发者', '机构用户', '跨境中小企业'].map((tag) => (
-              <span key={tag} className="px-5 py-2.5 bg-white border-2 border-slate-800 text-slate-800 rounded-full text-sm font-bold hover:bg-orange-500 hover:border-orange-500 hover:text-white transition-all shadow-sm hover:shadow-hard">
-                {tag}
-              </span>
-            ))}
+            {
+              [
+                t('whoFor.openClawUsers', currentLang),
+                t('whoFor.aiAgent', currentLang),
+                t('whoFor.web3NewUsers', currentLang),
+                t('whoFor.cryptoInvestors', currentLang),
+                t('whoFor.defiUsers', currentLang),
+                t('whoFor.traders', currentLang),
+                t('whoFor.aiTeams', currentLang),
+                t('whoFor.blockchainDevelopers', currentLang),
+                t('whoFor.institutionalUsers', currentLang),
+                t('whoFor.crossBorderSmes', currentLang),
+              ].map((tag, index) => (
+                <span key={index} className="px-5 py-2.5 bg-white border-2 border-slate-800 text-slate-800 rounded-full text-sm font-bold hover:bg-orange-500 hover:border-orange-500 hover:text-white transition-all shadow-sm hover:shadow-hard">
+                  {tag}
+                </span>
+              ))
+            }
           </div>
         </div>
       </section>
@@ -1097,21 +1112,21 @@ export default function Home() {
                   transition={{ delay: 0.2, duration: 0.6 }}
                   className="mt-8 flex flex-wrap gap-2"
                 >
-                  <button onClick={() => setActiveStrategy('create')} className={`px-4 py-2 rounded-full text-sm font-bold border-2 transition-all ${activeStrategy === 'create' ? 'bg-orange-500 text-white border-orange-500' : 'bg-white text-slate-800 border-slate-800 hover:bg-orange-500 hover:border-orange-500 hover:text-white'}`}>创建钱包</button>
-                  <button onClick={() => setActiveStrategy('market')} className={`px-4 py-2 rounded-full text-sm font-bold border-2 transition-all ${activeStrategy === 'market' ? 'bg-orange-500 text-white border-orange-500' : 'bg-white text-slate-800 border-slate-800 hover:bg-orange-500 hover:border-orange-500 hover:text-white'}`}>市场动态</button>
-                  <button onClick={() => setActiveStrategy('price')} className={`px-4 py-2 rounded-full text-sm font-bold border-2 transition-all ${activeStrategy === 'price' ? 'bg-orange-500 text-white border-orange-500' : 'bg-white text-slate-800 border-slate-800 hover:bg-orange-500 hover:border-orange-500 hover:text-white'}`}>跟踪币价</button>
-                  <button onClick={() => setActiveStrategy('arbitrage')} className={`px-4 py-2 rounded-full text-sm font-bold border-2 transition-all ${activeStrategy === 'arbitrage' ? 'bg-orange-500 text-white border-orange-500' : 'bg-white text-slate-800 border-slate-800 hover:bg-orange-500 hover:border-orange-500 hover:text-white'}`}>自动套利</button>
-                  <button onClick={() => setActiveStrategy('mining')} className={`px-4 py-2 rounded-full text-sm font-bold border-2 transition-all ${activeStrategy === 'mining' ? 'bg-orange-500 text-white border-orange-500' : 'bg-white text-slate-800 border-slate-800 hover:bg-orange-500 hover:border-orange-500 hover:text-white'}`}>挖矿</button>
-                  <button onClick={() => setActiveStrategy('meme')} className={`px-4 py-2 rounded-full text-sm font-bold border-2 transition-all ${activeStrategy === 'meme' ? 'bg-orange-500 text-white border-orange-500' : 'bg-white text-slate-800 border-slate-800 hover:bg-orange-500 hover:border-orange-500 hover:text-white'}`}>Meme</button>
-                  <button onClick={() => setActiveStrategy('ipo')} className={`px-4 py-2 rounded-full text-sm font-bold border-2 transition-all ${activeStrategy === 'ipo' ? 'bg-orange-500 text-white border-orange-500' : 'bg-white text-slate-800 border-slate-800 hover:bg-orange-500 hover:border-orange-500 hover:text-white'}`}>币股打新</button>
-                  <button onClick={() => setActiveStrategy('perps')} className={`px-4 py-2 rounded-full text-sm font-bold border-2 transition-all ${activeStrategy === 'perps' ? 'bg-orange-500 text-white border-orange-500' : 'bg-white text-slate-800 border-slate-800 hover:bg-orange-500 hover:border-orange-500 hover:text-white'}`}>Perps</button>
-                  <button onClick={() => setActiveStrategy('audit')} className={`px-4 py-2 rounded-full text-sm font-bold border-2 transition-all ${activeStrategy === 'audit' ? 'bg-orange-500 text-white border-orange-500' : 'bg-white text-slate-800 border-slate-800 hover:bg-orange-500 hover:border-orange-500 hover:text-white'}`}>安全审计</button>
-                  <button onClick={() => setActiveStrategy('transfer')} className={`px-4 py-2 rounded-full text-sm font-bold border-2 transition-all ${activeStrategy === 'transfer' ? 'bg-orange-500 text-white border-orange-500' : 'bg-white text-slate-800 border-slate-800 hover:bg-orange-500 hover:border-orange-500 hover:text-white'}`}>转账</button>
-                  <button onClick={() => setActiveStrategy('defi')} className={`px-4 py-2 rounded-full text-sm font-bold border-2 transition-all ${activeStrategy === 'defi' ? 'bg-orange-500 text-white border-orange-500' : 'bg-white text-slate-800 border-slate-800 hover:bg-orange-500 hover:border-orange-500 hover:text-white'}`}>DeFi</button>
-                  <button onClick={() => setActiveStrategy('dca')} className={`px-4 py-2 rounded-full text-sm font-bold border-2 transition-all ${activeStrategy === 'dca' ? 'bg-orange-500 text-white border-orange-500' : 'bg-white text-slate-800 border-slate-800 hover:bg-orange-500 hover:border-orange-500 hover:text-white'}`}>定投</button>
-                  <button onClick={() => setActiveStrategy('copy')} className={`px-4 py-2 rounded-full text-sm font-bold border-2 transition-all ${activeStrategy === 'copy' ? 'bg-orange-500 text-white border-orange-500' : 'bg-white text-slate-800 border-slate-800 hover:bg-orange-500 hover:border-orange-500 hover:text-white'}`}>跟单</button>
-                  <button onClick={() => setActiveStrategy('staking')} className={`px-4 py-2 rounded-full text-sm font-bold border-2 transition-all ${activeStrategy === 'staking' ? 'bg-orange-500 text-white border-orange-500' : 'bg-white text-slate-800 border-slate-800 hover:bg-orange-500 hover:border-orange-500 hover:text-white'}`}>质押</button>
-                  <button onClick={() => setActiveStrategy('lending')} className={`px-4 py-2 rounded-full text-sm font-bold border-2 transition-all ${activeStrategy === 'lending' ? 'bg-orange-500 text-white border-orange-500' : 'bg-white text-slate-800 border-slate-800 hover:bg-orange-500 hover:border-orange-500 hover:text-white'}`}>借贷</button>
+                  <button onClick={() => setActiveStrategy('create')} className={`px-4 py-2 rounded-full text-sm font-bold border-2 transition-all ${activeStrategy === 'create' ? 'bg-orange-500 text-white border-orange-500' : 'bg-white text-slate-800 border-slate-800 hover:bg-orange-500 hover:border-orange-500 hover:text-white'}`}>{t('strategies.create', currentLang)}</button>
+                  <button onClick={() => setActiveStrategy('market')} className={`px-4 py-2 rounded-full text-sm font-bold border-2 transition-all ${activeStrategy === 'market' ? 'bg-orange-500 text-white border-orange-500' : 'bg-white text-slate-800 border-slate-800 hover:bg-orange-500 hover:border-orange-500 hover:text-white'}`}>{t('strategies.market', currentLang)}</button>
+                  <button onClick={() => setActiveStrategy('price')} className={`px-4 py-2 rounded-full text-sm font-bold border-2 transition-all ${activeStrategy === 'price' ? 'bg-orange-500 text-white border-orange-500' : 'bg-white text-slate-800 border-slate-800 hover:bg-orange-500 hover:border-orange-500 hover:text-white'}`}>{t('strategies.price', currentLang)}</button>
+                  <button onClick={() => setActiveStrategy('arbitrage')} className={`px-4 py-2 rounded-full text-sm font-bold border-2 transition-all ${activeStrategy === 'arbitrage' ? 'bg-orange-500 text-white border-orange-500' : 'bg-white text-slate-800 border-slate-800 hover:bg-orange-500 hover:border-orange-500 hover:text-white'}`}>{t('strategies.arbitrage', currentLang)}</button>
+                  <button onClick={() => setActiveStrategy('mining')} className={`px-4 py-2 rounded-full text-sm font-bold border-2 transition-all ${activeStrategy === 'mining' ? 'bg-orange-500 text-white border-orange-500' : 'bg-white text-slate-800 border-slate-800 hover:bg-orange-500 hover:border-orange-500 hover:text-white'}`}>{t('strategies.mining', currentLang)}</button>
+                  <button onClick={() => setActiveStrategy('meme')} className={`px-4 py-2 rounded-full text-sm font-bold border-2 transition-all ${activeStrategy === 'meme' ? 'bg-orange-500 text-white border-orange-500' : 'bg-white text-slate-800 border-slate-800 hover:bg-orange-500 hover:border-orange-500 hover:text-white'}`}>{t('strategies.meme', currentLang)}</button>
+                  <button onClick={() => setActiveStrategy('ipo')} className={`px-4 py-2 rounded-full text-sm font-bold border-2 transition-all ${activeStrategy === 'ipo' ? 'bg-orange-500 text-white border-orange-500' : 'bg-white text-slate-800 border-slate-800 hover:bg-orange-500 hover:border-orange-500 hover:text-white'}`}>{t('strategies.ipo', currentLang)}</button>
+                  <button onClick={() => setActiveStrategy('perps')} className={`px-4 py-2 rounded-full text-sm font-bold border-2 transition-all ${activeStrategy === 'perps' ? 'bg-orange-500 text-white border-orange-500' : 'bg-white text-slate-800 border-slate-800 hover:bg-orange-500 hover:border-orange-500 hover:text-white'}`}>{t('strategies.perps', currentLang)}</button>
+                  <button onClick={() => setActiveStrategy('audit')} className={`px-4 py-2 rounded-full text-sm font-bold border-2 transition-all ${activeStrategy === 'audit' ? 'bg-orange-500 text-white border-orange-500' : 'bg-white text-slate-800 border-slate-800 hover:bg-orange-500 hover:border-orange-500 hover:text-white'}`}>{t('strategies.audit', currentLang)}</button>
+                  <button onClick={() => setActiveStrategy('transfer')} className={`px-4 py-2 rounded-full text-sm font-bold border-2 transition-all ${activeStrategy === 'transfer' ? 'bg-orange-500 text-white border-orange-500' : 'bg-white text-slate-800 border-slate-800 hover:bg-orange-500 hover:border-orange-500 hover:text-white'}`}>{t('strategies.transfer', currentLang)}</button>
+                  <button onClick={() => setActiveStrategy('defi')} className={`px-4 py-2 rounded-full text-sm font-bold border-2 transition-all ${activeStrategy === 'defi' ? 'bg-orange-500 text-white border-orange-500' : 'bg-white text-slate-800 border-slate-800 hover:bg-orange-500 hover:border-orange-500 hover:text-white'}`}>{t('strategies.defi', currentLang)}</button>
+                  <button onClick={() => setActiveStrategy('dca')} className={`px-4 py-2 rounded-full text-sm font-bold border-2 transition-all ${activeStrategy === 'dca' ? 'bg-orange-500 text-white border-orange-500' : 'bg-white text-slate-800 border-slate-800 hover:bg-orange-500 hover:border-orange-500 hover:text-white'}`}>{t('strategies.dca', currentLang)}</button>
+                  <button onClick={() => setActiveStrategy('copy')} className={`px-4 py-2 rounded-full text-sm font-bold border-2 transition-all ${activeStrategy === 'copy' ? 'bg-orange-500 text-white border-orange-500' : 'bg-white text-slate-800 border-slate-800 hover:bg-orange-500 hover:border-orange-500 hover:text-white'}`}>{t('strategies.copy', currentLang)}</button>
+                  <button onClick={() => setActiveStrategy('staking')} className={`px-4 py-2 rounded-full text-sm font-bold border-2 transition-all ${activeStrategy === 'staking' ? 'bg-orange-500 text-white border-orange-500' : 'bg-white text-slate-800 border-slate-800 hover:bg-orange-500 hover:border-orange-500 hover:text-white'}`}>{t('strategies.staking', currentLang)}</button>
+                  <button onClick={() => setActiveStrategy('lending')} className={`px-4 py-2 rounded-full text-sm font-bold border-2 transition-all ${activeStrategy === 'lending' ? 'bg-orange-500 text-white border-orange-500' : 'bg-white text-slate-800 border-slate-800 hover:bg-orange-500 hover:border-orange-500 hover:text-white'}`}>{t('strategies.lending', currentLang)}</button>
                 </motion.div>
                 
                 {/* Install Command */}
@@ -1262,34 +1277,36 @@ export default function Home() {
         <div className="max-w-6xl mx-auto">
           <SectionHeader title="推荐 Skills" description="选择适合你的技能，积累加密资产" />
           <div className="mt-12 grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {[
-              { name: 'Wallet Manager', installs: '12.5K', desc: 'AI Agent 加密钱包管理，支持多链' },
-              { name: 'DeFi Strategist', installs: '8.2K', desc: '智能 DeFi 收益优化策略' },
-              { name: 'Trading Assistant', installs: '6.8K', desc: '专业交易信号与执行助手' },
-              { name: 'Portfolio Tracker', installs: '15.3K', desc: '实时组合追踪与分析' },
-              { name: 'Security Monitor', installs: '9.1K', desc: '7x24 安全监控与预警' },
-              { name: 'NFT Aggregator', installs: '5.4K', desc: '多平台 NFT 聚合交易' },
-            ].map((skill, i) => (
-              <motion.div
-                key={skill.name}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1 }}
-                className="p-6 rounded-2xl bg-white border-2 border-slate-800 shadow-hard hover:shadow-hard-hover cursor-pointer group"
-              >
-                <div className="flex items-start justify-between">
-                  <div className="flex-1">
-                    <h4 className="font-bold text-slate-800 group-hover:text-orange-500 transition-colors">{skill.name}</h4>
+            {
+              [
+                { key: 'walletManager', installs: '12.5K' },
+                { key: 'defiStrategist', installs: '8.2K' },
+                { key: 'tradingAssistant', installs: '6.8K' },
+                { key: 'portfolioTracker', installs: '15.3K' },
+                { key: 'securityMonitor', installs: '9.1K' },
+                { key: 'nftAggregator', installs: '5.4K' },
+              ].map((skill, i) => (
+                <motion.div
+                  key={skill.key}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.1 }}
+                  className="p-6 rounded-2xl bg-white border-2 border-slate-800 shadow-hard hover:shadow-hard-hover cursor-pointer group"
+                >
+                  <div className="flex items-start justify-between">
+                    <div className="flex-1">
+                      <h4 className="font-bold text-slate-800 group-hover:text-orange-500 transition-colors">{t(`skills.${skill.key}.name`, currentLang)}</h4>
+                    </div>
+                    <div className="flex items-center gap-3">
+                      <span className="text-xs text-slate-400 font-medium">{skill.installs}</span>
+                      <Github className="w-4 h-4 text-slate-400" />
+                    </div>
                   </div>
-                  <div className="flex items-center gap-3">
-                    <span className="text-xs text-slate-400 font-medium">{skill.installs}</span>
-                    <Github className="w-4 h-4 text-slate-400" />
-                  </div>
-                </div>
-                <p className="text-sm text-slate-600 mt-3">{skill.desc}</p>
-              </motion.div>
-            ))}
+                  <p className="text-sm text-slate-600 mt-3">{t(`skills.${skill.key}.desc`, currentLang)}</p>
+                </motion.div>
+              ))
+            }
           </div>
         </div>
       </section>
@@ -1374,7 +1391,7 @@ export default function Home() {
               <div className="mt-10 grid grid-cols-2 gap-4">
                 {securityLayers.map((layer, idx) => (
                   <motion.div
-                    key={layer.title}
+                    key={idx}
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
@@ -1385,9 +1402,9 @@ export default function Home() {
                     <div className="w-12 h-12 rounded-full bg-orange-500 flex items-center justify-center mb-4 shadow-hard-sm">
                       <layer.icon className="w-6 h-6 text-white" />
                     </div>
-                    <h4 className="font-bold text-slate-800">{layer.title}</h4>
-                    <p className="text-xs text-slate-500 mt-1 font-medium">{layer.desc}</p>
-                    <p className="text-xs text-slate-400 mt-2">{layer.detail}</p>
+                    <h4 className="font-bold text-slate-800">{t(`security.layers.${idx}.title`, currentLang)}</h4>
+                    <p className="text-xs text-slate-500 mt-1 font-medium">{t(`security.layers.${idx}.desc`, currentLang)}</p>
+                    <p className="text-xs text-slate-400 mt-2">{t(`security.layers.${idx}.detail`, currentLang)}</p>
                   </motion.div>
                 ))}
               </div>
