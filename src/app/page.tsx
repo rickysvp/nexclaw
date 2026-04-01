@@ -1559,10 +1559,27 @@ export default function Home() {
           <div className="mt-12 overflow-hidden">
             <div className="flex animate-marquee">
               {[1, 2].map((_, i) => (
-                <div key={i} className="flex items-center gap-16 px-8 shrink-0">
-                  {['Uniswap', 'Aave', 'Chainlink', 'OpenSea', 'Coinbase', 'Binance', 'Paradigm', 'Dragonfly'].map((partner) => (
-                    <div key={partner} className="text-2xl font-black text-slate-800/30 hover:text-orange-500 transition-colors whitespace-nowrap">
-                      {partner}
+                <div key={i} className="flex items-center gap-12 px-8 shrink-0">
+                  {[
+                    { name: '0G', logo: '/Partners/0G.svg' },
+                    { name: 'AGOS', logo: '/Partners/AGOS.svg' },
+                    { name: 'CETUS', logo: '/Partners/CETUS.jpg' },
+                    { name: 'ClawRouter', logo: '/Partners/ClawRouter.png' },
+                    { name: 'Haedal', logo: '/Partners/Haedal.jpg' },
+                    { name: 'Clawdi', logo: '/Partners/clawdi.svg' },
+                    { name: 'Goo', logo: '/Partners/goo.svg' },
+                    { name: 'GoPlus', logo: '/Partners/goplus.svg' },
+                    { name: 'NoobClaw', logo: '/Partners/noobclaw.png' },
+                    { name: 'Pinai', logo: '/Partners/pinai.avif' },
+                    { name: 'Superpower', logo: '/Partners/superpower.jpg' },
+                    { name: 'TagClaw', logo: '/Partners/tagclaw.png' },
+                  ].map((partner) => (
+                    <div key={partner.name} className="flex items-center justify-center h-12 w-32 grayscale hover:grayscale-0 transition-all duration-300">
+                      <img 
+                        src={partner.logo} 
+                        alt={partner.name} 
+                        className="max-h-full max-w-full object-contain"
+                      />
                     </div>
                   ))}
                 </div>
