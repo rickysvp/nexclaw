@@ -1744,10 +1744,6 @@
     min-width: 8rem;
   }
 
-  .min-w-\[120px\] {
-    min-width: 120px;
-  }
-
   .min-w-\[140px\] {
     min-width: 140px;
   }
@@ -5303,22 +5299,6 @@
     app-:  6;
   }
 
-  .\[app-\:\1 �\1a \] {
-    app-:  � ;
-  }
-
-  .\[app-a\:6\] {
-    app-a: 6;
-  }
-
-  .\[app\:\4 6\] {
-    app:  6;
-  }
-
-  .\[key\:0\10 �ng\] {
-    key: 0 �ng;
-  }
-
   .\[key\:\\Q4ng\] {
     key: Q4ng;
   }
@@ -5331,10 +5311,6 @@
     key: r �ng;
   }
 
-  .\[key\:�N4ng\] {
-    key: �N4ng;
-  }
-
   .\[key\:��4ng\] {
     key: ��4ng;
   }
@@ -5345,10 +5321,6 @@
 
   .\[name\:\17 \6 �\] {
     name:   �;
-  }
-
-  .\[name\:D9�\] {
-    name: D9�;
   }
 
   .\[name\:�\13 �ng\] {
@@ -5524,15 +5496,6 @@
     .hover\:translate-y-\[2px\]:hover {
       --tw-translate-y: 2px;
       translate: var(--tw-translate-x) var(--tw-translate-y);
-    }
-  }
-
-  @media (hover: hover) {
-    .hover\:scale-1:hover {
-      --tw-scale-x: 1%;
-      --tw-scale-y: 1%;
-      --tw-scale-z: 1%;
-      scale: var(--tw-scale-x) var(--tw-scale-y);
     }
   }
 
@@ -6159,13 +6122,6 @@
       .hover\:shadow-orange-500\/30:hover {
         --tw-shadow-color: color-mix(in oklab, color-mix(in oklab, var(--color-orange-500) 30%, transparent) var(--tw-shadow-alpha), transparent);
       }
-    }
-  }
-
-  @media (hover: hover) {
-    .hover\:grayscale-0:hover {
-      --tw-grayscale: grayscale(0%);
-      filter: var(--tw-blur, ) var(--tw-brightness, ) var(--tw-contrast, ) var(--tw-grayscale, ) var(--tw-hue-rotate, ) var(--tw-invert, ) var(--tw-saturate, ) var(--tw-sepia, ) var(--tw-drop-shadow, );
     }
   }
 
