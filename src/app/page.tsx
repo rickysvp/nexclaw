@@ -1288,7 +1288,7 @@ export default function Home() {
       {/* ============================================
           How It Works
       ============================================ */}
-      <section className="py-32 px-6 bg-neutral-900 text-white relative overflow-hidden">
+      <section id="how-it-works" className="py-32 px-6 bg-neutral-900 text-white relative overflow-hidden">
         {/* Background Effects */}
         <div className="absolute inset-0 pointer-events-none">
           <div className="absolute top-0 left-1/4 w-96 h-96 bg-orange-500/10 rounded-full blur-3xl" />
@@ -1612,9 +1612,9 @@ export default function Home() {
             <div>
               <h4 className="font-semibold text-sm mb-5 text-neutral-900">产品</h4>
               <ul className="space-y-3 text-sm text-neutral-500">
-                {['功能特性', '安全架构', '定价', '更新日志'].map((item) => (
+                {['功能特性', '安全架构', '如何使用'].map((item) => (
                   <li key={item}>
-                    <a href="#" className="hover:text-neutral-900 transition-colors hover:translate-x-0.5 inline-block">
+                    <a href={item === '如何使用' ? '#how-it-works' : '#'} className="hover:text-neutral-900 transition-colors hover:translate-x-0.5 inline-block">
                       {item}
                     </a>
                   </li>
