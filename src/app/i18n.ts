@@ -294,7 +294,7 @@ export const translations = {
 
   // CTA Section
   cta: {
-    title: { zh: '准备好让你的 Agent 开始工作了吗？', en: 'Ready to Put Your Agent to Work?' },
+    title: { zh: '准备好让你的 Agent 拥有安全钱包了吗？', en: 'Ready to Give Your Agent a Secure Wallet?' },
     subtitle: { zh: '30 秒部署，免费开始使用', en: 'Deploy in 30 seconds, start for free' },
     button: { zh: '复制命令开始', en: 'Copy Command to Start' },
   },
