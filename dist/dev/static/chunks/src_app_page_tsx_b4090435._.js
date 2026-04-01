@@ -42,11 +42,11 @@ var _s = __turbopack_context__.k.signature(), _s1 = __turbopack_context__.k.sign
 ;
 const DiscordIcon = (t0)=>{
     const $ = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$compiler$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["c"])(4);
-    if ($[0] !== "a02cd1e36e2baf4b011b803a4ec54dd5aea31efc381fa7a70843c99ea79a69fa") {
+    if ($[0] !== "703313fb417ee8ab905983a8603b092c96cfec3540a5ebbc9d6d3a8a9f7f8f6e") {
         for(let $i = 0; $i < 4; $i += 1){
             $[$i] = Symbol.for("react.memo_cache_sentinel");
         }
-        $[0] = "a02cd1e36e2baf4b011b803a4ec54dd5aea31efc381fa7a70843c99ea79a69fa";
+        $[0] = "703313fb417ee8ab905983a8603b092c96cfec3540a5ebbc9d6d3a8a9f7f8f6e";
     }
     const { className } = t0;
     let t1;
@@ -762,11 +762,11 @@ const strategyDescriptions = {
 // ============================================
 const Button = (t0)=>{
     const $ = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$compiler$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["c"])(9);
-    if ($[0] !== "a02cd1e36e2baf4b011b803a4ec54dd5aea31efc381fa7a70843c99ea79a69fa") {
+    if ($[0] !== "703313fb417ee8ab905983a8603b092c96cfec3540a5ebbc9d6d3a8a9f7f8f6e") {
         for(let $i = 0; $i < 9; $i += 1){
             $[$i] = Symbol.for("react.memo_cache_sentinel");
         }
-        $[0] = "a02cd1e36e2baf4b011b803a4ec54dd5aea31efc381fa7a70843c99ea79a69fa";
+        $[0] = "703313fb417ee8ab905983a8603b092c96cfec3540a5ebbc9d6d3a8a9f7f8f6e";
     }
     const { children, variant: t1, size: t2, className: t3, icon: Icon } = t0;
     const variant = t1 === undefined ? "primary" : t1;
@@ -837,11 +837,11 @@ const Button = (t0)=>{
 _c1 = Button;
 const Card = (t0)=>{
     const $ = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$compiler$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["c"])(4);
-    if ($[0] !== "a02cd1e36e2baf4b011b803a4ec54dd5aea31efc381fa7a70843c99ea79a69fa") {
+    if ($[0] !== "703313fb417ee8ab905983a8603b092c96cfec3540a5ebbc9d6d3a8a9f7f8f6e") {
         for(let $i = 0; $i < 4; $i += 1){
             $[$i] = Symbol.for("react.memo_cache_sentinel");
         }
-        $[0] = "a02cd1e36e2baf4b011b803a4ec54dd5aea31efc381fa7a70843c99ea79a69fa";
+        $[0] = "703313fb417ee8ab905983a8603b092c96cfec3540a5ebbc9d6d3a8a9f7f8f6e";
     }
     const { children, className: t1, hover: t2 } = t0;
     const className = t1 === undefined ? "" : t1;
@@ -1113,11 +1113,11 @@ _s(ChatDemoCard, "WdxurFU7BlR1Y3RjeUfAbFb7R1Q=");
 _c3 = ChatDemoCard;
 const SectionHeader = (t0)=>{
     const $ = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$compiler$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["c"])(19);
-    if ($[0] !== "a02cd1e36e2baf4b011b803a4ec54dd5aea31efc381fa7a70843c99ea79a69fa") {
+    if ($[0] !== "703313fb417ee8ab905983a8603b092c96cfec3540a5ebbc9d6d3a8a9f7f8f6e") {
         for(let $i = 0; $i < 19; $i += 1){
             $[$i] = Symbol.for("react.memo_cache_sentinel");
         }
-        $[0] = "a02cd1e36e2baf4b011b803a4ec54dd5aea31efc381fa7a70843c99ea79a69fa";
+        $[0] = "703313fb417ee8ab905983a8603b092c96cfec3540a5ebbc9d6d3a8a9f7f8f6e";
     }
     const { label, title, description, light: t1 } = t0;
     const light = t1 === undefined ? false : t1;
@@ -3696,7 +3696,7 @@ function Home() {
                                                 logo: '/Partners/tagclaw.png'
                                             }
                                         ].map((partner)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                className: "flex items-center justify-center h-12 w-32 grayscale hover:grayscale-0 transition-all duration-300",
+                                                className: "flex items-center justify-center h-12 w-32 transition-all duration-300 hover:scale-110",
                                                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("img", {
                                                     src: partner.logo,
                                                     alt: partner.name,

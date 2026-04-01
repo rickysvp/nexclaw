@@ -1574,7 +1574,7 @@ export default function Home() {
                     { name: 'Superpower', logo: '/Partners/superpower.jpg' },
                     { name: 'TagClaw', logo: '/Partners/tagclaw.png' },
                   ].map((partner) => (
-                    <div key={partner.name} className="flex items-center justify-center h-12 w-32 grayscale hover:grayscale-0 transition-all duration-300">
+                    <div key={partner.name} className="flex items-center justify-center h-12 w-32 transition-all duration-300 hover:scale-110">
                       <img 
                         src={partner.logo} 
                         alt={partner.name} 
