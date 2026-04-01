@@ -1073,8 +1073,96 @@ export default function Home() {
         </motion.div>
       </motion.section>
 
-      {/* ============================================          Agent Integration Section      ============================================ */}
-      <section className="py-32 px-6 bg-gradient-to-b from-neutral-50 to-white">
+      {/* ============================================
+          适合谁 Section
+      ============================================ */}
+      <section className="py-20 px-6 bg-white">
+        <div className="max-w-5xl mx-auto text-center">
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-3xl md:text-4xl font-bold"
+          >
+            Claw Wallet 适合哪些人
+          </motion.h2>
+          <p className="mt-3 text-neutral-500">为不同类型的用户提供专业的加密资产安全管理方案</p>
+          <div className="mt-8 flex flex-wrap justify-center gap-3">
+            {['Web3 新用户', '加密投资者', 'DeFi 用户', '交易员', '开发者', 'DAO 成员', '机构用户', 'AI Agent'].map((tag) => (
+              <span key={tag} className="px-5 py-2.5 bg-neutral-100 text-neutral-700 rounded-full text-sm font-medium">
+                {tag}
+              </span>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ============================================
+          Recommended Skills Section
+      ============================================ */}
+      <section className="py-32 px-6 bg-neutral-900 text-white">
+        <div className="max-w-6xl mx-auto">
+          <SectionHeader title="推荐 Skills" light />
+          <div className="mt-12 grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {[
+              { name: 'Wallet Manager', author: '@clawsafe', installs: '12.5K', desc: 'AI Agent 加密钱包管理，支持多链' },
+              { name: 'DeFi Strategist', author: '@defilab', installs: '8.2K', desc: '智能 DeFi 收益优化策略' },
+              { name: 'Trading Assistant', author: '@tradepro', installs: '6.8K', desc: '专业交易信号与执行助手' },
+              { name: 'Portfolio Tracker', author: '@chainview', installs: '15.3K', desc: '实时组合追踪与分析' },
+              { name: 'Security Monitor', author: '@safeguard', installs: '9.1K', desc: '7x24 安全监控与预警' },
+              { name: 'NFT Aggregator', author: '@nftmaster', installs: '5.4K', desc: '多平台 NFT 聚合交易' },
+            ].map((skill, i) => (
+              <motion.div
+                key={skill.name}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.1 }}
+                className="p-6 rounded-2xl bg-white/5 border border-white/10 hover:bg-white/10 transition-all cursor-pointer group"
+              >
+                <div className="flex items-start justify-between">
+                  <div className="flex-1">
+                    <h4 className="font-semibold text-white group-hover:text-orange-400 transition-colors">{skill.name}</h4>
+                    <p className="text-xs text-neutral-400 mt-1">{skill.author}</p>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <span className="text-xs text-neutral-500">{skill.installs}</span>
+                    <Github className="w-4 h-4 text-neutral-500" />
+                  </div>
+                </div>
+                <p className="text-sm text-neutral-300 mt-3">{skill.desc}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ============================================
+          Partners Section
+      ============================================ */}
+      <section className="py-32 px-6 bg-white">
+        <div className="max-w-6xl mx-auto text-center">
+          <SectionHeader title="合作伙伴" />
+          <div className="mt-12 overflow-hidden">
+            <div className="flex animate-marquee">
+              {[1, 2].map((_, i) => (
+                <div key={i} className="flex items-center gap-16 px-8 shrink-0">
+                  {['Uniswap', 'Aave', 'Chainlink', 'OpenSea', 'Coinbase', 'Binance', 'Paradigm', 'Dragonfly'].map((partner) => (
+                    <div key={partner} className="text-2xl font-bold text-neutral-300 hover:text-orange-500 transition-colors whitespace-nowrap">
+                      {partner}
+                    </div>
+                  ))}
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ============================================
+          Agent Integration Section
+      ============================================ */}
+      <section className="py-32 px-6 bg-neutral-50">
         <div className="max-w-6xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-16">
             <div className="flex flex-col">
