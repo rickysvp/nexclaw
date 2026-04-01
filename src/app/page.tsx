@@ -1473,7 +1473,7 @@ export default function Home() {
           transition={{ duration: 0.6 }}
           className="max-w-3xl mx-auto text-center relative"
         >
-          <img src="/claw.png" alt="Claw Wallet" className="h-12 w-auto mb-6" />
+
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-tight">
             准备好让你的 Agent
             <br />

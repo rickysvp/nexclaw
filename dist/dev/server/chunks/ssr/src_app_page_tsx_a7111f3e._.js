@@ -3144,15 +3144,6 @@ function Home() {
                         },
                         className: "max-w-3xl mx-auto text-center relative",
                         children: [
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("img", {
-                                src: "/claw.png",
-                                alt: "Claw Wallet",
-                                className: "h-12 w-auto mb-6"
-                            }, void 0, false, {
-                                fileName: "[project]/src/app/page.tsx",
-                                lineNumber: 1476,
-                                columnNumber: 11
-                            }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
                                 className: "text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-tight",
                                 children: [

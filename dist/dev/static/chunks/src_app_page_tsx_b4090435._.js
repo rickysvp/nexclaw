@@ -42,11 +42,11 @@ var _s = __turbopack_context__.k.signature(), _s1 = __turbopack_context__.k.sign
 ;
 const DiscordIcon = (t0)=>{
     const $ = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$compiler$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["c"])(4);
-    if ($[0] !== "0fd8b60fb8072d37202a73c9f232a1e95f81bec34cca84301952a79ec5c60183") {
+    if ($[0] !== "cfa9946ff293bacc7c57b720de1973e0c4834642e8317f56a2761698194ae315") {
         for(let $i = 0; $i < 4; $i += 1){
             $[$i] = Symbol.for("react.memo_cache_sentinel");
         }
-        $[0] = "0fd8b60fb8072d37202a73c9f232a1e95f81bec34cca84301952a79ec5c60183";
+        $[0] = "cfa9946ff293bacc7c57b720de1973e0c4834642e8317f56a2761698194ae315";
     }
     const { className } = t0;
     let t1;
@@ -762,11 +762,11 @@ const strategyDescriptions = {
 // ============================================
 const Button = (t0)=>{
     const $ = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$compiler$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["c"])(9);
-    if ($[0] !== "0fd8b60fb8072d37202a73c9f232a1e95f81bec34cca84301952a79ec5c60183") {
+    if ($[0] !== "cfa9946ff293bacc7c57b720de1973e0c4834642e8317f56a2761698194ae315") {
         for(let $i = 0; $i < 9; $i += 1){
             $[$i] = Symbol.for("react.memo_cache_sentinel");
         }
-        $[0] = "0fd8b60fb8072d37202a73c9f232a1e95f81bec34cca84301952a79ec5c60183";
+        $[0] = "cfa9946ff293bacc7c57b720de1973e0c4834642e8317f56a2761698194ae315";
     }
     const { children, variant: t1, size: t2, className: t3, icon: Icon } = t0;
     const variant = t1 === undefined ? "primary" : t1;
@@ -837,11 +837,11 @@ const Button = (t0)=>{
 _c1 = Button;
 const Card = (t0)=>{
     const $ = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$compiler$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["c"])(4);
-    if ($[0] !== "0fd8b60fb8072d37202a73c9f232a1e95f81bec34cca84301952a79ec5c60183") {
+    if ($[0] !== "cfa9946ff293bacc7c57b720de1973e0c4834642e8317f56a2761698194ae315") {
         for(let $i = 0; $i < 4; $i += 1){
             $[$i] = Symbol.for("react.memo_cache_sentinel");
         }
-        $[0] = "0fd8b60fb8072d37202a73c9f232a1e95f81bec34cca84301952a79ec5c60183";
+        $[0] = "cfa9946ff293bacc7c57b720de1973e0c4834642e8317f56a2761698194ae315";
     }
     const { children, className: t1, hover: t2 } = t0;
     const className = t1 === undefined ? "" : t1;
@@ -1113,11 +1113,11 @@ _s(ChatDemoCard, "WdxurFU7BlR1Y3RjeUfAbFb7R1Q=");
 _c3 = ChatDemoCard;
 const SectionHeader = (t0)=>{
     const $ = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$compiler$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["c"])(19);
-    if ($[0] !== "0fd8b60fb8072d37202a73c9f232a1e95f81bec34cca84301952a79ec5c60183") {
+    if ($[0] !== "cfa9946ff293bacc7c57b720de1973e0c4834642e8317f56a2761698194ae315") {
         for(let $i = 0; $i < 19; $i += 1){
             $[$i] = Symbol.for("react.memo_cache_sentinel");
         }
-        $[0] = "0fd8b60fb8072d37202a73c9f232a1e95f81bec34cca84301952a79ec5c60183";
+        $[0] = "cfa9946ff293bacc7c57b720de1973e0c4834642e8317f56a2761698194ae315";
     }
     const { label, title, description, light: t1 } = t0;
     const light = t1 === undefined ? false : t1;
@@ -3358,15 +3358,6 @@ function Home() {
                         },
                         className: "max-w-3xl mx-auto text-center relative",
                         children: [
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("img", {
-                                src: "/claw.png",
-                                alt: "Claw Wallet",
-                                className: "h-12 w-auto mb-6"
-                            }, void 0, false, {
-                                fileName: "[project]/src/app/page.tsx",
-                                lineNumber: 1635,
-                                columnNumber: 11
-                            }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
                                 className: "text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-tight",
                                 children: [
