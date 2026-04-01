@@ -663,18 +663,18 @@ const ChatDemoCard = () => {
                   transition={{ duration: 0.3 }}
                   className={`flex ${msg.role === 'user' ? 'justify-end' : 'justify-start'}`}
                 >
-                  <div className={`max-w-[85%] rounded-2xl px-4 py-3 text-sm whitespace-pre-line ${
-                    msg.role === 'user'
-                      ? 'bg-orange-500 text-white rounded-br-md'
-                      : 'bg-neutral-100 text-neutral-700 rounded-bl-md'
-                  }`}>
-                    {msg.content}
-                  </div>
+                  <div className={`max-w-[85%] rounded-2xl px-5 py-3 text-sm whitespace-pre-line border-2 shadow-hard ${
+            msg.role === 'user'
+              ? 'bg-orange-500 text-white border-orange-500 shadow-hard-hover'
+              : 'bg-white text-slate-800 border-slate-800 shadow-hard-sm'
+          }`}>
+            {msg.content}
+          </div>
                 </motion.div>
               );
             })}
           </AnimatePresence>
-          
+
           {/* Typing indicator */}
           {isTyping && (
             <motion.div
@@ -682,17 +682,17 @@ const ChatDemoCard = () => {
               animate={{ opacity: 1 }}
               className="flex justify-start"
             >
-              <div className="bg-neutral-100 rounded-2xl rounded-bl-md px-4 py-3 flex items-center gap-1">
-                <span className="w-1.5 h-1.5 bg-neutral-400 rounded-full animate-bounce" style={{ animationDelay: '0ms' }} />
-                <span className="w-1.5 h-1.5 bg-neutral-400 rounded-full animate-bounce" style={{ animationDelay: '150ms' }} />
-                <span className="w-1.5 h-1.5 bg-neutral-400 rounded-full animate-bounce" style={{ animationDelay: '300ms' }} />
+              <div className="bg-white rounded-2xl px-4 py-3 flex items-center gap-1 border-2 border-slate-800 shadow-hard-sm">
+                <span className="w-1.5 h-1.5 bg-orange-500 rounded-full animate-bounce" style={{ animationDelay: '0ms' }} />
+                <span className="w-1.5 h-1.5 bg-orange-500 rounded-full animate-bounce" style={{ animationDelay: '150ms' }} />
+                <span className="w-1.5 h-1.5 bg-orange-500 rounded-full animate-bounce" style={{ animationDelay: '300ms' }} />
               </div>
             </motion.div>
           )}
         </div>
 
         {/* Scenario Tags */}
-        <div className="px-6 py-4 border-t border-neutral-100 bg-neutral-50/30">
+        <div className="px-6 py-4 border-t-2 border-slate-100 bg-slate-50">
           <div className="flex flex-wrap gap-2 justify-center">
             {chatScenarios.map((s, idx) => (
               <button
@@ -701,10 +701,10 @@ const ChatDemoCard = () => {
                   setActiveScenario(idx);
                   setVisibleMessages([]);
                 }}
-                className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium transition-all ${
-                  idx === activeScenario 
-                    ? `${s.color} ring-2 ring-offset-1 ring-neutral-200` 
-                    : 'bg-neutral-100 text-neutral-500 hover:bg-neutral-200'
+                className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-bold border-2 transition-all ${
+                  idx === activeScenario
+                    ? `${s.color} border-current ring-2 ring-offset-1 ring-slate-800`
+                    : 'bg-white text-slate-800 border-slate-800 hover:bg-orange-500 hover:text-white hover:border-orange-500'
                 }`}
               >
                 <s.icon className="w-3.5 h-3.5" />
@@ -907,9 +907,9 @@ export default function Home() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.2, duration: 0.6 }}
-                className="relative"
+                className="relative flex justify-center"
               >
-                <img src="/claw.png" alt="Claw Wallet" className="h-12 w-auto" />
+                <img src="/claw.png" alt="Claw Wallet" className="h-12 w-auto mx-auto" />
                 <div className="absolute -top-2 -right-2 w-4 h-4 bg-orange-500 rounded-full" />
               </motion.div>
               
@@ -1014,35 +1014,6 @@ export default function Home() {
             </div>
           </div>
 
-        {/* Supported Chains */}
-        <div className="absolute bottom-24 left-0 right-0">
-          <div className="max-w-6xl mx-auto px-6">
-            <div className="flex flex-wrap justify-center items-center gap-8">
-              {[
-                { name: 'Bitcoin', logo: '/logos/BTC.png' },
-                { name: 'Ethereum', logo: '/logos/ethereum.png' },
-                { name: 'BSC', logo: '/logos/BSC.png' },
-                { name: 'SUI', logo: '/logos/sui.png' },
-                { name: 'MONAD', logo: '/logos/monad.png' },
-                { name: 'BASE', logo: '/logos/base.png', hasBg: true, hasBorder: true },
-                { name: 'Solana', logo: '/logos/solana.png' }
-              ].map((chain, index) => (
-                <motion.div
-                  key={chain.name}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 1.2 + index * 0.1, duration: 0.5 }}
-                  className="flex items-center justify-center"
-                >
-                  <div className={`w-12 h-12 flex items-center justify-center cursor-pointer group ${chain.hasBg ? 'bg-neutral-100 rounded-full' : ''} ${chain.hasBorder ? 'border border-neutral-200' : ''}`}>
-                    <img src={chain.logo} alt={chain.name} className="w-full h-full object-contain rounded-full grayscale opacity-70 group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-110 transition-all duration-300" />
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </div>
-
         {/* Scroll Indicator */}
         <motion.div 
           initial={{ opacity: 0 }}
@@ -1087,7 +1058,7 @@ export default function Home() {
       {/* ============================================
           Agent Integration Section
       ============================================ */}
-      <section className="py-32 px-6 bg-neutral-50">
+      <section className="py-32 px-6 bg-slate-50">
         <div className="max-w-6xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-16">
             <div className="flex flex-col">
@@ -1100,8 +1071,8 @@ export default function Home() {
 
                 <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-tight">
                   <span className="block">给你的 AI Agent</span>
-                  <span className="block">安装 Claw Wallet</span>
-                  <span className="text-orange-500">
+                  <span className="block text-orange-500">安装 Claw Wallet</span>
+                  <span className="text-slate-800">
                     它将会帮你
                   </span>
                 </h2>
@@ -1117,21 +1088,21 @@ export default function Home() {
                   transition={{ delay: 0.2, duration: 0.6 }}
                   className="mt-8 flex flex-wrap gap-2"
                 >
-                  <button onClick={() => setActiveStrategy('create')} className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${activeStrategy === 'create' ? 'bg-orange-500 text-white shadow-lg shadow-orange-500/20' : 'bg-neutral-100 text-neutral-700 hover:bg-neutral-200'}`}>创建钱包</button>
-                  <button onClick={() => setActiveStrategy('market')} className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${activeStrategy === 'market' ? 'bg-orange-500 text-white shadow-lg shadow-orange-500/20' : 'bg-neutral-100 text-neutral-700 hover:bg-neutral-200'}`}>市场动态</button>
-                  <button onClick={() => setActiveStrategy('price')} className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${activeStrategy === 'price' ? 'bg-orange-500 text-white shadow-lg shadow-orange-500/20' : 'bg-neutral-100 text-neutral-700 hover:bg-neutral-200'}`}>跟踪币价</button>
-                  <button onClick={() => setActiveStrategy('arbitrage')} className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${activeStrategy === 'arbitrage' ? 'bg-orange-500 text-white shadow-lg shadow-orange-500/20' : 'bg-neutral-100 text-neutral-700 hover:bg-neutral-200'}`}>自动套利</button>
-                  <button onClick={() => setActiveStrategy('mining')} className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${activeStrategy === 'mining' ? 'bg-orange-500 text-white shadow-lg shadow-orange-500/20' : 'bg-neutral-100 text-neutral-700 hover:bg-neutral-200'}`}>挖矿</button>
-                  <button onClick={() => setActiveStrategy('meme')} className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${activeStrategy === 'meme' ? 'bg-orange-500 text-white shadow-lg shadow-orange-500/20' : 'bg-neutral-100 text-neutral-700 hover:bg-neutral-200'}`}>Meme</button>
-                  <button onClick={() => setActiveStrategy('ipo')} className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${activeStrategy === 'ipo' ? 'bg-orange-500 text-white shadow-lg shadow-orange-500/20' : 'bg-neutral-100 text-neutral-700 hover:bg-neutral-200'}`}>币股打新</button>
-                  <button onClick={() => setActiveStrategy('perps')} className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${activeStrategy === 'perps' ? 'bg-orange-500 text-white shadow-lg shadow-orange-500/20' : 'bg-neutral-100 text-neutral-700 hover:bg-neutral-200'}`}>Perps</button>
-                  <button onClick={() => setActiveStrategy('audit')} className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${activeStrategy === 'audit' ? 'bg-orange-500 text-white shadow-lg shadow-orange-500/20' : 'bg-neutral-100 text-neutral-700 hover:bg-neutral-200'}`}>安全审计</button>
-                  <button onClick={() => setActiveStrategy('transfer')} className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${activeStrategy === 'transfer' ? 'bg-orange-500 text-white shadow-lg shadow-orange-500/20' : 'bg-neutral-100 text-neutral-700 hover:bg-neutral-200'}`}>转账</button>
-                  <button onClick={() => setActiveStrategy('defi')} className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${activeStrategy === 'defi' ? 'bg-orange-500 text-white shadow-lg shadow-orange-500/20' : 'bg-neutral-100 text-neutral-700 hover:bg-neutral-200'}`}>DeFi</button>
-                  <button onClick={() => setActiveStrategy('dca')} className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${activeStrategy === 'dca' ? 'bg-orange-500 text-white shadow-lg shadow-orange-500/20' : 'bg-neutral-100 text-neutral-700 hover:bg-neutral-200'}`}>定投</button>
-                  <button onClick={() => setActiveStrategy('copy')} className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${activeStrategy === 'copy' ? 'bg-orange-500 text-white shadow-lg shadow-orange-500/20' : 'bg-neutral-100 text-neutral-700 hover:bg-neutral-200'}`}>跟单</button>
-                  <button onClick={() => setActiveStrategy('staking')} className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${activeStrategy === 'staking' ? 'bg-orange-500 text-white shadow-lg shadow-orange-500/20' : 'bg-neutral-100 text-neutral-700 hover:bg-neutral-200'}`}>质押</button>
-                  <button onClick={() => setActiveStrategy('lending')} className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${activeStrategy === 'lending' ? 'bg-orange-500 text-white shadow-lg shadow-orange-500/20' : 'bg-neutral-100 text-neutral-700 hover:bg-neutral-200'}`}>借贷</button>
+                  <button onClick={() => setActiveStrategy('create')} className={`px-4 py-2 rounded-full text-sm font-bold border-2 transition-all ${activeStrategy === 'create' ? 'bg-orange-500 text-white border-orange-500 shadow-hard' : 'bg-white text-slate-800 border-slate-800 hover:bg-orange-500 hover:border-orange-500 hover:text-white'}`}>创建钱包</button>
+                  <button onClick={() => setActiveStrategy('market')} className={`px-4 py-2 rounded-full text-sm font-bold border-2 transition-all ${activeStrategy === 'market' ? 'bg-orange-500 text-white border-orange-500 shadow-hard' : 'bg-white text-slate-800 border-slate-800 hover:bg-orange-500 hover:border-orange-500 hover:text-white'}`}>市场动态</button>
+                  <button onClick={() => setActiveStrategy('price')} className={`px-4 py-2 rounded-full text-sm font-bold border-2 transition-all ${activeStrategy === 'price' ? 'bg-orange-500 text-white border-orange-500 shadow-hard' : 'bg-white text-slate-800 border-slate-800 hover:bg-orange-500 hover:border-orange-500 hover:text-white'}`}>跟踪币价</button>
+                  <button onClick={() => setActiveStrategy('arbitrage')} className={`px-4 py-2 rounded-full text-sm font-bold border-2 transition-all ${activeStrategy === 'arbitrage' ? 'bg-orange-500 text-white border-orange-500 shadow-hard' : 'bg-white text-slate-800 border-slate-800 hover:bg-orange-500 hover:border-orange-500 hover:text-white'}`}>自动套利</button>
+                  <button onClick={() => setActiveStrategy('mining')} className={`px-4 py-2 rounded-full text-sm font-bold border-2 transition-all ${activeStrategy === 'mining' ? 'bg-orange-500 text-white border-orange-500 shadow-hard' : 'bg-white text-slate-800 border-slate-800 hover:bg-orange-500 hover:border-orange-500 hover:text-white'}`}>挖矿</button>
+                  <button onClick={() => setActiveStrategy('meme')} className={`px-4 py-2 rounded-full text-sm font-bold border-2 transition-all ${activeStrategy === 'meme' ? 'bg-orange-500 text-white border-orange-500 shadow-hard' : 'bg-white text-slate-800 border-slate-800 hover:bg-orange-500 hover:border-orange-500 hover:text-white'}`}>Meme</button>
+                  <button onClick={() => setActiveStrategy('ipo')} className={`px-4 py-2 rounded-full text-sm font-bold border-2 transition-all ${activeStrategy === 'ipo' ? 'bg-orange-500 text-white border-orange-500 shadow-hard' : 'bg-white text-slate-800 border-slate-800 hover:bg-orange-500 hover:border-orange-500 hover:text-white'}`}>币股打新</button>
+                  <button onClick={() => setActiveStrategy('perps')} className={`px-4 py-2 rounded-full text-sm font-bold border-2 transition-all ${activeStrategy === 'perps' ? 'bg-orange-500 text-white border-orange-500 shadow-hard' : 'bg-white text-slate-800 border-slate-800 hover:bg-orange-500 hover:border-orange-500 hover:text-white'}`}>Perps</button>
+                  <button onClick={() => setActiveStrategy('audit')} className={`px-4 py-2 rounded-full text-sm font-bold border-2 transition-all ${activeStrategy === 'audit' ? 'bg-orange-500 text-white border-orange-500 shadow-hard' : 'bg-white text-slate-800 border-slate-800 hover:bg-orange-500 hover:border-orange-500 hover:text-white'}`}>安全审计</button>
+                  <button onClick={() => setActiveStrategy('transfer')} className={`px-4 py-2 rounded-full text-sm font-bold border-2 transition-all ${activeStrategy === 'transfer' ? 'bg-orange-500 text-white border-orange-500 shadow-hard' : 'bg-white text-slate-800 border-slate-800 hover:bg-orange-500 hover:border-orange-500 hover:text-white'}`}>转账</button>
+                  <button onClick={() => setActiveStrategy('defi')} className={`px-4 py-2 rounded-full text-sm font-bold border-2 transition-all ${activeStrategy === 'defi' ? 'bg-orange-500 text-white border-orange-500 shadow-hard' : 'bg-white text-slate-800 border-slate-800 hover:bg-orange-500 hover:border-orange-500 hover:text-white'}`}>DeFi</button>
+                  <button onClick={() => setActiveStrategy('dca')} className={`px-4 py-2 rounded-full text-sm font-bold border-2 transition-all ${activeStrategy === 'dca' ? 'bg-orange-500 text-white border-orange-500 shadow-hard' : 'bg-white text-slate-800 border-slate-800 hover:bg-orange-500 hover:border-orange-500 hover:text-white'}`}>定投</button>
+                  <button onClick={() => setActiveStrategy('copy')} className={`px-4 py-2 rounded-full text-sm font-bold border-2 transition-all ${activeStrategy === 'copy' ? 'bg-orange-500 text-white border-orange-500 shadow-hard' : 'bg-white text-slate-800 border-slate-800 hover:bg-orange-500 hover:border-orange-500 hover:text-white'}`}>跟单</button>
+                  <button onClick={() => setActiveStrategy('staking')} className={`px-4 py-2 rounded-full text-sm font-bold border-2 transition-all ${activeStrategy === 'staking' ? 'bg-orange-500 text-white border-orange-500 shadow-hard' : 'bg-white text-slate-800 border-slate-800 hover:bg-orange-500 hover:border-orange-500 hover:text-white'}`}>质押</button>
+                  <button onClick={() => setActiveStrategy('lending')} className={`px-4 py-2 rounded-full text-sm font-bold border-2 transition-all ${activeStrategy === 'lending' ? 'bg-orange-500 text-white border-orange-500 shadow-hard' : 'bg-white text-slate-800 border-slate-800 hover:bg-orange-500 hover:border-orange-500 hover:text-white'}`}>借贷</button>
                 </motion.div>
                 
                 {/* Install Command */}
@@ -1222,7 +1193,7 @@ export default function Home() {
                             transition={{ duration: 0.3 }}
                             className="flex justify-end"
                           >
-                            <div className="max-w-[85%] rounded-2xl px-4 py-3 text-sm whitespace-pre-line bg-orange-500 text-white rounded-br-md">
+                            <div className="max-w-[85%] rounded-2xl px-4 py-3 text-sm whitespace-pre-line bg-orange-500 text-white border-2 border-orange-500 shadow-hard shadow-hard-hover">
                               {strategyDescriptions[activeStrategy].chatContent.title}
                             </div>
                           </motion.div>
@@ -1240,7 +1211,7 @@ export default function Home() {
                                 transition={{ duration: 0.3 }}
                                 className={`flex ${isAI ? 'justify-start' : 'justify-end'}`}
                               >
-                                <div className={`max-w-[85%] rounded-2xl px-4 py-3 text-sm whitespace-pre-line ${isAI ? 'bg-neutral-100 text-neutral-700 rounded-bl-md' : 'bg-orange-500 text-white rounded-br-md'}`}>
+                                <div className={`max-w-[85%] rounded-2xl px-4 py-3 text-sm whitespace-pre-line border-2 shadow-hard ${isAI ? 'bg-neutral-100 text-neutral-700 border-slate-800 shadow-hard-sm' : 'bg-orange-500 text-white border-orange-500 shadow-hard-hover'}`}>
                                   {message}
                                 </div>
                               </motion.div>
@@ -1254,7 +1225,7 @@ export default function Home() {
                               animate={{ opacity: 1 }}
                               className="flex justify-start"
                             >
-                              <div className="bg-neutral-100 rounded-2xl rounded-bl-md px-4 py-3 flex items-center gap-1">
+                              <div className="bg-neutral-100 rounded-2xl px-4 py-3 flex items-center gap-1 border-2 border-slate-800 shadow-hard-sm">
                                 <span className="w-1.5 h-1.5 bg-neutral-400 rounded-full animate-bounce" style={{ animationDelay: '0ms' }} />
                                 <span className="w-1.5 h-1.5 bg-neutral-400 rounded-full animate-bounce" style={{ animationDelay: '150ms' }} />
                                 <span className="w-1.5 h-1.5 bg-neutral-400 rounded-full animate-bounce" style={{ animationDelay: '300ms' }} />
@@ -1278,17 +1249,17 @@ export default function Home() {
       {/* ============================================
           Recommended Skills Section
       ============================================ */}
-      <section className="py-32 px-6 bg-white">
+      <section className="py-32 px-6 bg-slate-50">
         <div className="max-w-6xl mx-auto">
-          <SectionHeader title="推荐 Skills" />
+          <SectionHeader title="推荐 Skills" description="选择适合你的技能，积累加密资产" />
           <div className="mt-12 grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
-              { name: 'Wallet Manager', author: '@clawsafe', installs: '12.5K', desc: 'AI Agent 加密钱包管理，支持多链' },
-              { name: 'DeFi Strategist', author: '@defilab', installs: '8.2K', desc: '智能 DeFi 收益优化策略' },
-              { name: 'Trading Assistant', author: '@tradepro', installs: '6.8K', desc: '专业交易信号与执行助手' },
-              { name: 'Portfolio Tracker', author: '@chainview', installs: '15.3K', desc: '实时组合追踪与分析' },
-              { name: 'Security Monitor', author: '@safeguard', installs: '9.1K', desc: '7x24 安全监控与预警' },
-              { name: 'NFT Aggregator', author: '@nftmaster', installs: '5.4K', desc: '多平台 NFT 聚合交易' },
+              { name: 'Wallet Manager', installs: '12.5K', desc: 'AI Agent 加密钱包管理，支持多链' },
+              { name: 'DeFi Strategist', installs: '8.2K', desc: '智能 DeFi 收益优化策略' },
+              { name: 'Trading Assistant', installs: '6.8K', desc: '专业交易信号与执行助手' },
+              { name: 'Portfolio Tracker', installs: '15.3K', desc: '实时组合追踪与分析' },
+              { name: 'Security Monitor', installs: '9.1K', desc: '7x24 安全监控与预警' },
+              { name: 'NFT Aggregator', installs: '5.4K', desc: '多平台 NFT 聚合交易' },
             ].map((skill, i) => (
               <motion.div
                 key={skill.name}
@@ -1301,7 +1272,6 @@ export default function Home() {
                 <div className="flex items-start justify-between">
                   <div className="flex-1">
                     <h4 className="font-bold text-slate-800 group-hover:text-orange-500 transition-colors">{skill.name}</h4>
-                    <p className="text-xs text-slate-500 mt-1">{skill.author}</p>
                   </div>
                   <div className="flex items-center gap-3">
                     <span className="text-xs text-slate-400 font-medium">{skill.installs}</span>
@@ -1349,8 +1319,8 @@ export default function Home() {
                 transition={{ delay: idx * 0.15, duration: 0.6 }}
                 className="relative group"
               >
-                <div className="absolute -top-4 -left-2 text-8xl font-black text-white/5 select-none">{item.step}</div>
-                <div className="relative p-8 rounded-2xl bg-white border-2 border-slate-800 shadow-hard hover:shadow-hard-hover transition-all h-full">
+                <div className="absolute -top-2 left-6 text-6xl font-black text-slate-800/10 select-none">{item.step}</div>
+                <div className="relative p-8 rounded-2xl bg-white border-2 border-slate-800 shadow-hard hover:border-orange-500 hover:shadow-hard-hover transition-all h-full">
                   <div className="w-14 h-14 rounded-full bg-orange-500 flex items-center justify-center mb-6 shadow-hard-sm">
                     <item.icon className="w-7 h-7 text-white" />
                   </div>
@@ -1394,21 +1364,21 @@ export default function Home() {
 
               <div className="mt-10 grid grid-cols-2 gap-4">
                 {securityLayers.map((layer, idx) => (
-                  <motion.div 
+                  <motion.div
                     key={layer.title}
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: idx * 0.1 }}
-                    whileHover={{ y: -4, scale: 1.02 }}
-                    className="p-5 rounded-2xl bg-white border border-neutral-100 hover:border-orange-100 hover:shadow-xl hover:shadow-orange-500/5 transition-all cursor-pointer group"
+                    whileHover={{ scale: 1.02, y: -2 }}
+                    className="p-5 rounded-2xl bg-white border-2 border-slate-800 shadow-hard hover:border-orange-500 hover:shadow-hard-hover transition-all cursor-pointer group"
                   >
-                    <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-neutral-100 to-neutral-50 flex items-center justify-center mb-4 group-hover:from-red-50 group-hover:to-red-100 transition-all duration-300">
-                      <layer.icon className="w-6 h-6 text-neutral-600 group-hover:text-orange-500 transition-colors" />
+                    <div className="w-12 h-12 rounded-full bg-orange-500 flex items-center justify-center mb-4 shadow-hard-sm">
+                      <layer.icon className="w-6 h-6 text-white" />
                     </div>
-                    <h4 className="font-semibold text-neutral-900">{layer.title}</h4>
-                    <p className="text-xs text-neutral-500 mt-1">{layer.desc}</p>
-                    <p className="text-xs text-neutral-400 mt-2 opacity-0 group-hover:opacity-100 transition-opacity">{layer.detail}</p>
+                    <h4 className="font-bold text-slate-800">{layer.title}</h4>
+                    <p className="text-xs text-slate-500 mt-1 font-medium">{layer.desc}</p>
+                    <p className="text-xs text-slate-400 mt-2">{layer.detail}</p>
                   </motion.div>
                 ))}
               </div>
@@ -1545,7 +1515,7 @@ export default function Home() {
       {/* ============================================
           FAQ Section
       ============================================ */}
-      <section className="py-20 px-6 bg-neutral-50">
+      <section className="py-20 px-6 bg-slate-50">
         <div className="max-w-3xl mx-auto">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold">常见问题</h2>
