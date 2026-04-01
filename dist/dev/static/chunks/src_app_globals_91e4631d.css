@@ -1744,6 +1744,10 @@
     min-width: 120px;
   }
 
+  .min-w-\[140px\] {
+    min-width: 140px;
+  }
+
   .flex-1 {
     flex: 1;
   }

@@ -68,3 +68,7 @@ Import traces:
     ./src/app/page.tsx [Server Component]
 [02:09:40.429] Server  LOG     ✓ Compiled in 192ms
 [02:09:49.671] Server  LOG     ✓ Compiled in 179ms
+[02:31:00.474] Server  LOG     ✓ Compiled in 196ms
+[02:31:01.080] Browser ERROR   Encountered two children with the same key, `%s`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version. 3
+[02:32:06.548] Server  LOG     ✓ Compiled in 115ms
+[02:32:29.796] Server  LOG     ✓ Compiled in 86ms

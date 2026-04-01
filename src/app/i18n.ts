@@ -22,12 +22,12 @@ export const translations = {
   // Hero Section - Simple & Clear
   hero: {
     title: {
-      zh: '让 AI Agent 帮你安全地管理加密资产',
-      en: 'Let AI Agents Help You Securely Manage Crypto Assets',
+      zh: '让 AI Agent\n拥有安全钱包',
+      en: 'Let AI Agent\nHave a Secure Wallet',
     },
     subtitle: {
-      zh: '只需一句话，Agent 就能帮你定投、跨链、理财。你的私钥始终由你掌控。',
-      en: 'Just say the word, and your Agent will DCA, bridge, and earn for you. Your keys, your crypto.',
+      zh: 'Claw Wallet 是为 AI Agent 构建的 Web3 安全钱包，采用 TEE 硬件加密分片架构。通过自然语言对话，让 AI 安全地管理加密资产。',
+      en: 'Claw Wallet is a Web3 secure wallet built for AI Agents, using TEE hardware-encrypted sharding architecture. Through natural language dialogue, let AI securely manage crypto assets.',
     },
     copyHint: {
       zh: '复制命令，发送给你的 OpenClaw Agent',

@@ -30,15 +30,14 @@ export function LanguageSwitcher({ currentLang, onLanguageChange }: LanguageSwit
           e.stopPropagation();
           setIsOpen(!isOpen);
         }}
-        className="flex items-center gap-2 px-3 py-1.5 rounded-md text-sm text-gray-600 hover:text-gray-900 hover:bg-gray-100 transition-colors"
+        className="flex items-center gap-2 px-4 py-2 rounded-full text-sm font-bold border-2 border-slate-800 transition-all hover:bg-orange-500 hover:border-orange-500 hover:text-white"
       >
         <ClawGlobe className="w-4 h-4" />
-        <span>{currentLanguage?.flag}</span>
         <span className="hidden sm:inline">{currentLanguage?.label}</span>
       </button>
 
       {isOpen && (
-        <div className="absolute top-full right-0 mt-1 bg-white border border-gray-200 rounded-lg shadow-lg py-1 min-w-[120px] z-50">
+        <div className="absolute top-full right-0 mt-2 bg-white border-2 border-slate-800 rounded-2xl shadow-hard py-2 min-w-[140px] z-50">
           {languages.map((lang) => (
             <button
               key={lang.code}
@@ -46,11 +45,12 @@ export function LanguageSwitcher({ currentLang, onLanguageChange }: LanguageSwit
                 onLanguageChange(lang.code);
                 setIsOpen(false);
               }}
-              className={`w-full flex items-center gap-2 px-4 py-2 text-sm hover:bg-gray-50 transition-colors ${
-                currentLang === lang.code ? 'text-[#FF4D2E] font-medium' : 'text-gray-600'
+              className={`w-full flex items-center gap-3 px-4 py-3 text-sm font-medium transition-all ${
+                currentLang === lang.code 
+                  ? 'bg-orange-500 text-white border-orange-500' 
+                  : 'text-slate-800 hover:bg-slate-100'
               }`}
             >
-              <span>{lang.flag}</span>
               <span>{lang.label}</span>
             </button>
           ))}

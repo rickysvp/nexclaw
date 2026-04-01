@@ -52,12 +52,12 @@ const translations = {
     // Hero Section - Simple & Clear
     hero: {
         title: {
-            zh: '让 AI Agent 帮你安全地管理加密资产',
-            en: 'Let AI Agents Help You Securely Manage Crypto Assets'
+            zh: '让 AI Agent\n拥有安全钱包',
+            en: 'Let AI Agent\nHave a Secure Wallet'
         },
         subtitle: {
-            zh: '只需一句话，Agent 就能帮你定投、跨链、理财。你的私钥始终由你掌控。',
-            en: 'Just say the word, and your Agent will DCA, bridge, and earn for you. Your keys, your crypto.'
+            zh: 'Claw Wallet 是为 AI Agent 构建的 Web3 安全钱包，采用 TEE 硬件加密分片架构。通过自然语言对话，让 AI 安全地管理加密资产。',
+            en: 'Claw Wallet is a Web3 secure wallet built for AI Agents, using TEE hardware-encrypted sharding architecture. Through natural language dialogue, let AI securely manage crypto assets.'
         },
         copyHint: {
             zh: '复制命令，发送给你的 OpenClaw Agent',
@@ -1659,7 +1659,7 @@ function LanguageSwitcher({ currentLang, onLanguageChange }) {
                     e.stopPropagation();
                     setIsOpen(!isOpen);
                 },
-                className: "flex items-center gap-2 px-3 py-1.5 rounded-md text-sm text-gray-600 hover:text-gray-900 hover:bg-gray-100 transition-colors",
+                className: "flex items-center gap-2 px-4 py-2 rounded-full text-sm font-bold border-2 border-slate-800 transition-all hover:bg-orange-500 hover:border-orange-500 hover:text-white",
                 children: [
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$icons$2f$ClawIcons$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["ClawGlobe"], {
                         className: "w-4 h-4"
@@ -1669,18 +1669,11 @@ function LanguageSwitcher({ currentLang, onLanguageChange }) {
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                        children: currentLanguage?.flag
-                    }, void 0, false, {
-                        fileName: "[project]/src/app/LanguageSwitcher.tsx",
-                        lineNumber: 36,
-                        columnNumber: 9
-                    }, this),
-                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                         className: "hidden sm:inline",
                         children: currentLanguage?.label
                     }, void 0, false, {
                         fileName: "[project]/src/app/LanguageSwitcher.tsx",
-                        lineNumber: 37,
+                        lineNumber: 36,
                         columnNumber: 9
                     }, this)
                 ]
@@ -1690,37 +1683,28 @@ function LanguageSwitcher({ currentLang, onLanguageChange }) {
                 columnNumber: 7
             }, this),
             isOpen && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                className: "absolute top-full right-0 mt-1 bg-white border border-gray-200 rounded-lg shadow-lg py-1 min-w-[120px] z-50",
+                className: "absolute top-full right-0 mt-2 bg-white border-2 border-slate-800 rounded-2xl shadow-hard py-2 min-w-[140px] z-50",
                 children: __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$app$2f$i18n$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["languages"].map((lang)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
                         onClick: ()=>{
                             onLanguageChange(lang.code);
                             setIsOpen(false);
                         },
-                        className: `w-full flex items-center gap-2 px-4 py-2 text-sm hover:bg-gray-50 transition-colors ${currentLang === lang.code ? 'text-[#FF4D2E] font-medium' : 'text-gray-600'}`,
-                        children: [
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                children: lang.flag
-                            }, void 0, false, {
-                                fileName: "[project]/src/app/LanguageSwitcher.tsx",
-                                lineNumber: 53,
-                                columnNumber: 15
-                            }, this),
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                children: lang.label
-                            }, void 0, false, {
-                                fileName: "[project]/src/app/LanguageSwitcher.tsx",
-                                lineNumber: 54,
-                                columnNumber: 15
-                            }, this)
-                        ]
-                    }, lang.code, true, {
+                        className: `w-full flex items-center gap-3 px-4 py-3 text-sm font-medium transition-all ${currentLang === lang.code ? 'bg-orange-500 text-white border-orange-500' : 'text-slate-800 hover:bg-slate-100'}`,
+                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                            children: lang.label
+                        }, void 0, false, {
+                            fileName: "[project]/src/app/LanguageSwitcher.tsx",
+                            lineNumber: 54,
+                            columnNumber: 15
+                        }, this)
+                    }, lang.code, false, {
                         fileName: "[project]/src/app/LanguageSwitcher.tsx",
-                        lineNumber: 43,
+                        lineNumber: 42,
                         columnNumber: 13
                     }, this))
             }, void 0, false, {
                 fileName: "[project]/src/app/LanguageSwitcher.tsx",
-                lineNumber: 41,
+                lineNumber: 40,
                 columnNumber: 9
             }, this)
         ]

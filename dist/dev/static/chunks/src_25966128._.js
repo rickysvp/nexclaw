@@ -52,12 +52,12 @@ const translations = {
     // Hero Section - Simple & Clear
     hero: {
         title: {
-            zh: '让 AI Agent 帮你安全地管理加密资产',
-            en: 'Let AI Agents Help You Securely Manage Crypto Assets'
+            zh: '让 AI Agent\n拥有安全钱包',
+            en: 'Let AI Agent\nHave a Secure Wallet'
         },
         subtitle: {
-            zh: '只需一句话，Agent 就能帮你定投、跨链、理财。你的私钥始终由你掌控。',
-            en: 'Just say the word, and your Agent will DCA, bridge, and earn for you. Your keys, your crypto.'
+            zh: 'Claw Wallet 是为 AI Agent 构建的 Web3 安全钱包，采用 TEE 硬件加密分片架构。通过自然语言对话，让 AI 安全地管理加密资产。',
+            en: 'Claw Wallet is a Web3 secure wallet built for AI Agents, using TEE hardware-encrypted sharding architecture. Through natural language dialogue, let AI securely manage crypto assets.'
         },
         copyHint: {
             zh: '复制命令，发送给你的 OpenClaw Agent',
@@ -3067,12 +3067,12 @@ var _s = __turbopack_context__.k.signature();
 ;
 function LanguageSwitcher(t0) {
     _s();
-    const $ = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$compiler$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["c"])(24);
-    if ($[0] !== "1490b0cc3cd0a57d741733f17d2211ee819e870d5d47cc1c41ba5110d19d2175") {
-        for(let $i = 0; $i < 24; $i += 1){
+    const $ = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$compiler$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["c"])(21);
+    if ($[0] !== "fd6eff48ca935a70e229df08fe034ec0ea2b17d7e10e17909e234e62af48a821") {
+        for(let $i = 0; $i < 21; $i += 1){
             $[$i] = Symbol.for("react.memo_cache_sentinel");
         }
-        $[0] = "1490b0cc3cd0a57d741733f17d2211ee819e870d5d47cc1c41ba5110d19d2175";
+        $[0] = "fd6eff48ca935a70e229df08fe034ec0ea2b17d7e10e17909e234e62af48a821";
     }
     const { currentLang, onLanguageChange } = t0;
     const [isOpen, setIsOpen] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(false);
@@ -3138,10 +3138,11 @@ function LanguageSwitcher(t0) {
     } else {
         t5 = $[8];
     }
-    const t6 = currentLanguage?.flag;
+    const t6 = currentLanguage?.label;
     let t7;
     if ($[9] !== t6) {
         t7 = /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+            className: "hidden sm:inline",
             children: t6
         }, void 0, false, {
             fileName: "[project]/src/app/LanguageSwitcher.tsx",
@@ -3153,48 +3154,30 @@ function LanguageSwitcher(t0) {
     } else {
         t7 = $[10];
     }
-    const t8 = currentLanguage?.label;
-    let t9;
-    if ($[11] !== t8) {
-        t9 = /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-            className: "hidden sm:inline",
-            children: t8
-        }, void 0, false, {
-            fileName: "[project]/src/app/LanguageSwitcher.tsx",
-            lineNumber: 90,
-            columnNumber: 10
-        }, this);
-        $[11] = t8;
-        $[12] = t9;
-    } else {
-        t9 = $[12];
-    }
-    let t10;
-    if ($[13] !== t4 || $[14] !== t7 || $[15] !== t9) {
-        t10 = /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+    let t8;
+    if ($[11] !== t4 || $[12] !== t7) {
+        t8 = /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
             onClick: t4,
-            className: "flex items-center gap-2 px-3 py-1.5 rounded-md text-sm text-gray-600 hover:text-gray-900 hover:bg-gray-100 transition-colors",
+            className: "flex items-center gap-2 px-4 py-2 rounded-full text-sm font-bold border-2 border-slate-800 transition-all hover:bg-orange-500 hover:border-orange-500 hover:text-white",
             children: [
                 t5,
-                t7,
-                t9
+                t7
             ]
         }, void 0, true, {
             fileName: "[project]/src/app/LanguageSwitcher.tsx",
-            lineNumber: 98,
-            columnNumber: 11
+            lineNumber: 89,
+            columnNumber: 10
         }, this);
-        $[13] = t4;
-        $[14] = t7;
-        $[15] = t9;
-        $[16] = t10;
+        $[11] = t4;
+        $[12] = t7;
+        $[13] = t8;
     } else {
-        t10 = $[16];
+        t8 = $[13];
     }
-    let t11;
-    if ($[17] !== currentLang || $[18] !== isOpen || $[19] !== onLanguageChange) {
-        t11 = isOpen && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-            className: "absolute top-full right-0 mt-1 bg-white border border-gray-200 rounded-lg shadow-lg py-1 min-w-[120px] z-50",
+    let t9;
+    if ($[14] !== currentLang || $[15] !== isOpen || $[16] !== onLanguageChange) {
+        t9 = isOpen && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+            className: "absolute top-full right-0 mt-2 bg-white border-2 border-slate-800 rounded-2xl shadow-hard py-2 min-w-[140px] z-50",
             children: __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$app$2f$i18n$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["languages"].map({
                 "LanguageSwitcher[languages.map()]": (lang)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
                         onClick: {
@@ -3203,61 +3186,52 @@ function LanguageSwitcher(t0) {
                                 setIsOpen(false);
                             }
                         }["LanguageSwitcher[languages.map() > <button>.onClick]"],
-                        className: `w-full flex items-center gap-2 px-4 py-2 text-sm hover:bg-gray-50 transition-colors ${currentLang === lang.code ? "text-[#FF4D2E] font-medium" : "text-gray-600"}`,
-                        children: [
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                children: lang.flag
-                            }, void 0, false, {
-                                fileName: "[project]/src/app/LanguageSwitcher.tsx",
-                                lineNumber: 114,
-                                columnNumber: 244
-                            }, this),
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                children: lang.label
-                            }, void 0, false, {
-                                fileName: "[project]/src/app/LanguageSwitcher.tsx",
-                                lineNumber: 114,
-                                columnNumber: 268
-                            }, this)
-                        ]
-                    }, lang.code, true, {
+                        className: `w-full flex items-center gap-3 px-4 py-3 text-sm font-medium transition-all ${currentLang === lang.code ? "bg-orange-500 text-white border-orange-500" : "text-slate-800 hover:bg-slate-100"}`,
+                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                            children: lang.label
+                        }, void 0, false, {
+                            fileName: "[project]/src/app/LanguageSwitcher.tsx",
+                            lineNumber: 104,
+                            columnNumber: 272
+                        }, this)
+                    }, lang.code, false, {
                         fileName: "[project]/src/app/LanguageSwitcher.tsx",
-                        lineNumber: 109,
+                        lineNumber: 99,
                         columnNumber: 54
                     }, this)
             }["LanguageSwitcher[languages.map()]"])
         }, void 0, false, {
             fileName: "[project]/src/app/LanguageSwitcher.tsx",
-            lineNumber: 108,
-            columnNumber: 21
+            lineNumber: 98,
+            columnNumber: 20
         }, this);
-        $[17] = currentLang;
-        $[18] = isOpen;
-        $[19] = onLanguageChange;
-        $[20] = t11;
+        $[14] = currentLang;
+        $[15] = isOpen;
+        $[16] = onLanguageChange;
+        $[17] = t9;
     } else {
-        t11 = $[20];
+        t9 = $[17];
     }
-    let t12;
-    if ($[21] !== t10 || $[22] !== t11) {
-        t12 = /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+    let t10;
+    if ($[18] !== t8 || $[19] !== t9) {
+        t10 = /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
             className: "relative",
             children: [
-                t10,
-                t11
+                t8,
+                t9
             ]
         }, void 0, true, {
             fileName: "[project]/src/app/LanguageSwitcher.tsx",
-            lineNumber: 125,
+            lineNumber: 115,
             columnNumber: 11
         }, this);
-        $[21] = t10;
-        $[22] = t11;
-        $[23] = t12;
+        $[18] = t8;
+        $[19] = t9;
+        $[20] = t10;
     } else {
-        t12 = $[23];
+        t10 = $[20];
     }
-    return t12;
+    return t10;
 }
 _s(LanguageSwitcher, "vl0Rt3/A8evyRPW1OQ1AhRk4UhU=");
 _c = LanguageSwitcher;
