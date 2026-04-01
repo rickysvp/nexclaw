@@ -763,10 +763,6 @@
     inset-inline-start: var(--spacing) !important;
   }
 
-  .\!end {
-    inset-inline-end: var(--spacing) !important;
-  }
-
   .end {
     inset-inline-end: var(--spacing);
   }
@@ -1225,6 +1221,10 @@
 
   .mb-24 {
     margin-bottom: calc(var(--spacing) * 24);
+  }
+
+  .mb-30 {
+    margin-bottom: calc(var(--spacing) * 30);
   }
 
   .mb-32 {
@@ -5303,16 +5303,12 @@
     app-:  r;
   }
 
-  .\[key\:\\Q4ng\] {
-    key: Q4ng;
+  .\[c\:2t\] {
+    c: 2t;
   }
 
   .\[key\:\^\^4ng\] {
     key: ^ ^ 4ng;
-  }
-
-  .\[key\:r\10 �ng\] {
-    key: r �ng;
   }
 
   .\[key\:y\f 4ng\] {
@@ -5337,10 +5333,6 @@
 
   .\[name\:\17 \6 �\] {
     name:   �;
-  }
-
-  .\[name\:�\13 �ng\] {
-    name: � �ng;
   }
 
   .\[name\:�\$�ng\] {
@@ -5442,10 +5434,6 @@
 
   .peer-disabled\:cursor-not-allowed:is(:where(.peer):disabled ~ *) {
     cursor: not-allowed;
-  }
-
-  .peer-disabled\:cursor-not-allowed\!:is(:where(.peer):disabled ~ *) {
-    cursor: not-allowed !important;
   }
 
   .peer-disabled\:opacity-70:is(:where(.peer):disabled ~ *) {

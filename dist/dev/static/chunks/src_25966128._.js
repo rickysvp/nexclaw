@@ -3288,11 +3288,11 @@ var _s = __turbopack_context__.k.signature(), _s1 = __turbopack_context__.k.sign
 ;
 const DiscordIcon = (t0)=>{
     const $ = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$compiler$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["c"])(4);
-    if ($[0] !== "53b17c3b18a9ca2c5c1de00eea473659a45d1a2e78c311721b980f37ef0b7f11") {
+    if ($[0] !== "747a9fd07077a81cd5f10eb3512ca17d6be781adce996111868b8f81f52f4fa6") {
         for(let $i = 0; $i < 4; $i += 1){
             $[$i] = Symbol.for("react.memo_cache_sentinel");
         }
-        $[0] = "53b17c3b18a9ca2c5c1de00eea473659a45d1a2e78c311721b980f37ef0b7f11";
+        $[0] = "747a9fd07077a81cd5f10eb3512ca17d6be781adce996111868b8f81f52f4fa6";
     }
     const { className } = t0;
     let t1;
@@ -4008,11 +4008,11 @@ const strategyDescriptions = {
 // ============================================
 const Button = (t0)=>{
     const $ = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$compiler$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["c"])(9);
-    if ($[0] !== "53b17c3b18a9ca2c5c1de00eea473659a45d1a2e78c311721b980f37ef0b7f11") {
+    if ($[0] !== "747a9fd07077a81cd5f10eb3512ca17d6be781adce996111868b8f81f52f4fa6") {
         for(let $i = 0; $i < 9; $i += 1){
             $[$i] = Symbol.for("react.memo_cache_sentinel");
         }
-        $[0] = "53b17c3b18a9ca2c5c1de00eea473659a45d1a2e78c311721b980f37ef0b7f11";
+        $[0] = "747a9fd07077a81cd5f10eb3512ca17d6be781adce996111868b8f81f52f4fa6";
     }
     const { children, variant: t1, size: t2, className: t3, icon: Icon } = t0;
     const variant = t1 === undefined ? "primary" : t1;
@@ -4083,11 +4083,11 @@ const Button = (t0)=>{
 _c1 = Button;
 const Card = (t0)=>{
     const $ = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$compiler$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["c"])(4);
-    if ($[0] !== "53b17c3b18a9ca2c5c1de00eea473659a45d1a2e78c311721b980f37ef0b7f11") {
+    if ($[0] !== "747a9fd07077a81cd5f10eb3512ca17d6be781adce996111868b8f81f52f4fa6") {
         for(let $i = 0; $i < 4; $i += 1){
             $[$i] = Symbol.for("react.memo_cache_sentinel");
         }
-        $[0] = "53b17c3b18a9ca2c5c1de00eea473659a45d1a2e78c311721b980f37ef0b7f11";
+        $[0] = "747a9fd07077a81cd5f10eb3512ca17d6be781adce996111868b8f81f52f4fa6";
     }
     const { children, className: t1, hover: t2 } = t0;
     const className = t1 === undefined ? "" : t1;
@@ -4359,11 +4359,11 @@ _s(ChatDemoCard, "WdxurFU7BlR1Y3RjeUfAbFb7R1Q=");
 _c3 = ChatDemoCard;
 const SectionHeader = (t0)=>{
     const $ = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$compiler$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["c"])(19);
-    if ($[0] !== "53b17c3b18a9ca2c5c1de00eea473659a45d1a2e78c311721b980f37ef0b7f11") {
+    if ($[0] !== "747a9fd07077a81cd5f10eb3512ca17d6be781adce996111868b8f81f52f4fa6") {
         for(let $i = 0; $i < 19; $i += 1){
             $[$i] = Symbol.for("react.memo_cache_sentinel");
         }
-        $[0] = "53b17c3b18a9ca2c5c1de00eea473659a45d1a2e78c311721b980f37ef0b7f11";
+        $[0] = "747a9fd07077a81cd5f10eb3512ca17d6be781adce996111868b8f81f52f4fa6";
     }
     const { label, title, description, light: t1 } = t0;
     const light = t1 === undefined ? false : t1;
@@ -4917,7 +4917,7 @@ function Home() {
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                            className: "text-primary",
+                                            className: "text-orange-500",
                                             children: currentLang === 'zh' ? '拥有安全钱包' : 'Have a Secure Wallet'
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/page.tsx",

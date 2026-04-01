@@ -932,7 +932,7 @@ export default function Home() {
               >
                 {currentLang === 'zh' ? '让AI Agent' : 'Let AI Agent'}
                 <br />
-                <span className="text-primary">{currentLang === 'zh' ? '拥有安全钱包' : 'Have a Secure Wallet'}</span>
+                <span className="text-orange-500">{currentLang === 'zh' ? '拥有安全钱包' : 'Have a Secure Wallet'}</span>
               </motion.h1>
 
               
