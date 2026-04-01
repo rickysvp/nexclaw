@@ -42,11 +42,11 @@ var _s = __turbopack_context__.k.signature(), _s1 = __turbopack_context__.k.sign
 ;
 const DiscordIcon = (t0)=>{
     const $ = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$compiler$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["c"])(4);
-    if ($[0] !== "cfa9946ff293bacc7c57b720de1973e0c4834642e8317f56a2761698194ae315") {
+    if ($[0] !== "1e5e15fb4633aa2f74db65477ea09313347bcdbbc569650149af58aa412466db") {
         for(let $i = 0; $i < 4; $i += 1){
             $[$i] = Symbol.for("react.memo_cache_sentinel");
         }
-        $[0] = "cfa9946ff293bacc7c57b720de1973e0c4834642e8317f56a2761698194ae315";
+        $[0] = "1e5e15fb4633aa2f74db65477ea09313347bcdbbc569650149af58aa412466db";
     }
     const { className } = t0;
     let t1;
@@ -762,11 +762,11 @@ const strategyDescriptions = {
 // ============================================
 const Button = (t0)=>{
     const $ = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$compiler$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["c"])(9);
-    if ($[0] !== "cfa9946ff293bacc7c57b720de1973e0c4834642e8317f56a2761698194ae315") {
+    if ($[0] !== "1e5e15fb4633aa2f74db65477ea09313347bcdbbc569650149af58aa412466db") {
         for(let $i = 0; $i < 9; $i += 1){
             $[$i] = Symbol.for("react.memo_cache_sentinel");
         }
-        $[0] = "cfa9946ff293bacc7c57b720de1973e0c4834642e8317f56a2761698194ae315";
+        $[0] = "1e5e15fb4633aa2f74db65477ea09313347bcdbbc569650149af58aa412466db";
     }
     const { children, variant: t1, size: t2, className: t3, icon: Icon } = t0;
     const variant = t1 === undefined ? "primary" : t1;
@@ -837,11 +837,11 @@ const Button = (t0)=>{
 _c1 = Button;
 const Card = (t0)=>{
     const $ = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$compiler$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["c"])(4);
-    if ($[0] !== "cfa9946ff293bacc7c57b720de1973e0c4834642e8317f56a2761698194ae315") {
+    if ($[0] !== "1e5e15fb4633aa2f74db65477ea09313347bcdbbc569650149af58aa412466db") {
         for(let $i = 0; $i < 4; $i += 1){
             $[$i] = Symbol.for("react.memo_cache_sentinel");
         }
-        $[0] = "cfa9946ff293bacc7c57b720de1973e0c4834642e8317f56a2761698194ae315";
+        $[0] = "1e5e15fb4633aa2f74db65477ea09313347bcdbbc569650149af58aa412466db";
     }
     const { children, className: t1, hover: t2 } = t0;
     const className = t1 === undefined ? "" : t1;
@@ -958,7 +958,7 @@ const ChatDemoCard = ()=>{
                     columnNumber: 9
                 }, ("TURBOPACK compile-time value", void 0)),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                    className: "flex-1 p-6 space-y-4 overflow-y-auto max-h-[400px] min-h-[300px]",
+                    className: "flex-1 p-6 pr-8 space-y-4 overflow-y-auto max-h-[400px] min-h-[300px]",
                     children: [
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$components$2f$AnimatePresence$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["AnimatePresence"], {
                             mode: "wait",
@@ -1113,11 +1113,11 @@ _s(ChatDemoCard, "WdxurFU7BlR1Y3RjeUfAbFb7R1Q=");
 _c3 = ChatDemoCard;
 const SectionHeader = (t0)=>{
     const $ = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$compiler$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["c"])(19);
-    if ($[0] !== "cfa9946ff293bacc7c57b720de1973e0c4834642e8317f56a2761698194ae315") {
+    if ($[0] !== "1e5e15fb4633aa2f74db65477ea09313347bcdbbc569650149af58aa412466db") {
         for(let $i = 0; $i < 19; $i += 1){
             $[$i] = Symbol.for("react.memo_cache_sentinel");
         }
-        $[0] = "cfa9946ff293bacc7c57b720de1973e0c4834642e8317f56a2761698194ae315";
+        $[0] = "1e5e15fb4633aa2f74db65477ea09313347bcdbbc569650149af58aa412466db";
     }
     const { label, title, description, light: t1 } = t0;
     const light = t1 === undefined ? false : t1;

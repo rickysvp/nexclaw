@@ -648,7 +648,7 @@ const ChatDemoCard = () => {
         </div>
 
         {/* Chat Messages */}
-        <div className="flex-1 p-6 space-y-4 overflow-y-auto max-h-[400px] min-h-[300px]">
+        <div className="flex-1 p-6 pr-8 space-y-4 overflow-y-auto max-h-[400px] min-h-[300px]">
           <AnimatePresence mode="wait">
             {visibleMessages.map((msgIdx) => {
               const currentScenario = chatScenarios[activeScenario];
