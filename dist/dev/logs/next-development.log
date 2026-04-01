@@ -57,3 +57,6 @@
 [00:28:59.685] Browser ERROR   Encountered two children with the same key, `%s`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version. 2
 [00:29:01.178] Browser ERROR   Encountered two children with the same key, `%s`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version. 2
 [00:29:01.977] Browser ERROR   Encountered two children with the same key, `%s`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version. 2
+[00:30:44.995] Browser LOG     restart sse, about to listen
+[00:30:44.996] Browser LOG     listen https://wallet.binance.com/tonbridge/bridge/events?client_id=f43daea3338854934105116f1b325ee18644b784ce795406a2d5d3ca2e2ed413&user_info=
+[00:30:44.996] Browser LOG     open {"isTrusted":true}
