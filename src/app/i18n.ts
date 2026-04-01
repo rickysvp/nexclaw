@@ -22,8 +22,8 @@ export const translations = {
   // Hero Section - Simple & Clear
   hero: {
     title: {
-      zh: '让AI Agent\n<span className="text-primary">拥有安全钱包</span>',
-      en: 'Let AI Agent\n<span className="text-primary">Have a Secure Wallet</span>',
+      zh: '让AI Agent\n<span class="text-primary">拥有安全钱包</span>',
+      en: 'Let AI Agent\n<span class="text-primary">Have a Secure Wallet</span>',
     },
     subtitle: {
       zh: 'Claw Wallet 是为 AI Agent 构建的 Web3 安全钱包，采用 TEE 硬件加密分片架构。通过自然语言对话，让 AI 安全地管理加密资产。',
