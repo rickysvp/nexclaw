@@ -890,7 +890,7 @@ export default function Home() {
       {/* ============================================
           Hero Section
       ============================================ */}
-      <motion.section style={{ opacity: heroOpacity }} className="relative min-h-screen flex items-center pt-32 pb-20 px-6">
+      <motion.section style={{ opacity: heroOpacity }} className="relative min-h-screen flex items-center pt-16 pb-20 px-6">
         <div className="max-w-4xl mx-auto w-full relative">
           <div className="flex flex-col items-center text-center">
               {/* Badge */}
@@ -907,7 +907,7 @@ export default function Home() {
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.3, duration: 0.6 }}
-                className="mt-8 text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-tight"
+                className="mt-4 text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-bold tracking-tight leading-[1.1]"
               >
                 让 AI Agent
                 <br />

@@ -1320,7 +1320,7 @@ function Home() {
                 style: {
                     opacity: heroOpacity
                 },
-                className: "relative min-h-screen flex items-center pt-32 pb-20 px-6",
+                className: "relative min-h-screen flex items-center pt-16 pb-20 px-6",
                 children: [
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                         className: "max-w-4xl mx-auto w-full relative",
@@ -1367,7 +1367,7 @@ function Home() {
                                         delay: 0.3,
                                         duration: 0.6
                                     },
-                                    className: "mt-8 text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-tight",
+                                    className: "mt-4 text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-bold tracking-tight leading-[1.1]",
                                     children: [
                                         "让 AI Agent",
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("br", {}, void 0, false, {

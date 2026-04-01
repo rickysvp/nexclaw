@@ -117,10 +117,10 @@ const viewport = {
 };
 const metadata = {
     title: {
-        default: "Claw Wallet - OpenClaw 原生安全加密钱包 | AI Agent Web3 钱包",
+        default: "Claw Wallet - Secure Crypto Wallet Built for OpenClaw & AI Agent",
         template: "%s | Claw Wallet"
     },
-    description: "Claw Wallet 是专为 OpenClaw AI Agent 生态构建的 Web3 安全加密钱包。基于 AWS Nitro Enclaves TEE 分片架构，支持 20+ 区块链，一键社交登录，让 AI Agent 安全执行链上操作。",
+    description: "Claw Wallet 是专为 OpenClaw AI Agent 生态构建的 Web3 安全加密钱包。基于 AWS Nitro Enclaves TEE 分片架构，支持 7 条主流区块链，让 AI Agent 安全执行链上操作。",
     keywords: [
         "Claw Wallet",
         "OpenClaw",
@@ -160,8 +160,8 @@ const metadata = {
         locale: "zh_CN",
         url: "https://clawwallet.com",
         siteName: "Claw Wallet",
-        title: "Claw Wallet - OpenClaw 原生安全加密钱包",
-        description: "专为 OpenClaw AI Agent 生态构建的 Web3 安全加密钱包。TEE 分片架构，20+ 链支持，一键社交登录。",
+        title: "Claw Wallet - Secure Crypto Wallet Built for OpenClaw & AI Agent",
+        description: "专为 OpenClaw AI Agent 生态构建的 Web3 安全加密钱包。TEE 分片架构，7 条主流链支持。",
         images: [
             {
                 url: "/og-image.png",
@@ -173,8 +173,8 @@ const metadata = {
     },
     twitter: {
         card: "summary_large_image",
-        title: "Claw Wallet - OpenClaw 原生安全加密钱包",
-        description: "专为 OpenClaw AI Agent 生态构建的 Web3 安全加密钱包。TEE 分片架构，20+ 链支持。",
+        title: "Claw Wallet - Secure Crypto Wallet Built for OpenClaw & AI Agent",
+        description: "专为 OpenClaw AI Agent 生态构建的 Web3 安全加密钱包。TEE 分片架构，7 条主流链支持。",
         images: [
             "/og-image.png"
         ],

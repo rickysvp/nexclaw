@@ -42,11 +42,11 @@ var _s = __turbopack_context__.k.signature(), _s1 = __turbopack_context__.k.sign
 ;
 const DiscordIcon = (t0)=>{
     const $ = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$compiler$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["c"])(4);
-    if ($[0] !== "dd0ad3d8acb57d9a28a021170d1e84e460142637e3eac3c9a645dde514205f13") {
+    if ($[0] !== "d7604b27c495ced8342a8617e10c456acc660339b87b5d9353711ad868cd69a5") {
         for(let $i = 0; $i < 4; $i += 1){
             $[$i] = Symbol.for("react.memo_cache_sentinel");
         }
-        $[0] = "dd0ad3d8acb57d9a28a021170d1e84e460142637e3eac3c9a645dde514205f13";
+        $[0] = "d7604b27c495ced8342a8617e10c456acc660339b87b5d9353711ad868cd69a5";
     }
     const { className } = t0;
     let t1;
@@ -762,11 +762,11 @@ const strategyDescriptions = {
 // ============================================
 const Button = (t0)=>{
     const $ = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$compiler$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["c"])(9);
-    if ($[0] !== "dd0ad3d8acb57d9a28a021170d1e84e460142637e3eac3c9a645dde514205f13") {
+    if ($[0] !== "d7604b27c495ced8342a8617e10c456acc660339b87b5d9353711ad868cd69a5") {
         for(let $i = 0; $i < 9; $i += 1){
             $[$i] = Symbol.for("react.memo_cache_sentinel");
         }
-        $[0] = "dd0ad3d8acb57d9a28a021170d1e84e460142637e3eac3c9a645dde514205f13";
+        $[0] = "d7604b27c495ced8342a8617e10c456acc660339b87b5d9353711ad868cd69a5";
     }
     const { children, variant: t1, size: t2, className: t3, icon: Icon } = t0;
     const variant = t1 === undefined ? "primary" : t1;
@@ -837,11 +837,11 @@ const Button = (t0)=>{
 _c1 = Button;
 const Card = (t0)=>{
     const $ = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$compiler$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["c"])(4);
-    if ($[0] !== "dd0ad3d8acb57d9a28a021170d1e84e460142637e3eac3c9a645dde514205f13") {
+    if ($[0] !== "d7604b27c495ced8342a8617e10c456acc660339b87b5d9353711ad868cd69a5") {
         for(let $i = 0; $i < 4; $i += 1){
             $[$i] = Symbol.for("react.memo_cache_sentinel");
         }
-        $[0] = "dd0ad3d8acb57d9a28a021170d1e84e460142637e3eac3c9a645dde514205f13";
+        $[0] = "d7604b27c495ced8342a8617e10c456acc660339b87b5d9353711ad868cd69a5";
     }
     const { children, className: t1, hover: t2 } = t0;
     const className = t1 === undefined ? "" : t1;
@@ -1113,11 +1113,11 @@ _s(ChatDemoCard, "WdxurFU7BlR1Y3RjeUfAbFb7R1Q=");
 _c3 = ChatDemoCard;
 const SectionHeader = (t0)=>{
     const $ = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$compiler$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["c"])(17);
-    if ($[0] !== "dd0ad3d8acb57d9a28a021170d1e84e460142637e3eac3c9a645dde514205f13") {
+    if ($[0] !== "d7604b27c495ced8342a8617e10c456acc660339b87b5d9353711ad868cd69a5") {
         for(let $i = 0; $i < 17; $i += 1){
             $[$i] = Symbol.for("react.memo_cache_sentinel");
         }
-        $[0] = "dd0ad3d8acb57d9a28a021170d1e84e460142637e3eac3c9a645dde514205f13";
+        $[0] = "d7604b27c495ced8342a8617e10c456acc660339b87b5d9353711ad868cd69a5";
     }
     const { label, title, description, light: t1 } = t0;
     const light = t1 === undefined ? false : t1;
@@ -1523,7 +1523,7 @@ function Home() {
                 style: {
                     opacity: heroOpacity
                 },
-                className: "relative min-h-screen flex items-center pt-32 pb-20 px-6",
+                className: "relative min-h-screen flex items-center pt-16 pb-20 px-6",
                 children: [
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                         className: "max-w-4xl mx-auto w-full relative",
@@ -1570,7 +1570,7 @@ function Home() {
                                         delay: 0.3,
                                         duration: 0.6
                                     },
-                                    className: "mt-8 text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-tight",
+                                    className: "mt-4 text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-bold tracking-tight leading-[1.1]",
                                     children: [
                                         "让 AI Agent",
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("br", {}, void 0, false, {
