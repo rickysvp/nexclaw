@@ -2,33 +2,32 @@
 
 import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
 import { useState, useRef, useEffect } from 'react';
-import { 
-  Shield, 
-  Lock, 
-  FileText, 
-  Server, 
-  ArrowRight, 
-  MessageSquare,
+import {
+  Shield,
+  Lock,
   Copy,
   Check,
-  Sparkles,
   Zap,
-  ChevronRight,
   Wallet,
   Terminal,
   Activity,
   Globe,
   ChevronDown,
-  ExternalLink,
-  Play,
   Layers,
   Cpu,
   Fingerprint,
   Key,
   Eye,
   Code2,
-  Github
+  Github,
+  MessageSquare
 } from 'lucide-react';
+
+const DiscordIcon = ({ className }: { className?: string }) => (
+  <svg className={className} viewBox="0 0 24 24" fill="currentColor">
+    <path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/>
+  </svg>
+);
 
 // ============================================
 // Design System - Premium UI Kit
@@ -185,13 +184,6 @@ const chatScenarios = [
       { role: 'agent', content: '✓ 交易已提交！\n预计确认: 12 秒\n交易哈希: 0x3f8a...9c2e\n可在历史记录查看' }
     ]
   }
-];
-
-const stats = [
-  { value: '$2.5B+', label: '资产管理规模' },
-  { value: '50K+', label: '活跃用户' },
-  { value: '20+', label: '支持链' },
-  { value: '99.9%', label: '安全运行' },
 ];
 
 const strategyDescriptions = {
@@ -561,20 +553,6 @@ const strategyDescriptions = {
 // Components
 // ============================================
 
-const Badge = ({ children, variant = 'default', className = '' }: { children: React.ReactNode; variant?: 'default' | 'outline' | 'ghost'; className?: string }) => (
-  <span 
-    className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium transition-all duration-200 ${
-      variant === 'default' 
-        ? 'bg-orange-50 text-orange-600 border border-orange-100' 
-        : variant === 'ghost'
-        ? 'bg-transparent text-neutral-500'
-        : 'bg-white/80 backdrop-blur-sm border border-neutral-200 text-neutral-600'
-    } ${className}`}
-  >
-    {children}
-  </span>
-);
-
 const Button = ({ 
   children, 
   variant = 'primary', 
@@ -752,7 +730,7 @@ const SectionHeader = ({ label, title, description, light = false }: { label?: s
         {label}
       </span>
     )}
-    <h2 className={`text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight ${light ? 'text-white' : 'text-neutral-900'}`}>
+    <h2 className={`text-3xl md:text-4xl font-bold ${light ? 'text-white' : 'text-neutral-900'}`}>
       {title}
     </h2>
     {description && (
@@ -768,11 +746,11 @@ const SectionHeader = ({ label, title, description, light = false }: { label?: s
 // ============================================
 
 export default function Home() {
-  const [activeTab, setActiveTab] = useState(0);
   const [activeStrategy, setActiveStrategy] = useState<'transfer' | 'defi' | 'dca' | 'copy' | 'staking' | 'lending' | 'create' | 'market' | 'price' | 'arbitrage' | 'mining' | 'meme' | 'ipo' | 'perps' | 'audit'>('transfer');
   const [copied, setCopied] = useState(false);
   const [visibleMessages, setVisibleMessages] = useState<number[]>([]);
   const [isTyping, setIsTyping] = useState(false);
+  const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(null);
   const containerRef = useRef(null);
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -858,56 +836,54 @@ export default function Home() {
       {/* ============================================
           Navigation
       ============================================ */}
-      <motion.nav 
+      <motion.nav
         initial={{ y: -100, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-        className="fixed top-0 left-0 right-0 z-50"
+        className="fixed top-0 left-0 right-0 z-50 bg-white border-b border-neutral-100"
       >
-        <div className="mx-4 mt-4">
-          <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between bg-white/70 backdrop-blur-xl rounded-2xl border border-white/20 shadow-lg shadow-neutral-900/5">
-            {/* Logo */}
-            <motion.a href="/" className="flex items-center gap-3 group" whileHover={{ scale: 1.02 }}>
-              <div className="relative h-10 w-auto">
-                <img src="/claw.png" alt="Claw" className="h-full w-auto object-contain" />
-              </div>
-            </motion.a>
-
-            {/* Nav Links */}
-            <div className="hidden md:flex items-center gap-1">
-              {[
-                { label: '功能', href: '#features' },
-                { label: '安全', href: '#security' },
-                { label: '开发者', href: '#developer' },
-                { label: 'Dashboard', href: '/dashboard' },
-              ].map((item, i) => (
-                <motion.a 
-                  key={item.label}
-                  href={item.href}
-                  initial={{ opacity: 0, y: -10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.1 + i * 0.05 }}
-                  className="px-4 py-2 text-sm text-neutral-600 hover:text-neutral-900 rounded-xl hover:bg-neutral-100/80 transition-all"
-                  whileHover={{ y: -1 }}
-                >
-                  {item.label}
-                </motion.a>
-              ))}
+        <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+          {/* Logo */}
+          <motion.a href="/" className="flex items-center gap-3 group" whileHover={{ scale: 1.02 }}>
+            <div className="relative h-10 w-auto">
+              <img src="/claw.png" alt="Claw" className="h-full w-auto object-contain" />
             </div>
+          </motion.a>
 
-            {/* CTA */}
-            <motion.a 
-              href="/dashboard" 
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 0.3 }}
-              className="px-5 py-2.5 text-sm font-medium bg-neutral-900 text-white rounded-xl hover:bg-neutral-800 transition-all shadow-lg shadow-neutral-900/10 hover:shadow-xl hover:shadow-neutral-900/20"
-              whileHover={{ scale: 1.02, y: -1 }}
-              whileTap={{ scale: 0.98 }}
-            >
-              开始使用
-            </motion.a>
+          {/* Nav Links */}
+          <div className="hidden md:flex items-center gap-1">
+            {[
+              { label: '功能', href: '#features' },
+              { label: '安全', href: '#security' },
+              { label: '开发者', href: '#developer' },
+              { label: 'Dashboard', href: '/dashboard' },
+            ].map((item, i) => (
+              <motion.a
+                key={item.label}
+                href={item.href}
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.1 + i * 0.05 }}
+                className="px-4 py-2 text-sm text-neutral-600 hover:text-neutral-900 rounded-xl hover:bg-neutral-100/80 transition-all"
+                whileHover={{ y: -1 }}
+              >
+                {item.label}
+              </motion.a>
+            ))}
           </div>
+
+          {/* CTA */}
+          <motion.a
+            href="/dashboard"
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ delay: 0.3 }}
+            className="px-5 py-2.5 text-sm font-medium bg-neutral-900 text-white rounded-xl hover:bg-neutral-800 transition-all shadow-lg shadow-neutral-900/10 hover:shadow-xl hover:shadow-neutral-900/20"
+            whileHover={{ scale: 1.02, y: -1 }}
+            whileTap={{ scale: 0.98 }}
+          >
+            开始使用
+          </motion.a>
         </div>
       </motion.nav>
 
@@ -1088,73 +1064,11 @@ export default function Home() {
           </motion.h2>
           <p className="mt-3 text-neutral-500">为不同类型的用户提供专业的加密资产安全管理方案</p>
           <div className="mt-8 flex flex-wrap justify-center gap-3">
-            {['Web3 新用户', '加密投资者', 'DeFi 用户', '交易员', '开发者', 'DAO 成员', '机构用户', 'AI Agent'].map((tag) => (
+            {['OpenClaw用户', 'AI Agent', 'Web3新用户', '加密投资者', 'DeFi用户', '交易员', 'AI团队', '区块链开发者', '机构用户', '跨境中小企业'].map((tag) => (
               <span key={tag} className="px-5 py-2.5 bg-neutral-100 text-neutral-700 rounded-full text-sm font-medium">
                 {tag}
               </span>
             ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ============================================
-          Recommended Skills Section
-      ============================================ */}
-      <section className="py-32 px-6 bg-neutral-900 text-white">
-        <div className="max-w-6xl mx-auto">
-          <SectionHeader title="推荐 Skills" light />
-          <div className="mt-12 grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {[
-              { name: 'Wallet Manager', author: '@clawsafe', installs: '12.5K', desc: 'AI Agent 加密钱包管理，支持多链' },
-              { name: 'DeFi Strategist', author: '@defilab', installs: '8.2K', desc: '智能 DeFi 收益优化策略' },
-              { name: 'Trading Assistant', author: '@tradepro', installs: '6.8K', desc: '专业交易信号与执行助手' },
-              { name: 'Portfolio Tracker', author: '@chainview', installs: '15.3K', desc: '实时组合追踪与分析' },
-              { name: 'Security Monitor', author: '@safeguard', installs: '9.1K', desc: '7x24 安全监控与预警' },
-              { name: 'NFT Aggregator', author: '@nftmaster', installs: '5.4K', desc: '多平台 NFT 聚合交易' },
-            ].map((skill, i) => (
-              <motion.div
-                key={skill.name}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1 }}
-                className="p-6 rounded-2xl bg-white/5 border border-white/10 hover:bg-white/10 transition-all cursor-pointer group"
-              >
-                <div className="flex items-start justify-between">
-                  <div className="flex-1">
-                    <h4 className="font-semibold text-white group-hover:text-orange-400 transition-colors">{skill.name}</h4>
-                    <p className="text-xs text-neutral-400 mt-1">{skill.author}</p>
-                  </div>
-                  <div className="flex items-center gap-3">
-                    <span className="text-xs text-neutral-500">{skill.installs}</span>
-                    <Github className="w-4 h-4 text-neutral-500" />
-                  </div>
-                </div>
-                <p className="text-sm text-neutral-300 mt-3">{skill.desc}</p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ============================================
-          Partners Section
-      ============================================ */}
-      <section className="py-32 px-6 bg-white">
-        <div className="max-w-6xl mx-auto text-center">
-          <SectionHeader title="合作伙伴" />
-          <div className="mt-12 overflow-hidden">
-            <div className="flex animate-marquee">
-              {[1, 2].map((_, i) => (
-                <div key={i} className="flex items-center gap-16 px-8 shrink-0">
-                  {['Uniswap', 'Aave', 'Chainlink', 'OpenSea', 'Coinbase', 'Binance', 'Paradigm', 'Dragonfly'].map((partner) => (
-                    <div key={partner} className="text-2xl font-bold text-neutral-300 hover:text-orange-500 transition-colors whitespace-nowrap">
-                      {partner}
-                    </div>
-                  ))}
-                </div>
-              ))}
-            </div>
           </div>
         </div>
       </section>
@@ -1351,6 +1265,46 @@ export default function Home() {
 
 
       {/* ============================================
+          Recommended Skills Section
+      ============================================ */}
+      <section className="py-32 px-6 bg-white">
+        <div className="max-w-6xl mx-auto">
+          <SectionHeader title="推荐 Skills" />
+          <div className="mt-12 grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {[
+              { name: 'Wallet Manager', author: '@clawsafe', installs: '12.5K', desc: 'AI Agent 加密钱包管理，支持多链' },
+              { name: 'DeFi Strategist', author: '@defilab', installs: '8.2K', desc: '智能 DeFi 收益优化策略' },
+              { name: 'Trading Assistant', author: '@tradepro', installs: '6.8K', desc: '专业交易信号与执行助手' },
+              { name: 'Portfolio Tracker', author: '@chainview', installs: '15.3K', desc: '实时组合追踪与分析' },
+              { name: 'Security Monitor', author: '@safeguard', installs: '9.1K', desc: '7x24 安全监控与预警' },
+              { name: 'NFT Aggregator', author: '@nftmaster', installs: '5.4K', desc: '多平台 NFT 聚合交易' },
+            ].map((skill, i) => (
+              <motion.div
+                key={skill.name}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.1 }}
+                className="p-6 rounded-2xl bg-neutral-50 border border-neutral-100 hover:shadow-lg transition-all cursor-pointer group"
+              >
+                <div className="flex items-start justify-between">
+                  <div className="flex-1">
+                    <h4 className="font-semibold text-neutral-900 group-hover:text-orange-500 transition-colors">{skill.name}</h4>
+                    <p className="text-xs text-neutral-500 mt-1">{skill.author}</p>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <span className="text-xs text-neutral-400">{skill.installs}</span>
+                    <Github className="w-4 h-4 text-neutral-400" />
+                  </div>
+                </div>
+                <p className="text-sm text-neutral-600 mt-3">{skill.desc}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ============================================
           How It Works
       ============================================ */}
       <section className="py-32 px-6 bg-neutral-900 text-white relative overflow-hidden">
@@ -1361,16 +1315,20 @@ export default function Home() {
         </div>
 
         <div className="max-w-6xl mx-auto relative">
-          <SectionHeader 
-            title="三步即刻开始"
-            light
-          />
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-white text-center mb-16"
+          >
+            三步即刻开始
+          </motion.h2>
 
           <div className="grid md:grid-cols-3 gap-8">
             {[
-              { step: '01', title: '创建钱包', desc: '通过自然语言指令快速创建，无需管理复杂助记词', icon: Wallet, command: '帮我创建一个安全钱包' },
-              { step: '02', title: '设置规则', desc: '自定义安全策略，包括转账限额、白名单等', icon: Shield, command: '设置每日限额 1000 USDC' },
-              { step: '03', title: '开始使用', desc: '用对话方式执行所有链上操作，安全又便捷', icon: Zap, command: '查询余额并转账' },
+              { step: '01', title: '安装 Skill', desc: '复制命令并发送给 AI Agent 或 Openclaw', icon: Terminal, command: 'claw install wallet' },
+              { step: '02', title: '创建钱包', desc: '通过自然语言让 AI Agent 创建钱包并在官网激活', icon: Wallet, command: '帮我创建一个安全钱包' },
+              { step: '03', title: '开始使用', desc: '使用自然语言指挥 AI Agent 执行各种操作', icon: Zap, command: '查询余额并转账' },
             ].map((item, idx) => (
               <motion.div
                 key={item.step}
@@ -1577,7 +1535,65 @@ export default function Home() {
         </motion.div>
       </section>
 
+      {/* ============================================
+          FAQ Section
+      ============================================ */}
+      <section className="py-20 px-6 bg-neutral-50">
+        <div className="max-w-3xl mx-auto">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold">常见问题</h2>
+          </div>
+          <div className="space-y-3">
+            {[
+              { q: '支持哪些区块链？', a: '支持 Bitcoin、Ethereum、BSC、SUI、Monad、Base、Solana 等 7 条主流区块链，覆盖主流 DeFi 与跨链场景' },
+              { q: '需要注册吗？', a: '安装 Skill 后需在官网激活钱包并绑定唯一 PIN 码，用于管理签名授权。整个过程不到 1 分钟' },
+              { q: '私钥如何保管？', a: '基于 AWS Nitro Enclaves 的 TEE 可信执行环境，私钥以分片加密形式存储于硬件隔离区域，AI Agent 无法触碰私钥。用户可选择导出私钥自行管理' },
+              { q: '交易安全如何保障？', a: '五层安全防护：额度限制、合约白名单、频率控制、审批流程、实时风控监测。高额交易需二次授权确认' },
+              { q: '支持哪些 AI Agent？', a: '支持 OpenClaw 等主流 AI Agent 平台，通过自然语言即可完成钱包创建、转账、DeFi 交易等全部链上操作' },
+            ].map((item, i) => (
+              <div
+                key={i}
+                className="bg-white rounded-xl border border-neutral-100 overflow-hidden"
+              >
+                <button
+                  onClick={() => setOpenFaqIndex(openFaqIndex === i ? null : i)}
+                  className="w-full px-6 py-4 flex items-center justify-between text-left"
+                >
+                  <span className="font-semibold text-neutral-900">{item.q}</span>
+                  <ChevronDown className={`w-5 h-5 text-neutral-400 transition-transform ${openFaqIndex === i ? 'rotate-180' : ''}`} />
+                </button>
+                {openFaqIndex === i && (
+                  <div className="px-6 pb-4">
+                    <p className="text-neutral-600 text-sm">{item.a}</p>
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
 
+      {/* ============================================
+          Partners Section
+      ============================================ */}
+      <section className="py-20 px-6 bg-white">
+        <div className="max-w-6xl mx-auto text-center">
+          <SectionHeader title="合作伙伴" />
+          <div className="mt-12 overflow-hidden">
+            <div className="flex animate-marquee">
+              {[1, 2].map((_, i) => (
+                <div key={i} className="flex items-center gap-16 px-8 shrink-0">
+                  {['Uniswap', 'Aave', 'Chainlink', 'OpenSea', 'Coinbase', 'Binance', 'Paradigm', 'Dragonfly'].map((partner) => (
+                    <div key={partner} className="text-2xl font-bold text-neutral-300 hover:text-orange-500 transition-colors whitespace-nowrap">
+                      {partner}
+                    </div>
+                  ))}
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* ============================================          Footer      ============================================ */}
       <footer className="py-16 px-6 border-t border-neutral-100 bg-neutral-50/30">
@@ -1593,11 +1609,10 @@ export default function Home() {
                 专为 AI Agent 构建的安全加密钱包。自托管、无私钥管理、智能风控。让 AI 安全地管理加密资产。
               </p>
               <div className="mt-6 flex items-center gap-4">
-                {['GitHub', 'Twitter', 'Discord'].map((social) => (
-                  <a key={social} href="#" className="text-sm text-neutral-400 hover:text-neutral-900 transition-colors">
-                    {social}
-                  </a>
-                ))}
+                <div className="flex items-center gap-2">
+                  <span className="text-xs text-neutral-400">安全审计由</span>
+                  <img src="/bitslab.png" alt="Bitslab" className="h-5 w-auto" />
+                </div>
               </div>
             </div>
             <div>
@@ -1630,7 +1645,19 @@ export default function Home() {
             <div className="flex items-center gap-6">
               <a href="#" className="text-sm text-neutral-400 hover:text-neutral-600 transition-colors">隐私政策</a>
               <a href="#" className="text-sm text-neutral-400 hover:text-neutral-600 transition-colors">服务条款</a>
-              <span className="text-sm font-medium text-neutral-900 bg-neutral-100 px-3 py-1 rounded-full">v1.6.0</span>
+              <div className="flex items-center gap-4">
+                <a href="#" className="text-neutral-400 hover:text-neutral-900 transition-colors">
+                  <Github className="w-4 h-4" />
+                </a>
+                <a href="#" className="text-neutral-400 hover:text-neutral-900 transition-colors">
+                  <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                  </svg>
+                </a>
+                <a href="#" className="text-neutral-400 hover:text-neutral-900 transition-colors">
+                  <DiscordIcon className="w-4 h-4" />
+                </a>
+              </div>
             </div>
           </div>
         </div>

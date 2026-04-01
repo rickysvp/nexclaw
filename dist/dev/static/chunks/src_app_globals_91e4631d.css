@@ -1035,6 +1035,10 @@
     margin: calc(var(--spacing) * 6);
   }
 
+  .m-9 {
+    margin: calc(var(--spacing) * 9);
+  }
+
   .-mx-1 {
     margin-inline: calc(var(--spacing) * -1);
   }
@@ -3897,12 +3901,20 @@
     padding-block: calc(var(--spacing) * 8);
   }
 
+  .py-10 {
+    padding-block: calc(var(--spacing) * 10);
+  }
+
   .py-12 {
     padding-block: calc(var(--spacing) * 12);
   }
 
   .py-16 {
     padding-block: calc(var(--spacing) * 16);
+  }
+
+  .py-17 {
+    padding-block: calc(var(--spacing) * 17);
   }
 
   .py-20 {
@@ -3953,6 +3965,10 @@
     padding-top: calc(var(--spacing) * 32);
   }
 
+  .pt-200 {
+    padding-top: calc(var(--spacing) * 200);
+  }
+
   .pr-2 {
     padding-right: calc(var(--spacing) * 2);
   }
@@ -3963,6 +3979,14 @@
 
   .pr-10 {
     padding-right: calc(var(--spacing) * 10);
+  }
+
+  .pb-2 {
+    padding-bottom: calc(var(--spacing) * 2);
+  }
+
+  .pb-4 {
+    padding-bottom: calc(var(--spacing) * 4);
   }
 
   .pb-5 {
@@ -5086,12 +5110,24 @@
     app-:  6;
   }
 
+  .\[key\:Sd�\] {
+    key: Sd�;
+  }
+
   .\[key\:\^\^4ng\] {
     key: ^ ^ 4ng;
   }
 
+  .\[key\:k\14 4ng\] {
+    key: k 4ng;
+  }
+
   .\[key\:m\2 �\2 ng\] {
     key: m � ng;
+  }
+
+  .\[key\:�\3 4ng\] {
+    key: � 4ng;
   }
 
   .\[key\:�\6 4ng\] {
@@ -5104,6 +5140,18 @@
 
   .\[key\:�34ng\] {
     key: �34ng;
+  }
+
+  .\[key\:�54ng\] {
+    key: �54ng;
+  }
+
+  .\[key\:�a�\] {
+    key: �a�;
+  }
+
+  .\[key\:�b��\] {
+    key: �b��;
   }
 
   .\[key\:��4ng\] {
@@ -5132,6 +5180,18 @@
 
   .\[name\:8\e �ng\] {
     name: 8 �ng;
+  }
+
+  .\[name\:�\6 �ng\] {
+    name: � �ng;
+  }
+
+  .\[name\:�\17 �ng\] {
+    name: � �ng;
+  }
+
+  .inline-1 {
+    inline-size: calc(var(--spacing) * 1);
   }
 
   @media (hover: hover) {
@@ -5216,12 +5276,6 @@
   }
 
   @media (hover: hover) {
-    .group-hover\:text-orange-400:is(:where(.group):hover *) {
-      color: var(--color-orange-400);
-    }
-  }
-
-  @media (hover: hover) {
     .group-hover\:text-orange-500:is(:where(.group):hover *) {
       color: var(--color-orange-500);
     }
@@ -5278,6 +5332,10 @@
 
   .peer-disabled\:cursor-not-allowed:is(:where(.peer):disabled ~ *) {
     cursor: not-allowed;
+  }
+
+  .peer-disabled\:cursor-not-allowed\!:is(:where(.peer):disabled ~ *) {
+    cursor: not-allowed !important;
   }
 
   .peer-disabled\:opacity-70:is(:where(.peer):disabled ~ *) {
