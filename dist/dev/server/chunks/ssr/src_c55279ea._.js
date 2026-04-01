@@ -3168,7 +3168,7 @@ function Home() {
                                         delay: 0.3,
                                         duration: 0.6
                                     },
-                                    className: "mt-4 text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-bold tracking-tight leading-[1.1]",
+                                    className: "mt-4 text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold tracking-tight leading-[1.1]",
                                     dangerouslySetInnerHTML: {
                                         __html: (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$app$2f$i18n$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["t"])('hero.title', currentLang)
                                     }

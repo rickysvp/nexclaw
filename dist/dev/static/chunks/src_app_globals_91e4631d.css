@@ -6654,6 +6654,13 @@
   }
 
   @media (min-width: 80rem) {
+    .xl\:text-8xl {
+      font-size: var(--text-8xl);
+      line-height: var(--tw-leading, var(--text-8xl--line-height));
+    }
+  }
+
+  @media (min-width: 80rem) {
     .xl\:text-9xl {
       font-size: var(--text-9xl);
       line-height: var(--tw-leading, var(--text-9xl--line-height));

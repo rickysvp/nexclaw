@@ -84,3 +84,4 @@ Import traces:
 [02:36:47.208] Server  LOG     ✓ Compiled in 926ms
 [02:36:47.455] Browser ERROR   Encountered two children with the same key, `%s`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version. 2
 [02:36:48.458] Browser ERROR   Encountered two children with the same key, `%s`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version. 2
+[02:39:23.789] Server  LOG     ✓ Compiled in 2.9s
