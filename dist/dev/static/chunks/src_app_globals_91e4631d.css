@@ -763,6 +763,10 @@
     inset-inline-start: var(--spacing) !important;
   }
 
+  .\!end {
+    inset-inline-end: var(--spacing) !important;
+  }
+
   .end {
     inset-inline-end: var(--spacing);
   }

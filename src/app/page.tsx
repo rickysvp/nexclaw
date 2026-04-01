@@ -929,9 +929,9 @@ export default function Home() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.3, duration: 0.6 }}
                 className="mt-4 text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-bold tracking-tight leading-[1.1]"
-              >
-                {t('hero.title', currentLang)}
-              </motion.h1>
+                dangerouslySetInnerHTML={{ __html: t('hero.title', currentLang) }}
+              />
+
               
               {/* Description */}
               <motion.p
