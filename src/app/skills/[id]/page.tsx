@@ -1,7 +1,7 @@
-'use client';
+
 
 import { motion } from 'framer-motion';
-import { useState, useEffect } from 'react';
+import Link from 'next/link';
 import {
   Shield,
   Lock,
@@ -9,8 +9,6 @@ import {
   Server,
   ArrowRight,
   MessageSquare,
-  Copy,
-  Check,
   Sparkles,
   Zap,
   ChevronRight,
@@ -30,7 +28,8 @@ import {
   Github,
   Star
 } from 'lucide-react';
-import { useParams, useRouter } from 'next/navigation';
+import { notFound } from 'next/navigation';
+import { InstallationCommand } from './InstallationCommand';
 
 // Color Palette
 const colors = {
@@ -137,40 +136,15 @@ export function generateStaticParams() {
   }));
 }
 
-export default function SkillDetailPage() {
-  const { id } = useParams<{ id: string }>();
-  const router = useRouter();
-  const [skill, setSkill] = useState<any>(null);
-  const [copied, setCopied] = useState(false);
+// Server component for the page
+export default function SkillDetailPage({ params }: { params: { id: string } }) {
+  const { id } = params;
 
-  useEffect(() => {
-    // Find the skill by ID
-    const foundSkill = skillsData.find(s => s.id === id);
-    if (foundSkill) {
-      setSkill(foundSkill);
-    } else {
-      // Redirect to 404 if skill not found
-      router.push('/404');
-    }
-  }, [id, router]);
-
-  const copyCommand = () => {
-    if (skill) {
-      navigator.clipboard.writeText(skill.command);
-      setCopied(true);
-      setTimeout(() => setCopied(false), 2000);
-    }
-  };
+  // Find the skill by ID
+  const skill = skillsData.find(s => s.id === id);
 
   if (!skill) {
-    return (
-      <div className="min-h-screen flex items-center justify-center">
-        <div className="text-center">
-          <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-orange-500 mx-auto mb-4"></div>
-          <p className="text-neutral-600">加载中...</p>
-        </div>
-      </div>
-    );
+    notFound();
   }
 
   return (
@@ -188,29 +162,31 @@ export default function SkillDetailPage() {
 
             {/* Nav Links */}
             <div className="hidden md:flex items-center gap-1">
-              {[
-                { label: '功能', href: '#features' },
-                { label: '安全', href: '#security' },
-                { label: '开发者', href: '#developer' },
-                { label: 'Dashboard', href: '/dashboard' },
-              ].map((item, i) => (
-                <a 
-                  key={item.label}
-                  href={item.href}
-                  className="px-4 py-2 text-sm text-neutral-600 hover:text-neutral-900 rounded-xl hover:bg-neutral-100/80 transition-all"
-                >
-                  {item.label}
-                </a>
-              ))}
+              {
+                [
+                  { label: '功能', href: '#features' },
+                  { label: '安全', href: '#security' },
+                  { label: '开发者', href: '#developer' },
+                  { label: 'Dashboard', href: '/dashboard' },
+                ].map((item, i) => (
+                  <Link 
+                    key={item.label}
+                    href={item.href}
+                    className="px-4 py-2 text-sm text-neutral-600 hover:text-neutral-900 rounded-xl hover:bg-neutral-100/80 transition-all"
+                  >
+                    {item.label}
+                  </Link>
+                ))
+              }
             </div>
 
             {/* CTA */}
-            <a 
+            <Link 
               href="/dashboard" 
               className="px-5 py-2.5 text-sm font-medium bg-neutral-900 text-white rounded-xl hover:bg-neutral-800 transition-all shadow-lg shadow-neutral-900/10 hover:shadow-xl hover:shadow-neutral-900/20"
             >
               开始使用
-            </a>
+            </Link>
           </div>
         </div>
       </nav>
@@ -219,16 +195,17 @@ export default function SkillDetailPage() {
       <section className="pt-32 pb-20 px-6">
         <div className="max-w-6xl mx-auto">
           {/* Back Button */}
-          <motion.a 
-            href="/" 
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.5 }}
-            className="inline-flex items-center gap-2 text-sm text-neutral-500 hover:text-neutral-900 mb-8"
-          >
-            <ChevronRight className="w-4 h-4 rotate-180" />
-            返回技能列表
-          </motion.a>
+            <motion.div 
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.5 }}
+              className="inline-flex items-center gap-2 text-sm text-neutral-500 hover:text-neutral-900 mb-8"
+            >
+              <Link href="/">
+                <ChevronRight className="w-4 h-4 rotate-180" />
+                返回技能列表
+              </Link>
+            </motion.div>
 
           {/* Skill Header */}
           <motion.div
@@ -280,18 +257,7 @@ export default function SkillDetailPage() {
             className="mb-16 bg-neutral-50 rounded-2xl p-6 border border-neutral-100"
           >
             <h2 className="text-xl font-semibold mb-4">安装命令</h2>
-            <div className="flex items-center gap-3">
-              <div className="flex-1 flex items-center gap-3 px-5 py-4 bg-neutral-900 rounded-xl shadow-xl shadow-neutral-900/20">
-                <Terminal className="w-4 h-4 text-orange-400" />
-                <code className="text-white font-mono text-sm tracking-wide">{skill.command}</code>
-              </div>
-              <button
-                onClick={copyCommand}
-                className="px-4 py-4 bg-white border border-neutral-200 rounded-xl hover:border-neutral-300 hover:bg-neutral-50 transition-all shadow-sm"
-              >
-                {copied ? <Check className="w-5 h-5 text-green-600" /> : <Copy className="w-5 h-5 text-neutral-600" />}
-              </button>
-            </div>
+            <InstallationCommand command={skill.command} />
           </motion.div>
 
           {/* Features */}
@@ -378,29 +344,30 @@ export default function SkillDetailPage() {
                 .filter(s => s.id !== skill.id)
                 .slice(0, 4)
                 .map((relatedSkill) => (
-                  <motion.div
-                    key={relatedSkill.id}
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5 }}
-                    whileHover={{ y: -5, scale: 1.02 }}
-                    className="bg-white rounded-2xl border border-neutral-100 shadow-sm hover:shadow-xl hover:border-neutral-200 transition-all p-6 cursor-pointer"
-                    onClick={() => router.push(`/skills/${relatedSkill.id}`)}
-                  >
-                    <h3 className="font-semibold text-neutral-900 mb-2">{relatedSkill.title}</h3>
-                    <p className="text-sm text-neutral-500 mb-3">作者: {relatedSkill.author}</p>
-                    <p className="text-xs text-neutral-400 mb-4">安装数: {relatedSkill.installs.toLocaleString()}</p>
-                    <div className="flex items-center justify-between">
-                      <div className="flex items-center gap-2 text-sm text-neutral-500">
-                        <Github className="w-4 h-4" />
-                        <span>查看源码</span>
+                  <Link href={`/skills/${relatedSkill.id}`}>
+                    <motion.div
+                      key={relatedSkill.id}
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.5 }}
+                      whileHover={{ y: -5, scale: 1.02 }}
+                      className="bg-white rounded-2xl border border-neutral-100 shadow-sm hover:shadow-xl hover:border-neutral-200 transition-all p-6 cursor-pointer"
+                    >
+                      <h3 className="font-semibold text-neutral-900 mb-2">{relatedSkill.title}</h3>
+                      <p className="text-sm text-neutral-500 mb-3">作者: {relatedSkill.author}</p>
+                      <p className="text-xs text-neutral-400 mb-4">安装数: {relatedSkill.installs.toLocaleString()}</p>
+                      <div className="flex items-center justify-between">
+                        <div className="flex items-center gap-2 text-sm text-neutral-500">
+                          <Github className="w-4 h-4" />
+                          <span>查看源码</span>
+                        </div>
+                        <div className="text-sm font-medium text-orange-500 flex items-center gap-1">
+                          查看详情
+                          <ChevronRight className="w-4 h-4" />
+                        </div>
                       </div>
-                      <div className="text-sm font-medium text-orange-500 flex items-center gap-1">
-                        查看详情
-                        <ChevronRight className="w-4 h-4" />
-                      </div>
-                    </div>
-                  </motion.div>
+                    </motion.div>
+                  </Link>
                 ))}
             </div>
           </motion.div>
@@ -412,11 +379,11 @@ export default function SkillDetailPage() {
         <div className="max-w-6xl mx-auto">
           <div className="grid md:grid-cols-4 gap-12 mb-12">
             <div className="md:col-span-2">
-              <a href="/" className="flex items-center gap-2.5 mb-5 group">
+              <Link href="/" className="flex items-center gap-2.5 mb-5 group">
                 <div className="relative h-10 w-auto">
                   <img src="/claw.png" alt="Claw" className="h-full w-auto object-contain" />
                 </div>
-              </a>
+              </Link>
               <p className="text-sm text-neutral-500 max-w-sm leading-relaxed">
                 专为 AI Agent 构建的安全加密钱包。自托管、无私钥管理、智能风控。让 AI 安全地管理加密资产。
               </p>
